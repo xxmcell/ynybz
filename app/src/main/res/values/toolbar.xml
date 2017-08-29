@@ -1,0 +1,92 @@
+<resources>
+
+
+    <!-- 设置toolbar的整体属性 -->
+    <style name="Toolbar" parent="Base.Widget.AppCompat.Toolbar">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@color/main_color</item>
+        <!-- 导航按钮 -->
+        <!--<item name="navigationIcon">@drawable/abc_ic_ab_back_material</item>-->
+        <!-- 标题/副标题的字体样式-->
+        <item name="titleTextAppearance">@style/ToolbarTitle</item>
+        <item name="subtitleTextAppearance">@style/ToolbarSubTitle</item>
+        <item name="titleMargin">0dp</item>
+        <!-- menu高度 -->
+        <item name="maxButtonHeight">56dp</item>
+        <item name="popupTheme">@style/ToolbarPopupTheme</item>
+        <item name="theme">@style/ToolbarTheme</item>
+    </style>
+
+    <!--白色的背景-->
+    <style name="ToolbarB" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@color/main_gray2</item>
+        <item name="android:textColor">@color/main_color</item>
+        <item name="titleMargin">0dp</item>
+        <!-- menu高度 -->
+        <item name="maxButtonHeight">56dp</item>
+        <item name="popupTheme">@style/ToolbarPopupTheme</item>
+
+    </style>
+
+
+    <!-- toolbar上面的 Navigation 样式 -->
+    <style name="Toolbar.Navigation.ButtonStyle" parent="Base.Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="background">@color/white</item>
+        <item name="android:tint">@color/white</item>
+    </style>
+    <!-- toolbar上面的 Navigation 样式 -->
+    <style name="Toolbar.Navigation.ButtonStyle.Black" parent="Base.Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="background">@color/main_color</item>
+        <item name="android:tint">@color/main_color</item>
+    </style>
+
+    <!-- toolbar上面的 更多 样式 -->
+    <style name="Toolbar.Overflow.ButtonStyle" parent="Base.Widget.AppCompat.ActionButton.Overflow">
+        <item name="background">@color/white</item>
+        <item name="android:tint">@color/white</item>
+    </style>
+
+    <!-- toolbar样式 -->
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="actionMenuTextColor">@android:color/white</item>
+        <!--菜单样式-->
+        <item name="actionMenuTextAppearance">@style/ToolbarMenuTextSize</item>
+        <!-- toolbar上面的Button整体样式 -->
+        <item name="toolbarNavigationButtonStyle">@style/Toolbar.Navigation.ButtonStyle</item>
+        <item name="actionOverflowButtonStyle">@style/Toolbar.Overflow.ButtonStyle</item>
+    </style>
+
+
+    <!-- toolbar弹出菜单样式 -->
+    <style name="ToolbarPopupTheme" parent="@style/ThemeOverlay.AppCompat">
+        <item name="android:colorBackground">?colorPrimary</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <!-- toolbar标题 样式 -->
+    <style name="ToolbarTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <!--sub标题样式-->
+    <style name="ToolbarSubTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <!-- toolbar菜单文字尺寸 -->
+    <style name="ToolbarMenuTextSize" parent="@style/TextAppearance.AppCompat.Menu">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!--顶部导航bar样式，黑色-->
+    <style name="ToolbarTheme.Black" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="actionMenuTextColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/text_xxxm</item>
+        <!--菜单样式-->
+        <item name="actionMenuTextAppearance">@style/ToolbarMenuTextSize</item>
+        <!-- toolbar上面的Button整体样式 -->
+        <item name="toolbarNavigationButtonStyle">@style/Toolbar.Navigation.ButtonStyle.Black</item>
+        <item name="actionOverflowButtonStyle">@style/Toolbar.Overflow.ButtonStyle</item>
+    </style>
+
+</resources>

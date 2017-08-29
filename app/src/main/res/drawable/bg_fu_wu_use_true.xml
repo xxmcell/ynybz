@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--选择时-->
+    <item android:state_selected="true" >
+        <shape>
+            <solid android:color="@color/main_color" />
+            <stroke android:width="@dimen/dp_1" android:color="@color/main_color" />
+            <corners android:radius="@dimen/dp_20" />
+            <size android:width="30dp" android:height="30dp" />
+        </shape>
+    </item>
+    <!--按压时-->
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="@color/main_color" />
+            <stroke android:width="@dimen/dp_1" android:color="@color/main_color" />
+            <corners android:radius="@dimen/dp_20" />
+            <size android:width="30dp" android:height="30dp" />
+        </shape>
+    </item>
+
+    <!--非选择-->
+    <item android:state_selected="false">
+        <shape>
+            <solid android:color="@color/white" />
+            <stroke android:width="@dimen/dp_1" android:color="@color/main_color" />
+            <corners android:radius="@dimen/dp_20" />
+            <size android:width="30dp" android:height="30dp" />
+        </shape>
+    </item>
+
+</selector>

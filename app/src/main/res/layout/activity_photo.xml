@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.honganjk.ynybzbizfood.widget.photoBrowse.PhotoViewPager
+        android:id="@+id/photoViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.honganjk.ynybzbizfood.widget.photoBrowse.PhotoViewPager>
+
+    <TextView
+        android:id="@+id/numberTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_70"
+        android:text="1 / 21"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_xxxm"
+        android:visibility="gone" />
+</FrameLayout>

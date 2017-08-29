@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.honganjk.ynybzbizfood.widget.appbarlayout.SupperToolBar xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                                 android:id="@+id/toolbar"
+                                                                 style="@style/Toolbar"
+                                                                 android:layout_width="match_parent"
+                                                                 android:layout_height="wrap_content"
+                                                                 android:background="@color/white"
+                                                                 app:navigationIcon="@drawable/material_arrwos_white_left"
+                                                                 app:theme="@style/ToolbarTheme.Black">
+
+        <android.support.v7.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            app:iconifiedByDefault="false"
+            app:queryHint="请输入名称">
+
+        </android.support.v7.widget.SearchView>
+
+
+    </com.honganjk.ynybzbizfood.widget.appbarlayout.SupperToolBar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/gray_ee" />
+
+
+    <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:baselineAligned="false"
+        app:flexDirection="row"
+        app:flexWrap="wrap"
+        android:visibility="gone"
+        app:justifyContent="flex_start">
+
+
+        <TextView
+            android:id="@+id/activity_city_selectBJ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:text="北京"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxxm" />
+
+        <TextView
+            android:id="@+id/activity_city_selectSH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:text="上海"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxxm" />
+
+        <TextView
+            android:id="@+id/activity_city_selectGZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:text="广州"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxxm" />
+
+        <TextView
+            android:id="@+id/activity_city_selectShenZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:text="深圳"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxxm" />
+
+        <TextView
+            android:id="@+id/activity_city_selectTJ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:text="天津"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxxm" />
+
+        <TextView
+            android:id="@+id/activity_city_selectZQ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:text="重庆"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxxm" />
+
+        <TextView
+            android:id="@+id/activity_city_selectHZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:text="杭州"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxxm" />
+
+        <TextView
+            android:id="@+id/activity_city_selectSZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:text="苏州"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxxm" />
+
+        <TextView
+            android:id="@+id/activity_city_selectZH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:text="郑州"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxxm" />
+
+        <TextView
+            android:id="@+id/activity_city_selectXA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:text="西安"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxxm" />
+
+        <TextView
+            android:id="@+id/activity_city_selectHEB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:text="哈尔宾"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxxm" />
+
+
+        <TextView
+            android:id="@+id/activity_city_selectGM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:text="昆明"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxxm" />
+
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/switchRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/charBar"
+            android:background="@color/white"></android.support.v7.widget.RecyclerView>
+
+        <com.honganjk.ynybzbizfood.widget.city_select.CharBar
+            android:id="@+id/charBar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="@dimen/dp_5"
+            android:paddingRight="@dimen/dp_5">
+
+        </com.honganjk.ynybzbizfood.widget.city_select.CharBar>
+
+        <TextView
+            android:id="@+id/hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="A"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/text_max70"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

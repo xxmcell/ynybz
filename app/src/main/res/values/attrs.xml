@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="NineGridImageView">
+        <attr name="singleImgSize" format="dimension" />
+        <attr name="imgGap" format="dimension" />
+        <attr name="maxSize" format="integer" />
+        <attr name="showStyle" format="enum">
+            <enum name="grid" value="0" />
+            <enum name="fill" value="1" />
+        </attr>
+    </declare-styleable>
+
+
+    <!-- ScaleImageView -->
+
+    <declare-styleable name="ScaleImageView">
+        <attr name="widthScale" format="integer"></attr>
+        <attr name="heightScale" format="integer"></attr>
+        <attr name="primary">
+            <enum name="width" value="1" />
+            <enum name="height" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="BadgeView">
+        <attr name="bvColor" format="color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="AnimCheckBox">
+        <attr name="ab_strokeWidth" format="dimension" />
+        <attr name="ab_strokeColor" format="color" />
+        <attr name="ab_outColor" format="color" />
+        <attr name="ab_circleColor" format="color" />
+        <attr name="ab_isSelect" format="boolean" />
+        <attr name="ab_autoSelect" format="boolean" />
+        <attr name="ab_text" format="string" />
+        <attr name="ab_textSize" format="dimension" />
+        <attr name="ab_textColor" format="color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="FlatButton">
+        <attr name="colorPressed" format="color" />
+        <attr name="colorNormal" format="color" />
+        <attr name="colorPressedText" format="color" />
+        <attr name="colorNormalText" format="color" />
+        <attr name="strokeColor" format="color" />
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="cornerRadius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ProcessButton">
+        <attr name="textProgress" format="string" />
+        <attr name="textComplete" format="string" />
+        <attr name="textError" format="string" />
+        <attr name="colorProgress" format="color" />
+        <attr name="colorComplete" format="color" />
+        <attr name="colorError" format="color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="NumberProgressBar">
+        <attr name="progress_current" format="integer" />
+        <attr name="progress_max" format="integer" />
+
+        <attr name="progress_unreached_color" format="color" />
+        <attr name="progress_reached_color" format="color" />
+
+        <attr name="progress_reached_bar_height" format="dimension" />
+        <attr name="progress_unreached_bar_height" format="dimension" />
+
+        <attr name="progress_text_size" format="dimension" />
+        <attr name="progress_text_color" format="color" />
+
+        <attr name="progress_text_offset" format="dimension" />
+
+        <attr name="progress_text_visibility" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ConvenientBanner">
+        <attr name="canLoop" format="boolean" />
+        <attr name="circleColorDef" format="reference" />
+        <attr name="circleColorSelect" format="reference" />
+        <attr name="cbSpace" format="dimension" />
+        <attr name="cbWidthScale" format="float" />
+        <attr name="cbHeightScale" format="float" />
+    </declare-styleable>
+
+
+    <!--SuperGridLayout属性-->
+    <declare-styleable name="SuperGridLayout">
+        <attr name="superGridLayoutHSpace" format="dimension" />
+        <attr name="superGridLayoutVSpace" format="dimension" />
+    </declare-styleable> <!--SuperGridLayout属性-->
+    <declare-styleable name="BorderImageView">
+        <attr name="BIborderWidth" format="dimension" />
+        <attr name="BIborderColor" format="color" />
+    </declare-styleable>
+
+    //=========================================================================上面是基础属性======================================================================
+    <!--单标题选择-->
+    <declare-styleable name="SingleTitle">
+        <attr name="STTitle" format="string" />
+        <attr name="STTextSize" format="dimension" />
+        <attr name="STTextColor" format="color" />
+        <attr name="STRondSize" format="dimension" />
+        <attr name="STStrokeSize" format="dimension" />
+    </declare-styleable>
+
+
+    <!--收藏按钮-->
+    <declare-styleable name="CustomCollectView">
+        <attr name="CCVTextSize" format="dimension" />
+        <attr name="CCVIconSize" format="integer" />
+        <attr name="CCVTextColor" format="color" />
+        <attr name="CCVRondSize" format="dimension" />
+        <attr name="CCVStrokeSize" format="dimension" />
+    </declare-styleable>
+
+
+    <!--数量选择器-->
+    <declare-styleable name="NumberSelectCircle">
+        <attr name="SingleTitleTextSize" format="dimension" />
+    </declare-styleable>
+
+    <!--分类选择-->
+    <declare-styleable name="CustomClassifySelectView">
+        <attr name="CSFLClassify" format="string" />
+        <attr name="CSFLTextSize" format="dimension" />
+        <attr name="CSFLMarginSize" format="dimension" />
+        <attr name="CSFLPaddingSize" format="dimension" />
+        <attr name="CSFLBackgroundColorDefault" format="color" />
+        <attr name="CSFLBackgroundColorSelect" format="color" />
+        <attr name="CSFLTextColor" format="color" />
+        <attr name="CSFLTextColorSelect" format="color" />
+        <attr name="CSFLStrokeColor" format="color" />
+        <attr name="CSFLRoundSize" format="dimension" />
+        <attr name="CSFLStrokeSize" format="dimension" />
+        <attr name="CSFLStrokeColorDefault" format="color" />
+
+    </declare-styleable>
+
+
+    <declare-styleable name="SegmentControl">
+        <attr name="scCornerRadius" format="dimension|reference" />
+        <attr name="selectedBackgroundColors" format="color|reference" />
+        <attr name="selectedTextColors" format="color|reference" />
+        <attr name="scTexts" format="string|reference" />
+        <attr name="android:textSize" />
+        <attr name="direction" format="enum">
+            <enum name="horizon" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+        <attr name="gaps" format="dimension|reference" />
+        <attr name="horizonGap" format="dimension|reference" />
+        <attr name="verticalGap" format="dimension|reference" />
+        <attr name="selectedIndex" format="integer" />
+    </declare-styleable>
+
+    <!--圆形进度的属性-->
+    <declare-styleable name="CustomPercentageCircleView">
+        <attr name="CPCVStrokeColor" format="color" />
+        <attr name="CPCVResidueColor" format="color" />
+        <attr name="CPCVArcColor" format="color" />
+        <attr name="CPCVStrokeWidth" format="float|dimension" />
+        <attr name="CPCVAngle" format="float" />
+    </declare-styleable>
+
+
+    <!--长方形进度的属性-->
+    <declare-styleable name="CustomPercentageRectView">
+        <attr name="CPRVStrokeColor" format="color" />
+        <attr name="CPRVResidueColor" format="color" />
+        <attr name="CPRVCompleteColor" format="color" />
+        <attr name="CPRVStrokeWidth" format="dimension|float" />
+        <attr name="CPRVProgress" format="float" />
+    </declare-styleable>
+
+    <!--评分控件-->
+    <declare-styleable name="EvaluationView">
+        <attr name="maxEvalution" format="integer"/>
+        <attr name="normalfive_stars" format="reference"/>
+        <attr name="focumalfive_stars" format="reference"/>
+    </declare-styleable>
+
+
+
+</resources>

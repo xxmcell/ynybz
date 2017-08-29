@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/gray_ee"
+              android:orientation="vertical">
+
+    <include layout="@layout/widget_toobar"/>
+    <EditText
+        android:id="@+id/user_fangkui"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_margin="@dimen/dp_8"
+        android:lines="8"
+        android:gravity="top"
+        android:padding="@dimen/dp_8"
+        android:hint="请留下您宝贵的意见和建议，我们将努力改进！"/>
+
+    <EditText
+        android:id="@+id/uesr_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:layout_marginRight="@dimen/dp_8"
+        android:lines="2"
+        android:inputType="number"
+        android:maxLength="11"
+        android:padding="@dimen/dp_8"
+        android:hint="请留下您手机号码，以便我们回复你！"/>
+</LinearLayout>

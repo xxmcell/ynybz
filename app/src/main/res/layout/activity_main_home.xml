@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/widget_toobar" />
+
+    <com.honganjk.ynybzbizfood.widget.banner.ConvenientBanner xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/advertisement"
+        style="@style/ConvenientBannerDefault"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray_ee"
+        app:cbHeightScale="7"
+        app:cbWidthScale="16" />
+
+    <!--商城的测试-->
+    <TextView
+        android:id="@+id/store"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:gravity="center"
+        android:padding="@dimen/dp_10"
+        android:text="商城测试"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_xxh"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+    <com.honganjk.ynybzbizfood.widget.SuperSwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_above="@+id/image1"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@mipmap/picture_1"
+                    android:scaleType="centerCrop" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_weight="1.2"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:id="@+id/yyc"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_corners_5_solid_yellow"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/image3"
+                            android:layout_width="@dimen/dp_50"
+                            android:layout_height="@dimen/dp_50"
+                            android:background="@mipmap/ic_home_yyc" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp_10"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/text3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="营养餐"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_xxh"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp_5"
+                                android:gravity="center"
+                                android:text="优质食材\n私人定制\n配送到家"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_h" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/lrph"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_corners_5_solid_red"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/image2"
+                            android:layout_width="@dimen/dp_50"
+                            android:layout_height="@dimen/dp_35"
+                            android:background="@mipmap/ic_home_lrph" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp_10"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/text2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="老人陪护"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_xxh"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp_5"
+                                android:gravity="center"
+                                android:text="子女般关怀\n无微不至照顾"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_h" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/bottomView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_5"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_weight="0.5"
+                android:background="@drawable/bg_corners_5_solid_green"
+                android:gravity="center">
+
+
+                <ImageView
+                    android:id="@+id/image1"
+                    android:layout_width="@dimen/dp_50"
+                    android:layout_height="@dimen/dp_50"
+                    android:background="@mipmap/ic_home_jkgl" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="健康管理"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_xxh"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_5"
+                        android:text="健康人生,远离亚健康"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_h" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </com.honganjk.ynybzbizfood.widget.SuperSwipeRefreshLayout>
+
+
+</LinearLayout>

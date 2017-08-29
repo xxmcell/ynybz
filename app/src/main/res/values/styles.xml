@@ -1,0 +1,96 @@
+<resources>
+
+
+    <!-- ****************************************主题 开始************************************Theme.AppCompat.Light.NoActionBar**-->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/main_color</item>
+        <item name="colorPrimaryDark">@color/main_color</item>
+        <item name="colorAccent">@color/main_color</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:buttonStyle">@null</item>
+        <!--设置边框的衰退颜色-->
+        <!--<item name="android:requiresFadingEdge">vertical</item>-->
+        <item name="android:listSelector">@color/translucent</item>
+        <item name="android:textCursorDrawable">@drawable/edittext_cursor_main_color</item>
+        <item name="textColorError">@color/design_textinput_error_color_light</item>
+
+    </style>
+
+    <style name="AppTheme.Fullscreen" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="AppTheme.Translucent" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="AppTheme.MainTheme" parent="AppTheme">
+        <item name="android:windowAnimationStyle">@style/MainAnimation</item>
+    </style>
+
+
+    <style name="AppTheme.OtherTheme" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/OtherAnimation</item>
+    </style>
+
+
+    <style name="AppTheme.Welcome" parent="AppTheme">
+        <item name="android:windowBackground">@mipmap/welcome</item>
+    </style>
+
+
+    <style name="AppTheme.PhotoBrowse" parent="AppTheme">
+        <item name="android:windowBackground">@color/photo_browse</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+
+    <style name="OtherAnimation">
+
+        <item name="android:windowEnterAnimation">@anim/activity_open_enter</item>
+        <item name="android:windowExitAnimation">@anim/activity_colse_exit</item>
+    </style>
+
+    <style name="MainAnimation">
+        <!--<item name="android:activityOpenEnterAnimation">@null</item>-->
+        <!--<item name="android:activityOpenExitAnimation">@null</item>-->
+        <!--<item name="android:windowEnterAnimation">@anim/activity_open_enter</item>-->
+        <!--<item name="android:windowExitAnimation">@anim/activity_colse_exit</item>-->
+    </style>
+
+    <style name="PhotoBrowseAnimation">
+        <item name="android:activityOpenEnterAnimation">@anim/dialog_anim_scale_enter</item>
+        <item name="android:activityOpenExitAnimation">@null</item>
+        <item name="android:activityCloseEnterAnimation">@null</item>
+        <item name="android:activityCloseExitAnimation">@anim/dialog_anim_scale_exit</item>
+    </style>
+
+
+    <style name="AnimationPreview">
+        <item name="android:windowEnterAnimation">@anim/popupwindow_animation_in</item>
+        <item name="android:windowExitAnimation">@anim/popupwindow_animation_out</item>
+    </style>
+
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 模糊 -->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <!-- dialog的动画 -->
+    <style name="main_menu_animstyle">
+        <!-- windowEnterAnimation 进入的动画 -->
+        <!--  代码里面 -->
+        <item name="android:windowEnterAnimation">@anim/photo_dialog_in_anim</item>
+        <item name="android:windowExitAnimation">@anim/photo_dialog_out_anim</item>
+    </style>
+
+</resources>

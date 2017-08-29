@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    //=========================================================================ConvenientBanner======================================================================
+
+    //=========================================================================分界线======================================================================
+
+    <style name="boundary_gray">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_1</item>
+        <item name="android:background">@color/gray_ee</item>
+    </style>
+
+    <style name="boundary_white">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_1</item>
+        <item name="android:background">@color/gray_ee</item>
+    </style>
+
+
+    //=========================================================================SwitchButton======================================================================
+
+    <style name="SwitchButtonMD">
+        <item name="kswBackMeasureRatio">1.45</item>
+        <item name="kswThumbMarginLeft">-16dp</item>
+        <item name="kswThumbMarginTop">-14dp</item>
+        <item name="kswThumbMarginRight">-16dp</item>
+        <item name="kswThumbMarginBottom">-14dp</item>
+    </style>
+
+
+    //=========================================================================FlatButton======================================================================
+
+    <style name="ConvenientBannerDefault">
+        <item name="circleColorDef">@drawable/banner_circle_default</item>
+        <item name="circleColorSelect">@drawable/banner_circle_select</item>
+        <item name="cbSpace">@dimen/dp_3</item>
+    </style>
+    //=========================================================================AnimCheckBox======================================================================
+
+    <style name="AnimCheckBox">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/dp_40</item>
+        <item name="android:padding">@dimen/dp_10</item>
+    </style>
+    //=========================================================================FlatButton======================================================================
+
+    <style name="mainKongFlatButton">
+        <item name="colorNormal">@color/translucent</item>
+        <item name="colorNormalText">@color/main_color</item>
+        <item name="colorPressed">@color/gray</item>
+        <item name="colorPressedText">@color/gray_text</item>
+        <item name="cornerRadius">@dimen/dp_6</item>
+        <item name="strokeColor">@color/main_color</item>
+        <item name="strokeWidth">@dimen/dp_1</item>
+    </style>
+
+
+    //=========================================================================textView======================================================================
+    <!--康复师-日期-->
+    <style name="therapistDate">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_40</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_marginTop">@dimen/dp_0_5</item>
+        <item name="android:textColor">@color/main_color</item>
+        <item name="android:textSize">@dimen/text_xxxm</item>
+    </style>
+
+    <!--康复师-时间-->
+    <style name="therapistTime">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_56</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_marginTop">@dimen/dp_0_5</item>
+        <item name="android:textColor">@color/gray_99</item>
+        <item name="android:textSize">@dimen/text_xxxm</item>
+    </style>
+
+    //=========================================================================EditText======================================================================
+    <!--EditText 评论-->
+    <style name="editText_comment">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_xxm</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+        <item name="android:textColor">@color/gray_66</item>
+    </style>
+
+
+    //=========================================================================TextInputLayout======================================================================
+
+
+    //=========================================================================imageView======================================================================
+
+
+    //=========================================================================LinearLayout======================================================================
+
+
+    //=========================================================================属性======================================================================
+
+
+    <declare-styleable name="RippleView">
+        <attr name="rv_alpha" format="integer" />
+        <attr name="rv_framerate" format="integer"/>
+        <attr name="rv_rippleDuration" format="integer"/>
+        <attr name="rv_zoomDuration" format="integer" />
+        <attr name="rv_color" format="color" />
+        <attr name="rv_centered" format="boolean" />
+        <attr name="rv_type" format="enum">
+            <enum name="simpleRipple" value="0"/>
+            <enum name="doubleRipple" value="1"/>
+            <enum name="rectangle" value="2" />
+        </attr>
+        <attr name="rv_ripplePadding" format="dimension" />
+        <attr name="rv_zoom" format="boolean" />
+        <attr name="rv_zoomScale" format="float" />
+
+    </declare-styleable>
+
+</resources>

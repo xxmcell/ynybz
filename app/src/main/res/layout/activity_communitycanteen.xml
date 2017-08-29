@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/clr_divide"
+    android:orientation="vertical">
+    <include layout="@layout/widget_toobar" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:id="@+id/tv_near"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="@dimen/dp_10"
+            android:layout_marginLeft="40dp"
+            android:drawableLeft="@drawable/ic_location"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center"
+            android:text="@string/tv_near"
+            android:textColor="@color/black" />
+
+        <View
+            android:layout_width="@dimen/dp_2"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/dp_5"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/tv_rank_hight"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="@dimen/dp_10"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="40dp"
+            android:drawableLeft="@drawable/ic_star"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center"
+            android:text="@string/tv_rank_hight"
+            android:textColor="@color/black" />
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_2"
+        android:background="@color/gray">
+        <View
+            android:id="@+id/view_left"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_2"
+            android:layout_weight="1"
+            android:background="@color/main_color"/>
+        <View
+            android:id="@+id/view_right"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_2"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:background="@color/main_color"/>
+    </LinearLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+</LinearLayout>

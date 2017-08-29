@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_select_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/translucent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_30"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dp_10"
+            android:paddingLeft="@dimen/dp_10"
+            android:paddingRight="@dimen/dp_10"
+            android:paddingTop="@dimen/dp_10">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_110"
+                android:paddingTop="@dimen/dp_10">
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="150"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/text_h" />
+
+                <TextView
+                    android:id="@+id/inventory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/price"
+                    android:layout_marginTop="@dimen/dp_3"
+                    android:text="库存"
+                    android:textColor="@color/gray_33"
+                    android:textSize="@dimen/text_xxxm" />
+
+                <TextView
+                    android:id="@+id/select"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/inventory"
+                    android:layout_marginTop="@dimen/dp_3"
+                    android:text="选择的规格"
+                    android:textColor="@color/gray_33"
+                    android:textSize="@dimen/text_xxxm" />
+
+
+                <ImageView
+                    android:id="@+id/close"
+                    android:layout_width="@dimen/dp_30"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_alignParentRight="true"
+                    android:adjustViewBounds="true"
+                    android:padding="@dimen/dp_7"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_close" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_1"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@color/gray_ee" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="规格"
+                android:textColor="@color/gray_33"
+                android:textSize="@dimen/text_xxxm" />
+
+
+            <com.honganjk.ynybzbizfood.widget.CustomClassifySelectView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:baselineAligned="false"
+                app:CSFLBackgroundColorDefault="@color/gray_ee"
+                app:CSFLBackgroundColorSelect="@color/main_red"
+                app:CSFLClassify="500g|1000g|2000g|200g"
+                app:CSFLMarginSize="@dimen/dp_5"
+                app:CSFLPaddingSize="@dimen/dp_10"
+                app:CSFLRoundSize="@dimen/dp_10"
+                app:CSFLStrokeColor="@color/main_red"
+                app:CSFLStrokeColorDefault="@color/gray_99"
+                app:CSFLTextColor="@color/gray_33"
+                app:CSFLTextColorSelect="@color/white"
+                app:CSFLTextSize="@dimen/text_xxxm"
+                app:flexDirection="row"
+                app:flexWrap="wrap"
+                app:justifyContent="flex_start" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_1"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@color/gray_ee" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="购买数量"
+                    android:textColor="@color/gray_33"
+                    android:textSize="@dimen/text_xxxm" />
+
+                <com.honganjk.ynybzbizfood.widget.NumberSelectRect
+                    android:id="@+id/selectNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true">
+
+                </com.honganjk.ynybzbizfood.widget.NumberSelectRect>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/commie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/dp_80"
+            android:background="@color/main_store"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:text="确定"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_xxxm" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_100"
+        android:layout_margin="@dimen/dp_10"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/fail_picture" />
+
+
+</RelativeLayout>

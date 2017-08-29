@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_ee"
+    android:orientation="vertical">
+
+    <include layout="@layout/widget_toobar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0_5"
+                android:background="@color/gray_ee" />
+
+            <TextView
+                android:id="@+id/orderStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawablePadding="@dimen/dp_10"
+                android:hint="@string/order_status"
+                android:padding="@dimen/dp_12"
+                android:textColor="@color/gray_66" />
+
+            <View
+                android:id="@+id/boundary1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0_5"
+                android:layout_below="@+id/price"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@color/gray_ee" />
+
+            <TextView
+                android:id="@+id/orderStatusHint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawablePadding="@dimen/dp_10"
+                android:padding="@dimen/dp_12"
+                android:text="订单状态的提示"
+                android:textColor="@color/main_color" />
+
+
+            <LinearLayout
+                android:id="@+id/buttonParent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/boundary1"
+                android:layout_marginLeft="@dimen/dp_60"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp_10">
+
+                <TextView
+                    android:id="@+id/statusGray"
+                    android:layout_width="@dimen/dp_70"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:background="@drawable/bg_select_true"
+                    android:gravity="center"
+                    android:paddingBottom="@dimen/dp_5"
+                    android:paddingTop="@dimen/dp_5"
+                    android:text="@string/cancelOrder2"
+                    android:textColor="@color/gray_66"
+                    android:textSize="@dimen/text_xxm" />
+
+                <TextView
+                    android:id="@+id/statusGreen"
+                    android:layout_width="@dimen/dp_70"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:background="@drawable/bg_order_select"
+                    android:gravity="center"
+                    android:paddingBottom="@dimen/dp_5"
+                    android:paddingTop="@dimen/dp_5"
+                    android:text="去支付"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/text_xxm" />
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_8"
+                android:background="@color/main_gray2" />
+
+            <TextView
+                android:id="@+id/serviceName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dp_10"
+                android:drawableRight="@drawable/material_arrwos_greay_right"
+                android:padding="@dimen/dp_10"
+                android:text="护工：张王李"
+                android:textColor="@color/gray_33"
+                android:textSize="@dimen/text_xxm" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/main_gray2"
+                android:padding="@dimen/dp_10">
+
+                <ImageView
+                    android:id="@+id/picture"
+                    android:layout_width="@dimen/dp_60"
+                    android:layout_height="@dimen/dp_60"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:src="@mipmap/logo" />
+
+                <TextView
+                    android:id="@+id/projectName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/picture"
+                    android:hint="项目"
+                    android:textColor="@color/gray_33"
+                    android:textSize="@dimen/text_xxxm" />
+
+                <!--<TextView-->
+                <!--android:id="@+id/text"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@+id/projectName"-->
+                <!--android:layout_marginTop="@dimen/dp_5"-->
+                <!--android:layout_toRightOf="@+id/picture"-->
+                <!--android:hint="价格"-->
+                <!--android:lineSpacingExtra="@dimen/dp_5"-->
+                <!--android:textColor="@color/gray_66"-->
+                <!--android:textSize="@dimen/text_xxm" />-->
+
+
+                <TextView
+                    android:id="@+id/number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/projectName"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_toRightOf="@+id/picture"
+                    android:hint="数量：0"
+                    android:lineSpacingExtra="@dimen/dp_5"
+                    android:textColor="@color/gray_66"
+                    android:textSize="@dimen/text_xxm" />
+
+            </RelativeLayout>
+
+            <View style="@style/boundary_gray" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="center"
+                android:padding="@dimen/dp_10"
+                android:text="@string/price"
+                android:textColor="@color/gray_33"
+                android:textSize="@dimen/text_xxm" />
+
+            <View style="@style/boundary_gray" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray_ee"
+                android:drawablePadding="@dimen/dp_10"
+                android:gravity="center_vertical"
+                android:hint="服务信息"
+                android:padding="@dimen/dp_12"
+                android:textColor="@color/gray_66" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:text="服务地址:"
+                    android:padding="@dimen/dp_12"
+                    android:textColor="@color/gray_66"  />
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:hint="个人信息"
+                    android:padding="@dimen/dp_12"
+                    android:textColor="@color/gray_66"  />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0_5"
+                android:background="@color/gray_ee" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:padding="@dimen/dp_12"
+                    android:text="服务时间："
+                    android:textColor="@color/gray_66" />
+
+                <TextView
+                    android:id="@+id/endTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:padding="@dimen/dp_12"
+                    android:text="服务时间："
+                    android:textColor="@color/main_color" />
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0_5"
+                android:background="@color/gray_ee" />
+
+            <TextView
+                android:id="@+id/self"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawablePadding="@dimen/dp_10"
+                android:hint="自理能力"
+                android:padding="@dimen/dp_12"
+                android:textColor="@color/gray_66" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray_ee"
+                android:drawablePadding="@dimen/dp_10"
+                android:gravity="center_vertical"
+                android:hint="订单信息"
+                android:padding="@dimen/dp_12"
+                android:textColor="@color/gray_66" />
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp_10">
+
+
+        <android.support.v7.widget.SearchView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_30"
+            android:layout_weight="1"
+            android:background="@drawable/bg_search"
+            android:focusable="true"
+            app:defaultQueryHint="请输入搜索内容"
+            app:theme="@style/AlertDialog.AppCompat">
+        </android.support.v7.widget.SearchView>
+
+        <TextView
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:padding="@dimen/dp_5"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxm"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        />
+
+
+</LinearLayout>

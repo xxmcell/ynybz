@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--默认时的效果-->
+    <item android:state_pressed="false">
+        <shape android:shape="rectangle">
+            <!--填充颜色-->
+            <solid android:color="@color/translucent"></solid>
+            <!--线的宽度，颜色灰色-->
+            <stroke android:width="1dp" android:color="@color/white"></stroke>
+            <!--矩角的圆角半径-->
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+
+    <!--按压时的效果-->
+    <item android:state_pressed="true">
+
+        <shape android:shape="rectangle">
+            <solid android:color="@color/main_color"></solid>
+            <stroke android:width="1dp" android:color="@color/orange"></stroke>
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+
+</selector>

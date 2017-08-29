@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/tv_notice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:background="@color/clr_yellow"
+        android:drawableLeft="@mipmap/iv_notice"
+        android:drawablePadding="@dimen/dp_10"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:textSize="@dimen/text_xxxm"/>
+
+    <com.honganjk.ynybzbizfood.widget.noscrollviewpager.NoScrollViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></com.honganjk.ynybzbizfood.widget.noscrollviewpager.NoScrollViewPager>
+
+
+
+    <include layout="@layout/itme_favorable_info"/>
+
+    <com.honganjk.ynybzbizfood.widget.cartlayout.CartBottomLayout
+        android:id="@+id/cartbottomlayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"></com.honganjk.ynybzbizfood.widget.cartlayout.CartBottomLayout>
+</LinearLayout>
+
+
+

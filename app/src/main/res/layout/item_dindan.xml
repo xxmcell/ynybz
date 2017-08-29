@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/dp_12">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/tv_num"
+        android:text="番茄鸡蛋"
+        android:textColor="@color/gray_33"
+        android:textSize="@dimen/text_xxxm" />
+
+    <TextView
+        android:id="@+id/tv_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp_60"
+        android:layout_toLeftOf="@+id/tv_price"
+        android:text="x1" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="¥13"
+        android:gravity="right"
+        android:textColor="@color/gray_33"
+        android:textSize="@dimen/text_xxxm" />
+</RelativeLayout>

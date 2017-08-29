@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ting="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/dp_16"
+    android:paddingTop="@dimen/dp_10"
+    android:paddingRight="@dimen/dp_16"
+    android:paddingBottom="@dimen/dp_10">
+<ImageView
+    android:id="@+id/iv_avatar"
+    android:layout_width="@dimen/dp_30"
+    android:layout_height="@dimen/dp_30"
+    android:layout_marginRight="@dimen/dp_10"/>
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="@dimen/dp_24"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxEms="1"
+        android:lines="1"
+        android:textSize="@dimen/text_xxxm"
+        android:textColor="@color/text_666"
+        android:layout_toRightOf="@+id/iv_avatar"/>
+
+    <com.honganjk.ynybzbizfood.widget.EvaluationView
+        android:id="@+id/view_star"
+        android:layout_width="@dimen/dp_88"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_toRightOf="@+id/tv_name"
+        android:layout_height="@dimen/dp_14"
+        ting:normalfive_stars="@mipmap/wuxing_down"
+        ting:focumalfive_stars="@mipmap/wuxing_up"/>
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_xxm"
+        android:textColor="@color/text_666"
+        android:layout_alignParentRight="true"/>
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_xxxm"
+        android:layout_marginTop="@dimen/dp_37"
+        android:layout_toRightOf="@id/iv_avatar"
+        android:textColor="@color/text_333"/>
+</RelativeLayout>

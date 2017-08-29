@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ting="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_ee"
+    android:orientation="vertical">
+
+    <include layout="@layout/widget_toobar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp_10">
+
+        <ImageView
+            android:id="@+id/iv_caiping"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_80"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/dianka" />
+
+
+        <android.support.design.widget.TextInputLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:textColorHint="@color/main_color"
+            app:counterEnabled="true"
+            app:counterMaxLength="200"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/et_pingjia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请写下你的评价"
+                android:maxLines="15"
+                android:padding="@dimen/dp_10"
+                android:textSize="@dimen/text_xxxm" />
+        </android.support.design.widget.TextInputLayout>
+
+
+    </LinearLayout>
+
+    <!--自定义控件-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_1"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp_10">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="满意度" />
+
+        <com.iarcuschin.simpleratingbar.SimpleRatingBar xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/evalua_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            app:srb_borderColor="@color/yellow"
+            app:srb_numberOfStars="5"
+            app:srb_rating="5"
+            app:srb_starBorderWidth="2"
+            app:srb_starSize="@dimen/dp_30"
+            app:srb_stepSize="1" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

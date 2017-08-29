@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_ee"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/dp_0_5"
+        android:background="@color/white"
+        android:padding="@dimen/dp_10"
+        android:text="数量"
+        android:textColor="@color/gray_66"
+        android:textSize="@dimen/text_xxm"/>
+
+
+    <com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView
+        android:id="@+id/switchRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_0_5"
+        android:background="@color/white">
+    </com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView>
+
+
+</LinearLayout>
+

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--tabLayout 角标颜色-->
+    <item android:color="@color/main_color" android:state_selected="true"/>
+    <item android:color="@color/gray_66" android:state_selected="false"/>
+
+</selector>

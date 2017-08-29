@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/dp_5">
+
+    <TextView
+        android:id="@+id/orderName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_5"
+        android:layout_weight="2"
+        android:text="@string/name"
+        android:textColor="@color/gray_33"
+        android:textSize="@dimen/text_xxxm"/>
+
+    <TextView
+        android:id="@+id/orderNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_5"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/number"
+        android:textColor="@color/gray_99"
+        android:textSize="@dimen/text_xxxm"/>
+
+    <TextView
+        android:id="@+id/orderPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_5"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/price"
+        android:textColor="@color/gray_66"
+        android:textSize="@dimen/text_xxxm"/>
+
+</LinearLayout>

@@ -1,0 +1,92 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <com.honganjk.ynybzbizfood.widget.appbarlayout.SupperToolBar xmlns:android="http://schemas.android.com/apk/res/android"
+                                                                     android:id="@+id/toolbar"
+                                                                     style="@style/Toolbar"
+                                                                     android:layout_width="match_parent"
+                                                                     android:layout_height="wrap_content">
+
+        </com.honganjk.ynybzbizfood.widget.appbarlayout.SupperToolBar>
+
+        <ImageView
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_100"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_30"
+            android:src="@mipmap/logo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_30"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+
+            <EditText
+                android:id="@+id/activity_register_phone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/inputPhone"
+                android:inputType="number"
+                android:maxLength="11"
+                android:paddingLeft="@dimen/dp_5"
+
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_xxxm" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:id="@+id/activity_register_password"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/inputVerificationCode"
+                    android:inputType="textPassword|number"
+                    android:paddingLeft="@dimen/dp_5"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_xxxm" />
+
+
+                <TextView
+                    android:id="@+id/activity_register_send_verification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:paddingBottom="@dimen/dp_7"
+                    android:paddingLeft="@dimen/dp_15"
+                    android:paddingRight="@dimen/dp_15"
+                    android:paddingTop="@dimen/dp_7"
+                    android:text="@string/getVerificationCode"
+                    android:textColor="@color/gray_66"
+                    android:textSize="@dimen/text_xxm" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

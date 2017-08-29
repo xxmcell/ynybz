@@ -1,0 +1,140 @@
+<resources>
+    <string name="app_name">养你一辈子-客户版</string>
+    <string name="app_name_letter">yangNiYiBeiZuUser</string>
+
+
+    <!--****************************导航名称********************************-->
+    <string name="home">首页</string>
+    <string name="collect">收藏</string>
+    <string name="order">订单</string>
+    <string name="my">我的</string>
+    <string name="classify">分类</string>
+    <string name="shoppingCar">购物车</string>
+
+
+    <string name="loadding">  加载中...</string>
+    <string name="snackbar_action">关闭</string>
+    <string name="autoloadding_zhunbei">  准备加载</string>
+    <string name="autoloadding_no_data">没有数据可以加载</string>
+    <string name="autoloadding_comple_data">共为您加载 %1$d 条数据</string>
+    <string name="autoloadding_failure">加载失败</string>
+    <string name="no_data">亲,数据空空如也</string>
+    <string name="http_request_failure">亲。。。加载失败</string>
+    <string name="no_data_dingdan"> 亲,您的订单空空如也...</string>
+    <string name="loadd_failure"> 页面加载失败</string>
+
+    <!--****************************登录注册********************************-->
+
+    <string name="inputPhone">请输入手机号</string>
+    <string name="inputCode">请输验证码</string>
+    <string name="inputPassword">请输入密码</string>
+    <string name="inputPasswordAffitm">请确认密码</string>
+    <string name="inputCheckHint">两次密码不一致</string>
+    <string name="inputVerificationCode">请输入验证码</string>
+    <string name="getVerificationCode">获取验证码</string>
+    <string name="login">立即登录</string>
+    <string name="register">快速注册</string>
+
+
+    <!--****************************标题********************************-->
+    <string name="app_name_simple">养你一辈子</string>
+    <string name="welcom">欢迎您的加入养你一辈子</string>
+    <string name="tv_communitycanteen">社区食堂</string>
+    <string name="tv_communitycanteen_brief">优质食材,私人订制</string>
+    <string name="tv_breakfast">早餐</string>
+    <string name="tv_breakfast_brief">私人订制,营养美味</string>
+    <string name="tv_address">位置</string>
+    <string name="tv_recommend">推荐商家</string>
+    <string name="tv_common">常吃厨房</string>
+    <string name="tv_carteen_name">食堂名称</string>
+    <string name="tv_month_sales">月售%s单</string>
+    <string name="tv_score">%s</string>
+    <string name="rank">排名第%s</string>
+    <string name="tv_distance">%s千米</string>
+    <string name="tv_time">%s分钟/</string>
+    <string name="tv_open_send_money">¥%s</string>
+    <string name="tv_open_send">起 送</string>
+    <string name="tv_send">配送费</string>
+    <string name="tv_near">距离最近</string>
+    <string name="tv_rank_hight">评分最高</string>
+    <string name="tv_full">满50减20</string>
+    <string name="tv_new">新用户首单减50</string>
+
+    <string name="tv_carteen">商店</string>
+    <string name="tv_goods">商品</string>
+    <string name="tv_evaluate">评价</string>
+    <string name="tv_carteen_detail">商家</string>
+    <string name="tv_today_lunch">今日午餐</string>
+    <string name="tv_today_dinner">今日晚餐</string>
+    <string name="tv_tomorrow_lunch">明日午餐</string>
+    <string name="tv_tomorrow_dinner">明日晚餐</string>
+    <string name="cateringName">餐厅名称</string>
+    <string name="payStatus">支付状态</string>
+    <string name="greensName">菜名</string>
+    <string name="price">价格</string>
+    <string name="date">日期</string>
+    <string name="abouthongan">养你一辈子是浙江鸿安健康管理服务有限公司旗下的品牌，
+                                是一家互联网+养老（打造国内最大居家养老共享平台）的互联网企业
+                                浙江省健康产业联合会理事单位，与美国，加拿大，英国，澳大利亚多国高端养老机构交流学习
+                                引进国际先进的科学养老护理技术理念；公司的康复师全部毕业于医科大学和护理学校，
+                                持有国家相关部门颁发的毕业证书和资格证书。为客户提供专业，科学，可靠，贴心的居家养老服务。公司的核心理念
+                                是“贴心养护，把养老院搬回家养你一辈子终极目标是让每位老人老有所依，老有所养，老有所为，老有所学，老有所乐，安享幸福晚年。”</string>
+
+    <string name="tv_price">¥%s</string>
+    <string name="tv_sales">月销量%s</string>
+    <string name="tv_food_name">菜名</string>
+    <string name="tv_title">类别</string>
+    <string name="tv_cart_send_cost">另需%s元配送费</string>
+    <string name="tv_cart_open_send">¥%s元起送</string>
+    <string name="tv_cart_open_send_need">还差¥%s起送</string>
+    <string name="tv_cart_pay">去结算</string>
+    <string name="tv_cart">购物车</string>
+    <string name="tv_cart_nomore">请先完成， %s 订单或者清除购物车，再进行时段操作</string>
+    <string name="tv_surplus">(月销量%s)</string>
+    <string name="tv_food_brief">菜品简介</string>
+    <string name="tv_grade">%s分</string>
+    <string name="tv_rank">第%s名</string>
+
+
+    <string name="err_business_no_id">未查询到相关商家</string>
+    <string name="name">名称</string>
+    <string name="number">数量</string>
+    <string name="hint">提示</string>
+    <string name="cancelOrder">如果需要取消订单，请联系商家\n%s</string>
+    <string name="tv_collect">收藏</string>
+    <string name="tv_collectd">已收藏</string>
+    <string name="tv_open">%s元\n起送价</string>
+    <string name="tv_fare">%s元\n配送费</string>
+    <string name="tv_favors">优惠活动</string>
+    <string name="tv_notice">公告</string>
+    <string name="tv_brief_title">商家简介</string>
+    <string name="tv_business_address">商家地址：%s</string>
+    <string name="tv_business_time">营业时间：%s</string>
+    <string name="tv_business_licence">商家许可证</string>
+    <string name="tv_business_permit">商家营业执照</string>
+    <string name="tv_grade_num">%s</string>
+    <string name="tv_no_order">已过该项点餐时间</string>
+    <string name="tv_no_food">商家暂无数据</string>
+    <string name="tv_notice_breakfast">只有在18:00 - 9:00(次日)时间内才可以订购早餐</string>
+
+    <string name="nurser">护工(全天)</string>
+    <string name="nurserBrief">专业培训、悉心照料</string>
+    <string name="therapist">康复师(时段)</string>
+    <string name="therapist2">康复师</string>
+    <string name="therapistBrief">专业、可靠</string>
+    <string name="vip">VIP (私人定制)</string>
+    <string name="vipBrief">针对您的身体状态定制</string>
+    <string name="recommend">推荐</string>
+    <string name="subscribe">预约</string>
+    <string name="subscribeNext">再次预约</string>
+    <string name="cancelOrder2">取消订单</string>
+    <string name="takeHint">自提餐品，免配送费商家会预留一小时进行自提，若用户超时未自提，将无法退付金额，望谅解。</string>
+    <string name="theShoppingFeeHint">配送费说明：配送费根据距离阶梯计算，配送收费标准：一公里以内：商家规定配送费；超出一公里部分，每公里一元。</string>
+    <string name="oneselfHint">请您在预约的自提时间内到店提取您的餐品</string>
+    <string name="dueHint">很遗憾，由于您超过指定时间未提取您的订单，订单已过期。</string>
+    <string name="order_status">订单状态</string>
+    <string name="order_info">订单信息</string>
+    <string name="therapist_service_hint">注：康复师每单服务时长固定两个小时</string>
+
+
+</resources>

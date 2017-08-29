@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_select_nusing_type_lsit"
+    android:orientation="horizontal">
+
+    <View
+        android:id="@+id/mark"
+        android:layout_width="@dimen/dp_2"
+        android:layout_marginLeft="@dimen/dp_2"
+        android:layout_height="@dimen/dp_60"
+        android:background="@color/main_color"
+       />
+
+
+    <TextView
+        android:id="@+id/describe"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        android:text="描述"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="14sp"/>
+
+
+</LinearLayout>

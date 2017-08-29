@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_gray2"
+    android:orientation="horizontal">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/type"
+        android:layout_width="@dimen/dp_70"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+    <com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView
+        android:id="@+id/switchRoot"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:layout_height="match_parent">
+
+    </com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView>
+
+
+</LinearLayout>
+

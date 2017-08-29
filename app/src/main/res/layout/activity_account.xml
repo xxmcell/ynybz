@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray_ee"
+                android:orientation="vertical">
+
+    <include layout="@layout/widget_toobar"></include>
+
+    <LinearLayout
+        android:id="@+id/ll_xiugaihead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:padding="@dimen/dp_8">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="头像"/>
+
+        <ImageView
+            android:id="@+id/iv_xiugaihead"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:src="@mipmap/logo"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:src="@mipmap/list_menu_more"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_restename"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_xiugaihead"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:padding="@dimen/dp_8">
+
+        <TextView
+            android:id="@+id/tv_resetname"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="阳关"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="修改"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:src="@mipmap/list_menu_more"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:gravity="center"
+        android:padding="@dimen/dp_15"
+        android:text="退出当前账号"
+        android:textColor="@color/red"/>
+</RelativeLayout>

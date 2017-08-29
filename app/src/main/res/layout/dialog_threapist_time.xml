@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray_ee"
+        android:paddingBottom="@dimen/dp_10">
+
+        <TextView
+            android:id="@+id/hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="选择服务时间"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_h" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/hint"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="灰色表示不可选，康复师固定服务时间两小时"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/text_xxxm" />
+
+        <TextView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:background="@mipmap/label"
+            android:gravity="center_horizontal"
+            android:text="×"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_xxh" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_5"
+        android:background="@drawable/bg_solid_white_stroke_grayee"
+        android:gravity="top"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp_1">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/therapistDate"
+                android:gravity="center"
+                android:text="日期"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/dayOne"
+                style="@style/therapistDate"
+                android:background="@color/main_color"
+                android:text="今天"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/dayTwo"
+                style="@style/therapistDate"
+                android:text="明天" />
+
+            <TextView
+                android:id="@+id/dayThree"
+                style="@style/therapistDate"
+                android:text="星期一" />
+
+            <TextView
+                android:id="@+id/dayFour"
+                style="@style/therapistDate"
+                android:text="星期二" />
+
+            <TextView
+                android:id="@+id/dayFive"
+                style="@style/therapistDate"
+                android:text="星期三" />
+
+            <TextView
+                android:id="@+id/daySix"
+                style="@style/therapistDate"
+                android:text="星期四" />
+
+            <TextView
+                android:id="@+id/daySeven"
+                style="@style/therapistDate"
+                android:text="星期五" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_1"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/therapistDate"
+                android:gravity="center"
+                android:text="时间段"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/timeOne"
+                style="@style/therapistTime"
+                android:text="7:00-9:00" />
+
+            <TextView
+                android:id="@+id/timeTwo"
+                style="@style/therapistTime"
+                android:text="9:30-11:30" />
+
+            <TextView
+                android:id="@+id/timeThree"
+                style="@style/therapistTime"
+                android:text="12:00-14:00" />
+
+            <TextView
+                android:id="@+id/timeFour"
+                style="@style/therapistTime"
+                android:text="14:30-16:30" />
+
+            <TextView
+                android:id="@+id/timeFive"
+                style="@style/therapistTime"
+                android:text="17:00-19:00" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/commit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_color"
+        android:gravity="center"
+        android:padding="@dimen/dp_12"
+        android:text="完成"
+        android:textColor="@color/white" />
+
+
+</LinearLayout>

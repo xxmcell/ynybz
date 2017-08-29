@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <include layout="@layout/widget_toobar"/>
+
+    <!--<EditText-->
+    <!--android:id="@+id/et_beizhu"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@color/white"-->
+    <!--android:gravity="top"-->
+    <!--android:hint="请输入备注(限60字以内)"-->
+    <!--android:lines="5"-->
+    <!--android:maxLength="60"-->
+    <!--android:padding="@dimen/dp_8"-->
+    <!--android:textColor="@color/gray_33"-->
+    <!--android:textSize="@dimen/text_xxxm"/>-->
+
+
+    <android.support.design.widget.TextInputLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_20"
+        android:hint="请输入备注"
+        android:textColorHint="@color/main_color"
+        app:counterEnabled="true"
+        app:counterMaxLength="60"
+        app:errorEnabled="true">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/et_beizhu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="@dimen/dp_4"
+            android:maxLength="61"
+            android:textSize="@dimen/text_h"/>
+    </android.support.design.widget.TextInputLayout>
+</LinearLayout>

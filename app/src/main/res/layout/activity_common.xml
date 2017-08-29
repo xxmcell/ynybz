@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_centerVertical="true"
+        android:background="@color/main_color"
+        android:gravity="center"
+        android:text="8888888"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_max" />
+
+
+
+    <include layout="@layout/widget_boottom_bar" />
+
+</RelativeLayout>

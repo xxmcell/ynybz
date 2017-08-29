@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_5"
+    android:background="@color/white"
+    app:cardCornerRadius="@dimen/CardView_Margin_4">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/picture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/fail_picture" />
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="@dimen/dp_5"-->
+        <!--android:background="@color/main_red"-->
+        <!--android:padding="@dimen/dp_2"-->
+        <!--android:text="特价"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="@dimen/text_xm" />-->
+
+        <com.honganjk.ynybzbizfood.widget.button.FlatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_2"
+            android:background="@color/main_red"
+            android:gravity="center"
+            android:paddingBottom="@dimen/dp_1"
+            android:paddingLeft="@dimen/dp_4"
+            android:paddingRight="@dimen/dp_4"
+            android:paddingTop="@dimen/dp_1"
+            android:text="特价"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_xm"
+            app:colorNormal="@color/main_red"
+            app:colorPressed="@color/gray_ee"
+            app:cornerRadius="@dimen/dp_10" />
+        />
+
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/picture"
+            android:layout_margin="@dimen/dp_5"
+            android:maxLines="1"
+            android:text="名称"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_xxm" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name"
+            android:layout_margin="@dimen/dp_5"
+            android:text="150"
+            android:textColor="@color/green"
+            android:textSize="@dimen/text_xxm" />
+
+
+        <com.honganjk.ynybzbizfood.widget.button.FlatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/name"
+            android:layout_margin="@dimen/dp_5"
+            android:background="@color/main_red"
+            android:gravity="center"
+            android:paddingBottom="@dimen/dp_2"
+            android:paddingLeft="@dimen/dp_5"
+            android:paddingRight="@dimen/dp_5"
+            android:paddingTop="@dimen/dp_2"
+            android:text="立即抢购"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_xm"
+            app:colorNormal="@color/main_red"
+            app:colorPressed="@color/gray_ee"
+            app:cornerRadius="@dimen/dp_2" />
+        />
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
+

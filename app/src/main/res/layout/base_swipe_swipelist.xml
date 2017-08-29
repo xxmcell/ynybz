@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.honganjk.ynybzbizfood.widget.SuperSwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                          android:id="@+id/swipe"
+                                                          android:layout_width="match_parent"
+                                                          android:layout_height="match_parent">
+
+    <com.honganjk.ynybzbizfood.widget.swipemenulistview.SwipeMenuListView
+        android:id="@+id/list_swipe_target"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/gray_cc"
+        android:footerDividersEnabled="false"
+        android:scrollbarStyle="outsideOverlay"></com.honganjk.ynybzbizfood.widget.swipemenulistview.SwipeMenuListView>
+</com.honganjk.ynybzbizfood.widget.SuperSwipeRefreshLayout>
