@@ -1,0 +1,499 @@
+CURRENT STATS:
+System memory usage:
+  SOn /Norm: 1 samples:
+    Cached: 253MB min, 253MB avg, 253MB max
+    Free: 67MB min, 67MB avg, 67MB max
+    ZRam: 0.00 min, 0.00 avg, 0.00 max
+    Kernel: 267MB min, 267MB avg, 267MB max
+    Native: 89MB min, 89MB avg, 89MB max
+       Mod : 1 samples:
+    Cached: 240MB min, 240MB avg, 240MB max
+    Free: 70MB min, 70MB avg, 70MB max
+    ZRam: 0.00 min, 0.00 avg, 0.00 max
+    Kernel: 261MB min, 261MB avg, 261MB max
+    Native: 89MB min, 89MB avg, 89MB max
+
+Per-Package Stats:
+  * com.honganjk.ynybzbizfood / u0a325 / v119:
+      * com.honganjk.ynybzbizfood / u0a325 / v119:
+               TOTAL: 88% (41MB-54MB-67MB/38MB-50MB-62MB over 26)
+                 Top: 88% (41MB-54MB-67MB/38MB-50MB-62MB over 26)
+             Service: 0.03%
+            Receiver: 0.01%
+            (Cached): 9.6% (26MB-34MB-43MB/23MB-31MB-39MB over 2)
+      * com.honganjk.ynybzbizfood:xg_service_v3 / u0a325 / v119:
+               TOTAL: 3.5%
+             Service: 2.9%
+          Service Rs: 0.11%
+            Receiver: 0.47%
+      * com.honganjk.ynybzbizfood:remote / u0a325 / v119:
+               TOTAL: 1.7%
+                 Top: 0.44%
+              Imp Fg: 1.2%
+            (Cached): 0.12%
+      * com.baidu.location.f:
+        Process: com.honganjk.ynybzbizfood:remote
+            Running count 19 / time 1.7%
+              Bound count 19 / time 1.7%
+          Executing count 38 / time 1.2%
+      * com.tencent.android.tpush.service.XGPushServiceV3:
+        Process: com.honganjk.ynybzbizfood:xg_service_v3
+            Running count 60 / time 3.0%
+            Started count 32 / time 2.8%
+          Executing count 66 / time 1.9%
+
+Summary:
+  * com.honganjk.ynybzbizfood / u0a325 / v119:
+           TOTAL: 88% (41MB-54MB-67MB/38MB-50MB-62MB over 26)
+             Top: 88% (41MB-54MB-67MB/38MB-50MB-62MB over 26)
+         Service: 0.03%
+        Receiver: 0.01%
+        (Cached): 9.6% (26MB-34MB-43MB/23MB-31MB-39MB over 2)
+  * com.honganjk.ynybzbizfood:xg_service_v3 / u0a325 / v119:
+           TOTAL: 3.5%
+         Service: 2.9%
+      Service Rs: 0.11%
+        Receiver: 0.47%
+  * com.honganjk.ynybzbizfood:remote / u0a325 / v119:
+           TOTAL: 1.7%
+             Top: 0.44%
+          Imp Fg: 1.2%
+        (Cached): 0.12%
+
+Run time Stats:
+  SOn /Norm: +51m12s865ms (running)
+       Mod : +15s9ms
+      TOTAL: +51m27s874ms
+
+Memory usage:
+  Kernel : 264MB (16 samples)
+  Native : 89MB (16 samples)
+  Persist: 190MB (84 samples)
+  Top    : 52MB (94 samples)
+  ImpFg  : 243MB (243 samples)
+  ImpBg  : 23MB (21 samples)
+  Service: 264MB (335 samples)
+  Receivr: 49KB (137 samples)
+  Home   : 28MB (22 samples)
+  LastAct: 62MB (10 samples)
+  CchAct : 3.4MB (1 samples)
+  CchEmty: 124MB (178 samples)
+  Cached : 247MB (16 samples)
+  Free   : 68MB (16 samples)
+  TOTAL  : 1.6GB
+  ServRst: 559 (6 samples)
+
+          Start time: 2017-05-09 17:47:41
+  Total elapsed time: +51m27s913ms (partial) libart.so
+
+AGGREGATED OVER LAST 24 HOURS:
+System memory usage:
+  SOff/Norm: 3 samples:
+    Cached: 213MB min, 348MB avg, 472MB max
+    Free: 14MB min, 51MB avg, 82MB max
+    ZRam: 0.00 min, 0.00 avg, 0.00 max
+    Kernel: 239MB min, 248MB avg, 262MB max
+    Native: 92MB min, 96MB avg, 100MB max
+       Mod : 1 samples:
+    Cached: 335MB min, 335MB avg, 335MB max
+    Free: 114MB min, 114MB avg, 114MB max
+    ZRam: 0.00 min, 0.00 avg, 0.00 max
+    Kernel: 245MB min, 245MB avg, 245MB max
+    Native: 99MB min, 99MB avg, 99MB max
+  SOn /Norm: 7 samples:
+    Cached: 253MB min, 330MB avg, 490MB max
+    Free: 34MB min, 63MB avg, 103MB max
+    ZRam: 0.00 min, 0.00 avg, 0.00 max
+    Kernel: 244MB min, 260MB avg, 267MB max
+    Native: 86MB min, 98MB avg, 106MB max
+       Mod : 2 samples:
+    Cached: 240MB min, 286MB avg, 332MB max
+    Free: 70MB min, 72MB avg, 73MB max
+    ZRam: 0.00 min, 0.00 avg, 0.00 max
+    Kernel: 258MB min, 259MB avg, 261MB max
+    Native: 89MB min, 103MB avg, 116MB max
+
+Per-Package Stats:
+  * com.honganjk.ynybzbizfood / u0a325 / v118:
+      * com.honganjk.ynybzbizfood / u0a325 / v118:
+               TOTAL: 2.5% (50MB-63MB-79MB/45MB-58MB-74MB over 7)
+                 Top: 2.5% (50MB-63MB-79MB/45MB-58MB-74MB over 7)
+          (Last Act): 0.03%
+            (Cached): 0.65% (26MB-26MB-26MB/23MB-23MB-23MB over 1)
+      * com.honganjk.ynybzbizfood:xg_service_v3 / u0a325 / v118:
+               TOTAL: 2.6% (34MB-35MB-37MB/32MB-33MB-34MB over 8)
+              Imp Fg: 2.5% (34MB-35MB-37MB/32MB-33MB-34MB over 8)
+             Service: 0.07%
+          Service Rs: 0.01%
+      * com.honganjk.ynybzbizfood:remote / u0a325 / v118:
+               TOTAL: 0.07%
+                 Top: 0.02%
+              Imp Fg: 0.05%
+            (Cached): 0.01%
+      * com.baidu.location.f:
+        Process: com.honganjk.ynybzbizfood:remote
+            Running count 13 / time 0.14%
+              Bound count 13 / time 0.14%
+          Executing count 26 / time 0.10%
+      * com.tencent.android.tpush.service.XGPushServiceV3:
+        Process: com.honganjk.ynybzbizfood:xg_service_v3
+            Running count 26 / time 52%
+            Started count 23 / time 52%
+          Executing count 55 / time 0.10%
+      * com.tencent.android.tpush.service.XGDaemonService:
+        Process: com.honganjk.ynybzbizfood:xg_service_v3
+            Running count 7 / time 0.00%
+            Started count 7 / time 0.00%
+          Executing count 7 / time 0.00%
+  * com.honganjk.ynybzbizfood / u0a325 / v119:
+      * com.honganjk.ynybzbizfood / u0a325 / v119:
+               TOTAL: 30% (40MB-56MB-83MB/36MB-51MB-74MB over 71)
+                 Top: 24% (40MB-57MB-83MB/36MB-52MB-74MB over 59)
+              Imp Fg: 0.01%
+             Service: 6.1% (53MB-54MB-56MB/45MB-46MB-48MB over 12)
+            Receiver: 0.01%
+          (Last Act): 0.76% (43MB-43MB-43MB/39MB-39MB-39MB over 1)
+            (Cached): 3.2% (26MB-37MB-43MB/23MB-34MB-39MB over 6)
+      * com.honganjk.ynybzbizfood:xg_service_v3 / u0a325 / v119:
+               TOTAL: 11% (36MB-37MB-39MB/30MB-31MB-33MB over 13)
+              Imp Fg: 10% (36MB-37MB-39MB/30MB-31MB-33MB over 13)
+             Service: 0.78%
+          Service Rs: 0.02%
+            Receiver: 0.09%
+      * com.honganjk.ynybzbizfood:remote / u0a325 / v119:
+               TOTAL: 0.39%
+                 Top: 0.12%
+              Imp Fg: 0.26%
+            (Cached): 0.03%
+      * com.baidu.location.f:
+        Process: com.honganjk.ynybzbizfood:remote
+            Running count 35 / time 0.40%
+              Bound count 35 / time 0.39%
+          Executing count 70 / time 0.26%
+      * com.qihoo.util.CommonService:
+        Process: com.honganjk.ynybzbizfood
+            Running count 1 / time 10%
+            Started count 1 / time 10%
+          Executing count 1 / time 0.00%
+      * com.tencent.android.tpush.service.XGPushServiceV3:
+        Process: com.honganjk.ynybzbizfood:xg_service_v3
+            Running count 110 / time 11%
+            Started count 59 / time 11%
+          Executing count 135 / time 0.46%
+      * com.qihoo.ls.SoService:
+        Process: com.honganjk.ynybzbizfood
+            Running count 1 / time 10%
+            Started count 1 / time 10%
+          Executing count 6 / time 0.00%
+      * com.tencent.android.tpush.service.XGDaemonService:
+        Process: com.honganjk.ynybzbizfood:xg_service_v3
+            Running count 2 / time 0.00%
+            Started count 2 / time 0.00%
+          Executing count 2 / time 0.00%
+
+Multi-Package Common Processes:
+  * com.honganjk.ynybzbizfood:remote / u0a325 (4 entries):
+        SOn /Norm/Top    : +40s756ms
+                  ImpFg  : +1m36s245ms
+                  Service: +362ms
+                  CchEmty: +10s996ms
+                  TOTAL  : +2m28s359ms
+
+  * com.honganjk.ynybzbizfood:xg_service_v3 / u0a325 (11 entries):
+        SOff/Norm/ImpFg  : +1h7m16s101ms
+                  Service: +1m53s474ms
+             Mod /ImpFg  : +9s540ms
+        SOn /Norm/ImpFg  : +3h21m32s178ms
+                  Service: +3m40s866ms
+                  ServRst: +7s106ms
+                  Receivr: +24s180ms
+                  CchEmty: +201ms
+             Mod /ImpFg  : +1m32s522ms
+                  Service: +1s43ms
+                  ServRst: +237ms
+                  TOTAL  : +4h36m37s448ms
+        PSS/USS (3 entries):
+          SOff/Norm/ImpFg  : 23 samples 30MB 32MB 38MB / 27MB 29MB 34MB
+          SOn /Norm/ImpFg  : 70 samples 29MB 34MB 39MB / 27MB 31MB 34MB
+               Mod /ImpFg  : 1 samples 32MB 32MB 32MB / 29MB 29MB 29MB
+
+  * com.honganjk.ynybzbizfood / u0a325 (17 entries):
+        SOff/Norm/ImpFg  : +4s136ms
+                  Service: +4m5s699ms
+                  CchAct : +1h4m59s740ms
+             Mod /Service: +1s901ms
+                  CchAct : +7s639ms
+        SOn /Norm/Top    : +2h10m30s755ms
+                  ImpFg  : +6s616ms
+                  Service: +24m0s322ms
+                  Receivr: +1s967ms
+                  LastAct: +59m32s505ms
+                  CchAct : +1h32m37s767ms
+                  CchEmty: +4m55s338ms
+             Mod /Top    : +812ms
+                  ImpFg  : +757ms
+                  Service: +21s729ms
+                  CchAct : +1m10s666ms
+                  CchEmty: +12s657ms
+                  TOTAL  : +6h22m51s6ms
+        PSS/USS (10 entries):
+          SOff/Norm/Service: 1 samples 55MB 55MB 55MB / 46MB 46MB 46MB
+                    CchAct : 21 samples 48MB 50MB 52MB / 44MB 46MB 48MB
+          SOn /Norm/Top    : 77 samples 40MB 58MB 83MB / 36MB 53MB 74MB
+                    Service: 10 samples 53MB 54MB 56MB / 45MB 46MB 48MB
+                    LastAct: 21 samples 43MB 48MB 51MB / 39MB 43MB 46MB
+                    CchAct : 34 samples 43MB 51MB 55MB / 39MB 47MB 51MB
+                    CchEmty: 2 samples 26MB 26MB 26MB / 23MB 23MB 23MB
+               Mod /Service: 1 samples 55MB 55MB 55MB / 47MB 47MB 47MB
+                    CchAct : 2 samples 51MB 52MB 54MB / 47MB 49MB 50MB
+                    CchEmty: 1 samples 26MB 26MB 26MB / 23MB 23MB 23MB
+
+Summary:
+  * com.honganjk.ynybzbizfood:xg_service_v3 / u0a325 / v119:
+           TOTAL: 63% (29MB-33MB-39MB/27MB-30MB-34MB over 94)
+          Imp Fg: 61% (29MB-33MB-39MB/27MB-30MB-34MB over 94)
+         Service: 1.3%
+      Service Rs: 0.03%
+        Receiver: 0.09%
+  * com.honganjk.ynybzbizfood / u0a325 / v119:
+           TOTAL: 36% (40MB-57MB-83MB/36MB-52MB-74MB over 89)
+             Top: 30% (40MB-58MB-83MB/36MB-53MB-74MB over 77)
+          Imp Fg: 0.04%
+         Service: 6.5% (53MB-54MB-56MB/45MB-46MB-48MB over 12)
+        Receiver: 0.01%
+      (Last Act): 13% (43MB-48MB-51MB/39MB-43MB-46MB over 21)
+        (Cached): 37% (26MB-49MB-55MB/23MB-45MB-51MB over 60)
+  * com.honganjk.ynybzbizfood:remote / u0a325 / v119:
+           TOTAL: 0.52%
+             Top: 0.15%
+          Imp Fg: 0.36%
+        (Cached): 0.04%
+
+Run time Stats:
+  SOff/Norm: +1h11m16s218ms
+       Mod : +12s361ms
+  SOn /Norm: +6h8m15s403ms
+       Mod : +1m49s134ms
+      TOTAL: +7h21m33s116ms
+
+Memory usage:
+  Kernel : 258MB (88 samples)
+  Native : 97MB (88 samples)
+  Persist: 190MB (752 samples)
+  Top    : 48MB (859 samples)
+  ImpFg  : 228MB (1932 samples)
+  ImpBg  : 24MB (176 samples)
+  Service: 224MB (3268 samples)
+  Receivr: 81KB (1647 samples)
+  Home   : 20MB (122 samples)
+  LastAct: 30MB (202 samples)
+  CchAct : 38MB (231 samples)
+  CchEmty: 122MB (1438 samples)
+  Cached : 333MB (88 samples)
+  Free   : 61MB (88 samples)
+  TOTAL  : 1.6GB
+  ServRst: 12KB (1035 samples)
+
+          Start time: 2017-05-08 16:02:01
+  Total elapsed time: +1d2h37m8s133ms (partial) libart.so
+
+AGGREGATED OVER LAST 3 HOURS:
+System memory usage:
+  SOff/Norm: 1 samples:
+    Cached: 358MB min, 358MB avg, 358MB max
+    Free: 14MB min, 14MB avg, 14MB max
+    ZRam: 0.00 min, 0.00 avg, 0.00 max
+    Kernel: 244MB min, 244MB avg, 244MB max
+    Native: 92MB min, 92MB avg, 92MB max
+  SOn /Norm: 2 samples:
+    Cached: 253MB min, 304MB avg, 354MB max
+    Free: 67MB min, 72MB avg, 76MB max
+    ZRam: 0.00 min, 0.00 avg, 0.00 max
+    Kernel: 260MB min, 264MB avg, 267MB max
+    Native: 86MB min, 87MB avg, 89MB max
+       Mod : 1 samples:
+    Cached: 240MB min, 240MB avg, 240MB max
+    Free: 70MB min, 70MB avg, 70MB max
+    ZRam: 0.00 min, 0.00 avg, 0.00 max
+    Kernel: 261MB min, 261MB avg, 261MB max
+    Native: 89MB min, 89MB avg, 89MB max
+
+Per-Package Stats:
+  * com.honganjk.ynybzbizfood / u0a325 / v118:
+      * com.honganjk.ynybzbizfood / u0a325 / v118:
+               TOTAL: 6.6% (50MB-63MB-79MB/45MB-58MB-74MB over 7)
+                 Top: 6.5% (50MB-63MB-79MB/45MB-58MB-74MB over 7)
+              Imp Fg: 0.01%
+             Service: 0.01%
+          (Last Act): 0.07%
+            (Cached): 1.7% (26MB-26MB-26MB/23MB-23MB-23MB over 1)
+      * com.honganjk.ynybzbizfood:xg_service_v3 / u0a325 / v118:
+               TOTAL: 6.7% (34MB-35MB-37MB/32MB-33MB-34MB over 8)
+              Imp Fg: 6.5% (34MB-35MB-37MB/32MB-33MB-34MB over 8)
+             Service: 0.18%
+          Service Rs: 0.02%
+      * com.honganjk.ynybzbizfood:remote / u0a325 / v118:
+               TOTAL: 0.18%
+                 Top: 0.04%
+              Imp Fg: 0.14%
+            (Cached): 0.01%
+      * com.baidu.location.f:
+        Process: com.honganjk.ynybzbizfood:remote
+            Running count 7 / time 0.19%
+              Bound count 7 / time 0.19%
+          Executing count 14 / time 0.14%
+      * com.tencent.android.tpush.service.XGPushServiceV3:
+        Process: com.honganjk.ynybzbizfood:xg_service_v3
+            Running count 16 / time 6.7%
+            Started count 13 / time 6.7%
+          Executing count 29 / time 0.15%
+      * com.tencent.android.tpush.service.XGDaemonService:
+        Process: com.honganjk.ynybzbizfood:xg_service_v3
+            Running count 3 / time 0.00%
+            Started count 3 / time 0.00%
+          Executing count 3 / time 0.00%
+  * com.honganjk.ynybzbizfood / u0a325 / v119:
+      * com.honganjk.ynybzbizfood / u0a325 / v119:
+               TOTAL: 78% (40MB-56MB-83MB/36MB-51MB-74MB over 71)
+                 Top: 63% (40MB-57MB-83MB/36MB-52MB-74MB over 59)
+              Imp Fg: 0.04%
+             Service: 16% (53MB-54MB-56MB/45MB-46MB-48MB over 12)
+            Receiver: 0.01%
+          (Last Act): 2.0% (43MB-43MB-43MB/39MB-39MB-39MB over 1)
+            (Cached): 8.2% (26MB-37MB-43MB/23MB-34MB-39MB over 6)
+      * com.honganjk.ynybzbizfood:xg_service_v3 / u0a325 / v119:
+               TOTAL: 28% (36MB-37MB-39MB/30MB-31MB-33MB over 13)
+              Imp Fg: 26% (36MB-37MB-39MB/30MB-31MB-33MB over 13)
+             Service: 2.0%
+          Service Rs: 0.05%
+            Receiver: 0.23%
+      * com.honganjk.ynybzbizfood:remote / u0a325 / v119:
+               TOTAL: 0.99%
+                 Top: 0.32%
+              Imp Fg: 0.67%
+            (Cached): 0.08%
+      * com.baidu.location.f:
+        Process: com.honganjk.ynybzbizfood:remote
+            Running count 35 / time 1.0%
+              Bound count 35 / time 1.0%
+          Executing count 70 / time 0.68%
+      * com.qihoo.util.CommonService:
+        Process: com.honganjk.ynybzbizfood
+            Running count 1 / time 26%
+            Started count 1 / time 26%
+          Executing count 1 / time 0.00%
+      * com.tencent.android.tpush.service.XGPushServiceV3:
+        Process: com.honganjk.ynybzbizfood:xg_service_v3
+            Running count 110 / time 28%
+            Started count 59 / time 28%
+          Executing count 135 / time 1.2%
+      * com.qihoo.ls.SoService:
+        Process: com.honganjk.ynybzbizfood
+            Running count 1 / time 26%
+            Started count 1 / time 26%
+          Executing count 6 / time 0.00%
+      * com.tencent.android.tpush.service.XGDaemonService:
+        Process: com.honganjk.ynybzbizfood:xg_service_v3
+            Running count 2 / time 0.00%
+            Started count 2 / time 0.00%
+          Executing count 2 / time 0.00%
+
+Multi-Package Common Processes:
+  * com.honganjk.ynybzbizfood:remote / u0a325 (4 entries):
+        SOn /Norm/Top    : +37s304ms
+                  ImpFg  : +1m23s322ms
+                  Service: +324ms
+                  CchEmty: +9s450ms
+                  TOTAL  : +2m10s400ms
+
+  * com.honganjk.ynybzbizfood:xg_service_v3 / u0a325 (11 entries):
+        SOff/Norm/ImpFg  : +2m21s611ms
+                  Service: +16s513ms
+             Mod /ImpFg  : +1s901ms
+        SOn /Norm/ImpFg  : +53m1s987ms
+                  Service: +3m26s954ms
+                  ServRst: +6s370ms
+                  Receivr: +24s180ms
+                  CchEmty: +201ms
+             Mod /ImpFg  : +21s301ms
+                  Service: +909ms
+                  ServRst: +237ms
+                  TOTAL  : +1h0m2s164ms
+        PSS/USS (2 entries):
+          SOff/Norm/ImpFg  : 1 samples 38MB 38MB 38MB / 31MB 31MB 31MB
+          SOn /Norm/ImpFg  : 20 samples 34MB 36MB 39MB / 30MB 32MB 34MB
+
+  * com.honganjk.ynybzbizfood / u0a325 (14 entries):
+        SOff/Norm/ImpFg  : +347ms
+                  Service: +2m37s777ms
+             Mod /Service: +1s901ms
+        SOn /Norm/Top    : +1h58m31s206ms
+                  ImpFg  : +4s575ms
+                  Service: +23m57s473ms
+                  Receivr: +1s926ms
+                  LastAct: +3m29s388ms
+                  CchAct : +12m15s221ms
+                  CchEmty: +4m32s761ms
+             Mod /Top    : +812ms
+                  ImpFg  : +177ms
+                  Service: +21s620ms
+                  CchEmty: +12s657ms
+                  TOTAL  : +2h46m7s841ms
+        PSS/USS (8 entries):
+          SOff/Norm/Service: 1 samples 55MB 55MB 55MB / 46MB 46MB 46MB
+          SOn /Norm/Top    : 66 samples 40MB 57MB 83MB / 36MB 53MB 74MB
+                    Service: 10 samples 53MB 54MB 56MB / 45MB 46MB 48MB
+                    LastAct: 1 samples 43MB 43MB 43MB / 39MB 39MB 39MB
+                    CchAct : 4 samples 43MB 43MB 43MB / 39MB 39MB 39MB
+                    CchEmty: 2 samples 26MB 26MB 26MB / 23MB 23MB 23MB
+               Mod /Service: 1 samples 55MB 55MB 55MB / 47MB 47MB 47MB
+                    CchEmty: 1 samples 26MB 26MB 26MB / 23MB 23MB 23MB
+
+Summary:
+  * com.honganjk.ynybzbizfood / u0a325 / v119:
+           TOTAL: 85% (40MB-57MB-83MB/36MB-52MB-74MB over 78)
+             Top: 69% (40MB-57MB-83MB/36MB-53MB-74MB over 66)
+          Imp Fg: 0.05%
+         Service: 16% (53MB-54MB-56MB/45MB-46MB-48MB over 12)
+        Receiver: 0.02%
+      (Last Act): 2.0% (43MB-43MB-43MB/39MB-39MB-39MB over 1)
+        (Cached): 9.9% (26MB-36MB-43MB/23MB-32MB-39MB over 7)
+  * com.honganjk.ynybzbizfood:xg_service_v3 / u0a325 / v119:
+           TOTAL: 35% (34MB-36MB-39MB/30MB-32MB-34MB over 21)
+          Imp Fg: 33% (34MB-36MB-39MB/30MB-32MB-34MB over 21)
+         Service: 2.2%
+      Service Rs: 0.06%
+        Receiver: 0.23%
+  * com.honganjk.ynybzbizfood:remote / u0a325 / v119:
+           TOTAL: 1.2%
+             Top: 0.36%
+          Imp Fg: 0.81%
+        (Cached): 0.09%
+
+Run time Stats:
+  SOff/Norm: +2m38s124ms
+       Mod : +1s901ms
+  SOn /Norm: +2h48m12s125ms
+       Mod : +37s676ms
+      TOTAL: +2h51m29s826ms
+
+Memory usage:
+  Kernel : 258MB (32 samples)
+  Native : 89MB (32 samples)
+  Persist: 187MB (402 samples)
+  Top    : 53MB (360 samples)
+  ImpFg  : 229MB (1014 samples)
+  ImpBg  : 23MB (95 samples)
+  Service: 255MB (1244 samples)
+  Receivr: 151KB (527 samples)
+  Home   : 27MB (58 samples)
+  LastAct: 28MB (123 samples)
+  CchAct : 3.1MB (56 samples)
+  CchEmty: 131MB (652 samples)
+  Cached : 301MB (32 samples)
+  Free   : 57MB (32 samples)
+  TOTAL  : 1.6GB
+  ServRst: 27KB (238 samples)
+
+          Start time: 2017-05-09 14:20:00
+  Total elapsed time: +4h19m8s915ms (partial) libart.so

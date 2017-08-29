@@ -1,0 +1,39 @@
+Applications Memory Usage (kB):
+Uptime: 395255227 Realtime: 680226835
+
+** MEMINFO in pid 12728 [com.honganjk.ynybzbizfood] **
+                   Pss  Private  Private  Swapped     Heap     Heap     Heap
+                 Total    Dirty    Clean    Dirty     Size    Alloc     Free
+                ------   ------   ------   ------   ------   ------   ------
+  Native Heap     4676     4644        0        0     6356     5737      618
+  Dalvik Heap    11364    11328        0        0    15643     8109     7534
+ Dalvik Other    15672    15672        0        0                           
+        Stack      552      552        0        0                           
+      Gfx dev     2550     2444        0        0                           
+    Other dev       12        0       12        0                           
+     .so mmap     2374      444      560        0                           
+    .apk mmap      710        0       56        0                           
+    .ttf mmap      138        0       76        0                           
+    .dex mmap      207        0       76        0                           
+    .oat mmap     2036        0      624        0                           
+    .art mmap     2438     1184      828        0                           
+   Other mmap       29        4        0        0                           
+   EGL mtrack     6120     6120        0        0                           
+      Unknown      248      248        0        0                           
+        TOTAL    49126    42640     2232        0    21999    13846     8152
+ 
+ Objects
+               Views:       53         ViewRootImpl:        1
+         AppContexts:        3           Activities:        1
+              Assets:        4        AssetManagers:        4
+       Local Binders:       22        Proxy Binders:       21
+       Parcel memory:       12         Parcel count:       50
+    Death Recipients:        1      OpenSSL Sockets:        0
+ 
+ SQL
+         MEMORY_USED:       93
+  PAGECACHE_OVERFLOW:       16          MALLOC_SIZE:       62
+ 
+ DATABASES
+      pgsz     dbsz   Lookaside(b)          cache  Dbname
+         4       20             49         6/29/3  /data/data/com.honganjk.ynybzbizfood/databases/养你一辈子-客户版

@@ -1,0 +1,55 @@
+TASK com.honganjk.ynybzbizfood id=1363
+  ACTIVITY com.honganjk.ynybzbizfood/.view.home.activity.MainHomeActivity 37ac56db pid=31030
+    Local FragmentActivity 25cd4d2d State:
+      mCreated=truemResumed=true mStopped=false mReallyStopped=false
+      mLoadersStarted=true
+    FragmentManager misc state:
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@28ef65c5
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@28ef65c5
+      mCurState=5 mStateSaved=false mDestroyed=false
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{1a4e8b1a V.E..... ... 0,0-540,960}
+        android.widget.LinearLayout{11ef564b V.E..... ... 0,0-540,960}
+          android.view.ViewStub{1834c828 G.E..... ... 0,0-0,0 #102037d}
+          android.widget.FrameLayout{1a659941 V.E..... ... 0,0-540,960}
+            android.support.v7.widget.FitWindowsLinearLayout{3b3a3ee6 V.E..... ... 0,0-540,960 #7f0d0080 app:id/action_bar_root}
+              android.support.v7.widget.ViewStubCompat{2db0c27 G.E..... ... 0,0-0,0 #7f0d0081 app:id/action_mode_bar_stub}
+              android.support.v7.widget.ContentFrameLayout{2223ed4 V.E..... ... 0,0-540,960 #1020002 android:id/content}
+                android.widget.LinearLayout{3b1887d V.E..... ... 0,36-540,960}
+                  com.honganjk.ynybzbizfood.widget.appbarlayout.SupperToolBar{37db6372 V.E..... ... 0,0-540,84 #7f0d000f app:id/toolbar}
+                    android.widget.TextView{3ce243c3 V.ED.... ... 210,25-330,58}
+                    android.support.v7.widget.ActionMenuView{8ce7440 V.E..... ... 468,0-540,84}
+                      android.support.v7.view.menu.ActionMenuItemView{10d32f79 VFED..CL ... 0,6-72,78 #1}
+                  com.honganjk.ynybzbizfood.widget.banner.ConvenientBanner{32f844be V.E..... ... 0,84-540,320 #7f0d00d4 app:id/advertisement}
+                    android.widget.RelativeLayout{19b591f V.E..... ... 0,0-540,236}
+                      com.honganjk.ynybzbizfood.widget.banner.view.CBLoopViewPager{1146946c VFED.... ... 0,0-540,236 #7f0d016a app:id/cbLoopViewPager}
+                        android.widget.ImageView{1b489a10 V.ED..C. ... 19440,0-19980,236 #7f0d000c app:id/switchRoot}
+                        android.widget.ImageView{353aa909 V.ED..C. ... 19980,0-20520,236 #7f0d000c app:id/switchRoot}
+                        android.widget.ImageView{f70e70e V.ED..C. ... 20520,0-21060,236 #7f0d000c app:id/switchRoot}
+                      android.widget.LinearLayout{223e8b58 V.E..... ... 240,209-300,221 #7f0d016b app:id/loPageTurningPoint}
+                        android.widget.ImageView{12654b1 V.ED.... ... 5,1-14,10}
+                        android.widget.ImageView{1d062d96 V.ED.... ... 24,0-36,12}
+                        android.widget.ImageView{15894d17 V.ED.... ... 46,1-55,10}
+                  android.support.v7.widget.AppCompatTextView{37bd0504 V.ED..C. ... 0,320-540,361 #7f0d00ec app:id/store}
+                  com.honganjk.ynybzbizfood.widget.SuperSwipeRefreshLayout{381a8aed V.ED.... ... 0,361-540,924 #7f0d00ed app:id/swipeRefresh}
+                    android.widget.LinearLayout{19ef8d22 V.E..... ... 0,0-540,563}
+                      android.widget.LinearLayout{124ba3b3 V.E..... ... 15,15-525,394 #7f0d00dd app:id/linearLayout}
+                        android.support.v7.widget.AppCompatImageView{25876d70 V.ED.... ... 0,0-225,379}
+                        android.widget.LinearLayout{12a1e8e9 V.E..... ... 240,0-510,379}
+                          android.widget.LinearLayout{111d596e V.E...C. ... 0,0-270,182 #7f0d00ef app:id/yyc}
+                            android.support.v7.widget.AppCompatImageView{13d2c80f V.ED.... ... 38,53-113,128 #7f0d00f0 app:id/image3}
+                            android.widget.LinearLayout{344df09c V.E..... ... 128,22-232,160}
+                              android.support.v7.widget.AppCompatTextView{39272aa5 V.ED.... ... 0,0-90,41 #7f0d00f1 app:id/text3}
+                              android.support.v7.widget.AppCompatTextView{25499e7a V.ED.... ... 0,49-104,138}
+                          android.widget.LinearLayout{1afdd62b V.E...C. ... 0,197-270,379 #7f0d00f2 app:id/lrph}
+                            android.support.v7.widget.AppCompatImageView{25977a88 V.ED.... ... 18,64-93,117 #7f0d00f3 app:id/image2}
+                            android.widget.LinearLayout{3604cc21 V.E..... ... 108,36-252,146}
+                              android.support.v7.widget.AppCompatTextView{38c32846 V.ED.... ... 0,0-120,41 #7f0d00f4 app:id/text2}
+                              android.support.v7.widget.AppCompatTextView{d81aa07 V.ED.... ... 0,49-144,110}
+                      android.widget.LinearLayout{a6db734 V.E...C. ... 15,409-525,555 #7f0d00f5 app:id/bottomView}
+                        android.support.v7.widget.AppCompatImageView{4c1095d V.ED.... ... 99,35-174,110 #7f0d00ee app:id/image1}
+                        android.widget.LinearLayout{31f982d2 V.E..... ... 189,32-411,114}
+                          android.support.v7.widget.AppCompatTextView{d84dfa3 V.ED.... ... 0,0-120,41 #7f0d00f6 app:id/text1}
+                          android.support.v7.widget.AppCompatTextView{18c912a0 V.ED.... ... 0,49-222,82}
+                    android.support.v4.widget.CircleImageView{1909de59 G.ED.... ... 240,-60-300,0}
+        android.view.View{3cc8fa1e V.ED.... ... 0,0-540,38}
