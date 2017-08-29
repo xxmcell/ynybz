@@ -7,7 +7,7 @@ import com.honganjk.ynybzbizfood.utils.ui.SnackbarUtil;
 import java.util.Stack;
 
 
-public class ActivityManager { //啊
+public class ActivityManager {
     private static Stack<Activity> activityStack;
     private static ActivityManager instance;
 
