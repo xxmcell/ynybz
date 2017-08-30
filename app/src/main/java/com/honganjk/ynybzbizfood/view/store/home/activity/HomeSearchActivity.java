@@ -52,13 +52,6 @@ public class HomeSearchActivity extends AppCompatActivity {
         activity.startActivity(intent);
     }
 
-    private String mNames[] = {
-            "welcome", "android", "TextView",
-            "apple", "jamy", "kobe bryant",
-            "jordan", "layout", "viewgroup",
-            "margin", "padding", "text",
-            "name", "type", "search", "logcat"
-    };
 
     List historyList = new ArrayList();
 
@@ -135,8 +128,10 @@ public class HomeSearchActivity extends AppCompatActivity {
             case R.id.et_search:
                 break;
             case R.id.cancel:
+               finish();
                 break;
             case R.id.im_deletehistory:
+
                 break;
         }
     }
