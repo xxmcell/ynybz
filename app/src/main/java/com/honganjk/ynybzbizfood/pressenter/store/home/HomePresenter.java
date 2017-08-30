@@ -78,7 +78,6 @@ public class HomePresenter extends BasePresenter<IHomeParentInterfaces.IHomeInte
                 HttpRequest.executePostStore(httpCallBack, "/ticket/bjps.json", param);
             }
         };
-
     }
 
 
@@ -109,8 +108,6 @@ public class HomePresenter extends BasePresenter<IHomeParentInterfaces.IHomeInte
         new HttpAddTicketHead() {
             @Override
             public void succeed(boolean isSucceed) {
-
-
                 HttpCallBack.Builder buider = new HttpCallBack.Builder()
                         .setSwipeRefreshLayout(mvpView.getSwipeRefreshLayout())
                         .setHttpHead(HeadType.UNREGISTERED_HEAD)
@@ -134,13 +131,10 @@ public class HomePresenter extends BasePresenter<IHomeParentInterfaces.IHomeInte
                 };
                 /**
                  * 获得轮播图片
-                 *
                  * /nurse/activities.action
                  */
                 HttpRequestParam param = new HttpRequestParam();
                 BaseHttpRequest.executePostStore(httpCallBack, "/ticket/homeBanner.json", param);
-
-
             }
         };
     }

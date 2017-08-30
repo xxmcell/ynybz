@@ -95,7 +95,7 @@
     <string name="tv_grade">%s分</string>
     <string name="tv_rank">第%s名</string>
 
-
+    <string name="tv_hoem_search">搜索商品</string>
     <string name="err_business_no_id">未查询到相关商家</string>
     <string name="name">名称</string>
     <string name="number">数量</string>

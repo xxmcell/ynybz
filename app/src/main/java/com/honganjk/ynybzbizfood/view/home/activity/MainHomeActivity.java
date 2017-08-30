@@ -109,7 +109,6 @@ public class MainHomeActivity extends BaseMvpActivity<MainHomeView, MainHomePres
             @Override
             public void onItemClicklistener(View item, int position, BannerData data) {
                 data.transformPage(MainHomeActivity.this);
-
             }
         };
     }
@@ -148,6 +147,7 @@ public class MainHomeActivity extends BaseMvpActivity<MainHomeView, MainHomePres
                             HealthManagerActivity.startUI(MainHomeActivity.this);
                         }
                         break;
+                    //商城
                     case R.id.store:
                         com.honganjk.ynybzbizfood.view.store.home.activity.HomeActivity.startUI(mActivity);
                         break;

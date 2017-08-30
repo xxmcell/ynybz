@@ -43,9 +43,39 @@
                     app:cbHeightScale="7"
                     app:cbWidthScale="16"
                     app:layout_collapseMode="parallax" />
-
-
             </android.support.design.widget.CollapsingToolbarLayout>
+
+
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="28dp"
+                android:paddingRight="28dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                >
+                <LinearLayout
+                    android:background="@drawable/home_search"
+                    android:orientation="horizontal"
+                    android:id="@+id/im_homesearch"
+                    android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_height="32dp" >
+                    <ImageView
+                        android:layout_marginLeft="@dimen/dp_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/home_search"/>
+
+                    <TextView
+                        android:layout_marginLeft="@dimen/dp_12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/bg_search"
+                        android:text="@string/tv_hoem_search"/>
+               </LinearLayout>
+            </RelativeLayout>
 
             <!--悬停的标题-->
             <LinearLayout
