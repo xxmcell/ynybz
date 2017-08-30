@@ -9,7 +9,7 @@
     <color name="main_gray2">#f4f5f7</color>
 
     <color name="main_store">#49B047</color>
-
+    <color name="home_search">#EEEEEE</color>
 
     <color name="pro_red_e8b8cc">#ffe8b8cc</color>
     <color name="pro_blue_52a4d1">#ff52a4d1</color>
@@ -99,5 +99,6 @@
     <color name="bg_gray">#EFEFF4</color>
     <color name="bg_white">#FFFFFF</color>
     <color name="bg_divide">#C8C7CC</color>
+    <color name="bg_search">#999999</color>
     <color name="text_brief">#646464</color>
 </resources>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="14dp"
+        android:gravity="center"
+        android:paddingRight="14dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        >
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:background="@drawable/home_search"
+            android:orientation="horizontal"
+            android:id="@+id/ll_search"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:gravity="center_vertical"
+            android:layout_height="32dp" >
+            <ImageView
+                android:layout_marginLeft="@dimen/dp_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/home_search"/>
+
+            <EditText
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:id="@+id/et_search"
+                android:gravity="center_vertical"
+                android:background="@null"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_333"
+                android:hint="@string/tv_hoem_search"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/cancel"
+            android:gravity="center_horizontal"
+            android:text="取消"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_alignParentLeft="true"
+            android:text="最近搜索"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/im_deletehistory"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:src="@mipmap/delete"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:id="@+id/nothistory"
+        android:visibility="gone"
+        android:text="无搜索历史"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <com.honganjk.ynybzbizfood.view.store.home.ui.XCFlowLayout
+        android:id="@+id/flowlayout"
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </com.honganjk.ynybzbizfood.view.store.home.ui.XCFlowLayout>
+
+</LinearLayout>

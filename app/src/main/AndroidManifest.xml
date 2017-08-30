@@ -55,6 +55,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".view.store.home.activity.HomeSearchActivity"/>
+
 
         <uses-library
             android:name="org.simalliance.openmobileapi"

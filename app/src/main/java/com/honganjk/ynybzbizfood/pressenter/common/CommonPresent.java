@@ -23,7 +23,6 @@ public class CommonPresent<V extends BaseSwipeView> extends BasePresenter<V> {
     /**
      * 获取banner页
      * site	可选,int	所属模块，1-首页；2-订餐业务；3-护理业务
-     *
      * @param type
      */
     public void getAdvertisement(int type) {

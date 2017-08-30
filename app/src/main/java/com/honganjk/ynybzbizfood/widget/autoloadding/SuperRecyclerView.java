@@ -16,7 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Administrator on 2016/4/28.
+ * Created by Administrator on 2016/4/28.   自带刷新,加载更多回调
  */
 public class SuperRecyclerView extends RelativeLayout {
     @BindView(R.id.swipe)

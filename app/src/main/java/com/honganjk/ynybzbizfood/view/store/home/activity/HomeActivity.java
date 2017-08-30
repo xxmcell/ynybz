@@ -6,6 +6,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.honganjk.ynybzbizfood.R;
 import com.honganjk.ynybzbizfood.code.Global;
@@ -45,14 +46,18 @@ public class HomeActivity extends BaseStoreMainActivity<IHomeParentInterfaces.IH
     ArrayList<StoreHomeData.ObjsBean> mDatas = new ArrayList<>();
     StoreHomeAdapter adapter;
 
-    public static void startUI(Activity activity) {
+
+    @BindView(R.id.im_homesearch)  //搜索
+    LinearLayout mysearch;
+
+    public static void startUI(Activity activity) {  //入口
         Intent intent = new Intent(activity, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         activity.startActivity(intent);
     }
 
     @Override
-    public int getContentView() {
+    public int getContentView() {  // TODO: 2017-08-30
         return R.layout.store_activity_home;
     }
 
@@ -75,12 +80,21 @@ public class HomeActivity extends BaseStoreMainActivity<IHomeParentInterfaces.IH
         presenter.getAdvertisement();
         presenter.getData(true);
 
+        mysearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HomeSearchActivity.startUI(mActivity);
+            }
+        });
+
         adapter.setOnItemClickListener(new OnItemClickListener<StoreHomeData.ObjsBean>() {
             @Override
             public void onItemClick(ViewGroup parent, View view, StoreHomeData.ObjsBean data, int position) {
             ProductDetailsActivity.startUI(mActivity,data.getId());
             }
         });
+
+
         //返回
         findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
             @Override

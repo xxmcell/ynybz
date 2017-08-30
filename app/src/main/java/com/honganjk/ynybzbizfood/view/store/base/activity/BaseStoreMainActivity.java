@@ -59,7 +59,7 @@ public abstract class BaseStoreMainActivity<V extends BaseView, T extends BasePr
                 DrawableUtils.getStateSelectDrawable(R.mipmap.ic_store_my_green, R.mipmap.ic_store_my_gray)));
 
 
-        ahBottomNavigation.setDefaultBackgroundColor(getResources().getColor(R.color.white));
+        ahBottomNavigation.setDefaultBackgroundColor(getResources().getColor(R.color.white)); //默认背景
         ahBottomNavigation.setCurrentItem(currentItem(), true);
         ahBottomNavigation.setForceTitlesDisplay(true);
         ahBottomNavigation.setOnTabSelectedListener(this);
