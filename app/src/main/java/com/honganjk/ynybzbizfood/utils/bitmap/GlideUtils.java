@@ -43,7 +43,6 @@ public class GlideUtils {
         //OkHttpClient okHttpClient = (OkHttpClient) HttpManager.getInstance().getRetrofit().callFactory();
         //OkHttpDownLoader okHttpDownloader = new OkHttpDownLoader(okHttpClient);
         Glide.get(application).setMemoryCategory(MemoryCategory.LOW);
-
     }
 
     public static void show(ImageView view, String path, GlideOptions picassoOptions) {
@@ -51,6 +50,7 @@ public class GlideUtils {
         if (picassoOptions.getError() > 0) {
             drawableTypeRequest.error(picassoOptions.getError());
         }
+
         if (picassoOptions.getPlaceholder() > 0) {
             drawableTypeRequest.placeholder(picassoOptions.getPlaceholder());
         }
