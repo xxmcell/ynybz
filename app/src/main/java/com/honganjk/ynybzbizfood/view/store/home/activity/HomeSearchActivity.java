@@ -35,8 +35,10 @@ public class HomeSearchActivity extends AppCompatActivity {
     EditText etSearch;
     @BindView(R.id.ll_search)
     LinearLayout ll_Search;
-    @BindView(R.id.cancel)
-    TextView cancel;
+    @BindView(R.id.tv_seartory)
+    TextView tv_Seartory;
+    @BindView(R.id.im_back)
+    ImageView im_Back;
     @BindView(R.id.im_deletehistory)
     ImageView imDeletehistory;
     @BindView(R.id.nothistory)
@@ -62,8 +64,8 @@ public class HomeSearchActivity extends AppCompatActivity {
         setContentView(R.layout.search_activity);
         ButterKnife.bind(this);
         initview();
-        initChildViews();
     }
+
 
     private void initview() {
         mydao = Mydao.getDao();
@@ -98,6 +100,7 @@ public class HomeSearchActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     //点击展示
                     Toast.makeText(HomeSearchActivity.this, str, Toast.LENGTH_SHORT).show();
+                    //跳转   分类
                 }
             });
             mFlowLayout.addView(view, lp);
@@ -105,6 +108,7 @@ public class HomeSearchActivity extends AppCompatActivity {
     }
 
     public boolean isHaveData() {
+        historyList.clear();
         historyList = mydao.queryhaveData();
         haveData = historyList.size() == 0 || null == historyList ? false : true;
         return haveData;
@@ -122,17 +126,35 @@ public class HomeSearchActivity extends AppCompatActivity {
         initChildViews();
     }
 
-    @OnClick({R.id.et_search, R.id.cancel, R.id.im_deletehistory})
+    private void startSearch(String keyword) {
+        sethistory(keyword);
+        //跳转到分类
+
+    }
+
+    private void sethistory(String keyword) {
+        boolean hasData = mydao.hasData(keyword);
+        if (!hasData){
+            mydao.insertData(keyword);
+        }
+    }
+
+
+    @OnClick({R.id.im_back, R.id.tv_seartory, R.id.im_deletehistory})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.et_search:
+            case R.id.im_back:
+                finish();
                 break;
-            case R.id.cancel:
-               finish();
+            case R.id.tv_seartory://搜索
+                startSearch(etSearch.getText().toString().trim());
                 break;
             case R.id.im_deletehistory:
-
+                mydao.deleteData();
+                historyList.clear();
+                mFlowLayout.removeAllViews();
                 break;
         }
     }
+
 }

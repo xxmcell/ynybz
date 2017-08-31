@@ -34,6 +34,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+import static com.honganjk.ynybzbizfood.R.id.store;
 import static com.honganjk.ynybzbizfood.code.Global.SERVER_PHONE;
 import static com.honganjk.ynybzbizfood.code.base.view.activity.BaseMainActivity.isMess;
 
@@ -95,6 +96,9 @@ public class MainHomeActivity extends BaseMvpActivity<MainHomeView, MainHomePres
         AnimUtils.pressAnimationListener(findViewById(R.id.yyc));
         AnimUtils.pressAnimationListener(findViewById(R.id.lrph));
         AnimUtils.pressAnimationListener(findViewById(R.id.bottomView));
+        // 测试     旅游/商城
+        AnimUtils.pressAnimationListener(findViewById(R.id.tv_travel));
+        AnimUtils.pressAnimationListener(findViewById(R.id.store));
         presenter.getAdvertisement(1);
         presenter.judgeVersion();
     }
@@ -126,7 +130,7 @@ public class MainHomeActivity extends BaseMvpActivity<MainHomeView, MainHomePres
     public void onEmptyClick(ContextData data) {
     }
 
-    @OnClick({R.id.yyc, R.id.lrph, R.id.bottomView, R.id.store})
+    @OnClick({R.id.yyc, R.id.lrph, R.id.bottomView, store,R.id.tv_travel})
     public void onClick(final View view) {
         AnimUtils.pressAnimationListener(view, new AnimUtils.OnClickListenerCallback() {
             @Override
@@ -148,8 +152,12 @@ public class MainHomeActivity extends BaseMvpActivity<MainHomeView, MainHomePres
                         }
                         break;
                     //商城
-                    case R.id.store:
+                    case store:
                         com.honganjk.ynybzbizfood.view.store.home.activity.HomeActivity.startUI(mActivity);
+                        break;
+                    //旅游
+                    case R.id.tv_travel:
+
                         break;
                 }
             }

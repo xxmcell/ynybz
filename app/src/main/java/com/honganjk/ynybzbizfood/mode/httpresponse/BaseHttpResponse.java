@@ -36,9 +36,7 @@ public class BaseHttpResponse {
     }
 
     /**
-     * **
      * 创建时间: 2016/9/2 11:05
-     * <p>
      * 方法功能：返回成功  0
      */
 
@@ -49,7 +47,6 @@ public class BaseHttpResponse {
 
     /**
      * 获取状态码对应的提示语
-     *
      * @return
      */
     public String getStatusCodeMsg() {

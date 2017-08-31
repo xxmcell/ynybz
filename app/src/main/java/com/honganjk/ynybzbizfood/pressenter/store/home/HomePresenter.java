@@ -45,7 +45,7 @@ public class HomePresenter extends BasePresenter<IHomeParentInterfaces.IHomeInte
      * brand	可选,int	品牌，由接口4动态获取
      * sort	可选,int	排序方案，1-价格升序；2-价格降序；3-销量降序（首页推荐用此）
      */
-    public void getData(final boolean isFist) {
+    public void getData(final boolean isFist) {       //展示数据
         if (isFist) {
             mvpView.clearPagingData();
         }
@@ -103,8 +103,7 @@ public class HomePresenter extends BasePresenter<IHomeParentInterfaces.IHomeInte
      * 参数说明 (默认字符串类型)
      * 无
      */
-    public void getAdvertisement() {
-
+    public void getAdvertisement() {            //轮播数据
         new HttpAddTicketHead() {
             @Override
             public void succeed(boolean isSucceed) {
@@ -114,7 +113,6 @@ public class HomePresenter extends BasePresenter<IHomeParentInterfaces.IHomeInte
                         .setShowLoadding(false);
 
                 HttpCallBack httpCallBack = new HttpCallBack<HttpResult<List<String>>>(buider) {
-
                     @Override
                     public void onSuccess(HttpResult<List<String>> result) {
                         super.onSuccess(result);

@@ -65,8 +65,6 @@ public abstract class BaseStoreMainActivity<V extends BaseView, T extends BasePr
         ahBottomNavigation.setOnTabSelectedListener(this);
         ahBottomNavigation.setBehaviorTranslationEnabled(false);
 //        ahBottomNavigation.setTitleTextSize(25,20);//设置文字的大小，选中时和没有选中时。
-
-
     }
 
 

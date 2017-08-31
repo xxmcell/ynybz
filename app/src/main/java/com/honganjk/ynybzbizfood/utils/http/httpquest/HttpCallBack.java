@@ -79,7 +79,6 @@ public abstract class HttpCallBack<ResultType> {
         } else if (loadingAndRetryManager != null) {
             loadingAndRetryManager.showLoading(null);
         }
-
     }
 
     /**
@@ -103,7 +102,6 @@ public abstract class HttpCallBack<ResultType> {
         }
         if (swipeRefreshLayout != null && swipeRefreshLayout.isRefreshing()) {
             swipeRefreshLayout.setRefreshing(false);
-
         }
     }
 

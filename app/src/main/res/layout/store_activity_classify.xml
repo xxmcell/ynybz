@@ -6,31 +6,71 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/rl"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<com.honganjk.ynybzbizfood.widget.appbarlayout.SupperToolBar xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:id="@+id/toolbar"-->
+            <!--style="@style/ToolbarB"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content" />-->
+
+        <!--<android.support.v7.widget.SearchView-->
+            <!--android:id="@+id/searchView"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/dp_35"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="@dimen/dp_50"-->
+            <!--android:layout_marginRight="@dimen/dp_40"-->
+            <!--android:background="@color/gray_ee"-->
+            <!--app:defaultQueryHint="保健品">-->
+        <!--</android.support.v7.widget.SearchView>-->
+    <!--</RelativeLayout>-->
+
+
+    <LinearLayout
         android:id="@+id/rl"
+        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        >
 
+        <ImageView
+        android:id="@+id/im_classifyback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/back_i"/>
 
-        <com.honganjk.ynybzbizfood.widget.appbarlayout.SupperToolBar xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/toolbar"
-            style="@style/ToolbarB"
+        <LinearLayout
+            android:background="@drawable/home_search"
+            android:orientation="horizontal"
+            android:id="@+id/ll_search"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:layout_marginRight="@dimen/dp_14"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:gravity="center_vertical"
+            android:layout_height="32dp" >
+            <ImageView
+                android:layout_marginLeft="@dimen/dp_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/home_search"/>
 
-
-        <android.support.v7.widget.SearchView
-            android:id="@+id/searchView"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_35"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dp_50"
-            android:layout_marginRight="@dimen/dp_40"
-            android:background="@color/gray_ee"
-            app:defaultQueryHint="保健品">
-
-        </android.support.v7.widget.SearchView>
-    </RelativeLayout>
+            <TextView
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/bg_search"
+                android:text="@string/tv_hoem_search"/>
+        </LinearLayout>
+    </LinearLayout>
 
 
     <LinearLayout

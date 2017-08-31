@@ -42,7 +42,7 @@ public class Mydao {
     /*插入数据*/
     public void insertData(String tempName) {
         db = helper.getWritableDatabase();
-        db.execSQL("insert OR IGNORE into records(name) values('" + tempName + "')");
+        db.execSQL("insert OR IGNORE into history(name) values('" + tempName + "')");
         db.close();
     }
 
@@ -51,7 +51,7 @@ public class Mydao {
     public Cursor queryData(String tempName, ListView listView) {
         //模糊搜索
         Cursor cursor = helper.getReadableDatabase().rawQuery(
-                "select id as _id,name from records where name like '%" + tempName + "%' order by id desc ", null);
+                "select id as _id,name from history where name like '%" + tempName + "%' order by id desc ", null);
         // 创建adapter适配器对象,装入模糊搜索的结果
 //        adapter = new SimpleCursorAdapter(context, android.R.layout.simple_list_item_1, cursor, new String[]{"name"},
 //                new int[]{android.R.id.text1}, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
@@ -67,16 +67,16 @@ public class Mydao {
     public boolean hasData(String tempName) {
         //从Record这个表里找到name=tempName的id
         Cursor cursor = helper.getReadableDatabase().rawQuery(
-                "select id as _id,name from records where name =?", new String[]{tempName});
+                "select id as _id,name from history where name =?", new String[]{tempName});
         //判断是否有下一个
         return cursor.moveToNext();
     }
 
 
     /*清空数据*/
-    private void deleteData() {
+    public void deleteData() {
         db = helper.getWritableDatabase();
-        db.execSQL("delete from records");
+        db.execSQL("delete from history");
         db.close();
     }
 
@@ -85,7 +85,7 @@ public class Mydao {
      * 查询最新历史记录  最多5条
      */
     public ArrayList queryDatafromhistory(int maxItem){                                       //id
-        Cursor cursor = helper.getReadableDatabase().rawQuery("select * from records  order by id desc limit 0,"+maxItem,null);
+        Cursor cursor = helper.getReadableDatabase().rawQuery("select * from history  order by id desc limit 0,"+maxItem,null);
         ArrayList<String> strings=new ArrayList<>();
 
             while (cursor!=null&&cursor.moveToNext()){

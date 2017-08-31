@@ -14,16 +14,24 @@
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
         >
+
+        <ImageView
+            android:id="@+id/im_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/back_i"/>
+
         <LinearLayout
             android:gravity="center_vertical"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content">
-
         <LinearLayout
             android:background="@drawable/home_search"
             android:orientation="horizontal"
             android:id="@+id/ll_search"
             android:layout_weight="1"
+            android:layout_marginLeft="@dimen/dp_12"
             android:layout_width="0dp"
             android:gravity="center_vertical"
             android:layout_height="32dp" >
@@ -46,9 +54,9 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/cancel"
+            android:id="@+id/tv_seartory"
             android:gravity="center_horizontal"
-            android:text="取消"
+            android:text="搜索"
             android:layout_marginLeft="@dimen/dp_12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

@@ -37,11 +37,11 @@ import butterknife.BindView;
 public class HomeActivity extends BaseStoreMainActivity<IHomeParentInterfaces.IHomeInterface, HomePresenter> implements CBViewHolderCreator, IHomeParentInterfaces.IHomeInterface, SuperRecyclerView.ListSwipeViewListener {
 
     @BindView(R.id.advertisement)
-    ConvenientBanner advertisement;
+    ConvenientBanner advertisement;  //轮播工具
     List<BannerData> advertisementDatas = new ArrayList<>();
 
 
-    @BindView(R.id.switchRoot)
+    @BindView(R.id.switchRoot)       //展示商品工具
     SuperRecyclerView switchRoot;
     ArrayList<StoreHomeData.ObjsBean> mDatas = new ArrayList<>();
     StoreHomeAdapter adapter;

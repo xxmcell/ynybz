@@ -5,9 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.honganjk.ynybzbizfood.R;
@@ -15,10 +16,10 @@ import com.honganjk.ynybzbizfood.code.base.baseadapter.recyclerview.click.OnItem
 import com.honganjk.ynybzbizfood.mode.javabean.store.classify.ClassifyRequestBean;
 import com.honganjk.ynybzbizfood.mode.javabean.store.home.StoreHomeData;
 import com.honganjk.ynybzbizfood.pressenter.store.classify.ClassifyPresenter;
-import com.honganjk.ynybzbizfood.utils.ui.ToastUtils;
 import com.honganjk.ynybzbizfood.view.store.base.activity.BaseStoreMainActivity;
 import com.honganjk.ynybzbizfood.view.store.classify.adapter.StoreClassifyAdapter;
 import com.honganjk.ynybzbizfood.view.store.classify.interfaces.IClassifyParentInterfaces;
+import com.honganjk.ynybzbizfood.view.store.home.activity.HomeSearchActivity;
 import com.honganjk.ynybzbizfood.view.store.home.activity.ProductDetailsActivity;
 import com.honganjk.ynybzbizfood.widget.PopupPulldown;
 import com.honganjk.ynybzbizfood.widget.autoloadding.StatusChangListener;
@@ -51,8 +52,13 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
     TextView filtrateBrand;
     @BindView(R.id.filtrateSynthesize)
     TextView filtrateSynthesize;
-    @BindView(R.id.searchView)
-    SearchView searchView;
+//    @BindView(R.id.searchView)
+//    SearchView searchView;
+    @BindView(R.id.ll_search) //搜索框
+    LinearLayout ll_Search;
+    @BindView(R.id.im_classifyback)
+    ImageView im_Classifyback;
+
     ArrayList<PopupPulldown.PullDownData> mFiltrareDatas = new ArrayList<>();
     PopupPulldown pp;
     ClassifyRequestBean requestBean;
@@ -71,13 +77,14 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
     @Override
     public void initView() {
         super.initView();
-        toolbar.setBack(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-        toolbar.setNavigationIcon(R.drawable.material_arrwos_white_green);
+//        toolbar.setBack(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onBackPressed();
+//            }
+//        });
+//        toolbar.setNavigationIcon(R.drawable.material_arrwos_white_green);
+
 
         adapter = new StoreClassifyAdapter(this, mDatas);
         switchRoot.setOnRefreshListener(this);
@@ -89,19 +96,20 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
         pp = new PopupPulldown(mActivity, mFiltrareDatas);
         requestBean = new ClassifyRequestBean();
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                ToastUtils.getToastLong(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                ToastUtils.getToastLong(newText);
-                return false;
-            }
-        });
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+////                ToastUtils.getToastLong(query);
+//                HomeSearchActivity.startUI(mActivity);
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                ToastUtils.getToastLong(newText);
+//                return false;
+//            }
+//        });
         adapter.setOnItemClickListener(new OnItemClickListener<StoreHomeData.ObjsBean>() {
             @Override
             public void onItemClick(ViewGroup parent, View view, StoreHomeData.ObjsBean data, int position) {
@@ -117,6 +125,8 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
     public ClassifyPresenter initPressenter() {
         return new ClassifyPresenter();
     }
+
+
 
     @Override
     public int currentItem() {
@@ -206,7 +216,7 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
     }
 
 
-    @OnClick({R.id.filtrateClassify, R.id.filtrateBrand, R.id.filtrateSynthesize})
+    @OnClick({R.id.filtrateClassify, R.id.filtrateBrand, R.id.filtrateSynthesize,R.id.ll_search,R.id.im_classifyback})
     public void onViewClicked(View view) {
         ArrayList<PopupPulldown.PullDownData> datas = new ArrayList<>();
 
@@ -242,6 +252,12 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
                         reruestData(filtrateSynthesize, content);
                     }
                 });
+                break;
+            case R.id.ll_search:    // TODO: 2017-08-31
+                HomeSearchActivity.startUI(mActivity);
+                break;
+            case R.id.im_classifyback:
+                onBackPressed();
                 break;
             default:
                 if (callback != null) {
