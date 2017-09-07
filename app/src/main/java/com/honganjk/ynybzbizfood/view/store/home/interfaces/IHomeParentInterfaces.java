@@ -23,7 +23,6 @@ public interface IHomeParentInterfaces {
     interface IHomeInterface extends BaseSwipeView, BaseListView {
         /**
          * 获取推荐的数据
-         *
          * @param datas
          */
         void getHttpData(List<StoreHomeData.ObjsBean> datas);
@@ -49,8 +48,6 @@ public interface IHomeParentInterfaces {
          * 添加到购物车
          */
         void addShoppingCar(boolean datas);
-
-
     }
 
     /**
@@ -62,12 +59,25 @@ public interface IHomeParentInterfaces {
          */
         void getDefaultAddress(DefaultAddressData data);
 
-
         /**
          * 下单是否成功
          */
         void placeTheOrderIsSucceed(StoreHomePayData data);
-
-
     }
+
+
+
+
+    /**
+     * :搜索关键字
+     */
+    interface ISearchSubscribe extends BaseView {
+        /**
+         * 获得搜索数据
+         */
+       void getSearchdata(List<StoreHomeData.ObjsBean>  datas);
+    }
+
+
+
 }

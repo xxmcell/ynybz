@@ -55,8 +55,9 @@
             </intent-filter>
         </activity>
 
+        <!--修改中增加-->
         <activity android:name=".view.store.home.activity.HomeSearchActivity"/>
-
+        <activity android:name=".view.store.classify.activity.Store_SearchActivity"/>
 
         <uses-library
             android:name="org.simalliance.openmobileapi"
@@ -212,7 +213,8 @@
             android:value="GlideModule" />
 
         <!--**********************************食堂******************************************* -->
-
+        <!--android:configChanges="orientation|screenSize"  切屏不会重新调用各个生命周期-->
+        <!--android:screenOrientation="portrait"  屏幕的内容始终以竖屏显示，而不会根据屏幕的方向来显示内容-->
         <activity
             android:name=".view.shitang.home.activity.HomeActivity"
             android:configChanges="orientation|screenSize"
@@ -486,6 +488,20 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.OtherTheme" />
 
+
+
+
+        <activity
+            android:name=".view.other.test.MyRRRActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.OtherTheme" />
+.  <activity
+            android:name=".view.other.test.mvp.MvpActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.OtherTheme" />
+.
 
         <!--**********************************公共********************************************* -->
 

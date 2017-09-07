@@ -45,7 +45,6 @@ public class RefundPresenter extends BasePresenter<IRefundParent.IRefund> {
      */
     public void getData(RefundRequestData data) {
 
-
         HttpCallBack.Builder builder = new HttpCallBack.Builder()
                 .setShowLoadding(true)
                 .setHttpHead(HeadType.LOGIN_HEAD);
@@ -67,7 +66,5 @@ public class RefundPresenter extends BasePresenter<IRefundParent.IRefund> {
         param.addParam("reason", data.getReason());
         param.addParam("money", data.getMoney());
         HttpRequest.executePostStore(httpCallBack, "/token/handleOrder.json", param);
-
-
     }
 }

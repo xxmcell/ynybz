@@ -128,7 +128,6 @@ public class HomeActivity extends BaseMainActivity<IHomeParentInterfaces.IHomeIn
                 } else if (state == State.COLLAPSED) {
                     toolBar.setNavigationIcon(R.drawable.material_arrwos_white_left);
                     title.setVisibility(View.VISIBLE);
-
                     //中间状态
                 } else {
 

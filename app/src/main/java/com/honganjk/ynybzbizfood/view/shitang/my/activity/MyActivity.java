@@ -23,7 +23,6 @@ import butterknife.OnClick;
 import static com.honganjk.ynybzbizfood.code.Global.SERVER_PHONE;
 import static com.honganjk.ynybzbizfood.mode.javabean.base.UserInfo.userData;
 
-
 /**
  * 说明:
  * 2017/3/2-18:51
@@ -56,7 +55,6 @@ public class MyActivity extends BaseMainActivity<MyParentInterfaces.IMy, Mypress
             }
         });
         addData();
-
     }
 
     @Override
@@ -87,7 +85,6 @@ public class MyActivity extends BaseMainActivity<MyParentInterfaces.IMy, Mypress
             userName.setText("登录");
             addData();
         }
-
     }
 
     @Override
@@ -113,7 +110,6 @@ public class MyActivity extends BaseMainActivity<MyParentInterfaces.IMy, Mypress
                 //跳转登录界面
                 isLogin(true);
 //                if (isLogin(true)) {
-//
 //                }
 //                LoginActivity.startUI(this);
 
@@ -153,7 +149,6 @@ public class MyActivity extends BaseMainActivity<MyParentInterfaces.IMy, Mypress
         }
     }
 
-
     @Override
     public void clearData() {
 
@@ -170,9 +165,6 @@ public class MyActivity extends BaseMainActivity<MyParentInterfaces.IMy, Mypress
     }
 
     private void addData() {
-
-
-
 
         if (userData.isLogin()) {
             userName.setText(userData.getName());

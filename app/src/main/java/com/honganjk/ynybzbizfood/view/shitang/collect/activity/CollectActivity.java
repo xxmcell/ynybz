@@ -30,7 +30,6 @@ import butterknife.BindView;
 
 import static com.honganjk.ynybzbizfood.mode.javabean.base.UserInfo.userData;
 
-
 /**
  * 说明:食堂-我的收藏
  * 2017/3/2-18:51
@@ -122,9 +121,6 @@ public class CollectActivity extends BaseMainActivity<CollectParentInterfaces.IC
     public void getHttpData(List<BusinessData> datas) {
         mDatas.addAll(datas);
         adapter.notifyDataSetChanged();
-
-
-
     }
 
     @Override

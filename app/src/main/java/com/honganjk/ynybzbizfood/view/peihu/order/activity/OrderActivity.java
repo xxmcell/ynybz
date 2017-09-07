@@ -44,6 +44,7 @@ public class OrderActivity extends BaseMainActivity {
 
     public static void startUI(Activity activity) {
         Intent intent = new Intent(activity, OrderActivity.class);
+        //  如果当前task中包含这个Activity，这个Activity被拉到栈顶，其他Activity的顺序不变，仍在task中
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         activity.startActivity(intent);
     }

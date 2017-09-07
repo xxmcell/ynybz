@@ -39,7 +39,6 @@ public interface MyParentInterfaces {
      */
     interface ISelectAddress extends BaseListView,BaseSwipeView {
         void showAddress(List<AddressBean> list);
-
         void isDeleAddress(boolean bool);
     }
 

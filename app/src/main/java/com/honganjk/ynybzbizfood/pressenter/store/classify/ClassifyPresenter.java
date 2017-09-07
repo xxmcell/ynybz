@@ -57,7 +57,6 @@ public class ClassifyPresenter extends CommonPresent<IClassifyParentInterfaces.I
         new HttpAddTicketHead() {
             @Override
             public void succeed(boolean isSucceed) {
-
                 HttpCallBack.Builder builder = new HttpCallBack.Builder()
                         .setShowLoadding(true)
                         .setLoadingStatus(mvpView)
@@ -90,7 +89,6 @@ public class ClassifyPresenter extends CommonPresent<IClassifyParentInterfaces.I
                 HttpRequest.executePostStore(httpCallBack, "/ticket/bjps.json", param);
             }
         };
-
     }
 
     /**
@@ -117,11 +115,9 @@ public class ClassifyPresenter extends CommonPresent<IClassifyParentInterfaces.I
      * 返回说明
      */
     public void filtrateClassify() {
-
         new HttpAddTicketHead() {
             @Override
             public void succeed(boolean isSucceed) {
-
                 HttpCallBack.Builder builder = new HttpCallBack.Builder()
                         .setShowLoadding(true)
                         .setLoadingStatus(mvpView)
@@ -135,14 +131,11 @@ public class ClassifyPresenter extends CommonPresent<IClassifyParentInterfaces.I
                             mvpView.filtrateClassify(getPullDownListData(result.getData(), "所有类别"));
                         }
                     }
-
-
                 };
                 HttpRequestParam param = new HttpRequestParam();
                 HttpRequest.executePostStore(httpCallBack, "/ticket/bjpTypes.json", param);
             }
         };
-
     }
 
     /**
@@ -169,11 +162,9 @@ public class ClassifyPresenter extends CommonPresent<IClassifyParentInterfaces.I
      * 返回说明
      */
     public void filtrateBrand() {
-
         new HttpAddTicketHead() {
             @Override
             public void succeed(boolean isSucceed) {
-
                 HttpCallBack.Builder builder = new HttpCallBack.Builder()
                         .setShowLoadding(true)
                         .setLoadingStatus(mvpView)
@@ -187,15 +178,13 @@ public class ClassifyPresenter extends CommonPresent<IClassifyParentInterfaces.I
                             mvpView.filtrateBrand(getPullDownListData(result.getData(), "所有品牌"));
                         }
                     }
-
-
                 };
                 HttpRequestParam param = new HttpRequestParam();
                 HttpRequest.executePostStore(httpCallBack, "/ticket/bjpBrands.json", param);
             }
         };
-
     }
+
 
 
     /**
@@ -226,8 +215,6 @@ public class ClassifyPresenter extends CommonPresent<IClassifyParentInterfaces.I
         data.add(new PopupPulldown.PullDownData(1, "价格升序"));
         data.add(new PopupPulldown.PullDownData(2, "价格降序"));
         data.add(new PopupPulldown.PullDownData(3, "销量降序"));
-
-
     }
 
     /**
@@ -256,7 +243,6 @@ public class ClassifyPresenter extends CommonPresent<IClassifyParentInterfaces.I
      * 必选，int	数量
      */
     public void addShopingCar(int did, int type, int num) {
-
         HttpCallBack.Builder builder = new HttpCallBack.Builder()
                 .setShowLoadding(true)
                 .setLoadingStatus(mvpView)
@@ -269,11 +255,8 @@ public class ClassifyPresenter extends CommonPresent<IClassifyParentInterfaces.I
                 if (result.isSucceed()) {
                     mvpView.addShoppingCar(true);
                     mvpView.showSnackbar("添加购物车成功", SnackbarUtil.Info, false);
-
                 }
             }
-
-
         };
         HttpRequestParam param = new HttpRequestParam();
         param.addParam("bid", did);
@@ -282,5 +265,88 @@ public class ClassifyPresenter extends CommonPresent<IClassifyParentInterfaces.I
         HttpRequest.executePostStore(httpCallBack, "/token/addCart.json", param);
     }
 
+
+
+    /**
+     *
+     * 搜索数据接口：
+     */
+    public void getSearchData(final String  s) {
+
+        new HttpAddTicketHead() {
+            @Override
+            public void succeed(boolean isSucceed) {
+                HttpCallBack.Builder builder = new HttpCallBack.Builder()
+                        .setShowLoadding(true)
+                        .setLoadingAndRetryManager(mvpView.getLoadingAndRetryManager())
+                        .setHttpHead(HeadType.UNREGISTERED_HEAD);
+
+                HttpCallBack httpCallBack = new HttpCallBack<HttpResult<StoreHomeData>>(builder) {
+                    @Override
+                    public void onSuccess(HttpResult<StoreHomeData> result) {//{"msg":"ok","code":"A00000","data":{"total":0,"objs":[]}}
+                        super.onSuccess(result);
+                        if (result.isSucceed()) {
+                            //返回搜索结果
+//                            mvpView.setSaerchData((ArrayList<StoreHomeData.ObjsBean>) result.getData().getObjs());
+                            mvpView.getHttpData((List<StoreHomeData.ObjsBean>) mvpView.getValidData(result.getData().getObjs()));
+                        }
+                    }
+                };
+
+                HttpRequestParam param = new HttpRequestParam();// TODO: 2017-09-01  .....
+                param.addParam("start","0");
+                param.addParam("size", "20");
+                param.addParam("keyword", s);
+                HttpRequest.executePostStore(httpCallBack, "/ticket/bjps.json", param); //搜索接口
+            }
+        };
+    }
+
+
+    /**
+     *
+     * 搜索数据  刷新结果：/token/addCart.json
+     */
+    public void getSearch_RefreshData(final String  s,final ClassifyRequestBean requestBean) {
+
+        if (requestBean.isFirstRequest()) {
+            mvpView.clearPagingData();
+        }
+
+        new HttpAddTicketHead() {
+            @Override
+            public void succeed(boolean isSucceed) {
+                HttpCallBack.Builder builder = new HttpCallBack.Builder()
+                        .setShowLoadding(true)
+                        .setLoadingStatus(mvpView)
+                        .setHttpHead(HeadType.UNREGISTERED_HEAD);
+
+                HttpCallBack httpCallBack = new HttpCallBack<HttpResult<StoreHomeData>>(builder) {
+                    @Override
+                    public void onSuccess(HttpResult<StoreHomeData> result) {//{"msg":"ok","code":"A00000","data":{"total":0,"objs":[]}}
+                        super.onSuccess(result);
+                        if (result.isSucceed()) {
+                            //返回搜索结果
+//                            mvpView.setSaerchData((ArrayList<StoreHomeData.ObjsBean>) result.getData().getObjs());
+
+
+                            if (result.isSucceed()) {
+                                if (requestBean.isFirstRequest()) {
+                                    mvpView.clearData();
+                                }
+                                mvpView.getHttpData((List<StoreHomeData.ObjsBean>) mvpView.getValidData(result.getData().getObjs()));
+                            }
+                        }
+                    }
+                };
+
+                HttpRequestParam param = new HttpRequestParam();// TODO: 2017-09-01  .....
+                param.addParam("start","0");
+                param.addParam("size", "20");
+                param.addParam("keyword", s);
+                HttpRequest.executePostStore(httpCallBack, "/ticket/bjps.json", param); //搜索接口
+            }
+        };
+    }
 
 }

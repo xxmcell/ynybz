@@ -53,7 +53,10 @@
                             android:layout_height="@dimen/dp_150"
                             android:background="@color/gray_ee"
                             app:cbHeightScale="7"
-                            app:cbWidthScale="16" />
+                            app:cbWidthScale="16"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true" />
 
 
                         <ImageView

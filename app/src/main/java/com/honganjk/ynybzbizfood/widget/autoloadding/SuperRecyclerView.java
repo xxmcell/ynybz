@@ -39,7 +39,6 @@ public class SuperRecyclerView extends RelativeLayout {
         }
     }
 
-
     private void initView() {
         UiUtils.getInflaterView(getContext(), R.layout.base_swipe_recycle, this, true);
         ButterKnife.bind(this, this);
@@ -48,9 +47,7 @@ public class SuperRecyclerView extends RelativeLayout {
          */
         recyclerView.setSwipeRefreshLayout(swipeView);
         UiUtils.setColorSchemeResources(swipeView);
-
     }
-
 
     /**
      * 设置加载更多的回调
@@ -59,7 +56,6 @@ public class SuperRecyclerView extends RelativeLayout {
      */
     public void setOnLoaddingListener(OnLoaddingListener onLoaddingListener) {
         recyclerView.setOnLoaddingListener(onLoaddingListener);
-
     }
 
     /**
@@ -72,7 +68,6 @@ public class SuperRecyclerView extends RelativeLayout {
             swipeView.setOnRefreshListener(listener);
         }
     }
-
 
     /**
      * 设置适配器

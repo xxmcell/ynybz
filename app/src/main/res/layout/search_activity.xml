@@ -54,7 +54,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_seartory"
+            android:id="@+id/tv_search"
             android:gravity="center_horizontal"
             android:text="搜索"
             android:layout_marginLeft="@dimen/dp_12"

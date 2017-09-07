@@ -36,6 +36,7 @@ public class ChongZhiActivity extends BaseListActivity<MyParentInterfaces.IPromo
         context.startActivity(intent);
     }
 
+
     @Override
     public void initView() {
         super.initView();

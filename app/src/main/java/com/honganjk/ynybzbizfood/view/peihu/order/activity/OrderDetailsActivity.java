@@ -119,7 +119,6 @@ public class OrderDetailsActivity extends BaseMvpActivity<OrderParentInterfaces.
     public void parseIntent(Intent intent) {
         mOrderId = intent.getIntExtra("id", mOrderId);
         mType = intent.getIntExtra("type", mType);
-
     }
 
     @Override
@@ -129,8 +128,6 @@ public class OrderDetailsActivity extends BaseMvpActivity<OrderParentInterfaces.
         toolbar.setBack(this);
         toolbar.setTitle("订单详情");
         presenter.getData(mOrderId);
-
-
     }
 
 
@@ -144,7 +141,6 @@ public class OrderDetailsActivity extends BaseMvpActivity<OrderParentInterfaces.
         GlideUtils.setImageBitmapRound(picture, data.gettImg(), 2);
         projectName.setText(data.getTitle());
         number.setText(data.getNumStr());
-
         serviceName.setText(data.getNurse());
 
         /**

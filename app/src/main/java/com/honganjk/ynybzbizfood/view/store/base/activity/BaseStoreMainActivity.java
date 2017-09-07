@@ -67,10 +67,8 @@ public abstract class BaseStoreMainActivity<V extends BaseView, T extends BasePr
 //        ahBottomNavigation.setTitleTextSize(25,20);//设置文字的大小，选中时和没有选中时。
     }
 
-
     @Override
     public void parseIntent(Intent intent) {
-
     }
 
     @Override

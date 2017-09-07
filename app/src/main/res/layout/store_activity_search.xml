@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/im_searchback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/back_i"/>
+
+
+         <TextView
+             android:layout_centerInParent="true"
+             android:id="@+id/tv_keywordtitle"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/bg_search"
+             android:lines="1"
+            android:text="@string/tv_hoem_search"/>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation_bar"
+        android:layout_below="@+id/rl"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/border"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_below="@+id/rl"
+            android:background="@color/gray_ee" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/gray_ee" />
+
+
+        <com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView
+            android:id="@+id/switchRoot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray_ee"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        </com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView>
+    </LinearLayout>
+
+
+    <include
+        android:visibility="gone"
+        android:id="@+id/bottom_navigation_bar"
+        layout="@layout/widget_boottom_bar" />
+</RelativeLayout>

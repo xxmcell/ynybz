@@ -51,7 +51,7 @@
         <LinearLayout
             android:background="@drawable/home_search"
             android:orientation="horizontal"
-            android:id="@+id/ll_search"
+            android:id="@+id/llclassify_search"
             android:layout_marginLeft="@dimen/dp_14"
             android:layout_marginRight="@dimen/dp_14"
             android:layout_width="match_parent"

@@ -14,6 +14,15 @@ public class ClassifyRequestBean {
     private int brand;
     private int sort;
     private boolean isFirstRequest = true;
+    private String keyword="";
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
 
     public ClassifyRequestBean() {
     }

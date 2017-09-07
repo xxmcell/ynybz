@@ -5,16 +5,18 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.honganjk.ynybzbizfood.R;
 import com.honganjk.ynybzbizfood.mode.javabean.store.home.dao.Mydao;
+import com.honganjk.ynybzbizfood.utils.ui.ToastUtils;
+import com.honganjk.ynybzbizfood.view.store.classify.activity.Store_SearchActivity;
 import com.honganjk.ynybzbizfood.view.store.home.ui.XCFlowLayout;
 
 import java.util.ArrayList;
@@ -24,18 +26,20 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.honganjk.ynybzbizfood.R.id.et_search;
+
 
 /**
  * Created by Administrator on 2017-08-30.
  */
 
-public class HomeSearchActivity extends AppCompatActivity {
+public class HomeSearchActivity extends AppCompatActivity{
 
-    @BindView(R.id.et_search)
+    @BindView(et_search)
     EditText etSearch;
     @BindView(R.id.ll_search)
     LinearLayout ll_Search;
-    @BindView(R.id.tv_seartory)
+    @BindView(R.id.tv_search)
     TextView tv_Seartory;
     @BindView(R.id.im_back)
     ImageView im_Back;
@@ -47,16 +51,13 @@ public class HomeSearchActivity extends AppCompatActivity {
     XCFlowLayout mFlowLayout;
     private boolean haveData;
     private Mydao mydao;
+    List historyList = new ArrayList();
 
     public static void startUI(Activity activity) {
         Intent intent = new Intent(activity, HomeSearchActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         activity.startActivity(intent);
     }
-
-
-    List historyList = new ArrayList();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +67,7 @@ public class HomeSearchActivity extends AppCompatActivity {
         initview();
     }
 
-
-    private void initview() {
+    public void initview() {
         mydao = Mydao.getDao();
         mydao.setcontext(getBaseContext());
 
@@ -77,7 +77,6 @@ public class HomeSearchActivity extends AppCompatActivity {
             showdefault();
         }
     }
-
 
     private void initChildViews() {
         // TODO Auto-generated method stub
@@ -98,9 +97,8 @@ public class HomeSearchActivity extends AppCompatActivity {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //点击展示
-                    Toast.makeText(HomeSearchActivity.this, str, Toast.LENGTH_SHORT).show();
                     //跳转   分类
+                    startSearch(str.toString().trim());
                 }
             });
             mFlowLayout.addView(view, lp);
@@ -127,9 +125,15 @@ public class HomeSearchActivity extends AppCompatActivity {
     }
 
     private void startSearch(String keyword) {
+        if (TextUtils.isEmpty(keyword)){
+            ToastUtils.getToastShort("请输入搜索内容");
+            return;
+        }
         sethistory(keyword);
         //跳转到分类
-
+        Intent intent = new Intent(this,Store_SearchActivity.class);
+        intent.putExtra("keyword",keyword);
+        startActivity(intent);
     }
 
     private void sethistory(String keyword) {
@@ -140,13 +144,13 @@ public class HomeSearchActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.im_back, R.id.tv_seartory, R.id.im_deletehistory})
+    @OnClick({R.id.im_back, R.id.tv_search, R.id.im_deletehistory})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.im_back:
                 finish();
                 break;
-            case R.id.tv_seartory://搜索
+            case R.id.tv_search://搜索
                 startSearch(etSearch.getText().toString().trim());
                 break;
             case R.id.im_deletehistory:

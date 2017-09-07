@@ -84,8 +84,4 @@ public class MainHomePresenter extends CommonPresent<MainHomeView> {
 //        param.addParam("version", "1.1.1");
         HttpRequest.executePost(httpCallBack, "/common/checkUpdate.action", param);
     }
-
-
-
-
 }

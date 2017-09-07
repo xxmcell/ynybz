@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.honganjk.ynybzbizfood.R;
@@ -19,7 +19,6 @@ import com.honganjk.ynybzbizfood.pressenter.store.classify.ClassifyPresenter;
 import com.honganjk.ynybzbizfood.view.store.base.activity.BaseStoreMainActivity;
 import com.honganjk.ynybzbizfood.view.store.classify.adapter.StoreClassifyAdapter;
 import com.honganjk.ynybzbizfood.view.store.classify.interfaces.IClassifyParentInterfaces;
-import com.honganjk.ynybzbizfood.view.store.home.activity.HomeSearchActivity;
 import com.honganjk.ynybzbizfood.view.store.home.activity.ProductDetailsActivity;
 import com.honganjk.ynybzbizfood.widget.PopupPulldown;
 import com.honganjk.ynybzbizfood.widget.autoloadding.StatusChangListener;
@@ -35,42 +34,35 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * 说明:商城-分类页面
- * 作者： 杨阳; 创建于：  2017-06-29  10:21
+ * 说明:商城-搜索页面
+ * 作者： 郑新; 创建于：  2017-06-29  10:21
  * <p>
- * 黑空星云
  */
-public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInterfaces.IClassifyInterface, ClassifyPresenter>
+public class Store_SearchActivity extends BaseStoreMainActivity<IClassifyParentInterfaces.IClassifyInterface, ClassifyPresenter>
         implements IClassifyParentInterfaces.IClassifyInterface, SuperRecyclerView.ListSwipeViewListener {
     @BindView(R.id.switchRoot)
     SuperRecyclerView switchRoot;
     ArrayList<StoreHomeData.ObjsBean> mDatas = new ArrayList<>();
     StoreClassifyAdapter adapter;
-    @BindView(R.id.filtrateClassify)
-    TextView filtrateClassify;
-    @BindView(R.id.filtrateBrand)
-    TextView filtrateBrand;
-    @BindView(R.id.filtrateSynthesize)
-    TextView filtrateSynthesize;
-    @BindView(R.id.llclassify_search) //搜索框
-    LinearLayout llClassify_search;
-    @BindView(R.id.im_classifyback)
-    ImageView im_Classifyback;
+    @BindView(R.id.im_searchback)
+    ImageView im_Searchback;
+    @BindView(R.id.tv_keywordtitle)
+    TextView tv_Keywordtitle;
 
     ArrayList<PopupPulldown.PullDownData> mFiltrareDatas = new ArrayList<>(); //筛选数据源
     PopupPulldown pp;   //筛选(带动画)
     ClassifyRequestBean requestBean;
-    private boolean isSearch=false;
+    private String keyword;
 
     public static void startUI(Activity activity) {
-        Intent intent = new Intent(activity, ClassifyActivity.class);
+        Intent intent = new Intent(activity, Store_SearchActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         activity.startActivity(intent);
     }
 
     @Override
     public int getContentView() {
-        return R.layout.store_activity_classify;
+        return R.layout.store_activity_search;
     }
 
     @Override
@@ -81,12 +73,13 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
     @Override
     public void initView() {
         super.initView();
-
         requestBean = new ClassifyRequestBean();
-
-//                isSearch = true;
-//                keyword = getIntent().getStringExtra("keyword");
-//                presenter.getSearchData(keyword);
+        keyword = getIntent().getStringExtra("keyword");
+        if (!TextUtils.isEmpty(keyword)){
+            requestBean.setKeyword(keyword);
+            tv_Keywordtitle.setText(keyword);
+            presenter.getSearchData(keyword);
+        }
 
         adapter = new StoreClassifyAdapter(this, mDatas);
         switchRoot.setOnRefreshListener(this);
@@ -103,7 +96,8 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
             }
         });
 
-            reruestData(true);
+//        presenter.getSearchData(keyword);
+
     }
 
     @Override
@@ -113,7 +107,7 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
 
     @Override
     public void onRefresh() {
-            reruestData(true);
+        SearchreruestData(true);
     }
 
     @Override
@@ -153,18 +147,22 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
 
     @Override
     public void onLoadding() {  //延迟加载
-        reruestData(false);
+//        reruestData(false);
+        presenter.getSearchData(keyword);
     }
 
     @Override//数据加载失败点击重新加载
     public void onRetryClick(ContextData data) {
-        reruestData(true);
+//        reruestData(true);
+        presenter.getSearchData(keyword);
     }
 
     @Override //数据为空点击重新加载
     public void onEmptyClick(ContextData data) {
-        reruestData(true);
+//        reruestData(true);
+        presenter.getSearchData(keyword);
     }
+
 
     @Override
     public void getHttpData(List<StoreHomeData.ObjsBean> datas) {
@@ -174,16 +172,10 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
 
     @Override
     public void filtrateClassify(List<PopupPulldown.PullDownData> datas) {
-        mFiltrareDatas.clear();
-        mFiltrareDatas.addAll(datas);
-        pp.showPopupWindow((View) filtrateClassify.getParent());
     }
 
     @Override
     public void filtrateBrand(List<PopupPulldown.PullDownData> datas) {
-        mFiltrareDatas.clear();
-        mFiltrareDatas.addAll(datas);
-        pp.showPopupWindow((View) filtrateBrand.getParent());
     }
 
     @Override
@@ -193,68 +185,20 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
     public void setSaerchData(ArrayList<StoreHomeData.ObjsBean> datas) {
     }
 
-    @OnClick({R.id.filtrateClassify, R.id.filtrateBrand, R.id.filtrateSynthesize,R.id.llclassify_search,R.id.im_classifyback})
+    @OnClick({R.id.im_searchback})
     public void onViewClicked(View view) {
-        ArrayList<PopupPulldown.PullDownData> datas = new ArrayList<>();
-
-        PopupPulldown.OnClickCallback callback = null;
         switch (view.getId()) {
-            case R.id.filtrateClassify:
-                presenter.filtrateClassify();
-                pp.setOnClickCallback(new PopupPulldown.OnClickCallback() {
-                    @Override
-                    public void onClick(int id, String content) {
-                        requestBean.setType(id);
-                        reruestData(filtrateClassify, content);
-                    }
-                });
-                break;
-            case R.id.filtrateBrand:
-                presenter.filtrateBrand();
-                pp.setOnClickCallback(new PopupPulldown.OnClickCallback() {
-                    @Override
-                    public void onClick(int id, String content) {
-                        requestBean.setBrand(id);
-                        reruestData(filtrateBrand, content);
-                    }
-                });
-                break;
-            case R.id.filtrateSynthesize:
-                presenter.getIntegetionPullDownListData(mFiltrareDatas);
-                pp.showPopupWindow((View) filtrateSynthesize.getParent());
-                pp.setOnClickCallback(new PopupPulldown.OnClickCallback() {
-                    @Override
-                    public void onClick(int id, String content) {
-                        requestBean.setSort(id);
-                        reruestData(filtrateSynthesize, content);
-                    }
-                });
-                break;
-            case R.id.llclassify_search:    // TODO: 2017-08-31
-                Intent intent = new Intent(this,HomeSearchActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.im_classifyback:
-                onBackPressed();
-                break;
-            default:
-                if (callback != null) {
-                    pp.setOnClickCallback(callback);
-                }
+            case R.id.im_searchback:
+//                onBackPressed();
+                finish();
                 break;
         }
     }
 
-    private void reruestData(TextView view, String content) {
-        view.setText(content);
-        requestBean.setFirstRequest(true);
-        presenter.getData(requestBean);
-    }
-
-    private void reruestData(boolean isFirst) {
+    //搜索数据刷新结果
+    private void SearchreruestData(boolean isFirst) {
         requestBean.setFirstRequest(isFirst);
-        presenter.getData(requestBean);
-
+        presenter.getSearch_RefreshData(keyword,requestBean);
     }
 
     @Override

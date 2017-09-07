@@ -154,6 +154,10 @@ public class MainHomeActivity extends BaseMvpActivity<MainHomeView, MainHomePres
                     //商城
                     case store:
                         com.honganjk.ynybzbizfood.view.store.home.activity.HomeActivity.startUI(mActivity);
+//                        Intent intent = new Intent(MainHomeActivity.this, MvpActivity.class);
+//                        Intent intent = new Intent(MainHomeActivity.this, MyRRRActivity.class);
+//                        startActivity(intent);
+
                         break;
                     //旅游
                     case R.id.tv_travel:

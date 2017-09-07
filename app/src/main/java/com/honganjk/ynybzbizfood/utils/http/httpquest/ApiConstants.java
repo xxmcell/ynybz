@@ -6,13 +6,13 @@ package com.honganjk.ynybzbizfood.utils.http.httpquest;
  */
 public class ApiConstants {
     //是不正式环境
-    public static boolean IS_OFFICIAL = false;
+    public static boolean IS_OFFICIAL = true;
 
     //食堂陪护-正式地址/测试地址
     public static final String BASE_HOST = IS_OFFICIAL ? "https://urapi.honganjk.com" : "http://ur.honganjk.com";
 
-    //商城-测试地址/测试地址
-    public static final String STORE_HOST = IS_OFFICIAL ? "http://bjpsc.honganjk.com" : "http://bjpsc.honganjk.com";
+    //商城-正式地址/测试地址
+    public static final String STORE_HOST = IS_OFFICIAL ? "https://urapi.honganjk.com" : "http://bjpsc.honganjk.com";
 
 
     public static final String THREE_HOST = "http://c.m.163.com/";
@@ -20,7 +20,6 @@ public class ApiConstants {
 
     /**
      * 获取对应的host
-     *
      * @param hostType host类型
      * @return host
      */

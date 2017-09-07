@@ -102,6 +102,6 @@ dependencies {
     //    compile 'com.pingxx:pingpp-alipay:2.1.8' //使用支付宝时添加
     //    compile 'com.pingxx:pingpp-upacp:2.1.8' //使用银联支付时添加
     //    compile 'com.pingxx:pingpp-wxpay:2.1.8' //使用微信支付时添加
-
+    compile 'com.zhy:okhttputils:2.3.8'
 
 }
