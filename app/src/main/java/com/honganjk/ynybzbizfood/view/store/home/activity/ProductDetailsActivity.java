@@ -171,7 +171,7 @@ public class ProductDetailsActivity extends BaseMvpActivity<IHomeParentInterface
             ((ProductDetailsFragment) fragmentDatas.get(0)).setAdapter(data.getDetails());
         }
 
-        if (data.getComments() != null) {
+        if (data.getComments() != null) {   //评价
             ((ProductDetailsEvaluateFragment) fragmentDatas.get(1)).setAdapter(data.getComments());
         }
 
