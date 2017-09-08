@@ -146,6 +146,8 @@ public class DialogStoreBuyProduct extends Dialog {
                             dismiss();
                             return;
                         }
+
+                        // TODO: 2017-09-08  下单
                         StoreSubscribeActivity.starUi(getContext(), mData);
                         break;
                 }

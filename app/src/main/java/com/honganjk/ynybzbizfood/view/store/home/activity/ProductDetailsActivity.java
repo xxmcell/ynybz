@@ -201,7 +201,7 @@ public class ProductDetailsActivity extends BaseMvpActivity<IHomeParentInterface
                 switch (view.getId()) {
                     //选择规格
                     case R.id.reselect:
-                        presenter.getProductType(1);
+                        presenter.getProductType(mId);
                         break;
                     //返回
                     case R.id.back:
@@ -211,7 +211,7 @@ public class ProductDetailsActivity extends BaseMvpActivity<IHomeParentInterface
                     case R.id.buy:
                         if (isLogin(true)) {
                             isAddShoppingCar = false;
-                            presenter.getProductType(1);
+                            presenter.getProductType(mId);
                         }
                         break;
                     //收藏
@@ -229,7 +229,7 @@ public class ProductDetailsActivity extends BaseMvpActivity<IHomeParentInterface
                     case R.id.addShoppingCar:
                         if (isLogin(true)) {
                             isAddShoppingCar = true;
-                            presenter.getProductType(1);
+                            presenter.getProductType(mId);
                         }
                         break;
                     //咨询
@@ -242,11 +242,11 @@ public class ProductDetailsActivity extends BaseMvpActivity<IHomeParentInterface
     }
 
     @Override
-    public void getProductType(final List<ProductDetailsTypeData> data) {
+    public void getProductType(final List<ProductDetailsTypeData> data) {  // TODO: 2017-09-08  加入购物车/购买
         DialogStoreBuyProduct dialogStroreBuyProduct = new DialogStoreBuyProduct(this, data, mId, mData.getTitle());
         dialogStroreBuyProduct.show();
 
-        if (isAddShoppingCar) {
+        if (isAddShoppingCar) {//加入购物车
             dialogStroreBuyProduct.setAddShoppingCarListener(new DialogStoreBuyProduct.AddShoppingCarListener() {
                 @Override
                 public void addShoppingCar(ProductDetailsTypeData mData) {
@@ -262,8 +262,10 @@ public class ProductDetailsActivity extends BaseMvpActivity<IHomeParentInterface
         collectIm.setSelected(data);
     }
 
-    @Override
+    @Override   //  加入成功否
     public void addShoppingCar(boolean datas) {
 
     }
+
+
 }

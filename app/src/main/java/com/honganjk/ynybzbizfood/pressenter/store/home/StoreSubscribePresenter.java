@@ -123,11 +123,18 @@ public class StoreSubscribePresenter extends BasePresenter<IHomeParentInterfaces
 
 
         HttpRequestParam param = new HttpRequestParam();
-        param.addParam("aid", data.getAddressid());
-        param.addParam("remark", data.getRemark());
-        param.addParam("bid", data.getBid());
-        param.addParam("type", data.getType());
-        param.addParam("num", data.getNum());
+//        param.addParam("aid", data.getAddressid());
+//        param.addParam("remark", data.getRemark());
+//        param.addParam("bid", data.getBid());
+//        param.addParam("type", data.getType());
+//        param.addParam("num", data.getNum());
+//        param.addParam("fare", data.getFare());
+
+        param.addParam("aid", data.getAid());
+        if (null!=data.getRemark()&&!"".equals(data.getRemark())){
+            param.addParam("remark", data.getRemark());
+        }
+        param.addParam("bids", data.getBid());
         param.addParam("fare", data.getFare());
         HttpRequest.executePostStore(httpCallBack, "/token/bjpOrder.json", param);
 

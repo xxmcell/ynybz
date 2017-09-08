@@ -4,8 +4,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.honganjk.ynybzbizfood.R;
@@ -19,6 +21,8 @@ import com.honganjk.ynybzbizfood.mode.javabean.store.home.StoreHomePayData;
 import com.honganjk.ynybzbizfood.pressenter.store.home.StoreSubscribePresenter;
 import com.honganjk.ynybzbizfood.utils.bitmap.GlideUtils;
 import com.honganjk.ynybzbizfood.utils.other.EditHelper;
+import com.honganjk.ynybzbizfood.utils.other.SharedPreferencesUtils;
+import com.honganjk.ynybzbizfood.utils.ui.ToastUtils;
 import com.honganjk.ynybzbizfood.view.shitang.my.activity.SelectAddressActivity;
 import com.honganjk.ynybzbizfood.view.shitang.order.activity.BeizhuActivity;
 import com.honganjk.ynybzbizfood.view.shitang.order.activity.PayActivity;
@@ -53,6 +57,10 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
     TextView price;
     @BindView(R.id.selectNumber)
     NumberSelectRect selectNumber;
+    @BindView(R.id.Lin_deliveryMethod)
+    LinearLayout Lin_DeliveryMethod;
+    @BindView(R.id.tv_deliveryMethod)
+    TextView tv_DeliveryMethod;
     //请求的实体对象
     private PlaceTheOrderData mData = new PlaceTheOrderData();
 
@@ -60,6 +68,7 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
     //广播,监听支付成功
     private MyBroadcastReceiver mMyBroadcastReceiver;
     ProductDetailsTypeData mProductDetailsTypeData;
+    private int id;
 
     /**
      * @param context
@@ -156,7 +165,7 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
 
     @Override
     public void placeTheOrderIsSucceed(StoreHomePayData da) {
-
+        // TODO: 2017-09-08  下单提交成功
 
         OrderPayData data = new OrderPayData(
                 mProductDetailsTypeData.getImg(),
@@ -165,7 +174,6 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
                 mProductDetailsTypeData.getLabel(),
                3,
                 da.getId()
-
         );
         //跳转到支付页面
         PayActivity.startUI(this, data);
@@ -182,25 +190,44 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
         unregisterReceiver(mMyBroadcastReceiver);
     }
 
-    @OnClick({R.id.address, R.id.remarkParent, R.id.commit})
+    @OnClick({R.id.address, R.id.remarkParent, R.id.commit, R.id.Lin_deliveryMethod})
     public void onClick(View view) {
         switch (view.getId()) {
             //地址选择
             case R.id.address:
                 SelectAddressActivity.startForResultUi(this, REQUEST_CODE);
+                mData.setAid(SharedPreferencesUtils.getSharedPreferencesKeyAndValue(mActivity,"aid","aid",0));
                 break;
 
             //备注
             case R.id.remarkParent:
                 BeizhuActivity.startUiForresult(this, REQUEST_CODE + 1, mData.getRemark());
+                mData.setRemark(remark.getText().toString().trim());
                 break;
 
             //提交
             case R.id.commit:
                 if (editHelper.check()) {
-                    mData.setBid(1);
+
+                    if (TextUtils.isEmpty(mData.getAddress())){
+                        ToastUtils.getToastShort("请填写配送地址");
+                        return;
+                    }
+                    mData.setBid(getId());
                     presenter.commitOrder(mData);
                 }
+                break;
+
+            //配送方式
+            case R.id.Lin_deliveryMethod:
+
+                ToastUtils.getToastShort("配送方式");
+                if (tv_DeliveryMethod.getText().toString().trim().equals("包邮")){
+                    mData.setFare(0);
+                }else {
+                    // TODO: 2017-09-08
+                }
+
                 break;
         }
     }
@@ -212,6 +239,14 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
         number.setText(mProductDetailsTypeData.getNumberStr());
         sumPrice.setText(("合计：¥" + mProductDetailsTypeData.getNumber() * mProductDetailsTypeData.getPrice()));
         mData.setNum(mProductDetailsTypeData.getNumber());
+    }
+
+    public int getId() {
+        int id=0;
+        if (null!=mProductDetailsTypeData){
+            id=mProductDetailsTypeData.getId();
+        }
+        return id;
     }
 
     /**

@@ -8,6 +8,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.honganjk.ynybzbizfood.R;
@@ -51,6 +52,9 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
     @BindView(R.id.sumPrice)
     TextView sumPrice;
 
+    @BindView(R.id.rl)
+    RelativeLayout accounts_Rl;
+
     public static void startUI(Activity activity) {
         Intent intent = new Intent(activity, ShoppingCarActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -74,14 +78,23 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
         });
         toolbar.setTitleColor(R.color.black);
         toolbar.setNavigationIcon(R.drawable.material_arrwos_white_green);
-        toolbar.addAction(0, "编辑");
+
+        // TODO: 2017-09-08
+        if (mDatas.size()<1){
+            toolbar.addAction(0, "");
+        }else {
+            toolbar.addAction(0, "编辑");
+        }
+
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
-            public boolean onMenuItemClick(MenuItem item) {
+            public boolean onMenuItemClick(MenuItem item) { //编辑
                 ToastUtils.getToastLong("888");
                 return false;
             }
         });
+        // TODO: 2017-09-08
+        Showformstate();   //根据状态显示
 
         adapter = new ShoppingCarAdapter(this, mDatas);
         switchRoot.setOnRefreshListener(this);
@@ -100,6 +113,14 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
                 }
             }
         });
+    }
+
+    private void Showformstate() {
+        if (mDatas.size()<1){
+            accounts_Rl.setVisibility(View.GONE);
+        }else {
+            accounts_Rl.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

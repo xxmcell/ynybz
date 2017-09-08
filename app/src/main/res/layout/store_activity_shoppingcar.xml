@@ -34,8 +34,10 @@
         android:id="@+id/rl"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
-        android:layout_above="@+id/bottom_navigation_bar"
-        android:background="@color/main_gray2">
+        android:background="@color/main_gray2"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <com.honganjk.ynybzbizfood.widget.AnimCheckBox
             android:id="@+id/allSelect"

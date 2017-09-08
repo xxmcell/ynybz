@@ -17,6 +17,7 @@ import com.honganjk.ynybzbizfood.code.base.baseadapter.recyclerview.CommonAdapte
 import com.honganjk.ynybzbizfood.code.base.view.activity.BaseListActivity;
 import com.honganjk.ynybzbizfood.mode.javabean.shitang.order.center.AddressBean;
 import com.honganjk.ynybzbizfood.pressenter.shitang.my.SelectAddressPresenter;
+import com.honganjk.ynybzbizfood.utils.other.SharedPreferencesUtils;
 import com.honganjk.ynybzbizfood.utils.ui.ScreenInfoUtils;
 import com.honganjk.ynybzbizfood.utils.ui.divider.HorizontalDividerItemDecoration;
 import com.honganjk.ynybzbizfood.view.shitang.my.interfaces.MyParentInterfaces;
@@ -144,6 +145,8 @@ public class SelectAddressActivity extends BaseListActivity<MyParentInterfaces.I
                         intent.putExtra("addresslatu", dataBean.getLatitude());
                         intent.putExtra("addresslong", dataBean.getLongitude());
                         setResult(Activity.RESULT_OK, intent);
+                        // TODO: 2017-09-08
+                        SharedPreferencesUtils.setSharedPreferencesKeyAndValue(SelectAddressActivity.this,"aid","aid", dataBean.getId());
                         finish();
                     }
                 });

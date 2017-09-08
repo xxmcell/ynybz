@@ -79,9 +79,6 @@
         android:id="@+id/commitLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/password"
-        android:layout_marginLeft="@dimen/dp_20"
-        android:layout_marginRight="@dimen/dp_20"
         android:gravity="center"
         android:padding="@dimen/dp_10"
         android:text="登录"
@@ -90,7 +87,9 @@
         fb:colorNormal="@color/main_color"
         fb:colorPressed="@color/gray_ee"
         fb:cornerRadius="@dimen/dp_5"
-        fb:strokeColor="@color/black"/>
+        fb:strokeColor="@color/black"
+        android:layout_below="@+id/password"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:id="@+id/wechat"

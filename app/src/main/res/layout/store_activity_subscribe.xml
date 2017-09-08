@@ -165,6 +165,7 @@
                 android:background="@color/gray_ee" />
 
             <LinearLayout
+                android:id="@+id/Lin_deliveryMethod"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -179,6 +180,7 @@
                     android:textColor="@color/gray_33" />
 
                 <TextView
+                    android:id="@+id/tv_deliveryMethod"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
