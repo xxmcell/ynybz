@@ -89,11 +89,11 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) { //编辑
+                // TODO: 2017-09-08
                 ToastUtils.getToastLong("888");
                 return false;
             }
         });
-        // TODO: 2017-09-08
         Showformstate();   //根据状态显示
 
         adapter = new ShoppingCarAdapter(this, mDatas);
@@ -137,11 +137,11 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
     public void getData(List<ShoppingcarData.ObjsBean> datas) {
         mShoppingcarManagerData = new ShoppingcarManagerData(datas, this);
         adapter.setmSelectListenerView(mShoppingcarManagerData);
+        mDatas.clear();
         mDatas.addAll(datas);
         adapter.notifyDataSetChanged();
-        switchRoot.getRecyclerView().getLoaddFooterView().setAutoloaddingCompleData("共为你加载" + mShoppingcarManagerData.getCount() + "条数据");
+        switchRoot.getRecyclerView().getLoaddFooterView().setAutoloaddingCompleData("共为你加载" + mDatas.size() + "条数据");
         switchRoot.getRecyclerView().getLoaddFooterView().setStatus(LoadState.NoData);
-
     }
 
     @Override
