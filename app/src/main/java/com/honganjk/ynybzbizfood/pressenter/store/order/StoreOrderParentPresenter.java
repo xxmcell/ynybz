@@ -5,6 +5,7 @@ import com.honganjk.ynybzbizfood.code.base.view.iview.BaseView;
 import com.honganjk.ynybzbizfood.mode.HttpRequest;
 import com.honganjk.ynybzbizfood.mode.enumeration.HeadType;
 import com.honganjk.ynybzbizfood.mode.httpresponse.HttpResult;
+import com.honganjk.ynybzbizfood.mode.javabean.store.order.StoreOrderData2;
 import com.honganjk.ynybzbizfood.utils.http.httpquest.HttpCallBack;
 import com.honganjk.ynybzbizfood.utils.http.httpquest.HttpRequestParam;
 import com.honganjk.ynybzbizfood.view.store.order.view.StoreOrderParentInterfaces;
@@ -46,7 +47,7 @@ public abstract class StoreOrderParentPresenter<V extends BaseView> extends Base
      * 参数 	约束	说明
      * id	必选，int	护理订单Id
      */
-    public void deleteOrder(int id) {
+    public void deleteOrder(StoreOrderData2.ObjsBean data,int type) {
 
 
         HttpCallBack.Builder builder = new HttpCallBack.Builder()
@@ -69,8 +70,14 @@ public abstract class StoreOrderParentPresenter<V extends BaseView> extends Base
         };
 
         HttpRequestParam param = new HttpRequestParam();
-        param.addParam("id", id);
-        HttpRequest.executePost(httpCallBack, "/nurse/delete.action", param);
+        param.addParam("id", data.getId());
+        if(type==5){
+            param.addParam("type",4);
+        }else if(type==2){
+            param.addParam("type",1);
+        }
+
+        HttpRequest.executePostStore(httpCallBack, "/token/handleOrder.json", param);
     }
 
 
@@ -127,6 +134,6 @@ public abstract class StoreOrderParentPresenter<V extends BaseView> extends Base
         param.addParam("id", id);
         param.addParam("state", 8);
         param.addParam("reason", reason);
-        HttpRequest.executePost(httpCallBack, "/nurse/handleOrder.action", param);
+        HttpRequest.executePostStore(httpCallBack, "/nurse/handleOrder.action", param);
     }
 }

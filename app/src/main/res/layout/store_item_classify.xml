@@ -27,6 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp_5"
+            android:singleLine="true"
             android:text="名称"
             android:textColor="@color/black"
             android:textSize="@dimen/text_xxm" />
@@ -45,6 +46,7 @@
                 android:src="@mipmap/ic_shoppingcar_red" />
 
             <TextView
+                android:id="@+id/provider"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_5"
@@ -73,11 +75,11 @@
                 android:textSize="@dimen/text_h" />
 
             <TextView
+                android:id="@+id/oldPirce"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_5"
                 android:layout_weight="1"
-
                 android:text="288"
                 android:textColor="@color/gray_99"
                 android:textSize="@dimen/text_xxm" />

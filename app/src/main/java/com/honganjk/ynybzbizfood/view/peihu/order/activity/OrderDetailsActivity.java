@@ -219,9 +219,6 @@ public class OrderDetailsActivity extends BaseMvpActivity<OrderParentInterfaces.
                 break;
         }
 
-
-
-
         mDatas.add("订单号：" + mData.getSn());
         mDatas.add("下单时间：" + mData.getCreateTimeStr());
         mDatas.add("开始时间：" + mData.getStartTime());
@@ -233,7 +230,7 @@ public class OrderDetailsActivity extends BaseMvpActivity<OrderParentInterfaces.
         recyclerView.setAdapter(new CommonAdapter<String>(this, R.layout.item_string, mDatas) {
             @Override
             public void convert(ViewHolder holder, String s) {
-                holder.setText(R.id.test, s);
+                holder.setText(R.id.item, s);
             }
         });
 

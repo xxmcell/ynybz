@@ -102,6 +102,12 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         tv.setText(String.valueOf(text));
         return this;
     }
+    //textView删除线效果
+    public View getStrikeTextView(int viewId) {
+        TextView tv = getView(viewId);
+        tv.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+        return tv;
+    }
 
     public ViewHolder setImageResource(int viewId, int resId) {
         ImageView view = getView(viewId);

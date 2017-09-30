@@ -4,6 +4,7 @@ import com.honganjk.ynybzbizfood.mode.HttpRequest;
 import com.honganjk.ynybzbizfood.mode.enumeration.HeadType;
 import com.honganjk.ynybzbizfood.mode.httpresponse.HttpResult;
 import com.honganjk.ynybzbizfood.mode.javabean.store.order.StoreOrderDetailsData;
+import com.honganjk.ynybzbizfood.mode.javabean.store.refund.RefundRequestData;
 import com.honganjk.ynybzbizfood.utils.http.httpquest.HttpCallBack;
 import com.honganjk.ynybzbizfood.utils.http.httpquest.HttpRequestParam;
 import com.honganjk.ynybzbizfood.view.store.order.view.StoreOrderParentInterfaces;
@@ -61,4 +62,31 @@ public class StoreOrderDetailsPresenter extends StoreOrderParentPresenter<StoreO
     }
 
 
+
+
+
+
+    public void getDatas(int id) {
+
+        HttpCallBack.Builder builder = new HttpCallBack.Builder()
+                .setShowLoadding(true)
+                .setHttpHead(HeadType.LOGIN_HEAD);
+
+        HttpCallBack httpCallBack = new HttpCallBack<HttpResult<RefundRequestData>>(builder) {
+            @Override
+            public void onSuccess(HttpResult<RefundRequestData> result) {
+                super.onSuccess(result);
+
+                if (result.isSucceed()) {
+                    mvpView.getHttpDataRefund(result.getData());
+
+                }
+            }
+        };
+        HttpRequestParam param = new HttpRequestParam();
+
+        param.addParam("id",id);
+
+        HttpRequest.executePostStore(httpCallBack, "/token/refund.json", param);
+    }
 }

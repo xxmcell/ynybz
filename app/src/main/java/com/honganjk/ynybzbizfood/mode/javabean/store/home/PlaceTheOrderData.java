@@ -13,9 +13,11 @@ import com.honganjk.ynybzbizfood.utils.other.StringUtils;
  * 作者： 杨阳; 创建于：  2017-07-10  15:48
  * aid	必选，int	配送地址的Id
  * remark	可选	订单备注
+ *
  * bid	必选，int	保健品id
  * type	必选，int	保健品规格类型
  * num	必选，int	购买数量
+ *
  * fare	必选，int	运费，0=包邮
  */
 public class PlaceTheOrderData {
@@ -25,7 +27,15 @@ public class PlaceTheOrderData {
     private int type;
     private int num;
     private int fare;
+    private int cart;
 
+    public int getCart() {
+        return cart;
+    }
+
+    public void setCart(int cart) {
+        this.cart = cart;
+    }
 
     //用户-地址
     private String address;
@@ -46,6 +56,16 @@ public class PlaceTheOrderData {
     public SpannableStringBuilder getInfor(Context context) {
         StringBuffer sb = new StringBuffer(name + "\t" + sex + "\t" + phone);
         return StringUtils.convertTextColor(sb.toString() + "\n" + address, (sb.toString()), context.getResources().getColor(R.color.black));
+    }
+
+    /**
+     * bid	必选，int	保健品id
+     * type	必选，int	保健品规格类型
+     * num	必选，int	购买数量
+     * 1-1-2;3-2-1
+     */
+    public String getBids(){
+      return getBid()+"-"+getType()+"-"+getNum();
     }
     public int getAid() {
         return aid;

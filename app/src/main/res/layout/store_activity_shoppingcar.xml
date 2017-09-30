@@ -3,9 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical">
-
+   >
 
     <com.honganjk.ynybzbizfood.widget.appbarlayout.SupperToolBar
         android:id="@+id/toolbar"
@@ -14,24 +12,22 @@
         android:layout_height="wrap_content" />
 
     <LinearLayout
+        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/rl"
-        android:layout_below="@+id/toolbar"
-        android:orientation="vertical">
-
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+       >
         <com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView
             android:id="@+id/switchRoot"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
         </com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView>
-
-
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/rl"
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
         android:background="@color/main_gray2"
@@ -50,8 +46,6 @@
             app:ab_strokeColor="@color/white"
             app:ab_text="全选"
             app:ab_textColor="@color/gray_33" />
-
-
         <TextView
             android:id="@+id/commit"
             android:layout_width="@dimen/dp_100"
@@ -62,8 +56,6 @@
             android:text="结算(0)"
             android:textColor="@color/white"
             android:textSize="@dimen/text_h" />
-
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -71,12 +63,9 @@
             android:layout_marginRight="@dimen/dp_10"
             android:layout_toLeftOf="@+id/commit"
             android:orientation="vertical">
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -84,7 +73,6 @@
                     android:text="合计:"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_xxxm" />
-
                 <TextView
                     android:id="@+id/sumPrice"
                     android:layout_width="wrap_content"
@@ -93,9 +81,7 @@
                     android:text="¥0"
                     android:textColor="@color/main_red"
                     android:textSize="@dimen/text_xxxm" />
-
             </LinearLayout>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -103,10 +89,7 @@
                 android:text="不含运费"
                 android:textColor="@color/gray_66"
                 android:textSize="@dimen/text_xxm" />
-
-
         </LinearLayout>
-
     </RelativeLayout>
 
     <include

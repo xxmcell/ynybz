@@ -15,13 +15,16 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.honganjk.ynybzbizfood.R;
 import com.honganjk.ynybzbizfood.code.Global;
 import com.honganjk.ynybzbizfood.code.base.baseadapter.ViewHolder;
 import com.honganjk.ynybzbizfood.code.base.baseadapter.recyclerview.CommonAdapter;
 import com.honganjk.ynybzbizfood.code.base.view.activity.BaseMvpActivity;
-import com.honganjk.ynybzbizfood.mode.javabean.store.order.StoreOrderData;
+import com.honganjk.ynybzbizfood.mode.javabean.store.order.StoreOrderData2;
 import com.honganjk.ynybzbizfood.mode.javabean.store.order.StoreOrderDetailsData;
+import com.honganjk.ynybzbizfood.mode.javabean.store.refund.RefundProgress;
+import com.honganjk.ynybzbizfood.mode.javabean.store.refund.RefundRequestData;
 import com.honganjk.ynybzbizfood.pressenter.store.order.StoreOrderDetailsPresenter;
 import com.honganjk.ynybzbizfood.utils.bitmap.GlideUtils2;
 import com.honganjk.ynybzbizfood.utils.other.DateUtils;
@@ -36,14 +39,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.honganjk.ynybzbizfood.R.id.recyclerView;
+
 /**
  * 商城-订单详情
  * <p>
  */
 public class StoreOrderDetailsActivity extends BaseMvpActivity<StoreOrderParentInterfaces.IOrderDetails, StoreOrderDetailsPresenter> implements StoreOrderParentInterfaces.IOrderDetails {
     //订单信息
-    @BindView(R.id.recyclerView)
-    RecyclerView recyclerView;
+    @BindView(recyclerView)
+    RecyclerView recyclerView1;
     //订单信息，数据
     ArrayList<String> mDatas = new ArrayList<>();
     /**
@@ -107,16 +112,21 @@ public class StoreOrderDetailsActivity extends BaseMvpActivity<StoreOrderParentI
     private MyBroadcastReceiver myBroadcastReceiver = new MyBroadcastReceiver();
     private IntentFilter intentFilter = new IntentFilter();
     private int mOrderId;
-    StoreOrderData.ObjsBean mData;
-    StoreOrderDetailsData mDetailsData;
+    private StoreOrderData2.ObjsBean.DetailsBean details;
+    private StoreOrderData2.ObjsBean.DetailsBean.ListBean listBean;
+    private StoreOrderData2.ObjsBean data;
+    private String json;
+    private String jsonRefund;
+
 
     /**
      * @param context
      */
-    public static void starUi(Fragment context, int resultCode, StoreOrderData.ObjsBean data) {
+    public static void starUi(Fragment context, int resultCode, String data) {
         Intent intent = new Intent(context.getContext(), StoreOrderDetailsActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        intent.putExtra("data", data);
+
+        intent.putExtra("data",data);
         context.startActivityForResult(intent, resultCode);
     }
 
@@ -132,20 +142,56 @@ public class StoreOrderDetailsActivity extends BaseMvpActivity<StoreOrderParentI
 
     @Override
     public void parseIntent(Intent intent) {
-        mData = intent.getParcelableExtra("data");
-        if (mData != null) {
-            GlideUtils2.show(mData.getImg(), picture);
-            GlideUtils2.show(mData.getIcon(), businessLogo);
-            businessName.setText(mData.getFeature());
-            type.setText(mData.getTitle());
-            price.setText(mData.getSumMoneyStr());
-            orderStatus.setText(mData.getStateStr());
-            presentPrice.setText(mData.getMoneyStr());
-            mData.getPriceStr(originalPrice);
-            number.setText(mData.getNumStr());
-            mData.setViewShowStatus(statusGray, statusGreen, boundary3);
+        json = intent.getStringExtra("data");
+        Gson gson=new Gson();
+        data = gson.fromJson(json,StoreOrderData2.ObjsBean.class);
 
-            presenter.getData(mData.getId());
+        for (int i = 0; i < data.getDetails().size(); i++) {
+            details = data.getDetails().get(i);
+        }
+        if(details==null){
+            return;
+        }
+        for (int i = 0; i < details.getList().size(); i++) {
+            listBean=details.getList().get(i);
+        }
+        if (listBean != null) {
+            GlideUtils2.show(listBean.getImg(), picture);
+            type.setText(listBean.getTitle());
+            price.setText(listBean.getSumMoneyStr());
+            presentPrice.setText(listBean.getMoneyStr());
+            listBean.getPriceStr(originalPrice);
+            number.setText(listBean.getNumStr());
+            mOrderId=data.getId();
+            if (data.getState() != 0||data.getState() != 1||data.getState() != 2||data.getState()!=3||data.getState()!=4 ) {
+                refund.setVisibility(View.VISIBLE);
+            } else {
+                refund.setVisibility(View.GONE);
+            }
+            if(data.getState()==0){
+                refund.setVisibility(View.GONE);
+                statusGray.setVisibility(View.GONE);
+                statusGreen.setText("支付金额");
+                statusGray.setText("");
+            }else if(data.getState()==1){
+                statusGreen.setVisibility(View.GONE);
+                statusGray.setVisibility(View.GONE);
+            }else if(data.getState()==2){
+                statusGreen.setText("确认收货");
+                statusGray.setText("查看物流");
+                statusGreen.setVisibility(View.VISIBLE);
+                statusGray.setVisibility(View.VISIBLE);
+            }else if(data.getState()==3){
+                statusGreen.setText("去评价");
+                statusGray.setText("查看物流");
+                statusGreen.setVisibility(View.VISIBLE);
+                statusGray.setVisibility(View.VISIBLE);
+            }
+
+            //订单的业务
+            presenter.getData(mOrderId);
+            //退单的业务
+            presenter.getDatas(mOrderId);
         } else {
             finish();
         }
@@ -157,36 +203,47 @@ public class StoreOrderDetailsActivity extends BaseMvpActivity<StoreOrderParentI
         registerReceiver(myBroadcastReceiver, intentFilter);
         toolbar.setBack(this);
         toolbar.setTitle("订单详情");
-
-        if (mData.getState() == 1 || mData.getState() == 2) {
-            refund.setVisibility(View.VISIBLE);
-        } else {
-            refund.setVisibility(View.GONE);
-        }
     }
-
+    StoreOrderDetailsData storeData;
     @Override
     public void getData(StoreOrderDetailsData data) {
-        if (data == null) return;
-        mDetailsData = data;
-        expressNumber.setText(data.getCode());
+        if(data.getCode()!=null){ expressNumber.setText(data.getCode()+"");}
+
         addredd.setText(data.getAddress());
         name.setText(data.getName() + "\t" + data.getMobile());
 
         mDatas.add("订单号：" + data.getSn());
         mDatas.add("创建时间：" + DateUtils.dateToString(data.getCreateTime(), DateUtils.TIME_HH));
         mDatas.add("付款时间：" + DateUtils.dateToString(data.getPayTime(), DateUtils.TIME_HH));
-        mDatas.add("发货时间：" + DateUtils.dateToString(data.getDeliveryTime(), DateUtils.TIME_HH));
-        mDatas.add("备注：" + data.getRemark());
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.addItemDecoration(new HorizontalDividerItemDecoration.Builder(this).sizeResId(R.dimen.dp_0_5).colorResId(R.color.gray_ee).build());
-        recyclerView.setAdapter(new CommonAdapter<String>(this, R.layout.item_string, mDatas) {
+        if(DateUtils.dateToString(String.valueOf(data.getDeliveryTime()), DateUtils.TIME_HH)!=null){
+            mDatas.add("发货时间：" + DateUtils.dateToString(String.valueOf(data.getDeliveryTime()), DateUtils.TIME_HH));
+        }else {
+            mDatas.add("发货时间：代发货");
+        }
+
+        if(data.getRemark()!=null){ mDatas.add("备注：" + data.getRemark());}
+
+        recyclerView1.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView1.addItemDecoration(new HorizontalDividerItemDecoration.Builder(this).sizeResId(R.dimen.dp_0_5).colorResId(R.color.gray_ee).build());
+        recyclerView1.setAdapter(new CommonAdapter<String>(this, R.layout.item_string, mDatas) {
             @Override
             public void convert(ViewHolder holder, String s) {
-                holder.setText(R.id.test, s);
+                holder.setText(R.id.item, s);
+
             }
         });
 
+
+    }
+    RefundRequestData datas;
+    @Override
+    public void getHttpDataRefund(RefundRequestData data) {
+            this.datas=data;
+
+    }
+
+    @Override
+    public void RefundProgress(RefundProgress data) {
 
     }
 
@@ -230,23 +287,25 @@ public class StoreOrderDetailsActivity extends BaseMvpActivity<StoreOrderParentI
                 break;
 
             case R.id.llPhone:
-                DeviceUtil.callByPhone(mActivity, mDetailsData.getContact());
+                DeviceUtil.callByPhone(mActivity, String.valueOf(storeData.getContact()));
                 break;
 
             case R.id.refund:
-                RefundActivity.startUI(mActivity, mData);
+                RefundActivity.startUI(mActivity, json,jsonRefund);
                 break;
-
             //灰色按钮
             case R.id.statusGray:
-                mData.buttonClickEvent(mActivity, statusGray.getText().toString(), mData, presenter);
+                //他使用取得按钮的字段,来做收货,取消的判断
+                data.buttonClickEvent(mActivity, statusGray.getText().toString(), data,listBean, presenter);
                 break;
             //绿色按键
             case R.id.statusGreen:
-                mData.buttonClickEvent(mActivity, statusGreen.getText().toString(), mData, presenter);
+                data.buttonClickEvent(mActivity, statusGreen.getText().toString(), data,listBean, presenter);
                 break;
         }
     }
+
+
 
     class MyBroadcastReceiver extends BroadcastReceiver {
         @Override

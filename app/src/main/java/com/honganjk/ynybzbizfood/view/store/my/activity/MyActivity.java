@@ -2,7 +2,6 @@ package com.honganjk.ynybzbizfood.view.store.my.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -11,11 +10,11 @@ import com.honganjk.ynybzbizfood.R;
 import com.honganjk.ynybzbizfood.utils.animator.AnimUtils;
 import com.honganjk.ynybzbizfood.utils.ui.DrawableUtils;
 import com.honganjk.ynybzbizfood.utils.ui.UiUtils;
-import com.honganjk.ynybzbizfood.view.other.activity.AgreementActivity;
 import com.honganjk.ynybzbizfood.view.store.classify.activity.ClassifyActivity;
 import com.honganjk.ynybzbizfood.view.store.collect.activity.CollectActivity;
 import com.honganjk.ynybzbizfood.view.store.home.activity.HomeActivity;
 import com.honganjk.ynybzbizfood.view.store.order.activity.StoreOrderActivity;
+import com.honganjk.ynybzbizfood.view.store.refund.activity.ReFundOrderBill;
 import com.honganjk.ynybzbizfood.view.store.shoppingcar.activity.ShoppingCarActivity;
 
 /**
@@ -117,15 +116,16 @@ public class MyActivity extends com.honganjk.ynybzbizfood.view.shitang.my.activi
                     StoreOrderActivity.startUI(mActivity, 4);
                     break;
                 case R.id.tuiHuan:
-//                    RefundActivity.startUI(mActivity);
+                    Intent intent = new Intent(MyActivity.this, ReFundOrderBill.class);
+                    startActivity(intent);
 
                     /**
                      * https://m.kuaidi100.com/result.jsp?com=zhongtong&nu=445034874095
                      */
-                    AgreementActivity.startUI(mActivity,"https://m.kuaidi100.com/result.jsp?com=zhongtong&nu=445034874095");
-                    Uri uri = Uri.parse("https://m.kuaidi100.com/result.jsp?com=zhongtong&nu=445034874095");
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    startActivity(intent);
+//                    AgreementActivity.startUI(mActivity,"https://m.kuaidi100.com/result.jsp?com=zhongtong&nu=445034874095");
+//                    Uri uri = Uri.parse("https://m.kuaidi100.com/result.jsp?com=zhongtong&nu=445034874095");
+//                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//                    startActivity(intent);
 
                     break;
                 case R.id.collect:

@@ -50,7 +50,7 @@
                     android:layout_below="@+id/expressNumberHint"
                     android:layout_marginTop="@dimen/dp_10"
                     android:layout_toRightOf="@+id/icExpressage"
-                    android:text="顺风快递"
+                    android:text=""
                     android:textColor="@color/gray_33"
                     android:textSize="@dimen/text_xxxm" />
 
@@ -101,7 +101,6 @@
                     android:text="地址"
                     android:textColor="@color/gray_33"
                     android:textSize="@dimen/text_xxxm" />
-
 
 
             </RelativeLayout>
@@ -260,6 +259,7 @@
 
 
                         <TextView
+                            android:id="@+id/freight"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0.00"
@@ -345,8 +345,8 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/dp_1"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_1">
 
             </android.support.v7.widget.RecyclerView>
 

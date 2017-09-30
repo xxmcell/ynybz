@@ -3,8 +3,10 @@ package com.honganjk.ynybzbizfood.view.store.order.view;
 import com.honganjk.ynybzbizfood.code.base.view.iview.BaseListView;
 import com.honganjk.ynybzbizfood.code.base.view.iview.BaseSwipeView;
 import com.honganjk.ynybzbizfood.code.base.view.iview.BaseView;
-import com.honganjk.ynybzbizfood.mode.javabean.store.order.StoreOrderData;
+import com.honganjk.ynybzbizfood.mode.javabean.store.order.StoreOrderData2;
 import com.honganjk.ynybzbizfood.mode.javabean.store.order.StoreOrderDetailsData;
+import com.honganjk.ynybzbizfood.mode.javabean.store.refund.RefundProgress;
+import com.honganjk.ynybzbizfood.mode.javabean.store.refund.RefundRequestData;
 
 import java.util.List;
 
@@ -17,7 +19,9 @@ public interface StoreOrderParentInterfaces {
      * :商城-我的订单
      */
     interface IOrder extends BaseListView, BaseSwipeView {
-        void getHttpData(int total, List<StoreOrderData.ObjsBean> datas);
+        void getHttpData(int total, List<StoreOrderData2.ObjsBean> datas);
+
+
 
         /**
          * 确认完成订单
@@ -71,6 +75,10 @@ public interface StoreOrderParentInterfaces {
     interface IOrderDetails extends BaseView {
 
         void getData(StoreOrderDetailsData data);
+
+        void getHttpDataRefund(RefundRequestData data);
+
+        void RefundProgress(RefundProgress data);
     }
 
 

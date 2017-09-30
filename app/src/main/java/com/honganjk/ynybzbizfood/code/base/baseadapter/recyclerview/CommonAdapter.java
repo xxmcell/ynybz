@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import com.honganjk.ynybzbizfood.code.base.baseadapter.ViewHolder;
 import com.honganjk.ynybzbizfood.code.base.baseadapter.recyclerview.click.OnItemClickListener;
 import com.honganjk.ynybzbizfood.code.base.baseadapter.recyclerview.click.OnItemLongClickListener;
+import com.honganjk.ynybzbizfood.code.base.baseadapter.recyclerview.click.OnItemsClickListener;
+import com.honganjk.ynybzbizfood.mode.javabean.store.order.StoreOrderData2;
 
 import java.util.List;
 
@@ -16,16 +18,29 @@ import java.util.List;
  */
 public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
     protected Context mContext;
+    //布局
     protected int mLayoutId;
+    //加载数据
     protected List<T> mDatas;
+    protected List<T> data;
+
+
+    protected T mdata;
     OnItemClickListener onItemClickListener;
     OnItemLongClickListener onItemLongClickListener;
     int headSize = 0;
+     OnItemsClickListener onItemsClickListener;
 
     public CommonAdapter(Context context, int layoutId, List<T> datas) {
         mContext = context;
         mLayoutId = layoutId;
         mDatas = datas;
+        setHasStableIds(true);
+    }
+    public CommonAdapter (Context context, int layoutId, T datas){
+        mContext = context;
+        mLayoutId = layoutId;
+        mdata = datas;
         setHasStableIds(true);
     }
 
@@ -69,6 +84,9 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
+    public void setOnItemsClickListener(OnItemsClickListener<StoreOrderData2.ObjsBean, StoreOrderData2.ObjsBean.DetailsBean.ListBean, StoreOrderData2.ObjsBean.DetailsBean> onItemClickListener) {
+        this.onItemsClickListener = onItemClickListener;
+    }
 
     public void setOnItemLongClickListener(OnItemLongClickListener onItemLongClickListener) {
         this.onItemLongClickListener = onItemLongClickListener;
@@ -98,6 +116,8 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
                 return false;
             }
         });
+
+
     }
 
     public void setHeadSize(int headSize) {

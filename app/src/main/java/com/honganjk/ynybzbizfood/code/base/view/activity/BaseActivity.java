@@ -76,8 +76,11 @@ public abstract class BaseActivity extends AppCompatActivity implements IActivit
         super.onCreate(savedInstanceState);
         mActivity=this;
         setTranslucentStatus(getStatusBarEnable(), getStatusBarResource());
+        //初始化布局文件
         setContentView(getContentView());
+        //意图
         parseIntent(getIntent());
+        //初始化view
         initView();
 
     }

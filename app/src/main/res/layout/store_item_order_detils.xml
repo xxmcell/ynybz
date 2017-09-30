@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_1"
+        android:background="@color/main_gray2"
+        android:padding="@dimen/dp_10">
+
+        <ImageView
+            android:id="@+id/picture"
+            android:layout_width="@dimen/dp_70"
+            android:layout_height="@dimen/dp_70"
+            android:layout_marginRight="@dimen/dp_10" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/boundry1"
+            android:layout_toLeftOf="@+id/presentPrice"
+            android:layout_toRightOf="@+id/picture"
+            android:text="名称"
+            android:textColor="@color/gray_33"
+            android:textSize="@dimen/text_xxxm" />
+
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/type"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_toRightOf="@+id/picture"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:text="@string/date"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxm" />
+
+
+        <TextView
+            android:id="@+id/presentPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="现价"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxxm" />
+
+        <TextView
+            android:id="@+id/originalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/presentPrice"
+            android:layout_marginTop="@dimen/dp_2"
+            android:text="原价"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxxm" />
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/originalPrice"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="原价"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxm" />
+
+    </RelativeLayout>
+</LinearLayout>

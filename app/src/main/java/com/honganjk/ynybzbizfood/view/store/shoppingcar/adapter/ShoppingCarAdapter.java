@@ -48,18 +48,18 @@ public class ShoppingCarAdapter extends CommonAdapter<ShoppingcarData.ObjsBean> 
         holder.setText(R.id.name, data.getFeature());
         holder.getView(R.id.recyclerView);
         RecyclerView recyclerView = holder.getView(R.id.recyclerView);
-        setData(recyclerView, data.getList());
+        setData(recyclerView, data);
     }
 
-    private void setData(RecyclerView recyclerView, List<ShoppingcarData.ObjsBean.ListBean> data) {
+    private void setData(RecyclerView recyclerView, ShoppingcarData.ObjsBean data) {
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         recyclerView.addItemDecoration(new HorizontalDividerItemDecoration.Builder(mContext).sizeResId(R.dimen.dp_1).colorResId(R.color.gray_ee).build());
-        recyclerView.setAdapter(new CommonAdapter<ShoppingcarData.ObjsBean.ListBean>(mContext, R.layout.store_item_shoppingcar, data) {
+        recyclerView.setAdapter(new CommonAdapter<ShoppingcarData.ObjsBean>(mContext, R.layout.store_item_shoppingcar, data) {
             @Override
-            public void convert(ViewHolder holder, final ShoppingcarData.ObjsBean.ListBean listBean) {
+            public void convert(ViewHolder holder, final ShoppingcarData.ObjsBean listBean) {
                 holder.setImageBitmap(R.id.picture, listBean.getImg());
                 holder.setText(R.id.name, listBean.getTitle());
-                holder.setText(R.id.type, listBean.getLable());
+                holder.setText(R.id.type, listBean.getLabel());
                 holder.setText(R.id.money, listBean.getMoneyStr());
                 listBean.getPriceStr((TextView) holder.getView(R.id.price));
 
@@ -73,7 +73,7 @@ public class ShoppingCarAdapter extends CommonAdapter<ShoppingcarData.ObjsBean> 
                         .subscribe(new Action1<Long>() {
                             @Override
                             public void call(Long aLong) {
-                                animCheckBox.setChecked(listBean.getIsSelect());
+                               // animCheckBox.setChecked(listBean.getIsSelect());
 //                                LogUtils.e(listBean.getIsSelect());
                             }
                         });
@@ -92,7 +92,7 @@ public class ShoppingCarAdapter extends CommonAdapter<ShoppingcarData.ObjsBean> 
                 animCheckBox.setOnCheckedChangeListener(new AnimCheckBox.OnCheckedChangeListener() {
                     @Override
                     public void onChange(AnimCheckBox checkBox, boolean checked) {
-                        listBean.setIsSelect(checked, mSelectListenerView);
+                       // listBean.setIsSelect(checked, mSelectListenerView);
                     }
                 });
 

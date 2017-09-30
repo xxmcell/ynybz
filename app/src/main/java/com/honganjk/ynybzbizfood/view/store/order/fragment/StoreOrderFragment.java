@@ -9,12 +9,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.gson.Gson;
 import com.honganjk.ynybzbizfood.R;
 import com.honganjk.ynybzbizfood.code.Global;
 import com.honganjk.ynybzbizfood.code.base.baseadapter.recyclerview.CommonAdapter;
 import com.honganjk.ynybzbizfood.code.base.baseadapter.recyclerview.click.OnItemClickListener;
 import com.honganjk.ynybzbizfood.code.base.view.fragment.BaseListFragment;
-import com.honganjk.ynybzbizfood.mode.javabean.store.order.StoreOrderData;
+import com.honganjk.ynybzbizfood.mode.javabean.store.order.StoreOrderData2;
 import com.honganjk.ynybzbizfood.pressenter.store.order.StoreOrderPresenter;
 import com.honganjk.ynybzbizfood.utils.ui.divider.HorizontalDividerItemDecoration;
 import com.honganjk.ynybzbizfood.view.store.order.activity.StoreOrderDetailsActivity;
@@ -32,26 +33,31 @@ import static android.app.Activity.RESULT_OK;
  * 作者： 杨阳; 创建于：  2017-07-11  15:27
  */
 @SuppressLint("ValidFragment")
-public class StoreOrderFragment extends BaseListFragment<StoreOrderParentInterfaces.IOrder, StoreOrderPresenter> implements StoreOrderParentInterfaces.IOrder {
+public class StoreOrderFragment extends BaseListFragment<StoreOrderParentInterfaces.IOrder, StoreOrderPresenter>
+        implements StoreOrderParentInterfaces.IOrder {
     /**
      * 0:待支付; 1:待服务; 2:服务中;4:已完成;
      */
     private int mType;
-    ArrayList<StoreOrderData.ObjsBean> mDatas = new ArrayList<>();
+    ArrayList<StoreOrderData2.ObjsBean> mDatas = new ArrayList<>();
     StoreOrderAdapter adapter;
 
     private MyBroadcastReceiver myBroadcastReceiver = new MyBroadcastReceiver();
     private IntentFilter intentFilter = new IntentFilter();
+    private List<Integer> list;
+
 
     @SuppressLint("ValidFragment")
     public StoreOrderFragment() {
     }
 
     public StoreOrderFragment(int type) {
+
         this.mType = type;
     }
 
     public static StoreOrderFragment getInstance(int type) {
+
         return new StoreOrderFragment(type);
     }
 
@@ -61,6 +67,7 @@ public class StoreOrderFragment extends BaseListFragment<StoreOrderParentInterfa
     }
 
     @Override
+
     public void initView() {
         super.initView();
         intentFilter.addAction(Global.ST_ORDER_CANCEL);
@@ -68,19 +75,23 @@ public class StoreOrderFragment extends BaseListFragment<StoreOrderParentInterfa
         intentFilter.addAction(Global.LOGIN_SUCCEED);
         activity.registerReceiver(myBroadcastReceiver, intentFilter);
 
-        presenter.getHttpData(0, true, mType);
+        presenter.getHttpData( true, mType);
 
-        adapter.setOnItemClickListener(new OnItemClickListener< StoreOrderData.ObjsBean>() {
+        adapter.setOnItemClickListener(new OnItemClickListener<StoreOrderData2.ObjsBean>() {
             @Override
-            public void onItemClick(ViewGroup parent, View view,  StoreOrderData.ObjsBean data, int position) {
-                StoreOrderDetailsActivity.starUi(StoreOrderFragment.this, REQUEST_CODE,data);
+            public void onItemClick(ViewGroup parent, View view, StoreOrderData2.ObjsBean data, int position) {
+
+                Gson g=new Gson();
+                String resoult=g.toJson(data);
+
+                StoreOrderDetailsActivity.starUi(StoreOrderFragment.this, REQUEST_CODE,resoult);
             }
+
         });
     }
-
     @Override
     public CommonAdapter getAdapter() {
-        return adapter = new StoreOrderAdapter(this, mDatas);
+        return adapter = new StoreOrderAdapter(this, mDatas,mType);
     }
 
     @Override
@@ -90,13 +101,13 @@ public class StoreOrderFragment extends BaseListFragment<StoreOrderParentInterfa
             //详情页面操作后列表页要刷新
             if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
                 if (data.getBooleanExtra("isRefresh", false)) {
-                    presenter.getHttpData(0, true, mType);
+                    presenter.getHttpData(true, mType);
                 }
             }
         }
         //评价成功
         if (requestCode == REQUEST_CODE && resultCode == RESULT_OK + 1) {
-            presenter.getHttpData(0, true, mType);
+            presenter.getHttpData(true, mType);
         }
     }
 
@@ -107,7 +118,7 @@ public class StoreOrderFragment extends BaseListFragment<StoreOrderParentInterfa
 
     @Override
     public void onRefresh() {
-        presenter.getHttpData(0, true, mType);
+        presenter.getHttpData(true, mType);
     }
 
     @Override
@@ -116,28 +127,29 @@ public class StoreOrderFragment extends BaseListFragment<StoreOrderParentInterfa
     }
 
     @Override
-    public void getHttpData(int total, List<StoreOrderData.ObjsBean> datas) {
+    public void getHttpData(int total, List<StoreOrderData2.ObjsBean> datas) {
+
         mDatas.addAll(datas);
         adapter.notifyDataSetChanged();
         // 0:待支付; 1:待服务; 2:服务中;4:已完成;
-        int postiont = mType == 1 ? 0 : mType == 2 ? 1 : 2;
-//        ((OrderActivity) activity).setCount(postiont, mDatas.size());
+
+
     }
 
     @Override
     public void confirmCompleted(boolean data) {
-        presenter.getHttpData(0, true, mType);
+        presenter.getHttpData(true, mType);
     }
 
     @Override
     public void deleteOrder(boolean data) {
-        presenter.getHttpData(0, true, mType);
+        presenter.getHttpData( true, mType);
         showInforSnackbar("删除成功");
     }
 
     @Override
     public void cancleOrder(boolean data) {
-        presenter.getHttpData(0, true, mType);
+        presenter.getHttpData( true, mType);
         showInforSnackbar("取消成功成功");
     }
 
@@ -148,17 +160,17 @@ public class StoreOrderFragment extends BaseListFragment<StoreOrderParentInterfa
 
     @Override
     public void onLoadding() {
-        presenter.getHttpData(0, false, mType);
+        presenter.getHttpData(false, mType);
     }
 
     @Override
     public void onRetryClick(ContextData data) {
-        presenter.getHttpData(0, true, mType);
+        presenter.getHttpData( true, mType);
     }
 
     @Override
     public void onEmptyClick(ContextData data) {
-        presenter.getHttpData(0, true, mType);
+        presenter.getHttpData( true, mType);
     }
 
     @Override
@@ -171,7 +183,7 @@ public class StoreOrderFragment extends BaseListFragment<StoreOrderParentInterfa
      * 显示不同的订单状态
      */
     public void setOrderStatus(int type) {
-        presenter.getHttpData(type, true, mType);
+        presenter.getHttpData( true, mType);
     }
 
     class MyBroadcastReceiver extends BroadcastReceiver {
@@ -179,16 +191,16 @@ public class StoreOrderFragment extends BaseListFragment<StoreOrderParentInterfa
         public void onReceive(Context context, Intent intent) {
             //取消订单成功
             if (intent.getAction().equals(Global.ST_ORDER_CANCEL)) {
-                presenter.getHttpData(0, true, mType);
+                presenter.getHttpData( true, mType);
             }
             //支付订单成功
             if (intent.getAction().equals(Global.ST_PAY_SUCCEED)) {
-                presenter.getHttpData(0, true, mType);
+                presenter.getHttpData( true, mType);
             }
 
-            //登录成功成功
+            //登录成功
             if (intent.getAction().equals(Global.LOGIN_SUCCEED)) {
-                presenter.getHttpData(0, true, mType);
+                presenter.getHttpData( true, mType);
             }
 
         }

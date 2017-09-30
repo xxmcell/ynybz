@@ -58,6 +58,7 @@
         <!--修改中增加-->
         <activity android:name=".view.store.home.activity.HomeSearchActivity"/>
         <activity android:name=".view.store.classify.activity.Store_SearchActivity"/>
+        <activity android:name=".view.store.refund.activity.ReFundOrderBill"/>
 
         <uses-library
             android:name="org.simalliance.openmobileapi"

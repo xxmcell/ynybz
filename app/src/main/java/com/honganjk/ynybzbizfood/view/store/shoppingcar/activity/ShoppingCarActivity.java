@@ -39,21 +39,21 @@ import butterknife.BindView;
  */
 public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParentInterfaces.IShoppingCarInterface, ShoppingCarPresenter>
         implements IShoppingCarParentInterfaces.IShoppingCarInterface, SuperRecyclerView.ListSwipeViewListener, SelectAllListenerView {
-    @BindView(R.id.switchRoot)
-    SuperRecyclerView switchRoot;
+
     ArrayList<ShoppingcarData.ObjsBean> mDatas = new ArrayList<>();
     ShoppingCarAdapter adapter;
-
     ShoppingcarManagerData mShoppingcarManagerData;
+    @BindView(R.id.switchRoot)
+    SuperRecyclerView switchRoot;
     @BindView(R.id.allSelect)
     AnimCheckBox allSelect;
     @BindView(R.id.commit)
     TextView commit;
     @BindView(R.id.sumPrice)
     TextView sumPrice;
-
     @BindView(R.id.rl)
-    RelativeLayout accounts_Rl;
+    RelativeLayout rl;
+
 
     public static void startUI(Activity activity) {
         Intent intent = new Intent(activity, ShoppingCarActivity.class);
@@ -65,6 +65,7 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
     public int getContentView() {
         return R.layout.store_activity_shoppingcar;
     }
+
 
     @Override
     public void initView() {
@@ -80,9 +81,9 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
         toolbar.setNavigationIcon(R.drawable.material_arrwos_white_green);
 
         // TODO: 2017-09-08
-        if (mDatas.size()<1){
+        if (mDatas.size() < 1) {
             toolbar.addAction(0, "");
-        }else {
+        } else {
             toolbar.addAction(0, "编辑");
         }
 
@@ -94,6 +95,8 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
                 return false;
             }
         });
+
+
         Showformstate();   //根据状态显示
 
         adapter = new ShoppingCarAdapter(this, mDatas);
@@ -114,13 +117,13 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
             }
         });
     }
-
     private void Showformstate() {
-        if (mDatas.size()<1){
-            accounts_Rl.setVisibility(View.GONE);
-        }else {
-            accounts_Rl.setVisibility(View.VISIBLE);
-        }
+//        if (mDatas.size() < 1) {
+//            rl.setVisibility(View.GONE);
+//        } else {
+//            rl.setVisibility(View.VISIBLE);
+//        }
+
     }
 
     @Override

@@ -1,6 +1,6 @@
 package com.honganjk.ynybzbizfood.mode.javabean.store.order;
 
-import com.honganjk.ynybzbizfood.utils.other.StringUtils;
+import java.util.List;
 
 /**
  * "address": "杭州市下城区中山花园-风荷苑",	//收货地址
@@ -27,203 +27,517 @@ import com.honganjk.ynybzbizfood.utils.other.StringUtils;
  * "title": "Swisse 钙&维他命D片 柠檬酸钙 150片/罐"	//商品标题
  */
 public class StoreOrderDetailsData {
+    /**
+     * code : A00000
+     * data : {"address":"浙江翠苑电影大世界 123","amount":0,"code":null,"contact":null,"createTime":1506481089000,"deliveryTime":null,"details":[{"feature":"GNC","icon":"https://hajk.image.alimmdn.com/bz/banner1.jpg?t=1499067204099","list":[{"bid":31,"img":"https://hajk.image.alimmdn.com/dev/1501828301237","label":"5支","money":300,"num":3,"price":500,"title":"东北老家林下参地出货，特价出5组12年林下鲜参（每组含5支），每组300元包邮，送冰袋。用法：炖汤、泡酒、切片泡茶。","type":1}]}],"express":null,"fare":0,"id":1363,"mobile":"13333333333","name":"武","payTime":1506481119000,"price":900,"remark":null,"sex":1,"sn":"b15064810890671676249","state":1}
+     * msg : ok
+     */
 
-    private String address;
-    private double amount;
-    private String code;
-    private String contact;
-    private long createTime;
-    private String deliveryTime;
-    private String express;
-    private int fare;
-    private int id;
-    private String img;
-    private String label;
-    private String mobile;
-    private double money;
-    private String name;
-    private int num;
-    private String payTime;
-    private double price;
-    private String remark;
-    private int sex;
-    private String sn;
-    private int state;
-    private String title;
 
-    public String getAddress() {
-        return StringUtils.dataFilter(address);
-    }
+        /**
+         * address : 浙江翠苑电影大世界 123
+         * amount : 0
+         * code : null
+         * contact : null
+         * createTime : 1506481089000
+         * deliveryTime : null
+         * details : [{"feature":"GNC","icon":"https://hajk.image.alimmdn.com/bz/banner1.jpg?t=1499067204099","list":[{"bid":31,"img":"https://hajk.image.alimmdn.com/dev/1501828301237","label":"5支","money":300,"num":3,"price":500,"title":"东北老家林下参地出货，特价出5组12年林下鲜参（每组含5支），每组300元包邮，送冰袋。用法：炖汤、泡酒、切片泡茶。","type":1}]}]
+         * express : null
+         * fare : 0
+         * id : 1363
+         * mobile : 13333333333
+         * name : 武
+         * payTime : 1506481119000
+         * price : 900
+         * remark : null
+         * sex : 1
+         * sn : b15064810890671676249
+         * state : 1
+         */
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+        private String address;
+        private int amount;
+        private Object code;
+        private Object contact;
+        private long createTime;
+        private Object deliveryTime;
+        private Object express;
+        private int fare;
+        private int id;
+        private String mobile;
+        private String name;
+        private long payTime;
+        private int price;
+        private Object remark;
+        private int sex;
+        private String sn;
+        private int state;
+        private List<DetailsBean> details;
 
-    public double getAmount() {
-        return amount;
-    }
+        public String getAddress() {
+            return address;
+        }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
+        public void setAddress(String address) {
+            this.address = address;
+        }
 
-    public String getCode() {
-        return StringUtils.dataFilter(code);
-    }
+        public int getAmount() {
+            return amount;
+        }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
+        public void setAmount(int amount) {
+            this.amount = amount;
+        }
 
-    public String getContact() {
-        return StringUtils.dataFilter(contact);
-    }
+        public Object getCode() {
+            return code;
+        }
 
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
+        public void setCode(Object code) {
+            this.code = code;
+        }
 
-    public long getCreateTime() {
-        return createTime;
-    }
+        public Object getContact() {
+            return contact;
+        }
 
-    public void setCreateTime(long createTime) {
-        this.createTime = createTime;
-    }
+        public void setContact(Object contact) {
+            this.contact = contact;
+        }
 
-    public String getDeliveryTime() {
-        return StringUtils.dataFilter(deliveryTime);
-    }
+        public long getCreateTime() {
+            return createTime;
+        }
 
-    public void setDeliveryTime(String deliveryTime) {
-        this.deliveryTime = deliveryTime;
-    }
+        public void setCreateTime(long createTime) {
+            this.createTime = createTime;
+        }
 
-    public String getExpress() {
-        return StringUtils.dataFilter(express);
-    }
+        public Object getDeliveryTime() {
+            return deliveryTime;
+        }
 
-    public void setExpress(String express) {
-        this.express = express;
-    }
+        public void setDeliveryTime(Object deliveryTime) {
+            this.deliveryTime = deliveryTime;
+        }
 
-    public int getFare() {
-        return fare;
-    }
+        public Object getExpress() {
+            return express;
+        }
 
-    public void setFare(int fare) {
-        this.fare = fare;
-    }
+        public void setExpress(Object express) {
+            this.express = express;
+        }
 
-    public int getId() {
-        return id;
-    }
+        public int getFare() {
+            return fare;
+        }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+        public void setFare(int fare) {
+            this.fare = fare;
+        }
 
-    public String getImg() {
-        return StringUtils.dataFilter(img);
-    }
+        public int getId() {
+            return id;
+        }
 
-    public void setImg(String img) {
-        this.img = img;
-    }
+        public void setId(int id) {
+            this.id = id;
+        }
 
-    public String getLabel() {
-        return StringUtils.dataFilter(label);
-    }
+        public String getMobile() {
+            return mobile;
+        }
 
-    public void setLabel(String label) {
-        this.label = label;
-    }
+        public void setMobile(String mobile) {
+            this.mobile = mobile;
+        }
 
-    public String getMobile() {
-        return StringUtils.dataFilter(mobile);
-    }
+        public String getName() {
+            return name;
+        }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
+        public void setName(String name) {
+            this.name = name;
+        }
 
-    public double getMoney() {
-        return money;
-    }
+        public long getPayTime() {
+            return payTime;
+        }
 
-    public void setMoney(double money) {
-        this.money = money;
-    }
+        public void setPayTime(long payTime) {
+            this.payTime = payTime;
+        }
 
-    public String getName() {
-        return StringUtils.dataFilter(name);
-    }
+        public int getPrice() {
+            return price;
+        }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+        public void setPrice(int price) {
+            this.price = price;
+        }
 
-    public int getNum() {
-        return num;
-    }
+        public Object getRemark() {
+            return remark;
+        }
 
-    public void setNum(int num) {
-        this.num = num;
-    }
+        public void setRemark(Object remark) {
+            this.remark = remark;
+        }
 
-    public String getPayTime() {
-        return StringUtils.dataFilter(payTime);
-    }
+        public int getSex() {
+            return sex;
+        }
 
-    public void setPayTime(String payTime) {
-        this.payTime = payTime;
-    }
+        public void setSex(int sex) {
+            this.sex = sex;
+        }
 
-    public double getPrice() {
-        return price;
-    }
+        public String getSn() {
+            return sn;
+        }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
+        public void setSn(String sn) {
+            this.sn = sn;
+        }
 
-    public String getRemark() {
-        return StringUtils.dataFilter(remark);
-    }
+        public int getState() {
+            return state;
+        }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
+        public void setState(int state) {
+            this.state = state;
+        }
 
-    public int getSex() {
-        return sex;
-    }
+        public List<DetailsBean> getDetails() {
+            return details;
+        }
 
-    public void setSex(int sex) {
-        this.sex = sex;
-    }
+        public void setDetails(List<DetailsBean> details) {
+            this.details = details;
+        }
 
-    public String getSn() {
-        return StringUtils.dataFilter(sn);
-    }
+        public  class DetailsBean {
+            /**
+             * feature : GNC
+             * icon : https://hajk.image.alimmdn.com/bz/banner1.jpg?t=1499067204099
+             * list : [{"bid":31,"img":"https://hajk.image.alimmdn.com/dev/1501828301237","label":"5支","money":300,"num":3,"price":500,"title":"东北老家林下参地出货，特价出5组12年林下鲜参（每组含5支），每组300元包邮，送冰袋。用法：炖汤、泡酒、切片泡茶。","type":1}]
+             */
 
-    public void setSn(String sn) {
-        this.sn = sn;
-    }
+            private String feature;
+            private String icon;
+            private List<ListBean> list;
 
-    public int getState() {
-        return state;
-    }
+            public String getFeature() {
+                return feature;
+            }
 
-    public void setState(int state) {
-        this.state = state;
-    }
+            public void setFeature(String feature) {
+                this.feature = feature;
+            }
 
-    public String getTitle() {
-        return StringUtils.dataFilter(title);
-    }
+            public String getIcon() {
+                return icon;
+            }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+            public void setIcon(String icon) {
+                this.icon = icon;
+            }
+
+            public List<ListBean> getList() {
+                return list;
+            }
+
+            public void setList(List<ListBean> list) {
+                this.list = list;
+            }
+
+            public  class ListBean {
+                /**
+                 * bid : 31
+                 * img : https://hajk.image.alimmdn.com/dev/1501828301237
+                 * label : 5支
+                 * money : 300
+                 * num : 3
+                 * price : 500
+                 * title : 东北老家林下参地出货，特价出5组12年林下鲜参（每组含5支），每组300元包邮，送冰袋。用法：炖汤、泡酒、切片泡茶。
+                 * type : 1
+                 */
+
+                private int bid;
+                private String img;
+                private String label;
+                private int money;
+                private int num;
+                private int price;
+                private String title;
+                private int type;
+
+                public int getBid() {
+                    return bid;
+                }
+
+                public void setBid(int bid) {
+                    this.bid = bid;
+                }
+
+                public String getImg() {
+                    return img;
+                }
+
+                public void setImg(String img) {
+                    this.img = img;
+                }
+
+                public String getLabel() {
+                    return label;
+                }
+
+                public void setLabel(String label) {
+                    this.label = label;
+                }
+
+                public int getMoney() {
+                    return money;
+                }
+
+                public void setMoney(int money) {
+                    this.money = money;
+                }
+
+                public int getNum() {
+                    return num;
+                }
+
+                public void setNum(int num) {
+                    this.num = num;
+                }
+
+                public int getPrice() {
+                    return price;
+                }
+
+                public void setPrice(int price) {
+                    this.price = price;
+                }
+
+                public String getTitle() {
+                    return title;
+                }
+
+                public void setTitle(String title) {
+                    this.title = title;
+                }
+
+                public int getType() {
+                    return type;
+                }
+
+                public void setType(int type) {
+                    this.type = type;
+                }
+            }
+        }
+
+
+
+//    private String address;
+//    private double amount;
+//    private String code;
+//    private String contact;
+//    private long createTime;
+//    private String deliveryTime;
+//    private String express;
+//    private int fare;
+//    private int id;
+//    private String img;
+//    private String label;
+//    private String mobile;
+//    private double money;
+//    private String name;
+//    private int num;
+//    private String payTime;
+//    private double price;
+//    private String remark;
+//    private int sex;
+//    private String sn;
+//    private int state;
+//    private String title;
+//
+//    public String getAddress() {
+//        return StringUtils.dataFilter(address);
+//    }
+//
+//    public void setAddress(String address) {
+//        this.address = address;
+//    }
+//
+//    public double getAmount() {
+//        return amount;
+//    }
+//
+//    public void setAmount(double amount) {
+//        this.amount = amount;
+//    }
+//
+//    public String getCode() {
+//        return StringUtils.dataFilter(code);
+//    }
+//
+//    public void setCode(String code) {
+//        this.code = code;
+//    }
+//
+//    public String getContact() {
+//        return StringUtils.dataFilter(contact);
+//    }
+//
+//    public void setContact(String contact) {
+//        this.contact = contact;
+//    }
+//
+//    public long getCreateTime() {
+//        return createTime;
+//    }
+//
+//    public void setCreateTime(long createTime) {
+//        this.createTime = createTime;
+//    }
+//
+//    public String getDeliveryTime() {
+//        return StringUtils.dataFilter(deliveryTime);
+//    }
+//
+//    public void setDeliveryTime(String deliveryTime) {
+//        this.deliveryTime = deliveryTime;
+//    }
+//
+//    public String getExpress() {
+//        return StringUtils.dataFilter(express);
+//    }
+//
+//    public void setExpress(String express) {
+//        this.express = express;
+//    }
+//
+//    public int getFare() {
+//        return fare;
+//    }
+//
+//    public void setFare(int fare) {
+//        this.fare = fare;
+//    }
+//
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public void setId(int id) {
+//        this.id = id;
+//    }
+//
+//    public String getImg() {
+//        return StringUtils.dataFilter(img);
+//    }
+//
+//    public void setImg(String img) {
+//        this.img = img;
+//    }
+//
+//    public String getLabel() {
+//        return StringUtils.dataFilter(label);
+//    }
+//
+//    public void setLabel(String label) {
+//        this.label = label;
+//    }
+//
+//    public String getMobile() {
+//        return StringUtils.dataFilter(mobile);
+//    }
+//
+//    public void setMobile(String mobile) {
+//        this.mobile = mobile;
+//    }
+//
+//    public double getMoney() {
+//        return money;
+//    }
+//
+//    public void setMoney(double money) {
+//        this.money = money;
+//    }
+//
+//    public String getName() {
+//        return StringUtils.dataFilter(name);
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public int getNum() {
+//        return num;
+//    }
+//
+//    public void setNum(int num) {
+//        this.num = num;
+//    }
+//
+//    public String getPayTime() {
+//        return StringUtils.dataFilter(payTime);
+//    }
+//
+//    public void setPayTime(String payTime) {
+//        this.payTime = payTime;
+//    }
+//
+//    public double getPrice() {
+//        return price;
+//    }
+//
+//    public void setPrice(double price) {
+//        this.price = price;
+//    }
+//
+//    public String getRemark() {
+//        return StringUtils.dataFilter(remark);
+//    }
+//
+//    public void setRemark(String remark) {
+//        this.remark = remark;
+//    }
+//
+//    public int getSex() {
+//        return sex;
+//    }
+//
+//    public void setSex(int sex) {
+//        this.sex = sex;
+//    }
+//
+//    public String getSn() {
+//        return StringUtils.dataFilter(sn);
+//    }
+//
+//    public void setSn(String sn) {
+//        this.sn = sn;
+//    }
+//
+//    public int getState() {
+//        return state;
+//    }
+//
+//    public void setState(int state) {
+//        this.state = state;
+//    }
+//
+//    public String getTitle() {
+//        return StringUtils.dataFilter(title);
+//    }
+//
+//    public void setTitle(String title) {
+//        this.title = title;
+//    }
 }

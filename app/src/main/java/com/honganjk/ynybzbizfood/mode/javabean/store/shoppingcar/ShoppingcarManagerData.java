@@ -23,7 +23,8 @@ public class ShoppingcarManagerData implements SelectListenerView {
     public int getCount() {
         mSumCount = 0;
         for (int i = 0; i < mDatas.size(); i++) {
-            mSumCount += mDatas.get(i).getList().size();
+           // mSumCount += mDatas.get(i).getList().size();
+            mSumCount +=mDatas.size();
 
         }
         return mSumCount;
@@ -56,8 +57,8 @@ public class ShoppingcarManagerData implements SelectListenerView {
      */
     public void setmIsAllSelect(boolean isAllSelect) {
         for (int i = 0; i < mDatas.size(); i++) {
-            for (int j = 0; j < mDatas.get(i).getList().size(); j++) {
-                mDatas.get(i).getList().get(j).setIsSelect(isAllSelect);
+            for (int j = 0; j < mDatas.size(); j++) {
+               // mDatas.get(j).setIsSelect(isAllSelect);
             }
         }
         if (isAllSelect) {
@@ -76,10 +77,10 @@ public class ShoppingcarManagerData implements SelectListenerView {
     public double getSumPrice() {
         mPrice=0;
         for (int i = 0; i < mDatas.size(); i++) {
-            for (int j = 0; j < mDatas.get(i).getList().size(); j++) {
-                if (mDatas.get(i).getList().get(j).isSelect()) {
-                    mPrice += (mDatas.get(i).getList().get(j).getNum() * mDatas.get(i).getList().get(j).getMoney());
-                }
+            for (int j = 0; j < mDatas.size(); j++) {
+//                if (mDatas.get(j).isSelect()) {
+//                    mPrice += (mDatas.get(j).getNum() * mDatas.get(i).getList().get(j).getMoney());
+//                }
             }
         }
         return StringUtils.roundDouble(mPrice, 2);

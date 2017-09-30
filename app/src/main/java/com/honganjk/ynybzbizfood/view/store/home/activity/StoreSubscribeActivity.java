@@ -162,11 +162,11 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
 
     }
 
-
+    StoreHomePayData storeHomePayData;
     @Override
     public void placeTheOrderIsSucceed(StoreHomePayData da) {
         // TODO: 2017-09-08  下单提交成功
-
+        storeHomePayData=da;
         OrderPayData data = new OrderPayData(
                 mProductDetailsTypeData.getImg(),
                 mProductDetailsTypeData.getTitle(),
@@ -213,8 +213,11 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
                         ToastUtils.getToastShort("请填写配送地址");
                         return;
                     }
+
+
                     mData.setBid(getId());
                     presenter.commitOrder(mData);
+//                    getIdNumb.getIdNumbs(id);
                 }
                 break;
 
@@ -247,6 +250,14 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
             id=mProductDetailsTypeData.getId();
         }
         return id;
+    }
+    public interface GetIdNumb{
+       void getIdNumbs(int id);
+    }
+    public GetIdNumb getIdNumb;
+
+    public  void SetIdNumb(GetIdNumb getIdNumb){
+        this.getIdNumb=getIdNumb;
     }
 
     /**

@@ -3,7 +3,7 @@ package com.honganjk.ynybzbizfood.pressenter.store.order;
 import com.honganjk.ynybzbizfood.mode.HttpRequest;
 import com.honganjk.ynybzbizfood.mode.enumeration.HeadType;
 import com.honganjk.ynybzbizfood.mode.httpresponse.HttpResult;
-import com.honganjk.ynybzbizfood.mode.javabean.store.order.StoreOrderData;
+import com.honganjk.ynybzbizfood.mode.javabean.store.order.StoreOrderData2;
 import com.honganjk.ynybzbizfood.utils.http.httpquest.HttpCallBack;
 import com.honganjk.ynybzbizfood.utils.http.httpquest.HttpRequestParam;
 import com.honganjk.ynybzbizfood.view.store.order.view.StoreOrderParentInterfaces;
@@ -15,6 +15,9 @@ import java.util.List;
  * 作者： 杨阳; 创建于：  2017-07-11  15:28
  */
 public class StoreOrderPresenter extends StoreOrderParentPresenter<StoreOrderParentInterfaces.IOrder> {
+
+
+    private List list;
 
     public StoreOrderPresenter(int requestCode) {
         super(requestCode);
@@ -43,7 +46,8 @@ public class StoreOrderPresenter extends StoreOrderParentPresenter<StoreOrderPar
      * start	必选,int	分页参数，开始位置，以0为起始
      * size	必选,int	分页参数，单页展示数量
      */
-    public void getHttpData(int type, final boolean isFirst, int state) {
+    public void getHttpData(final boolean isFirst, int state) {
+
         if (isFirst) {
             mvpView.clearPagingData();
         }
@@ -53,15 +57,15 @@ public class StoreOrderPresenter extends StoreOrderParentPresenter<StoreOrderPar
                 .setLoadingStatus(mvpView)
                 .setHttpHead(HeadType.LOGIN_HEAD);
 
-        HttpCallBack httpCallBack = new HttpCallBack<HttpResult<StoreOrderData>>(builder) {
+        HttpCallBack httpCallBack = new HttpCallBack<HttpResult<StoreOrderData2>>(builder) {
             @Override
-            public void onSuccess(HttpResult<StoreOrderData> result) {
+            public void onSuccess(HttpResult<StoreOrderData2> result) {
                 super.onSuccess(result);
                 if (result.isSucceed()) {
                     if (isFirst) {
                         mvpView.clearData();
                     }
-                    mvpView.getHttpData(result.getData().getTotal(), (List<StoreOrderData.ObjsBean>) mvpView.getValidData(result.getData().getObjs()));
+                    mvpView.getHttpData(result.getData().getTotal(), (List<StoreOrderData2.ObjsBean>) mvpView.getValidData(result.getData().getObjs()));
 
                 } else {
                     showMsg(result);
@@ -70,13 +74,14 @@ public class StoreOrderPresenter extends StoreOrderParentPresenter<StoreOrderPar
         };
 
         HttpRequestParam param = new HttpRequestParam();
-        if (state != -1) {
+        if(state!=-1){
             param.addParam("state", state);
         }
         param.addParam("start", mvpView.getPageindex() * mvpView.getPageCount());
         param.addParam("size", mvpView.getPageCount());
-        HttpRequest.executePostStore(httpCallBack, "/token/orders.json", param);
-    }
 
+        HttpRequest.executePostStore(httpCallBack, "/token/orders.json", param);
+
+    }
 
 }

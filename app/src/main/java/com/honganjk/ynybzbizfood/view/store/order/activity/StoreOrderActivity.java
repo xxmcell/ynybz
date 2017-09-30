@@ -29,7 +29,7 @@ import butterknife.BindView;
  * 说明:商城-我的订单
  * 作者： 杨阳; 创建于：  2017-07-11  15:27
  */
-public class StoreOrderActivity extends BaseActivity {
+public class StoreOrderActivity extends BaseActivity{
     ArrayList<Fragment> fragmentDatas = new ArrayList<>();
     @BindView(R.id.tabLayout)
     TabLayout tabLayout;
@@ -67,7 +67,6 @@ public class StoreOrderActivity extends BaseActivity {
                 onBackPressed();
             }
         });
-
         fragmentDatas.add(StoreOrderFragment.getInstance(-1));
         fragmentDatas.add(StoreOrderFragment.getInstance(0));
         fragmentDatas.add(StoreOrderFragment.getInstance(1));

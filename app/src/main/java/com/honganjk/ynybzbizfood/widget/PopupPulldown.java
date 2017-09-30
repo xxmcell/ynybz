@@ -99,6 +99,8 @@ public class PopupPulldown extends PopupWindow {
                     dismiss();
                 }
             }
+
+
         });
 
 

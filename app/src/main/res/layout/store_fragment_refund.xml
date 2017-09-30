@@ -2,14 +2,29 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/RelativeLayoutfund"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/main_gray2"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-
+<TextView
+    android:id="@+id/titel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:textColor="#49B047"
+    android:textSize="22dp"
+    android:background="#FCFFFE"/>
         <LinearLayout
             android:id="@+id/llType"
             android:layout_width="match_parent"
@@ -40,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_10"
                 android:gravity="center_vertical"
-                android:text="已收货"
+                android:drawableRight="@drawable/material_arrwos_black_down"
                 android:textColor="@color/gray_66"
                 android:textSize="@dimen/text_xxxm" />
 
@@ -168,24 +183,11 @@
 
     </LinearLayout>
 
-    <!--<TextView-->
-    <!--android:id="@+id/commit"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_alignParentBottom="true"-->
-    <!--android:background="@color/main_store"-->
-    <!--android:gravity="center"-->
-    <!--android:padding="@dimen/dp_10"-->
-    <!--android:text="提交申请"-->
-    <!--android:textColor="@color/white"-->
-    <!--android:textSize="@dimen/text_xxxm" />-->
 
     <com.honganjk.ynybzbizfood.widget.button.FlatButton xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/commit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/password"
         android:gravity="center"
         android:padding="@dimen/dp_10"
         android:text="提交申请"
@@ -194,7 +196,447 @@
         app:colorNormal="@color/main_store"
         app:colorPressed="@color/gray_ee"
         app:cornerRadius="@dimen/dp_5"
-        app:strokeColor="@color/black" />
+        app:strokeColor="@color/black"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>
 
+
+    <!-- 底部布局-->
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayoutflow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EEEEEE"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@mipmap/rec_99"
+            >
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/bj_back" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/state"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="等待商家处理"
+                        android:textColor="@color/red"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/theTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/contants"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textfirstline1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="#333333" />
+
+                    <TextView
+                        android:id="@+id/textfirstline2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#666666" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textsecondline1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:text=""
+                        android:textColor="#333333" />
+
+                    <TextView
+                        android:id="@+id/textsecondline2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#666666" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textthirdline1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:text=""
+                        android:textColor="#333333" />
+
+                    <TextView
+                        android:id="@+id/textthirdline2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#666666" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_below="@+id/linearLayout2"
+            android:id="@+id/repayment"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/ImageTop"
+                    android:background="@mipmap/greytopv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="银行已经入账"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/refundTime"
+                        android:text=""
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/ImageMid"
+                    android:background="@mipmap/greenmidv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="银行处理中"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+
+                        android:text="14时查询,若超时未查询到,请咨询银行"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/ImageBottom"
+                    android:background="@mipmap/greenbottomv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="银行处理"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/refundTimeStart"
+                        android:text="111111111111111111"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    <LinearLayout
+        android:id="@+id/refundinformation"
+        android:layout_marginTop="18dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="退款详情"
+            android:textSize="18dp" />
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/rec_up"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="退款类型"
+                android:textColor="@color/gray"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:id="@+id/textViewType"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+
+                android:gravity="center_vertical"
+                android:text="仅退款"
+                android:textColor="#333333"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/rec"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="退款金额"
+                android:textColor="@color/gray"/>
+            <TextView
+                android:id="@+id/textViewSum"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+
+                android:gravity="center_vertical"
+                android:textColor="#333333"
+                android:text="类型" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/rec_down"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="退款原因"
+                android:textColor="@color/gray"/>
+            <TextView
+                android:id="@+id/textviewreson"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textColor="#333333"
+                android:text="七天无理由" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/flowinformation"
+        android:layout_below="@+id/refundinformation"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/flowName"
+            android:text="*填写物流信息"
+            android:textColor="@color/red"
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:textSize="18dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            />
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/rec_up"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="物流公司"
+                android:textColor="@color/gray"/>
+
+            <EditText
+                android:id="@+id/flowCNeditText"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="#333333"
+                android:textSize="12dp"
+                android:text="请输入"/>
+            <LinearLayout
+                android:id="@+id/llselectCN"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/rec_down"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="快递单号"
+                android:textColor="@color/gray"/>
+
+            <EditText
+                android:id="@+id/flowCNnumbedittext"
+                android:layout_width="0dp"
+                android:layout_weight="7"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="#333333"
+                android:textSize="12dp"
+                android:text="请输入"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/sure"
+            android:text="确认"
+            android:textColor="@color/gray"
+            android:textSize="18dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/green"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="300dp"
+            android:layout_height="28dp" />
+    </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/bottom_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            >
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_margin="20dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="撤销申请"
+                android:background="@mipmap/rec"/>
+
+            <Button
+                android:id="@+id/ensure"
+                android:layout_margin="20dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="申请介入"
+                android:background="@mipmap/rec"/>
+        </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

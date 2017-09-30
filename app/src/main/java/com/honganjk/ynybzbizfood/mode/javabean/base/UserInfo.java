@@ -11,7 +11,6 @@ import com.honganjk.ynybzbizfood.R;
 import com.honganjk.ynybzbizfood.mode.third.BaiDuLocationUtils;
 import com.honganjk.ynybzbizfood.utils.encryption.Md5Utils;
 import com.honganjk.ynybzbizfood.utils.other.DeviceUtil;
-import com.honganjk.ynybzbizfood.utils.other.LogUtils;
 import com.honganjk.ynybzbizfood.utils.other.StringUtils;
 import com.honganjk.ynybzbizfood.view.common.activity.LoginActivity;
 import com.litesuits.orm.db.annotation.Column;
@@ -72,7 +71,7 @@ public class UserInfo {
             if ((getLiteOrm().query(UserInfo.class)).size() == 0) {
                 save(userData);
             }
-            LogUtils.e(userData.toString());
+
         } catch (Exception e) {
             e.printStackTrace();
         }
