@@ -101,31 +101,28 @@ public class MyActivity extends com.honganjk.ynybzbizfood.view.shitang.my.activi
             AnimUtils.pressAnimationListener(v);
             switch (v.getId()) {
                 case R.id.order:
+
                     StoreOrderActivity.startUI(mActivity, 0);
                     break;
                 case R.id.fuKuan:
+
                     StoreOrderActivity.startUI(mActivity, 1);
                     break;
                 case R.id.faHuo:
+
                     StoreOrderActivity.startUI(mActivity, 2);
                     break;
                 case R.id.shouHuo:
+
                     StoreOrderActivity.startUI(mActivity, 3);
                     break;
                 case R.id.pingJia:
+
                     StoreOrderActivity.startUI(mActivity, 4);
                     break;
                 case R.id.tuiHuan:
                     Intent intent = new Intent(MyActivity.this, ReFundOrderBill.class);
                     startActivity(intent);
-
-                    /**
-                     * https://m.kuaidi100.com/result.jsp?com=zhongtong&nu=445034874095
-                     */
-//                    AgreementActivity.startUI(mActivity,"https://m.kuaidi100.com/result.jsp?com=zhongtong&nu=445034874095");
-//                    Uri uri = Uri.parse("https://m.kuaidi100.com/result.jsp?com=zhongtong&nu=445034874095");
-//                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-//                    startActivity(intent);
 
                     break;
                 case R.id.collect:

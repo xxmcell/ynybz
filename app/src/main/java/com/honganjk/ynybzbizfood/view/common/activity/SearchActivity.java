@@ -106,6 +106,11 @@ public class SearchActivity extends BaseActivity {
             holder.setText(R.id.title, datas.key);
             holder.setText(R.id.details, datas.city + "-" + datas.district);
         }
+
+        @Override
+        public void convert(ViewHolder holder, List<SuggestionResult.SuggestionInfo> t) {
+
+        }
     };
 
     @OnClick(R.id.cancel)

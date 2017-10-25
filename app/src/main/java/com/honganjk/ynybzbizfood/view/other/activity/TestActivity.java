@@ -32,6 +32,7 @@ import com.honganjk.ynybzbizfood.view.common.activity.SearchActivity;
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import me.nereo.multi_image_selector.MultiImageSelector;
@@ -137,6 +138,11 @@ public class TestActivity extends BaseActivity {
         public void convert(ViewHolder holder, TestData o) {
             holder.setText(R.id.number, o.index);
             holder.setText(R.id.describe, o.name);
+        }
+
+        @Override
+        public void convert(ViewHolder holder, List<TestData> t) {
+
         }
     };
 

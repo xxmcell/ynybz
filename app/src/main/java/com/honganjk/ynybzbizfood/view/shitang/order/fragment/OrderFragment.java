@@ -177,6 +177,11 @@ public class OrderFragment extends BaseListFragment<OrderParentInterfaces.IOrder
 
 
             }
+
+            @Override
+            public void convert(ViewHolder holder, List<OrderData> t) {
+
+            }
         };
     }
 

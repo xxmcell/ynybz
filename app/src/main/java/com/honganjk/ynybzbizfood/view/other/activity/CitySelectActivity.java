@@ -289,6 +289,11 @@ public class CitySelectActivity extends BaseActivity {
         }
 
         @Override
+        public void convert(ViewHolder holder, List<CityData> t) {
+
+        }
+
+        @Override
         public long getItemId(int position) {
             return mDatas.get(position).hashCode();
         }

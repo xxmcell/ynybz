@@ -57,6 +57,11 @@ public class ProductDetailsFragment extends BaseFragment {
 
                 GlideUtils2.show(s.getImg(),view);
             }
+
+            @Override
+            public void convert(ViewHolder holder, List<ProductDetailsData.DetailsBean> t) {
+
+            }
         });
     }
 

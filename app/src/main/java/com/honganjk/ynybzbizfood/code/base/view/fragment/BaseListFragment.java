@@ -45,6 +45,7 @@ public abstract class BaseListFragment<V extends BaseView, T extends BasePresent
         listSwipeView.setOnLoaddingListener(this);
 
 
+
     }
 
     public RecyclerView.LayoutManager getLayoutManager() {

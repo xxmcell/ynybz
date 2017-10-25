@@ -54,6 +54,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         if (convertView == null) {
             View itemView = UiUtils.getInflaterView(context, layoutId, parent,
                     false);
+
             ViewHolder holder = new ViewHolder(context, itemView, parent, position);
             holder.mLayoutId = layoutId;
             return holder;

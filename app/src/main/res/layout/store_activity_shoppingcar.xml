@@ -4,7 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
    >
-
+    <RelativeLayout
+        android:id="@+id/ril"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
     <com.honganjk.ynybzbizfood.widget.appbarlayout.SupperToolBar
         android:id="@+id/toolbar"
         style="@style/ToolbarB"
@@ -12,7 +18,9 @@
         android:layout_height="wrap_content" />
 
     <LinearLayout
+        android:id="@+id/contant"
         android:layout_below="@id/toolbar"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -21,7 +29,6 @@
             android:id="@+id/switchRoot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
         </com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView>
     </LinearLayout>
 
@@ -56,12 +63,24 @@
             android:text="结算(0)"
             android:textColor="@color/white"
             android:textSize="@dimen/text_h" />
+        <TextView
+            android:id="@+id/deleteall"
+            android:visibility="gone"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@color/main_store"
+            android:gravity="center"
+            android:text="删除"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_h" />
         <LinearLayout
+            android:id="@+id/details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dp_10"
-            android:layout_toLeftOf="@+id/commit"
+            android:layout_toLeftOf="@id/commit"
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -91,7 +110,7 @@
                 android:textSize="@dimen/text_xxm" />
         </LinearLayout>
     </RelativeLayout>
-
+    </RelativeLayout>
     <include
         android:id="@+id/bottom_navigation_bar"
         layout="@layout/widget_boottom_bar" />

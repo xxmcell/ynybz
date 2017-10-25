@@ -21,12 +21,8 @@ public class ShoppingcarManagerData implements SelectListenerView {
     }
 
     public int getCount() {
-        mSumCount = 0;
-        for (int i = 0; i < mDatas.size(); i++) {
-           // mSumCount += mDatas.get(i).getList().size();
-            mSumCount +=mDatas.size();
+        mSumCount = mDatas.size();
 
-        }
         return mSumCount;
     }
 
@@ -57,9 +53,7 @@ public class ShoppingcarManagerData implements SelectListenerView {
      */
     public void setmIsAllSelect(boolean isAllSelect) {
         for (int i = 0; i < mDatas.size(); i++) {
-            for (int j = 0; j < mDatas.size(); j++) {
-               // mDatas.get(j).setIsSelect(isAllSelect);
-            }
+            mDatas.get(i).setIsSelect(isAllSelect);
         }
         if (isAllSelect) {
             mIsAllSelect = true;
@@ -77,11 +71,10 @@ public class ShoppingcarManagerData implements SelectListenerView {
     public double getSumPrice() {
         mPrice=0;
         for (int i = 0; i < mDatas.size(); i++) {
-            for (int j = 0; j < mDatas.size(); j++) {
-//                if (mDatas.get(j).isSelect()) {
-//                    mPrice += (mDatas.get(j).getNum() * mDatas.get(i).getList().get(j).getMoney());
-//                }
-            }
+           if(mDatas.get(i).getIsSelect()==true){
+
+               mPrice+=(mDatas.get(i).getMoney()*mDatas.get(i).getNum());
+           }
         }
         return StringUtils.roundDouble(mPrice, 2);
     }

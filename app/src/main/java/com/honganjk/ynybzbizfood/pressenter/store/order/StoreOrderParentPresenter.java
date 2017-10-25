@@ -49,7 +49,6 @@ public abstract class StoreOrderParentPresenter<V extends BaseView> extends Base
      */
     public void deleteOrder(StoreOrderData2.ObjsBean data,int type) {
 
-
         HttpCallBack.Builder builder = new HttpCallBack.Builder()
                 .setShowLoadding(true)
                 .setHttpHead(HeadType.LOGIN_HEAD);

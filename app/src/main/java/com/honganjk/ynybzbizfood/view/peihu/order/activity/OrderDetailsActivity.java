@@ -35,6 +35,7 @@ import com.honganjk.ynybzbizfood.view.shitang.order.activity.WritingEvaluationAc
 import com.honganjk.ynybzbizfood.widget.dialog.DialogSelectCause;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -231,6 +232,11 @@ public class OrderDetailsActivity extends BaseMvpActivity<OrderParentInterfaces.
             @Override
             public void convert(ViewHolder holder, String s) {
                 holder.setText(R.id.item, s);
+            }
+
+            @Override
+            public void convert(ViewHolder holder, List<String> t) {
+
             }
         });
 

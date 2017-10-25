@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
-import android.support.annotation.DrawableRes;
 import android.support.annotation.FloatRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -94,7 +93,11 @@ public class SupperToolBar extends Toolbar {
     }
 
     public MenuItem addAction(int postion, String title) {
-        return addAction(postion, title, 0);
+        MenuItem menuItem = getMenu().add(0, postion, 0, title);
+        menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+//        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) titleView.getLayoutParams();
+//        layoutParams.setMargins(0, 0, (int) (layoutParams.rightMargin + getResources().getDimension(R.dimen.dp_24)), 0);
+        return menuItem;
     }
 
     /**
@@ -108,15 +111,12 @@ public class SupperToolBar extends Toolbar {
      * @param icon
      * @return
      */
-    public MenuItem addAction(int postion, String title, @DrawableRes int icon) {
-        MenuItem menuItem = getMenu().add(0, postion, 0, title);
+    public MenuItem addActions(int postion, String title, int icon) {
 
-        if (icon > 0) {
-            menuItem.setIcon(icon);
-        }
+        MenuItem menuItem = getMenu().add(0, postion, 0, title);
+        menuItem.setIcon(icon);
         menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 //        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) titleView.getLayoutParams();
-//
 //        layoutParams.setMargins(0, 0, (int) (layoutParams.rightMargin + getResources().getDimension(R.dimen.dp_24)), 0);
         return menuItem;
     }

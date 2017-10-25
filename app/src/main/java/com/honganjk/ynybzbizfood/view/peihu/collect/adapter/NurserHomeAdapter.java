@@ -50,4 +50,9 @@ public class NurserHomeAdapter extends CommonAdapter<NurserCommendData> {
         });
 
     }
+
+    @Override
+    public void convert(ViewHolder holder, List<NurserCommendData> t) {
+
+    }
 }

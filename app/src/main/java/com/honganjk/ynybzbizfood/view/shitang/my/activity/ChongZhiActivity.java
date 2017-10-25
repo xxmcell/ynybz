@@ -72,6 +72,11 @@ public class ChongZhiActivity extends BaseListActivity<MyParentInterfaces.IPromo
                     holder.setImageResource(R.id.iv_check, R.mipmap.iv_pay_choice_down);
                 }
             }
+
+            @Override
+            public void convert(ViewHolder holder, List<PromotionInfoBean> t) {
+                
+            }
         };
     }
 

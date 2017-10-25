@@ -20,6 +20,7 @@ import com.honganjk.ynybzbizfood.utils.other.DimensUtils;
 import com.honganjk.ynybzbizfood.utils.ui.divider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.honganjk.ynybzbizfood.code.MyApplication.myApp;
 
@@ -84,6 +85,11 @@ public class PopupPulldown extends PopupWindow {
 
                 holder.setText(R.id.source, pullDownData.getTitle());
 
+
+            }
+
+            @Override
+            public void convert(ViewHolder holder, List<PullDownData> t) {
 
             }
         });

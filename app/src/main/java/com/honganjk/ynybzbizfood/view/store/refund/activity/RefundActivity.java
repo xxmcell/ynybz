@@ -83,7 +83,7 @@ public class RefundActivity extends BaseMvpActivity<IRefundParent.IRefund, Refun
 
     }
 
-    private void initFragmentState(String jsonStr) {
+    private void initFragmentState(String jsonStr,String string) {
 
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction transaction=fragmentManager.beginTransaction();
@@ -134,7 +134,7 @@ public class RefundActivity extends BaseMvpActivity<IRefundParent.IRefund, Refun
         efundRequestData = data;
         Gson gson=new Gson();
         String string=gson.toJson(efundRequestData);
-        initFragmentState(json);
+        initFragmentState(json,string);
     }
 
 

@@ -71,8 +71,6 @@ public class HomeActivity extends BaseStoreMainActivity<IHomeParentInterfaces.IH
         switchRoot.getRecyclerView().setLayoutManager(new GridLayoutManager(this, 3));
 //        switchRoot.getRecyclerView().addItemDecoration(new HorizontalDividerItemDecoration.Builder(this).sizeResId(R.dimen.dp_8).colorResId(R.color.gray_ee).build());
         switchRoot.setAdapter(adapter);
-
-
         advertisement.setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.ALIGN_PARENT_RIGHT);
         advertisement.setPages(this, advertisementDatas);
         advertisement.startTurning(Global.ADVERTISEMENT_TIME);

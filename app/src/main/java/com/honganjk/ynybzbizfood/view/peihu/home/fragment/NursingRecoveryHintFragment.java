@@ -50,6 +50,11 @@ public class NursingRecoveryHintFragment extends BaseFragment {
 //                ((TextView)holder.getView(R.id.content)).setTextSize(getResources().getDimension(R.dimen.text_xxm));
                 holder.setText(R.id.content, data);
             }
+
+            @Override
+            public void convert(ViewHolder holder, List<String> t) {
+
+            }
         });
     }
 

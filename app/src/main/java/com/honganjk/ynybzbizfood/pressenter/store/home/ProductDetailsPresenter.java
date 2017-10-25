@@ -70,9 +70,8 @@ public class ProductDetailsPresenter extends BasePresenter<IHomeParentInterfaces
                 };
                 HttpRequestParam param = new HttpRequestParam();
                 param.addParam("id", id);
-
                 if (userData.isLogin()) {
-                    param.addParam("uid", userData.getId());
+                    param.addParam("uid", userData.getCode());
                 }
                 HttpRequest.executePostStore(httpCallBack, "/ticket/bjpDetail.json", param);
             }
@@ -173,6 +172,7 @@ public class ProductDetailsPresenter extends BasePresenter<IHomeParentInterfaces
                 }
             }
         };
+
         HttpRequestParam param = new HttpRequestParam();
         param.addParam("bid", bid);
         HttpRequest.executePostStore(httpCallBack, "/token/keepBjp.json", param);

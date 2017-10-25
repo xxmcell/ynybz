@@ -67,4 +67,9 @@ public class BusinessListAdapter extends CommonAdapter<com.honganjk.ynybzbizfood
         }
     }
 
+    @Override
+    public void convert(ViewHolder holder, List<BusinessData> t) {
+
+    }
+
 }

@@ -57,6 +57,11 @@ public class ProductDetailsEvaluateFragment extends BaseFragment {
                         view.setTextColor(getResources().getColor(R.color.main_red));
                         holder.setText(R.id.tv_empty, s);
                     }
+
+                    @Override
+                    public void convert(ViewHolder holder, List<String> t) {
+
+                    }
                 });
         }else {
 
@@ -69,6 +74,11 @@ public class ProductDetailsEvaluateFragment extends BaseFragment {
                         holder.setText(R.id.content, data.getContent());
                         SimpleRatingBar sb = holder.getView(R.id.grade);
                         sb.setRating(data.getScore());
+                    }
+
+                    @Override
+                    public void convert(ViewHolder holder, List<ProductDetailsData.CommentsBean> t) {
+
                     }
                 });
         }

@@ -146,6 +146,11 @@ public class NurserOrderAdapter extends CommonAdapter<NurserOrderdData.ObjsBean>
 
     }
 
+    @Override
+    public void convert(ViewHolder holder, List<NurserOrderdData.ObjsBean> t) {
+
+    }
+
     /**
      * @param str 按键的点击内容
      */

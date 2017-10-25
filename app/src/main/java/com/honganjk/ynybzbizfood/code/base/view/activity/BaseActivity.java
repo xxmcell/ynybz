@@ -78,8 +78,9 @@ public abstract class BaseActivity extends AppCompatActivity implements IActivit
         setTranslucentStatus(getStatusBarEnable(), getStatusBarResource());
         //初始化布局文件
         setContentView(getContentView());
-        //意图
+        //初始化意图
         parseIntent(getIntent());
+
         //初始化view
         initView();
 

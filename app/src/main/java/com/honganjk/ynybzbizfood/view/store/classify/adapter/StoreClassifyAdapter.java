@@ -47,6 +47,11 @@ public class StoreClassifyAdapter extends CommonAdapter<StoreHomeData.ObjsBean> 
 //        });
     }
 
+    @Override
+    public void convert(ViewHolder holder, List<StoreHomeData.ObjsBean> t) {
+
+    }
+
     AddShoppingCarListener mAddShoppingCarListener;
 
     public void setAddShoppingCarListener(AddShoppingCarListener addShoppingCarListener) {

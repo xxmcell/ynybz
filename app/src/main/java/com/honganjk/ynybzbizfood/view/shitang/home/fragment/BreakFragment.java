@@ -187,6 +187,11 @@ public class BreakFragment extends BaseMvpFragment<HomeParentInterface.breakfast
             setNum(team.getNum(), holder);
         }
 
+        @Override
+        public void convert(ViewHolder holder, List<FoodData.DishsBeanX.DishsBean> t) {
+
+        }
+
         private void setNum(int num, ViewHolder holder) {
             if (num == 0) {
                 holder.setVisible(R.id.iv_reduce, false);

@@ -61,6 +61,11 @@ public class NursingRecoveryGradeFragment extends BaseFragment {
                 SimpleRatingBar sb =  holder.getView(R.id.grade);
                 sb.setRating(data.getScore());
             }
+
+            @Override
+            public void convert(ViewHolder holder, List<NurserCommendDetailsData.ObjsBean> t) {
+
+            }
         });
     }
 
@@ -68,7 +73,7 @@ public class NursingRecoveryGradeFragment extends BaseFragment {
         mDatas.addAll(datas);
         adapter.notifyDataSetChanged();
         number.setText("评价（" + datas.size() + "）");
-        switchRoot.getRecyclerView().setAutoloaddingNoData("共为您加载" + mDatas.size() + "条数据");
+       // switchRoot.getRecyclerView().setAutoloaddingNoData("共为您加载" + mDatas.size() + "条数据");
         switchRoot.getRecyclerView().getLoaddFooterView().setStatus(LoadState.NoData);
     }
 

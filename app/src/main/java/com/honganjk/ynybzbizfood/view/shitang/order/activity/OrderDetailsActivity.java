@@ -155,7 +155,7 @@ public class OrderDetailsActivity extends BaseMvpActivity<OrderParentInterfaces.
     public void initView() {
         toolbar.setTitle("订单详情");
         toolbar.setBack(this);
-        toolbar.addAction(1, "联系", R.drawable.material_phone_white);
+        toolbar.addActions(1, "联系", R.drawable.material_phone_white);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -326,6 +326,11 @@ public class OrderDetailsActivity extends BaseMvpActivity<OrderParentInterfaces.
                 holder.setText(R.id.orderName, data.getName());
                 holder.setText(R.id.orderNumber, data.getNum());
                 holder.setText(R.id.orderPrice, data.getPriceStr());
+            }
+
+            @Override
+            public void convert(ViewHolder holder, List<OrderDetailsData.OdsBean> t) {
+
             }
         };
 

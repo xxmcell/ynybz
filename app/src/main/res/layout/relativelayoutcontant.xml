@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/RelativeLayoutContant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_10">
+
+        <ImageView
+            android:id="@+id/picture"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:layout_marginRight="@dimen/dp_10"
+            android:src="@mipmap/fail_picture" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/picture"
+            android:text="名称"
+            android:textColor="@color/gray_33"
+            android:textSize="@dimen/text_xxxm" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_toRightOf="@+id/picture"
+            android:hint="规格"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxm" />
+
+        <com.honganjk.ynybzbizfood.widget.button.FlatButton xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/type"
+            android:layout_toRightOf="@+id/picture"
+            android:background="@color/main_red"
+            android:gravity="center"
+            android:paddingBottom="@dimen/dp_1"
+            android:paddingLeft="@dimen/dp_4"
+            android:paddingRight="@dimen/dp_4"
+            android:paddingTop="@dimen/dp_1"
+            android:text="七天退换"
+            android:textColor="@color/main_red"
+            android:textSize="@dimen/text_xm"
+            app:cornerRadius="@dimen/dp_1"
+            app:strokeColor="@color/main_red"
+            app:strokeWidth="@dimen/dp_1" />
+        />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/hint"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_toRightOf="@+id/picture"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:text="价格"
+            android:textColor="@color/main_red"
+            android:textSize="@dimen/text_xxm"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/hint"
+            android:layout_marginTop="@dimen/dp_5"
+            android:hint="数量："
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:textColor="@color/gray_66"
+            android:textSize="@dimen/text_xxm" />
+
+    </RelativeLayout>
+</LinearLayout>

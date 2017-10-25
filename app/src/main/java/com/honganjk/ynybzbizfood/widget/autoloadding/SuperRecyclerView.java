@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 
 import com.honganjk.ynybzbizfood.R;
@@ -130,6 +131,20 @@ public class SuperRecyclerView extends RelativeLayout {
     public interface ListViewListener extends OnLoaddingListener, OnRetryClickListion {
 
     }
+    boolean Intercept;
+    public void  onInterceptTouchEvents(boolean intercept){
 
+            Intercept=intercept;
 
+    }
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        if(Intercept==false){
+            return false;
+        }else if(Intercept==true){
+            return true;
+        }else {
+            return super.onInterceptTouchEvent(ev);
+        }
+    }
 }

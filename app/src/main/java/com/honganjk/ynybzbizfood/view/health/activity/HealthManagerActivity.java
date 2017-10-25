@@ -83,6 +83,11 @@ public class HealthManagerActivity extends BaseListActivity<IHealthManagerParent
                 holder.setBackgroundColor(R.id.time,data.getTypeColor(HealthManagerActivity.this));
             }
 
+            @Override
+            public void convert(ViewHolder holder, List<HealthData.ObjsBean> t) {
+
+            }
+
 
         };
     }

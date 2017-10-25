@@ -4,10 +4,13 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.honganjk.ynybzbizfood.R;
@@ -18,6 +21,7 @@ import com.honganjk.ynybzbizfood.mode.javabean.shitang.order.center.DefaultAddre
 import com.honganjk.ynybzbizfood.mode.javabean.store.home.PlaceTheOrderData;
 import com.honganjk.ynybzbizfood.mode.javabean.store.home.ProductDetailsTypeData;
 import com.honganjk.ynybzbizfood.mode.javabean.store.home.StoreHomePayData;
+import com.honganjk.ynybzbizfood.mode.javabean.store.shoppingcar.ShoppingcarData;
 import com.honganjk.ynybzbizfood.pressenter.store.home.StoreSubscribePresenter;
 import com.honganjk.ynybzbizfood.utils.bitmap.GlideUtils;
 import com.honganjk.ynybzbizfood.utils.other.EditHelper;
@@ -29,7 +33,11 @@ import com.honganjk.ynybzbizfood.view.shitang.order.activity.PayActivity;
 import com.honganjk.ynybzbizfood.view.store.home.interfaces.IHomeParentInterfaces;
 import com.honganjk.ynybzbizfood.widget.NumberSelectRect;
 
+import java.io.Serializable;
+import java.util.List;
+
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -61,6 +69,11 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
     LinearLayout Lin_DeliveryMethod;
     @BindView(R.id.tv_deliveryMethod)
     TextView tv_DeliveryMethod;
+
+    @BindView(R.id.nomalcontant)
+    RelativeLayout nomalcontant;
+    @BindView(R.id.LinearLayoutContant)
+    LinearLayout LinearLayoutContant;
     //请求的实体对象
     private PlaceTheOrderData mData = new PlaceTheOrderData();
 
@@ -68,14 +81,20 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
     //广播,监听支付成功
     private MyBroadcastReceiver mMyBroadcastReceiver;
     ProductDetailsTypeData mProductDetailsTypeData;
+    List<ShoppingcarData.ObjsBean> listBean;
     private int id;
+
+    private int sum;
+    private String bids="";
+    private OrderPayData data;
 
     /**
      * @param context
      */
-    public static void starUi(Context context, ProductDetailsTypeData data) {
+    public static void starUi(Context context, ProductDetailsTypeData data, List<ShoppingcarData.ObjsBean> listBean) {
         Intent intent = new Intent(context, StoreSubscribeActivity.class);
         intent.putExtra("data", data);
+        intent.putExtra("listBean", (Serializable) listBean);
         context.startActivity(intent);
     }
 
@@ -92,7 +111,7 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
     @Override
     public void parseIntent(Intent intent) {
         mProductDetailsTypeData = intent.getParcelableExtra("data");
-
+        listBean = (List<ShoppingcarData.ObjsBean>) intent.getSerializableExtra("listBean");
         if (mProductDetailsTypeData != null) {
             GlideUtils.show(picture, mProductDetailsTypeData.getImg());
             price.setText(mProductDetailsTypeData.getPriceStr());
@@ -105,8 +124,37 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
             mData.setFare(0);
             mData.setNum(mProductDetailsTypeData.getNumber());
             mData.setType(mProductDetailsTypeData.getType());
+
             mData.setBid(mProductDetailsTypeData.getId());
 
+        }
+        if (listBean != null) {
+            LinearLayoutContant.setVisibility(View.VISIBLE);
+            nomalcontant.setVisibility(View.GONE);
+            LinearLayoutContant.removeAllViews();
+
+            for (int i = 0; i < listBean.size(); i++) {
+                View addView = LayoutInflater.from(this).inflate(R.layout.relativelayoutcontant, null);
+                ImageView pictures = addView.findViewById(R.id.picture);
+                TextView prices = addView.findViewById(R.id.price);
+                TextView types = addView.findViewById(R.id.type);
+                TextView numbers = addView.findViewById(R.id.number);
+                TextView names = addView.findViewById(R.id.name);
+
+                GlideUtils.show(pictures, listBean.get(i).getImg());
+                prices.setText("¥" + listBean.get(i).getPrice());
+                types.setText(listBean.get(i).getLabel());
+                numbers.setText("X" + listBean.get(i).getNum());
+                names.setText(listBean.get(i).getTitle());
+                LinearLayoutContant.addView(addView);
+
+                sum += listBean.get(i).getMoney() * listBean.get(i).getNum();
+                bids += listBean.get(i).getBid() + "-" + listBean.get(i).getType() + "-" + listBean.get(i).getNum() + ";";
+            }
+
+            sumPrice.setText(("合计：¥" + sum));
+            mData.setFare(0);
+            selectNumber.setVisibility(View.GONE);
         }
         selectNumber.setOnClickCallback(new NumberSelectRect.OnClickCallback() {
             @Override
@@ -117,6 +165,7 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
             }
         });
     }
+
 
     @Override
     public void initView() {
@@ -158,23 +207,37 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
         mData.setSex(data.getSexStr());
         mData.setPhone(data.getContact());
         mData.setAddressid(data.getId());
-        address.setText(mData.getInfor(this));
+        address.setText(data.getAddress());
+//        address.setText(mData.getInfor(this));
 
     }
 
     StoreHomePayData storeHomePayData;
+
     @Override
     public void placeTheOrderIsSucceed(StoreHomePayData da) {
         // TODO: 2017-09-08  下单提交成功
-        storeHomePayData=da;
-        OrderPayData data = new OrderPayData(
-                mProductDetailsTypeData.getImg(),
-                mProductDetailsTypeData.getTitle(),
-                da.getPrice(),
-                mProductDetailsTypeData.getLabel(),
-               3,
-                da.getId()
-        );
+        storeHomePayData = da;
+        if (mProductDetailsTypeData != null) {
+            data = new OrderPayData(
+                    mProductDetailsTypeData.getImg(),
+                    mProductDetailsTypeData.getTitle(),
+                    da.getPrice(),
+                    mProductDetailsTypeData.getLabel(),
+                    3,
+                    da.getId()
+            );
+        } else {
+            data = new OrderPayData(
+                    listBean.get(0).getImg(),
+                    listBean.get(0).getTitle(),
+                    da.getPrice(),
+                    listBean.get(0).getLabel(),
+                    3,
+                    da.getId()
+            );
+        }
+
         //跳转到支付页面
         PayActivity.startUI(this, data);
 //        finish();
@@ -196,7 +259,7 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
             //地址选择
             case R.id.address:
                 SelectAddressActivity.startForResultUi(this, REQUEST_CODE);
-                mData.setAid(SharedPreferencesUtils.getSharedPreferencesKeyAndValue(mActivity,"aid","aid",0));
+                mData.setAid(SharedPreferencesUtils.getSharedPreferencesKeyAndValue(mActivity, "aid", "aid", 0));
                 break;
 
             //备注
@@ -209,14 +272,13 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
             case R.id.commit:
                 if (editHelper.check()) {
 
-                    if (TextUtils.isEmpty(mData.getAddress())){
+                    if (TextUtils.isEmpty(mData.getAddress())) {
                         ToastUtils.getToastShort("请填写配送地址");
                         return;
                     }
-
-
                     mData.setBid(getId());
-                    presenter.commitOrder(mData);
+                    presenter.commitOrder(mData, bids);
+                    presenter.delCarts(bids);
 //                    getIdNumb.getIdNumbs(id);
                 }
                 break;
@@ -225,9 +287,9 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
             case R.id.Lin_deliveryMethod:
 
                 ToastUtils.getToastShort("配送方式");
-                if (tv_DeliveryMethod.getText().toString().trim().equals("包邮")){
+                if (tv_DeliveryMethod.getText().toString().trim().equals("包邮")) {
                     mData.setFare(0);
-                }else {
+                } else {
                     // TODO: 2017-09-08
                 }
 
@@ -245,19 +307,28 @@ public class StoreSubscribeActivity extends BaseMvpActivity<IHomeParentInterface
     }
 
     public int getId() {
-        int id=0;
-        if (null!=mProductDetailsTypeData){
-            id=mProductDetailsTypeData.getId();
+        int id = 0;
+        if (null != mProductDetailsTypeData) {
+            id = mProductDetailsTypeData.getId();
         }
         return id;
     }
-    public interface GetIdNumb{
-       void getIdNumbs(int id);
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
+
+    public interface GetIdNumb {
+        void getIdNumbs(int id);
+    }
+
     public GetIdNumb getIdNumb;
 
-    public  void SetIdNumb(GetIdNumb getIdNumb){
-        this.getIdNumb=getIdNumb;
+    public void SetIdNumb(GetIdNumb getIdNumb) {
+        this.getIdNumb = getIdNumb;
     }
 
     /**

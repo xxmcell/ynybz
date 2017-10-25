@@ -49,7 +49,6 @@ public class CollectActivity extends BaseListActivity<ICollectParentInterfaces.I
         toolbar.setTitle("我的收藏");
         toolbar.setNavigationIcon(R.drawable.material_arrwos_white_green);
         toolbar.setBack(this);
-
         adapter = new StoreClassifyAdapter(this, mDatas);
         listSwipeView.setOnRefreshListener(this);
         listSwipeView.setOnLoaddingListener(this);
@@ -63,6 +62,12 @@ public class CollectActivity extends BaseListActivity<ICollectParentInterfaces.I
             }
         });
         presenter.getData(true);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        listSwipeView.setRefreshing(true);
     }
 
     @Override

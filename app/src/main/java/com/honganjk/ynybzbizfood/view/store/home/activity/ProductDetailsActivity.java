@@ -72,6 +72,7 @@ public class ProductDetailsActivity extends BaseMvpActivity<IHomeParentInterface
     ViewPager viewPage;
     String[] titles = {"商品详情", "商品评价"};
     boolean isAddShoppingCar = false;
+    private boolean changeStats;
 
     public static void startUI(Activity activity, int id) {
         Intent intent = new Intent(activity, ProductDetailsActivity.class);
@@ -182,7 +183,10 @@ public class ProductDetailsActivity extends BaseMvpActivity<IHomeParentInterface
         number.setText(data.getSales());
         inventory.setText(data.getStock());
         address.setText(data.getOrigin());
+
         collectIm.setSelected(mData.getKeepBoolean());
+        //记录是否点击状态
+        changeStats = mData.getKeepBoolean();
     }
 
 
@@ -217,13 +221,14 @@ public class ProductDetailsActivity extends BaseMvpActivity<IHomeParentInterface
                     //收藏
                     case R.id.collect:
                         if (isLogin(true)) {
-                            if (mData.getKeep().equals("true")) {
+                            if (changeStats==true) {
+                                collectIm.setSelected(false);
                                 presenter.cancleCollect(mData.getId());
-                            } else if (mData.getKeep().equals("false")) {
+                            } else if (changeStats==false) {
+                                collectIm.setSelected(true);
                                 presenter.collect(mData.getId());
                             }
                         }
-
                         break;
                     //加入购物车
                     case R.id.addShoppingCar:
@@ -242,7 +247,9 @@ public class ProductDetailsActivity extends BaseMvpActivity<IHomeParentInterface
     }
 
     @Override
-    public void getProductType(final List<ProductDetailsTypeData> data) {  // TODO: 2017-09-08  加入购物车/购买
+    public void getProductType(final List<ProductDetailsTypeData> data) {
+        // TODO: 2017-09-08  加入购物车/购买
+        //弹出的dialgog来完成支付流程
         DialogStoreBuyProduct dialogStroreBuyProduct = new DialogStoreBuyProduct(this, data, mId, mData.getTitle());
         dialogStroreBuyProduct.show();
 
@@ -258,8 +265,7 @@ public class ProductDetailsActivity extends BaseMvpActivity<IHomeParentInterface
 
     @Override
     public void collect(boolean data) {
-        mData.setKeep(data);
-        collectIm.setSelected(data);
+        changeStats=data;
     }
 
     @Override   //  加入成功否

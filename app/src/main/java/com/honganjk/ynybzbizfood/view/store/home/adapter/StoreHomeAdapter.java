@@ -33,4 +33,9 @@ public class StoreHomeAdapter extends CommonAdapter<StoreHomeData.ObjsBean> {
         holder.setText(R.id.name, data.getFeature());
         holder.setText(R.id.price, data.getMoney());
     }
+
+    @Override
+    public void convert(ViewHolder holder, List<StoreHomeData.ObjsBean> t) {
+
+    }
 }

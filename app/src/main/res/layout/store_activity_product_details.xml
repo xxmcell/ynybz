@@ -209,9 +209,10 @@
         android:id="@+id/rl"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_45"
-        android:layout_above="@+id/bottom_navigation_bar"
+        android:background="@color/main_gray2"
         android:layout_alignParentBottom="true"
-        android:background="@color/main_gray2">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:id="@+id/addShoppingCar"

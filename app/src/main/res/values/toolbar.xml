@@ -17,10 +17,11 @@
         <item name="theme">@style/ToolbarTheme</item>
     </style>
 
-    <!--白色的背景-->
+    <!--白色的背景 ThemeOverlay.AppCompat.Light-->
     <style name="ToolbarB" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:orientation">horizontal</item>
         <item name="android:background">@color/main_gray2</item>
+        <item name="actionMenuTextColor">@color/main_black</item>
         <item name="android:textColor">@color/main_color</item>
         <item name="titleMargin">0dp</item>
         <!-- menu高度 -->

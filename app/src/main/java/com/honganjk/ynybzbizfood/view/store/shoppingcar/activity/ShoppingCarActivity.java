@@ -8,9 +8,11 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.honganjk.ynybzbizfood.R;
 import com.honganjk.ynybzbizfood.mode.javabean.store.shoppingcar.SelectAllListenerView;
 import com.honganjk.ynybzbizfood.mode.javabean.store.shoppingcar.ShoppingcarData;
@@ -19,10 +21,10 @@ import com.honganjk.ynybzbizfood.pressenter.store.shoppingcar.ShoppingCarPresent
 import com.honganjk.ynybzbizfood.utils.ui.ToastUtils;
 import com.honganjk.ynybzbizfood.utils.ui.divider.HorizontalDividerItemDecoration;
 import com.honganjk.ynybzbizfood.view.store.base.activity.BaseStoreMainActivity;
-import com.honganjk.ynybzbizfood.view.store.shoppingcar.adapter.ShoppingCarAdapter;
+import com.honganjk.ynybzbizfood.view.store.home.activity.StoreSubscribeActivity;
+import com.honganjk.ynybzbizfood.view.store.shoppingcar.adapter.ShoppingCarAdapterOrigen;
 import com.honganjk.ynybzbizfood.view.store.shoppingcar.interfaces.IShoppingCarParentInterfaces;
 import com.honganjk.ynybzbizfood.widget.AnimCheckBox;
-import com.honganjk.ynybzbizfood.widget.autoloadding.LoadState;
 import com.honganjk.ynybzbizfood.widget.autoloadding.StatusChangListener;
 import com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView;
 import com.honganjk.ynybzbizfood.widget.empty_layout.ContextData;
@@ -32,17 +34,20 @@ import java.util.Collection;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * 说明:商城-购物车
  * 作者： 杨阳; 创建于：  2017-06-29  10:21
  */
 public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParentInterfaces.IShoppingCarInterface, ShoppingCarPresenter>
-        implements IShoppingCarParentInterfaces.IShoppingCarInterface, SuperRecyclerView.ListSwipeViewListener, SelectAllListenerView {
+        implements IShoppingCarParentInterfaces.IShoppingCarInterface, SuperRecyclerView.ListSwipeViewListener, SelectAllListenerView, ShoppingCarAdapterOrigen.ShoppingCarSelectListener, ShoppingCarAdapterOrigen.ShoppingDeleteListener {
 
-    ArrayList<ShoppingcarData.ObjsBean> mDatas = new ArrayList<>();
-    ShoppingCarAdapter adapter;
+    List<ShoppingcarData.ObjsBean> mDatas = new ArrayList<>();
+
+    ShoppingCarAdapterOrigen adapter;
     ShoppingcarManagerData mShoppingcarManagerData;
+
     @BindView(R.id.switchRoot)
     SuperRecyclerView switchRoot;
     @BindView(R.id.allSelect)
@@ -53,8 +58,21 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
     TextView sumPrice;
     @BindView(R.id.rl)
     RelativeLayout rl;
+    @BindView(R.id.bottom_navigation_bar)
+    AHBottomNavigation bottomNavigationBar;
+    @BindView(R.id.ril)
+    RelativeLayout ril;
+    @BindView(R.id.deleteall)
+    TextView deleteall;
+    @BindView(R.id.details)
+    LinearLayout details;
+    @BindView(R.id.contant)
+    LinearLayout contant;
 
-
+    private List<ShoppingcarData.ObjsBean> list = new ArrayList<>();
+    private List<List<ShoppingcarData.ObjsBean>> lists = new ArrayList<>();
+    private boolean changer;
+    private boolean toolbarState = false;
     public static void startUI(Activity activity) {
         Intent intent = new Intent(activity, ShoppingCarActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -79,27 +97,38 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
         });
         toolbar.setTitleColor(R.color.black);
         toolbar.setNavigationIcon(R.drawable.material_arrwos_white_green);
-
+        toolbar.setSubtitleTextColor(R.color.black);
         // TODO: 2017-09-08
-        if (mDatas.size() < 1) {
-            toolbar.addAction(0, "");
-        } else {
-            toolbar.addAction(0, "编辑");
-        }
+        toolbar.setSubtitleTextColor(R.color.black);
+
+        toolbar.addAction(0, "编辑");
 
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
-            public boolean onMenuItemClick(MenuItem item) { //编辑
-                // TODO: 2017-09-08
-                ToastUtils.getToastLong("888");
+            public boolean onMenuItemClick(MenuItem item) {
+
+                if (toolbarState == false) {
+                    deleteall.setVisibility(View.GONE);
+                    commit.setVisibility(View.VISIBLE);
+                    details.setVisibility(View.VISIBLE);
+                    toolbarState = true;
+                } else {
+                    deleteall.setVisibility(View.VISIBLE);
+                    commit.setVisibility(View.GONE);
+                    details.setVisibility(View.GONE);
+                    toolbarState = false;
+                }
+
                 return false;
             }
         });
+        //测量高度,并设置边距(外)
+        measureRl();
+        adapter = new ShoppingCarAdapterOrigen(this, lists);
 
+        adapter.setListener(ShoppingCarActivity.this);
+        adapter.setDeleteListener(ShoppingCarActivity.this);
 
-        Showformstate();   //根据状态显示
-
-        adapter = new ShoppingCarAdapter(this, mDatas);
         switchRoot.setOnRefreshListener(this);
         switchRoot.setOnLoaddingListener(this);
         switchRoot.getRecyclerView().setLayoutManager(new GridLayoutManager(this, 1));
@@ -107,22 +136,38 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
         switchRoot.setAdapter(adapter);
         presenter.getData(true);
 
-        allSelect.setOnCheckedChangeListener(new AnimCheckBox.OnCheckedChangeListener() {
-            @Override
-            public void onChange(AnimCheckBox checkBox, boolean checked) {
-                if (mShoppingcarManagerData != null) {
-                    mShoppingcarManagerData.setmIsAllSelect(checked);
-                    adapter.notifyDataSetChanged();
+            allSelect.setOnCheckedChangeListener(new AnimCheckBox.OnCheckedChangeListener() {
+                @Override
+                public void onChange(AnimCheckBox checkBox, boolean checked) {
+                    if (mShoppingcarManagerData != null) {
+                        mShoppingcarManagerData.setmIsAllSelect(checked);
+                        adapter.notifyDataSetChanged();
+                    }
                 }
-            }
-        });
+            });
     }
+
+    private void measureRl() {
+        int high = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        int width = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        bottomNavigationBar.measure(width, high);
+        ril.measure(width, high);
+        int h = bottomNavigationBar.getMeasuredHeight();
+
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) ril.getLayoutParams();
+
+        layoutParams.setMargins(0, 0, 0, h);
+
+        ril.setLayoutParams(layoutParams);
+
+    }
+
     private void Showformstate() {
-//        if (mDatas.size() < 1) {
-//            rl.setVisibility(View.GONE);
-//        } else {
-//            rl.setVisibility(View.VISIBLE);
-//        }
+        if (mDatas.size() < 1) {
+            rl.setVisibility(View.GONE);
+        } else {
+            rl.setVisibility(View.VISIBLE);
+        }
 
     }
 
@@ -137,18 +182,57 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
     }
 
     @Override
-    public void getData(List<ShoppingcarData.ObjsBean> datas) {
+    public void getHttpData(List<ShoppingcarData.ObjsBean> datas) {
         mShoppingcarManagerData = new ShoppingcarManagerData(datas, this);
         adapter.setmSelectListenerView(mShoppingcarManagerData);
-        mDatas.clear();
-        mDatas.addAll(datas);
+        lists.clear();
+        for (int i = 0; i < datas.size(); i++) {
+            if (!mDatas.contains(datas.get(i))) {
+                mDatas.add(datas.get(i));
+            }
+        }//遍历集合,取出feature一样的数据,让入一个集合里
+        if(datas.size()==1){
+            lists.add(datas);
+        }else {
+            for (int i = 0; i < mDatas.size(); i++) {
+                list = new ArrayList<>();
+                list.add(mDatas.get(i));
+                for (int i1 = i + 1; i1 < mDatas.size(); i1++) {
+                    if (mDatas.get(i).getFeature().equals(mDatas.get(i1).getFeature())) {
+                        if (!list.contains(mDatas.get(i1))) {
+                            list.add(mDatas.get(i1));
+                        }
+                    }
+                }
+                if (!lists.contains(list)) {
+                    if (lists.size() == 0) {
+                        lists.add(list);
+                    }
+                    for (int i2 = 0; i2 < lists.size(); i2++) {
+                        for (int i1 = 0; i1 < lists.get(i2).size(); i1++) {
+                            for (int i3 = 0; i3 < list.size(); i3++) {
+                                if (lists.get(i2).get(i1).getFeature().equals(list.get(i3).getFeature())) {
+                                    changer = false;
+                                }
+                            }
+                        }
+                    }
+                    if (changer == true) {
+                        lists.add(list);
+                    }
+                    changer = true;
+                }
+            }
+        }
         adapter.notifyDataSetChanged();
-        switchRoot.getRecyclerView().getLoaddFooterView().setAutoloaddingCompleData("共为你加载" + mDatas.size() + "条数据");
-        switchRoot.getRecyclerView().getLoaddFooterView().setStatus(LoadState.NoData);
+        //   Showformstate();   //根据状态显示
+        // switchRoot.getRecyclerView().getLoaddFooterView().setAutoloaddingCompleData("共为你加载" + mDatas.size() + "条数据");
+//        switchRoot.getRecyclerView().getLoaddFooterView().setStatus(LoadState.NoData);
     }
 
+
     @Override
-    public void addAndSubtractNumber(boolean isAddNumber) {
+    public void addAndSubtractNumberHttp(boolean isAddNumber) {
 
     }
 
@@ -211,7 +295,6 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
 
     @Override
     public void isAllSelect(boolean isSelect, int selectCount, double selectPrice) {
-        allSelect.setChecked(isSelect);
         sumPrice.setText("¥" + selectPrice);
         commit.setText("结算(" + selectCount + ")");
     }
@@ -219,6 +302,70 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
 
+    //把最后获得的数据放入集合
+    List<ShoppingcarData.ObjsBean> Mlist = new ArrayList<>();
+
+    @OnClick({R.id.commit, R.id.rl,R.id.deleteall})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.commit:
+                if (Mlist.size() != 0) {
+                    StoreSubscribeActivity.starUi(this, null, Mlist);
+                    Mlist.clear();
+                    lists.clear();
+                    allSelect.setChecked(false);
+                    commit.setText("结算(" + 0 + ")");
+                    sumPrice.setText("¥" + 0);
+                    adapter.notifyDataSetChanged();
+                } else {
+                    ToastUtils.getToastShort("请选择商品");
+                }
+                break;
+            case R.id.deleteall:
+                String deteleItems="";
+                for (int i = 0; i < Mlist.size(); i++) {
+                    if(Mlist.get(i).getIsSelect()){
+                        deteleItems=deteleItems+Mlist.get(i).getBid()+"-"+Mlist.get(i).getType()+";";
+                    }
+                }
+                presenter.deleteCarts(0,0,deteleItems);
+                deleteall.setVisibility(View.GONE);
+                commit.setVisibility(View.VISIBLE);
+                details.setVisibility(View.VISIBLE);
+                allSelect.setChecked(false);
+                sumPrice.setText("¥"+0);
+                commit.setText("结算(0)");
+                refresh();
+                break;
+        }
+    }
+
+
+    //回调接口,来获取数据
+    @Override
+    public void beSelected(ShoppingcarData.ObjsBean listBean) {
+        if (listBean != null) {
+            if (listBean.getIsSelect()) {
+                Mlist.add(listBean);
+            } else if (!listBean.getIsSelect() && Mlist.contains(listBean)) {
+                Mlist.remove(listBean);
+            }
+        }
+    }
+
+    @Override
+    public void deleteItem(boolean isdelete) {
+        if (isdelete) {
+            presenter.getData(true);
+            refresh();
+        }
+    }
+
+    private void refresh() {
+        finish();
+        Intent intent = new Intent(ShoppingCarActivity.this, ShoppingCarActivity.class);
+        startActivity(intent);
     }
 }

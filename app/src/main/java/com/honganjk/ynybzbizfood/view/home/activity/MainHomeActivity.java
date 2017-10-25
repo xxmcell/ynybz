@@ -83,7 +83,7 @@ public class MainHomeActivity extends BaseMvpActivity<MainHomeView, MainHomePres
     public void initView() {
         toolbar.setBackgroundColor(getResources().getColor(R.color.white));
         toolbar.setTitle(getResources().getString(R.string.app_name_simple));
-        toolbar.addAction(1, "联系", R.drawable.material_phone);
+        toolbar.addActions(1, "联系", R.drawable.material_phone);
         toolbar.setTitleColor(R.color.gray_33);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override

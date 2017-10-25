@@ -94,7 +94,17 @@ public class HealthReportActivity extends BaseMvpActivity<IHealthManagerParentVi
                         tv.setBackgroundColor(getResources().getColor(R.color.white));
                     }
                 }
+
+                @Override
+                public void convert(ViewHolder holder, List<RepostData.ItemsBean> t) {
+
+                }
             });
+        }
+
+        @Override
+        public void convert(ViewHolder holder, List<RepostData> t) {
+
         }
     };
 

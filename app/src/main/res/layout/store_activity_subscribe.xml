@@ -41,8 +41,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_8"
                 android:background="@color/gray_ee" />
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <LinearLayout
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:id="@+id/LinearLayoutContant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <RelativeLayout
+                android:id="@+id/nomalcontant"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/dp_10">
@@ -80,7 +90,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/type"
-                    android:layout_marginTop="@dimen/dp_2"
                     android:layout_toRightOf="@+id/picture"
                     android:background="@color/main_red"
                     android:gravity="center"
@@ -122,7 +131,7 @@
                     android:textSize="@dimen/text_xxm" />
 
             </RelativeLayout>
-
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"

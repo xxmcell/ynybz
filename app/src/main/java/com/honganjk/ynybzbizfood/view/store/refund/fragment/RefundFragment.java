@@ -1,8 +1,12 @@
 package com.honganjk.ynybzbizfood.view.store.refund.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -165,14 +169,20 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
             listBean = detailsBean.getList().get(i);
         }
         mid=ObjsData.getId();
+        if(requestData!=null){
+            stats=requestData.getState();
+        }
+        ToastUtils.getToastShort(""+stats);
         if (stats==1) {
             titel.setText("仅退款");
             llType.setVisibility(View.GONE);
             mType=0;
+            theType=2;
 
         } else if (stats==2||stats==3) {
             titel.setText("退钱退款");
             mType=1;
+            theType=3;
         }
         llCause.setOnClickListener(this);
         commit.setOnClickListener(this);
@@ -181,6 +191,94 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
         sure.setOnClickListener(this);
         initpopupwindow();
         initrefundBill();
+        initbuttonGroup();
+    }
+
+    private void initbuttonGroup() {
+        ensure.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToastUtils.getToastShort("点击了");
+                new AlertDialog.Builder(getActivity()).setTitle("拨打电话").
+                        setMessage("确定拨打40088939973").
+                        setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent=new Intent(Intent.ACTION_CALL, Uri.parse("40088939973"));
+                                startActivity(intent);
+                            }
+                        }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        return;
+                    }
+                }).show();
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToastUtils.getToastShort("被点击了");
+                new AlertDialog.Builder(getActivity()).
+                        setTitle("撤销退款").
+                        setMessage("您确定要撤销退款申请吗?").
+                        setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                mActivity.presenter.setData(5,requestData, mid);
+                            }
+                        }).setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        return;
+                    }
+                }).show();
+            }
+        });
+        sure.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requestData.setState(12);
+                if(theNameOfFC==null){
+                    requestData.setExpress(flowCNtext);
+                }else {
+                    requestData.setExpress(theNameOfFC);
+                }
+                requestData.setCode(flowCNnumbtext);
+                mActivity.presenter.setData(6,requestData, mid);
+                sure.setTextColor(R.color.red);
+            }
+        });
+        commit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (editHelper.check()) {
+                    p = Double.parseDouble(price.getText().toString());
+                    if (p > (listBean.getMoney() * listBean.getNum())) {
+//                        showInforSnackbar("价格不能大于订单价格");
+                        return;
+                    }
+                    if(stats==12){
+                        if(theNameOfFC==null){
+                            requestData.setExpress(flowCNtext);
+                        }else {
+                            requestData.setExpress(theNameOfFC);
+                        }
+                        requestData.setCode(flowCNnumbtext);
+                    }
+                    //点击退款后,进入交付商家界面
+                    stats = 5;
+                    requestData.setType(mType);
+                    requestData.setReason(mReason);
+                    requestData.setMoney(p);
+                    mActivity.presenter.setData(theType,requestData, mid);
+                    relativeLayoutfund.setVisibility(View.GONE);
+                    relativeLayoutflow.setVisibility(View.VISIBLE);
+
+                    initrefundBill();
+                }
+            }
+        });
     }
 
     private void initView() {
@@ -279,7 +377,8 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
             relativeLayoutfund.setVisibility(View.GONE);
             relativeLayoutflow.setVisibility(View.VISIBLE);
             flowinformation.setVisibility(View.GONE);
-            textfirstline1.setText("卖家已经收到您的退款商品,退款将于2个工作人原路退回您的账户,请您注意查收");
+            bottom_buttons.setVisibility(View.GONE);
+            textfirstline1.setText("卖家已经收到您的退款商品,退款将于2个工作日原路退回您的账户,请您注意查收");
             state.setText("商家处理中");
             textViewType.setText("仅退款");
             textViewSum.setText("￥" + ObjsData.getPrice());
@@ -407,6 +506,7 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
                     public void onClick(int id, String content) {
                         type.setText(content);
                         theType = id;
+
                     }
                 });
                 break;
@@ -417,18 +517,10 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
                     @Override
                     public void onClick(int id, String content) {
                         theNameOfFC = content;
-
                     }
                 });
                 break;
-            //确认提交
-            case R.id.sure:
-                sure.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        sure.setTextColor(R.color.red);
-                    }
-                });
+            //申请介入
                 /**
                  "msg": "ok",
                  "code": "A00000",
@@ -443,30 +535,7 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
                  "type": 1		//1-退款，2-退货退款
                  */
             case R.id.commit:
-                if (editHelper.check()) {
-                    p = Double.parseDouble(price.getText().toString());
-                    if (p > (listBean.getMoney() * listBean.getNum())) {
-//                        showInforSnackbar("价格不能大于订单价格");
-                        return;
-                    }
-                    if(stats==12){
-                        if(theNameOfFC==null){
-                            requestData.setExpress(flowCNtext);
-                        }else {
-                            requestData.setExpress(theNameOfFC);
-                        }
 
-                        requestData.setCode(flowCNnumbtext);
-                    }
-                    stats = ObjsData.getState();
-                    requestData.setType(mType);
-                    requestData.setReason(mReason);
-                    requestData.setMoney(p);
-                    mActivity.presenter.setData(theType,requestData, mid);
-                    relativeLayoutfund.setVisibility(View.GONE);
-                    relativeLayoutflow.setVisibility(View.VISIBLE);
-                    initrefundBill();
-                }
                 break;
         }
     }

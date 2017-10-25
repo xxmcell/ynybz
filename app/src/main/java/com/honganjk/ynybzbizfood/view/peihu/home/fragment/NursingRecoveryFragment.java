@@ -109,6 +109,11 @@ public class NursingRecoveryFragment extends BaseListFragment<IHomeParentInterfa
                 holder.getView(R.id.mark).setVisibility(data.isSelect() ? View.VISIBLE : View.INVISIBLE);
 
             }
+
+            @Override
+            public void convert(ViewHolder holder, List<NurserTypeData> t) {
+
+            }
         };
         //类型的点击
         serviceAdapter.setOnItemClickListener(new OnItemClickListener<NurserTypeData>() {

@@ -2,6 +2,7 @@ package com.honganjk.ynybzbizfood.code;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
@@ -39,13 +40,22 @@ public class MyApplication extends MultiDexApplication {
     public static String appSDCachePath;
     public static String appSDFilePath;
 
+    private static Context context;
+
     public enum NetWorkType {
         WIFI, ETHERNET, MOBILE, NetWorkType, NULL
+    }
+
+    public static Context getContext(){
+        return context;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
+
+        context=getApplicationContext();
+
         LiteOrmUtil.init(this);
         ButterKnife.setDebug(BuildConfig.DEBUG);
         myApp = this;

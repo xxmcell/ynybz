@@ -296,6 +296,11 @@ public class CartBottomLayout extends LinearLayout {
             setNum(data, holder);
         }
 
+        @Override
+        public void convert(ViewHolder holder, List<FoodData.DishsBeanX.DishsBean> t) {
+
+        }
+
         private void setNum(FoodData.DishsBeanX.DishsBean data, ViewHolder holder) {
             if (data.getNum() == 0) {
                 holder.setVisible(R.id.iv_reduce, false);

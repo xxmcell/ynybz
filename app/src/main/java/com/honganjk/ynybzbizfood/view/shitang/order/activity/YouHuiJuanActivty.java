@@ -1,7 +1,6 @@
 package com.honganjk.ynybzbizfood.view.shitang.order.activity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -18,6 +17,7 @@ import com.honganjk.ynybzbizfood.utils.ui.divider.HorizontalDividerItemDecoratio
 import com.honganjk.ynybzbizfood.widget.empty_layout.ContextData;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/3/13.
@@ -68,6 +68,11 @@ public class YouHuiJuanActivty extends BaseListActivity {
                 holder.setText(R.id.youhui_type,"优惠劵");
                 holder.setText(R.id.youhui_chendu, o.getDescs());
                 holder.setText(R.id.yuhui_name,typeStr);
+
+            }
+
+            @Override
+            public void convert(ViewHolder holder, List<YouHuiBean> t) {
 
             }
         };

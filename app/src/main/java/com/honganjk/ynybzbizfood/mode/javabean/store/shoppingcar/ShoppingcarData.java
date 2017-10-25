@@ -1,5 +1,8 @@
 package com.honganjk.ynybzbizfood.mode.javabean.store.shoppingcar;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.widget.TextView;
 
 import com.honganjk.ynybzbizfood.utils.other.StringUtils;
@@ -105,28 +108,14 @@ public class ShoppingcarData {
 //            private int type;
 //            private int uid;
 //            private long updateTime;
-//            private boolean isSelect;
+//
 //            private String img;
 //            private String lable;
 //            private String title;
 //            private double money;
 //            private double price;
 //
-//            public boolean getIsSelect() {
-//                return isSelect;
-//            }
-//
-//            public void setIsSelect(boolean isSelect, @NonNull SelectListenerView mSelectListenerView) {
-//                this.isSelect = isSelect;
-//                if (mSelectListenerView != null) {
-//                    mSelectListenerView.isSelect(isSelect);
-//                }
-//            }
-//
-//            public void setIsSelect(boolean isSelect) {
-//                this.isSelect = isSelect;
-//
-//            }
+
 //
 //            public void setNum(int num) {
 //                this.num = num;
@@ -241,7 +230,8 @@ public class ShoppingcarData {
 //            }
 //        }
 //    }
-private int total;
+    private int total;
+
     private List<ObjsBean> objs;
 
     public int getTotal() {
@@ -260,7 +250,7 @@ private int total;
         this.objs = objs;
     }
 
-    public static class ObjsBean {
+    public static class ObjsBean implements Parcelable {
         /**
          * bid : 42
          * feature : 3尔23
@@ -284,6 +274,49 @@ private int total;
         private double price;
         private String title;
         private int type;
+        private boolean isSelect;
+
+        protected ObjsBean(Parcel in) {
+            bid = in.readInt();
+            feature = in.readString();
+            icon = in.readString();
+            img = in.readString();
+            label = in.readString();
+            money = in.readDouble();
+            num = in.readInt();
+            price = in.readDouble();
+            title = in.readString();
+            type = in.readInt();
+            isSelect = in.readByte() != 0;
+        }
+
+        public static final Creator<ObjsBean> CREATOR = new Creator<ObjsBean>() {
+            @Override
+            public ObjsBean createFromParcel(Parcel in) {
+                return new ObjsBean(in);
+            }
+
+            @Override
+            public ObjsBean[] newArray(int size) {
+                return new ObjsBean[size];
+            }
+        };
+
+        public boolean getIsSelect() {
+                return isSelect;
+            }
+
+        public void setIsSelect(boolean isSelect, @NonNull SelectListenerView mSelectListenerView) {
+                this.isSelect = isSelect;
+                if (mSelectListenerView != null) {
+                    mSelectListenerView.isSelect(isSelect);
+                }
+            }
+
+        public void setIsSelect(boolean isSelect) {
+                this.isSelect = isSelect;
+
+            }
 
         public int getBid() {
             return bid;
@@ -347,7 +380,7 @@ private int total;
         }
 
         public double getPrice() {
-            return price;
+            return  price;
         }
 
         public String getPriceStr(TextView view){
@@ -376,6 +409,25 @@ private int total;
             this.type = type;
         }
 
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel parcel, int i) {
+            parcel.writeInt(bid);
+            parcel.writeString(feature);
+            parcel.writeString(icon);
+            parcel.writeString(img);
+            parcel.writeString(label);
+            parcel.writeDouble(money);
+            parcel.writeInt(num);
+            parcel.writeDouble(price);
+            parcel.writeString(title);
+            parcel.writeInt(type);
+            parcel.writeByte((byte) (isSelect ? 1 : 0));
+        }
     }
 
 }

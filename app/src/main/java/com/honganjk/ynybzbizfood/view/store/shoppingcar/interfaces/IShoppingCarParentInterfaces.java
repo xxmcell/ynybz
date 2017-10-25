@@ -20,14 +20,14 @@ public interface IShoppingCarParentInterfaces {
          *
          * @param datas
          */
-        void getData(List<ShoppingcarData.ObjsBean> datas);
+        void getHttpData(List<ShoppingcarData.ObjsBean> datas);
 
         /**
          * 数量的添加与删除
          *
          * @param isAddNumber
          */
-        void addAndSubtractNumber(boolean isAddNumber);
+        void addAndSubtractNumberHttp(boolean isAddNumber);
     }
 
 

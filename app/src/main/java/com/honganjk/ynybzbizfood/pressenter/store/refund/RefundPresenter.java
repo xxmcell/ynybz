@@ -61,10 +61,11 @@ public class RefundPresenter extends BasePresenter<IRefundParent.IRefund> {
                 .setShowLoadding(true)
                 .setHttpHead(HeadType.LOGIN_HEAD);
 
-        HttpCallBack httpCallBack = new HttpCallBack<HttpResult<RefundRequestData>>(builder) {
+        HttpCallBack httpCallBack = new HttpCallBack<HttpResult>(builder) {
             @Override
-            public void onSuccess(HttpResult<RefundRequestData> result) {
+            public void onSuccess(HttpResult result) {
                 super.onSuccess(result);
+
                 if (result.isSucceed()) {
                     mvpView.setHttpData(true);
                 } else {

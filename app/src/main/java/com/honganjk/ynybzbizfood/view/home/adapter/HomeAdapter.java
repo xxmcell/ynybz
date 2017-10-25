@@ -46,6 +46,11 @@ public class HomeAdapter extends CommonAdapter<HomeData> {
         });
     }
 
+    @Override
+    public void convert(ViewHolder holder, List<HomeData> t) {
+
+    }
+
 
     /**
      * 首页宫格启动对应的UI

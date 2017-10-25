@@ -47,6 +47,7 @@ public class DialogStoreBuyProduct extends Dialog {
     @BindView(R.id.picture)
     ImageView picture;
     List<ProductDetailsTypeData> mDatas;
+    List<ProductDetailsTypeData> Datas;
     ProductDetailsTypeData mData;
     int number = 1;
     int mId;
@@ -141,6 +142,8 @@ public class DialogStoreBuyProduct extends Dialog {
                         mData.setNumber(number);
                         mData.setId(mId);
                         mData.setTitle(mTitle);
+                        //将封装好的对象放入集合中
+//                        Datas.add(mData);
                         if (mAddShoppingCarListener != null) {
                             mAddShoppingCarListener.addShoppingCar(mData);
                             dismiss();
@@ -148,7 +151,7 @@ public class DialogStoreBuyProduct extends Dialog {
                         }
 
                         // TODO: 2017-09-08  下单
-                        StoreSubscribeActivity.starUi(getContext(), mData);
+                        StoreSubscribeActivity.starUi(getContext(), mData,null);
                         break;
                 }
             }

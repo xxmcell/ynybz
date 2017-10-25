@@ -118,7 +118,7 @@ public class NursingRecoveryDetailsActivity extends BaseMvpActivity<IHomeParentI
             toolbar.setTitle(mType == 1 ? "护工详情" : "康复师详情");
             toolbar.setBack(this, R.drawable.material_arrwos_black_left);
             toolbar.setTitleColor(R.color.black);
-            toolbar.addAction(1, "联系", R.drawable.material_phone);
+            toolbar.addActions(1, "联系", R.drawable.material_phone);
         }
         addListener();
 

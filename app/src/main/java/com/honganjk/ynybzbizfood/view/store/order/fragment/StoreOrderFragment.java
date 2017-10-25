@@ -1,6 +1,7 @@
 package com.honganjk.ynybzbizfood.view.store.order.fragment;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -18,8 +19,9 @@ import com.honganjk.ynybzbizfood.code.base.view.fragment.BaseListFragment;
 import com.honganjk.ynybzbizfood.mode.javabean.store.order.StoreOrderData2;
 import com.honganjk.ynybzbizfood.pressenter.store.order.StoreOrderPresenter;
 import com.honganjk.ynybzbizfood.utils.ui.divider.HorizontalDividerItemDecoration;
+import com.honganjk.ynybzbizfood.view.store.order.activity.StoreOrderActivity;
 import com.honganjk.ynybzbizfood.view.store.order.activity.StoreOrderDetailsActivity;
-import com.honganjk.ynybzbizfood.view.store.order.adapter.StoreOrderAdapter;
+import com.honganjk.ynybzbizfood.view.store.order.adapter.StoreOrderAdapters;
 import com.honganjk.ynybzbizfood.view.store.order.view.StoreOrderParentInterfaces;
 import com.honganjk.ynybzbizfood.widget.empty_layout.ContextData;
 
@@ -40,11 +42,11 @@ public class StoreOrderFragment extends BaseListFragment<StoreOrderParentInterfa
      */
     private int mType;
     ArrayList<StoreOrderData2.ObjsBean> mDatas = new ArrayList<>();
-    StoreOrderAdapter adapter;
+    StoreOrderAdapters adapter;
 
     private MyBroadcastReceiver myBroadcastReceiver = new MyBroadcastReceiver();
     private IntentFilter intentFilter = new IntentFilter();
-    private List<Integer> list;
+    private boolean notify=false;
 
 
     @SuppressLint("ValidFragment")
@@ -52,17 +54,20 @@ public class StoreOrderFragment extends BaseListFragment<StoreOrderParentInterfa
     }
 
     public StoreOrderFragment(int type) {
-
         this.mType = type;
+    }
+    Activity context;
+    public StoreOrderFragment(StoreOrderActivity storeOrderActivity) {
+        context=storeOrderActivity;
     }
 
     public static StoreOrderFragment getInstance(int type) {
-
         return new StoreOrderFragment(type);
     }
 
     @Override
     public int getContentView() {
+
         return R.layout.widget_superrecyclerview;
     }
 
@@ -74,24 +79,22 @@ public class StoreOrderFragment extends BaseListFragment<StoreOrderParentInterfa
         intentFilter.addAction(Global.ST_PAY_SUCCEED);
         intentFilter.addAction(Global.LOGIN_SUCCEED);
         activity.registerReceiver(myBroadcastReceiver, intentFilter);
-
         presenter.getHttpData( true, mType);
-
+        // 在这个地方下手
         adapter.setOnItemClickListener(new OnItemClickListener<StoreOrderData2.ObjsBean>() {
             @Override
             public void onItemClick(ViewGroup parent, View view, StoreOrderData2.ObjsBean data, int position) {
-
                 Gson g=new Gson();
                 String resoult=g.toJson(data);
-
                 StoreOrderDetailsActivity.starUi(StoreOrderFragment.this, REQUEST_CODE,resoult);
             }
 
         });
+
     }
     @Override
     public CommonAdapter getAdapter() {
-        return adapter = new StoreOrderAdapter(this, mDatas,mType);
+       return  adapter=new StoreOrderAdapters(this, mDatas,mType);
     }
 
     @Override
@@ -128,12 +131,14 @@ public class StoreOrderFragment extends BaseListFragment<StoreOrderParentInterfa
 
     @Override
     public void getHttpData(int total, List<StoreOrderData2.ObjsBean> datas) {
-
         mDatas.addAll(datas);
         adapter.notifyDataSetChanged();
-        // 0:待支付; 1:待服务; 2:服务中;4:已完成;
+        if(notify==false){
+            notify=true;
+            listSwipeView.setRefreshing(true);
+        }
 
-
+       // 0:待支付; 1:待服务; 2:服务中;4:已完成;
     }
 
     @Override

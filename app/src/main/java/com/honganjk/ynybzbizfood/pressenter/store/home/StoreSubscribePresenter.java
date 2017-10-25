@@ -15,6 +15,7 @@ import com.honganjk.ynybzbizfood.mode.javabean.store.home.PlaceTheOrderData;
 import com.honganjk.ynybzbizfood.mode.javabean.store.home.StoreHomePayData;
 import com.honganjk.ynybzbizfood.utils.http.httpquest.HttpCallBack;
 import com.honganjk.ynybzbizfood.utils.http.httpquest.HttpRequestParam;
+import com.honganjk.ynybzbizfood.utils.ui.ToastUtils;
 import com.honganjk.ynybzbizfood.view.store.home.interfaces.IHomeParentInterfaces;
 
 
@@ -103,7 +104,7 @@ public class StoreSubscribePresenter extends BasePresenter<IHomeParentInterfaces
      * num	必选，int	购买数量
      * fare	必选，int	运费，0=包邮
      */
-    public void commitOrder(PlaceTheOrderData  data) {
+    public void commitOrder(PlaceTheOrderData data, String bids) {
         HttpCallBack.Builder builder = new HttpCallBack.Builder()
                 .setShowLoadding(true)
                 .setHttpHead(HeadType.LOGIN_HEAD);
@@ -124,14 +125,21 @@ public class StoreSubscribePresenter extends BasePresenter<IHomeParentInterfaces
 
         HttpRequestParam param = new HttpRequestParam();
 
+        if(bids !=""){
+            ToastUtils.getToastShort("走这了");
+            param.addParam("bids",bids);
+            param.addParam("cart",1);
+        }else {
 
-        param.addParam("aid", data.getAid());
+            param.addParam("bids", data.getBids()+"-"+data.getType()+"-"+data.getNum()+";");
+            param.addParam("cart",0);
+        }
+        param.addParam("aid", data.getAddressid());
         if (null!=data.getRemark()&&!"".equals(data.getRemark())){
             param.addParam("remark", data.getRemark());
         }
-        param.addParam("bids", data.getBids());
         param.addParam("fare", data.getFare());
-        param.addParam("cart",data.getCart());
+
         HttpRequest.executePostStore(httpCallBack, "/token/bjpOrder.json", param);
 
     }
@@ -158,4 +166,7 @@ public class StoreSubscribePresenter extends BasePresenter<IHomeParentInterfaces
     }
 
 
+    public void delCarts(String bids) {
+
+    }
 }

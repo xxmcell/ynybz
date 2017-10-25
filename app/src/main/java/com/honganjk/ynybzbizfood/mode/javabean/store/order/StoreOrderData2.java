@@ -95,7 +95,7 @@ public class StoreOrderData2 {
         public List<DetailsBean> details;
 
 
-        public static void buttonClickEvent(Activity context, String str,final StoreOrderData2.ObjsBean Data,
+        public static void buttonClickEvent(Activity context, int price,String str,final StoreOrderData2.ObjsBean Data,
                                             final StoreOrderData2.ObjsBean.DetailsBean.ListBean data ,final StoreOrderParentPresenter presenter) {
 
             //取消订单
@@ -133,7 +133,7 @@ public class StoreOrderData2 {
 
                         data.getImg(),
                         data.getTitle(),
-                        (data.getMoney() * data.getNum()),
+                        (price),
                         data.getLabel(),
                         3,
                         Data.getId()
@@ -604,6 +604,9 @@ public class StoreOrderData2 {
                     sb.append("共").append(num).append("件商品 ").append("合计:¥").append(money * num).append("含运费(¥0.00)");
                     return sb.toString();
                 }
+                public int getSum(){
+                    return money*num;
+                }
 
                 public int getNum() {
                     return num;
@@ -624,7 +627,7 @@ public class StoreOrderData2 {
                 }
 
                 public int getPrice() {
-                    return price;
+                    return money * num;
                 }
 
                 public void setPrice(int price) {

@@ -89,7 +89,11 @@ public class StoreOrderActivity extends BaseActivity{
         viewPage.setCurrentItem(mCurrentItem);
 
     }
+    private static StoreOrderActivity storeOrderActivity;
+    public static StoreOrderActivity getStoreOrderActivity(){
 
+        return storeOrderActivity;
+    }
     @Override
     public void parseIntent(Intent intent) {
         mCurrentItem=intent.getIntExtra("currentItem",mCurrentItem);

@@ -1,7 +1,6 @@
 package com.honganjk.ynybzbizfood.view.shitang.home.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 
 import com.honganjk.ynybzbizfood.R;
 import com.honganjk.ynybzbizfood.code.base.baseadapter.ViewHolder;
@@ -10,7 +9,6 @@ import com.honganjk.ynybzbizfood.mode.javabean.common.EvaluateData;
 import com.honganjk.ynybzbizfood.widget.EvaluationView;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,6 +33,11 @@ public class EvaluateAdapter extends CommonAdapter<EvaluateData.ListBean> {
         EvaluationView evaluationView = holder.getView(R.id.view_star);
         evaluationView.setTouchEnable(false);
         evaluationView.setmFocusNum(data.getScore());
+
+    }
+
+    @Override
+    public void convert(ViewHolder holder, List<EvaluateData.ListBean> t) {
 
     }
 

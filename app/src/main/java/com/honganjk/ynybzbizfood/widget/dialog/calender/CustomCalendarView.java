@@ -18,6 +18,7 @@ import com.honganjk.ynybzbizfood.utils.ui.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 
 public class CustomCalendarView extends LinearLayout {
@@ -115,6 +116,11 @@ public class CustomCalendarView extends LinearLayout {
                     }
                 }
             });
+        }
+
+        @Override
+        public void convert(ViewHolder holder, List<CalendarData> t) {
+
         }
     };
 

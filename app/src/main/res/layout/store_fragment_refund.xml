@@ -519,7 +519,7 @@
 
     <LinearLayout
         android:id="@+id/flowinformation"
-        android:layout_below="@+id/refundinformation"
+        android:layout_below="@id/refundinformation"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -53,6 +53,11 @@ public class NursingRecoveryServiceFragment extends BaseFragment {
                 holder.setText(R.id.title, itemsBean.getTitle());
                 holder.setText(R.id.content, itemsBean.getContent());
             }
+
+            @Override
+            public void convert(ViewHolder holder, List<NurserCommendDetailsData.ItemsBean> t) {
+
+            }
         });
     }
 

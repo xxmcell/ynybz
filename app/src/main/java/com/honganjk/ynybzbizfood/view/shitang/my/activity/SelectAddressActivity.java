@@ -154,6 +154,11 @@ public class SelectAddressActivity extends BaseListActivity<MyParentInterfaces.I
 
             }
 
+            @Override
+            public void convert(ViewHolder holder, List<AddressBean> t) {
+
+            }
+
         };
 
 

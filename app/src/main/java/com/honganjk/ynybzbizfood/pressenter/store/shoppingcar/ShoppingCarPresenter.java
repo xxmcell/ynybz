@@ -60,7 +60,7 @@ public class ShoppingCarPresenter extends BasePresenter<IShoppingCarParentInterf
                     if (isFist) {
                         mvpView.clearData();
                     }
-                    mvpView.getData((List<ShoppingcarData.ObjsBean>) mvpView.getValidData(result.getData().getObjs()));
+                    mvpView.getHttpData((List<ShoppingcarData.ObjsBean>) mvpView.getValidData(result.getData().getObjs()));
                 }
             }
         };
@@ -118,7 +118,7 @@ public class ShoppingCarPresenter extends BasePresenter<IShoppingCarParentInterf
             public void onSuccess(HttpResult<Boolean> result) {
                 super.onSuccess(result);
                 if (result.isSucceed()) {
-                    mvpView.addAndSubtractNumber(isAdd);
+                    mvpView.addAndSubtractNumberHttp(isAdd);
                 } else {
                     showMsg(result);
                 }
@@ -136,4 +136,31 @@ public class ShoppingCarPresenter extends BasePresenter<IShoppingCarParentInterf
         }
     }
 
+    public void deleteCarts(int bid, int type,String deleteAll){
+        HttpCallBack.Builder builder = new HttpCallBack.Builder()
+                .setShowLoadding(true)
+                .setLoadingStatus(mvpView)
+                .setHttpHead(HeadType.LOGIN_HEAD);
+
+        HttpCallBack httpCallBack = new HttpCallBack<HttpResult<Boolean>>(builder) {
+            @Override
+            public void onSuccess(HttpResult<Boolean> result) {
+                super.onSuccess(result);
+                if (result.isSucceed()) {
+
+                } else {
+                    showMsg(result);
+                }
+            }
+        };
+        HttpRequestParam param = new HttpRequestParam();
+        if(bid==0&&type==0){
+            param.addParam("bids",deleteAll);
+        }else  {
+            String bids="";
+            bids=bid+"-"+type+";";
+            param.addParam("bids", bids);
+        }
+        HttpRequest.executePostStore(httpCallBack, "/token/delCarts.json", param);
+    }
 }
