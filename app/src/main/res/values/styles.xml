@@ -29,7 +29,6 @@
         <item name="android:windowAnimationStyle">@style/MainAnimation</item>
     </style>
 
-
     <style name="AppTheme.OtherTheme" parent="AppTheme">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@style/OtherAnimation</item>

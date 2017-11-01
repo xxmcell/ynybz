@@ -89,7 +89,7 @@ public class RefundActivity extends BaseMvpActivity<IRefundParent.IRefund, Refun
         FragmentTransaction transaction=fragmentManager.beginTransaction();
 
         if(data!=null) {
-            transaction.add(R.id.thecontent, RefundFragment.getInstance(0, jsonStr, efundRequestData,data.getState()));
+            transaction.add(R.id.thecontent, RefundFragment.getInstance(0, jsonStr, efundRequestData,data));
         }
         transaction.addToBackStack(null);
         transaction.commit();
@@ -117,7 +117,6 @@ public class RefundActivity extends BaseMvpActivity<IRefundParent.IRefund, Refun
         super.onCreate(savedInstanceState);
     }
 
-
     @Override
     public void setHttpData(boolean data) {
         if (data) {
@@ -127,6 +126,7 @@ public class RefundActivity extends BaseMvpActivity<IRefundParent.IRefund, Refun
             ToastUtils.getToastShort("失败");
             showInforSnackbar("失败");
         }
+        watchChangerStatasBoolean.watchchangerboolean(data);
     }
     RefundRequestData efundRequestData;
     @Override
@@ -136,6 +136,12 @@ public class RefundActivity extends BaseMvpActivity<IRefundParent.IRefund, Refun
         String string=gson.toJson(efundRequestData);
         initFragmentState(json,string);
     }
+    public interface WatchChangerStatasBoolean{
+        void watchchangerboolean(boolean change);
+    }
+    private WatchChangerStatasBoolean watchChangerStatasBoolean;
 
-
+    public void setState(WatchChangerStatasBoolean watchChangerStatasBoolean){
+        this.watchChangerStatasBoolean=watchChangerStatasBoolean;
+    }
 }

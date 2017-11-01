@@ -97,7 +97,7 @@ public class MainHomeActivity extends BaseMvpActivity<MainHomeView, MainHomePres
         AnimUtils.pressAnimationListener(findViewById(R.id.lrph));
         AnimUtils.pressAnimationListener(findViewById(R.id.bottomView));
         // 测试     旅游/商城
-        AnimUtils.pressAnimationListener(findViewById(R.id.tv_travel));
+//        AnimUtils.pressAnimationListener(findViewById(R.id.tv_travel));
         AnimUtils.pressAnimationListener(findViewById(R.id.store));
         presenter.getAdvertisement(1);
         presenter.judgeVersion();
@@ -130,7 +130,7 @@ public class MainHomeActivity extends BaseMvpActivity<MainHomeView, MainHomePres
     public void onEmptyClick(ContextData data) {
     }
 
-    @OnClick({R.id.yyc, R.id.lrph, R.id.bottomView, store,R.id.tv_travel})
+    @OnClick({R.id.yyc, R.id.lrph, R.id.bottomView, store})
     public void onClick(final View view) {
         AnimUtils.pressAnimationListener(view, new AnimUtils.OnClickListenerCallback() {
             @Override
@@ -160,9 +160,9 @@ public class MainHomeActivity extends BaseMvpActivity<MainHomeView, MainHomePres
 
                         break;
                     //旅游
-                    case R.id.tv_travel:
 
-                        break;
+
+
                 }
             }
         });

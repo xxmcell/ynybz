@@ -43,6 +43,7 @@ public class StoreOrderAdapters extends CommonAdapter<StoreOrderData2.ObjsBean> 
     private List<List<StoreOrderData2.ObjsBean.DetailsBean>> lists=new ArrayList<>();
     private List<StoreOrderData2.ObjsBean.DetailsBean> list = new ArrayList<>();
     private List<StoreOrderData2.ObjsBean.DetailsBean> detailslists = new ArrayList<>();
+
     @Override
     public void convert(ViewHolder holder, final StoreOrderData2.ObjsBean data) {
         recylerView = holder.getView(mrecyclerView);

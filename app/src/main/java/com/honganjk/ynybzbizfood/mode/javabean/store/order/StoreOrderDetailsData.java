@@ -67,7 +67,7 @@ public class StoreOrderDetailsData {
         private String mobile;
         private String name;
         private long payTime;
-        private int price;
+        private double price;
         private Object remark;
         private int sex;
         private String sn;
@@ -170,11 +170,11 @@ public class StoreOrderDetailsData {
             this.payTime = payTime;
         }
 
-        public int getPrice() {
+        public double getPrice() {
             return price;
         }
 
-        public void setPrice(int price) {
+        public void setPrice(double price) {
             this.price = price;
         }
 

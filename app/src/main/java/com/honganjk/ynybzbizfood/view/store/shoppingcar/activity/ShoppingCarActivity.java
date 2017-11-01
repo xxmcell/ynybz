@@ -124,11 +124,10 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
         });
         //测量高度,并设置边距(外)
         measureRl();
-        adapter = new ShoppingCarAdapterOrigen(this, lists);
 
+        adapter = new ShoppingCarAdapterOrigen(this, lists);
         adapter.setListener(ShoppingCarActivity.this);
         adapter.setDeleteListener(ShoppingCarActivity.this);
-
         switchRoot.setOnRefreshListener(this);
         switchRoot.setOnLoaddingListener(this);
         switchRoot.getRecyclerView().setLayoutManager(new GridLayoutManager(this, 1));
@@ -145,6 +144,7 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
                     }
                 }
             });
+
     }
 
     private void measureRl() {

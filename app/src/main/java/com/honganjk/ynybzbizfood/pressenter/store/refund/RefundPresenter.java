@@ -55,7 +55,7 @@ public class RefundPresenter extends BasePresenter<IRefundParent.IRefund> {
      * }
      * }
      */
-    public void setData(int type,RefundRequestData data, int mid) {
+    public void setData(int type,RefundRequestData data, int mid,String remark) {
 
         HttpCallBack.Builder builder = new HttpCallBack.Builder()
                 .setShowLoadding(true)
@@ -73,7 +73,11 @@ public class RefundPresenter extends BasePresenter<IRefundParent.IRefund> {
                 }
             }
         };
+
         HttpRequestParam param = new HttpRequestParam();
+        if(remark!=null&&remark!=""){
+            param.addParam("remark",remark);
+        }
         param.addParam("id", mid);
         param.addParam("reson", data.getReason());
         param.addParam("money", data.getMoney());

@@ -47,13 +47,7 @@ public class ProductDetailsFragment extends BaseFragment {
             public void convert(ViewHolder holder, ProductDetailsData.DetailsBean s) {
 
                 ImageView view=   (ImageView) holder.getView(R.id.picture);
-//                holder.setImageBitmap(R.id.picture, s.getImg());
-//                GlideUtils.show(holder.getView(R.id.picture), s.getImg());
-//                Glide.with(ProductDetailsFragment.this)
-//                        .load(s.getImg())
-//                        .error(R.mipmap.logo)
-//                        .placeholder(R.mipmap.fail_picture)
-//                        .into((ImageView) holder.getView(R.id.picture));
+
 
                 GlideUtils2.show(s.getImg(),view);
             }

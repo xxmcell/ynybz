@@ -15,7 +15,6 @@ import com.honganjk.ynybzbizfood.mode.javabean.store.home.PlaceTheOrderData;
 import com.honganjk.ynybzbizfood.mode.javabean.store.home.StoreHomePayData;
 import com.honganjk.ynybzbizfood.utils.http.httpquest.HttpCallBack;
 import com.honganjk.ynybzbizfood.utils.http.httpquest.HttpRequestParam;
-import com.honganjk.ynybzbizfood.utils.ui.ToastUtils;
 import com.honganjk.ynybzbizfood.view.store.home.interfaces.IHomeParentInterfaces;
 
 
@@ -126,7 +125,6 @@ public class StoreSubscribePresenter extends BasePresenter<IHomeParentInterfaces
         HttpRequestParam param = new HttpRequestParam();
 
         if(bids !=""){
-            ToastUtils.getToastShort("走这了");
             param.addParam("bids",bids);
             param.addParam("cart",1);
         }else {

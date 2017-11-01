@@ -89,7 +89,6 @@ public class ShoppingCarAdapterOrigen extends CommonAdapter<ShoppingcarData.Objs
                         if(shoppingDeleteListenerView!=null){
                             shoppingDeleteListenerView.deleteItem(true);
                         }
-
                     }
                 });
 

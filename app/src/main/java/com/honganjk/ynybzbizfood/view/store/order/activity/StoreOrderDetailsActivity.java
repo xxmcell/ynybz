@@ -133,6 +133,18 @@ public class StoreOrderDetailsActivity extends BaseMvpActivity<StoreOrderParentI
     public StoreOrderDetailsPresenter initPressenter() {
         return new StoreOrderDetailsPresenter(REQUEST_CODE);
     }
+    //分辨是否已经支付
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+            presenter.getData(mOrderId);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
 
     @Override
     public int getContentView() {
@@ -209,16 +221,19 @@ public class StoreOrderDetailsActivity extends BaseMvpActivity<StoreOrderParentI
             } else if (data.getState() == 1) {
                 statusGreen.setVisibility(View.GONE);
                 statusGray.setVisibility(View.GONE);
+              //  price.setText(data.getPrice()+"");
             } else if (data.getState() == 2) {
                 statusGreen.setText("确认收货");
                 statusGray.setText("查看物流");
                 statusGreen.setVisibility(View.VISIBLE);
                 statusGray.setVisibility(View.VISIBLE);
+              //  price.setText(data.getPrice()+"");
             } else if (data.getState() == 3) {
                 statusGreen.setText("去评价");
                 statusGray.setText("查看物流");
                 statusGreen.setVisibility(View.VISIBLE);
                 statusGray.setVisibility(View.VISIBLE);
+              //  price.setText(data.getPrice()+"");
             }else {
                 statusGreen.setVisibility(View.GONE);
                 statusGray.setVisibility(View.GONE);
@@ -257,6 +272,9 @@ public class StoreOrderDetailsActivity extends BaseMvpActivity<StoreOrderParentI
             expressNumber.setText(String.valueOf(data.getCode()));
         }else {
             expressNumber.setText("暂无物流信息");
+        }
+        if(data.getState()!=0){
+            price.setText(data.getPrice()+"");
         }
         addredd.setText(data.getAddress());
         freight.setText(String.valueOf(data.getFare()));

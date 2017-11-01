@@ -7,6 +7,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.SpannedString;
+import android.text.style.AbsoluteSizeSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +50,8 @@ import static com.honganjk.ynybzbizfood.R.id.ImageTop;
  * 说明:产品详情的-评价
  * 作者： 杨阳; 创建于：  2017-07-07  16:01
  */
-public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.IOrderDetails, RefundProgressPresenter> implements View.OnClickListener ,StoreOrderParentInterfaces.IOrderDetails{
+public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.IOrderDetails, RefundProgressPresenter>
+        implements View.OnClickListener ,StoreOrderParentInterfaces.IOrderDetails,RefundActivity.WatchChangerStatasBoolean {
 
     int mType;
     int mid;
@@ -67,7 +72,7 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
     int theType;
 
     private double p;
-    private int stats;
+    private StoreOrderData2.ObjsBean datastats;
     private String jsonStr;
     private StoreOrderData2.ObjsBean ObjsData;
     private String flowCNtext;
@@ -118,72 +123,82 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
     private ImageView imageBottom;
     private LinearLayout bottom_buttons;
     private String theNameOfFC;
+    private double rundPrice;
+    private String theremark;
+    private int stats;
 
 
     /**
      *
      */
     @SuppressLint("ValidFragment")
-    public RefundFragment(int i, String json, RefundRequestData mRefunddatas,int  States) {
-//        this.mType = i;
+    public RefundFragment(int i, String json, RefundRequestData mRefunddatas,StoreOrderData2.ObjsBean  States) {
+
         this.jsonStr = json;
         this.requestData = mRefunddatas;
-        this.stats=States;
+        this.datastats=States;
 
     }
+    public RefundFragment(){}
 
-    public static RefundFragment getInstance(int i, String json, RefundRequestData mRefunddatas,int  States) {
-        return new RefundFragment(i, json, mRefunddatas,States);
+    public static RefundFragment getInstance(int i, String json, RefundRequestData mRefunddatas,StoreOrderData2.ObjsBean  StatesData) {
+        return new RefundFragment(i, json, mRefunddatas,StatesData);
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-
         return inflater.inflate(R.layout.store_fragment_refund,container,false);
     }
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initView();
-
-
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-
     }
-
     public void init() {
+        rundPrice = 0;
         Gson gson = new Gson();
         ObjsData = gson.fromJson(jsonStr, StoreOrderData2.ObjsBean.class);
-
+        stats = datastats.getState();
+        mid=datastats.getId();
         for (int i = 0; i < ObjsData.getDetails().size(); i++) {
             detailsBean = ObjsData.getDetails().get(i);
         }
         for (int i = 0; i < detailsBean.getList().size(); i++) {
             listBean = detailsBean.getList().get(i);
+          //  rundPrice +=listBean.getSum();
         }
-        mid=ObjsData.getId();
+        rundPrice=ObjsData.getPrice();
         if(requestData!=null){
-            stats=requestData.getState();
+            if(requestData.getState()!=0){
+                stats =requestData.getState();
+            }
         }
-        ToastUtils.getToastShort(""+stats);
-        if (stats==1) {
+        if(refundProgress!=null){
+            if(refundProgress.getStart()!=0){
+                stats =refundProgress.getStart();
+            }
+        }
+        if (stats ==1) {
             titel.setText("仅退款");
             llType.setVisibility(View.GONE);
             mType=0;
             theType=2;
 
-        } else if (stats==2||stats==3) {
+        } else if (stats ==2|| stats ==3) {
             titel.setText("退钱退款");
             mType=1;
             theType=3;
         }
+        SpannableString theSumPrice=new SpannableString("￥"+ rundPrice);
+        AbsoluteSizeSpan ass=new AbsoluteSizeSpan(15,true);
+        theSumPrice.setSpan(ass,0,theSumPrice.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        price.setHint(new SpannedString(theSumPrice));
+
         llCause.setOnClickListener(this);
         commit.setOnClickListener(this);
         llType.setOnClickListener(this);
@@ -198,7 +213,7 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
         ensure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ToastUtils.getToastShort("点击了");
+
                 new AlertDialog.Builder(getActivity()).setTitle("拨打电话").
                         setMessage("确定拨打40088939973").
                         setPositiveButton("确定", new DialogInterface.OnClickListener() {
@@ -218,14 +233,14 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ToastUtils.getToastShort("被点击了");
+
                 new AlertDialog.Builder(getActivity()).
                         setTitle("撤销退款").
                         setMessage("您确定要撤销退款申请吗?").
                         setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                mActivity.presenter.setData(5,requestData, mid);
+                                mActivity.presenter.setData(5,requestData, mid,"");
                             }
                         }).setNegativeButton("确定", new DialogInterface.OnClickListener() {
                     @Override
@@ -245,7 +260,7 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
                     requestData.setExpress(theNameOfFC);
                 }
                 requestData.setCode(flowCNnumbtext);
-                mActivity.presenter.setData(6,requestData, mid);
+                mActivity.presenter.setData(6,requestData, mid,"");
                 sure.setTextColor(R.color.red);
             }
         });
@@ -254,10 +269,11 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
             public void onClick(View view) {
                 if (editHelper.check()) {
                     p = Double.parseDouble(price.getText().toString());
-                    if (p > (listBean.getMoney() * listBean.getNum())) {
-//                        showInforSnackbar("价格不能大于订单价格");
+                    if (p > (Double.parseDouble(rundPrice+""))) {
+                        ToastUtils.getToastShort("价格不能大于订单价格");
                         return;
                     }
+
                     if(stats==12){
                         if(theNameOfFC==null){
                             requestData.setExpress(flowCNtext);
@@ -267,16 +283,35 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
                         requestData.setCode(flowCNnumbtext);
                     }
                     //点击退款后,进入交付商家界面
+                    theremark = remark.getText().toString();
                     stats = 5;
                     requestData.setType(mType);
                     requestData.setReason(mReason);
                     requestData.setMoney(p);
-                    mActivity.presenter.setData(theType,requestData, mid);
+                    mActivity.presenter.setData(theType,requestData, mid, theremark);
+
+                    if(thechangestate==true){
+
+                        return;
+                    }
                     relativeLayoutfund.setVisibility(View.GONE);
                     relativeLayoutflow.setVisibility(View.VISIBLE);
-
                     initrefundBill();
                 }
+            }
+        });
+        llType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ppType.showPopupWindow(llType);
+                ppType.setOnClickCallback(new PopupPulldown.OnClickCallback() {
+                    @Override
+                    public void onClick(int id, String content) {
+                        type.setText(content);
+                        theType = id;
+
+                    }
+                });
             }
         });
     }
@@ -331,20 +366,17 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
 
 
     private void initrefundBill() {
+
         //一进来,获得数据,看是否符合
         if (stats != 5 || stats != 6 || stats != 9 || stats != 7 ||
                 stats != 20 || stats != 15 || stats != 16 || stats != 17 ||
                 stats != 12 || stats != 13 || stats != 8 || stats != 14||stats!=25) {
             relativeLayoutflow.setVisibility(View.GONE);
         }
-
         if(stats==8||stats==14){
             if(presenter!=null){
                 presenter.getRefundProgressData(ObjsData.getId());
-            }else {
-
             }
-
         }
         //获得时间差
         long time = requestData.getTime() - requestData.getCurrent();
@@ -358,7 +390,7 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
             relativeLayoutflow.setVisibility(View.VISIBLE);
             flowinformation.setVisibility(View.GONE);
             textViewType.setText("仅退款");
-            textViewSum.setText("￥" + ObjsData.getPrice());
+            textViewSum.setText("￥" + requestData.getMoney());
             textfirstline1.setText("如果商家同意:");
 
             textfirstline2.setText("申请将达成,原路返回您的退款");
@@ -421,7 +453,7 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
             ;
         } else if (stats == 8 | stats == 14) {
             //退款成功
-            ToastUtils.getToastShort("进来了");
+
             relativeLayoutfund.setVisibility(View.GONE);
             relativeLayoutflow.setVisibility(View.VISIBLE);
             refundinformation.setVisibility(View.GONE);
@@ -499,17 +531,9 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
                 });
                 break;
             //退款状态选择
-            case R.id.llType:
-                ppType.showPopupWindow(llType);
-                ppType.setOnClickCallback(new PopupPulldown.OnClickCallback() {
-                    @Override
-                    public void onClick(int id, String content) {
-                        type.setText(content);
-                        theType = id;
-
-                    }
-                });
-                break;
+//            case R.id.llType:
+//
+//                break;
             //物流公司选择
             case R.id.llselectCN:
                 ppCompanyName.showPopupWindow(llselectCN);
@@ -534,9 +558,6 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
                  "current": 1501575389316,	//当前时间戳
                  "type": 1		//1-退款，2-退货退款
                  */
-            case R.id.commit:
-
-                break;
         }
     }
 
@@ -628,5 +649,12 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
     @Override
     public RefundProgressPresenter initPressenter() {
         return new RefundProgressPresenter(REQUEST_CODE);
+    }
+
+    boolean thechangestate;
+    @Override
+    public void watchchangerboolean(boolean change) {
+        thechangestate=change;
+
     }
 }

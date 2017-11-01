@@ -30,7 +30,7 @@ public class StoreHomeAdapter extends CommonAdapter<StoreHomeData.ObjsBean> {
     public void convert(ViewHolder holder, final StoreHomeData.ObjsBean data) {
         holder.setImageBitmapRound(R.id.picture, data.getImg(), 5);
 //        holder.setImageResource(R.id.picture, R.mipmap.test_picture);
-        holder.setText(R.id.name, data.getFeature());
+        holder.setText(R.id.name, data.getTitle());
         holder.setText(R.id.price, data.getMoney());
     }
 

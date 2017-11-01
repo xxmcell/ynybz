@@ -142,7 +142,7 @@ public class AddAddressActivity extends BaseMvpActivity<MyParentInterfaces.IAddA
             return;
         }
 
-        commitData(inputPhone, iputName, mSex, inputAddress + inputXiangAddress, latitude, longitude);
+        commitData(inputPhone, iputName, mSex, inputAddress +" "+ inputXiangAddress, latitude, longitude);
     }
 
     public void commitData(String inputPhone, String iputName, int sex, String address, double latitude, double longitude) {

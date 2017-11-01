@@ -81,7 +81,6 @@ public class HttpManager {
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .baseUrl(ApiConstants.getHost(hostType))
                 .client(getOkHttpClientType());
-
     }
 
     /**

@@ -80,7 +80,13 @@ public class EditAddressActivity extends BaseMvpActivity<MyParentInterfaces.IEdi
         etName.setText(mUserinfo.name);
         etName.setSelection(mUserinfo.name.length());//将光标移至文字末尾
         etPhone.setText(mUserinfo.contact);
-        etAddress.setText(mUserinfo.address);
+         String[] address= mUserinfo.address.split(" ");
+
+        etAddress.setText(address[0]);
+        if(address.length>1){
+            etXiangaddress.setText(address[1]);
+        }
+
         mSex = mUserinfo.sex;
         ((RadioButton) rgSelectsex.getChildAt(mSex - 1)).setChecked(true);
 
@@ -167,7 +173,6 @@ public class EditAddressActivity extends BaseMvpActivity<MyParentInterfaces.IEdi
                 etAddress.setText(address);
                 latitude = data.getDoubleExtra("latitude", 0.0);
                 longitude = data.getDoubleExtra("longitude", 0.0);
-
             }
         }
     }

@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.honganjk.ynybzbizfood.R;
 import com.honganjk.ynybzbizfood.code.MyApplication;
 import com.honganjk.ynybzbizfood.mode.javabean.store.order.StoreOrderData2;
