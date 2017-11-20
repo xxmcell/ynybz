@@ -42,7 +42,7 @@ public class BaseTourMainActivity<V extends BaseView, T extends BasePresenter<V>
 
     @Override
     public int getContentView() {
-        return R.layout.activity_tourbase;
+        return 0;
     }
 
     @Override
@@ -125,7 +125,7 @@ public class BaseTourMainActivity<V extends BaseView, T extends BasePresenter<V>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
+        setContentView(R.layout.activity_tourbase);
         ButterKnife.bind(this);
     }
 
