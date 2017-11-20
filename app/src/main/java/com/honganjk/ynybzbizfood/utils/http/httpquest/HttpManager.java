@@ -31,7 +31,6 @@ import static com.honganjk.ynybzbizfood.mode.javabean.base.UserInfo.userData;
 public class HttpManager {
     //请求地址
     public static final String BASE_HOST = ApiConstants.BASE_HOST;
-
     //路径
     public static final String BASE_API = "";
     //默认的超时时间
@@ -40,8 +39,10 @@ public class HttpManager {
     private static final int LONG_TIMEOUT = 200;
 
     public Retrofit retrofit;
+    //可以在下一步请求的时候,获得对象
     public ServiceApi serviceApi;
     public BaseServiceApi baseServiceApi;
+
     private static SparseArray<HttpManager> mHttpManagers = new SparseArray<>();
 
     /**
@@ -54,6 +55,7 @@ public class HttpManager {
         retrofit = getRetrofit(hostType);
         //3:创建请求
         serviceApi = retrofit.create(ServiceApi.class);
+        //一步一步将对象传递上来,然后在BaseHttpRequest调用
         baseServiceApi = retrofit.create(BaseServiceApi.class);
         //4订阅回调数据
         //5处理返回值
@@ -76,6 +78,7 @@ public class HttpManager {
      * 2：生成Retrofit实例
      */
     private Retrofit.Builder getRetrofitBuilderBase(int hostType) {
+
         return new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(GsonHelper.getGson()))
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
@@ -86,7 +89,7 @@ public class HttpManager {
     /**
      * 注释说明: 请求网络时增加头部
      * <p>
-     * * NULL_HEAD            没有头部（一些共用接口，不需要头部）
+     * NULL_HEAD            没有头部（一些共用接口，不需要头部）
      * LOGIN_HEAD           两个头部(登录时要添加的头部)
      * UNREGISTERED_HEAD    三个头部（未登录要添加的头部）
      * 阳：2017/3/4-15:02
@@ -94,6 +97,7 @@ public class HttpManager {
     private OkHttpClient getOkHttpClientType() {
 
         final OkHttpClient builder = getRetrofitBuilder().addInterceptor(new Interceptor() {
+            //intercept拦截
             @Override
             public Response intercept(Chain chain) throws IOException {
                 //获取请求
@@ -122,7 +126,6 @@ public class HttpManager {
                 return chain.proceed(request);
             }
         }).build();
-
         return builder;
     }
 
@@ -163,6 +166,7 @@ public class HttpManager {
     public static HttpManager getInstance(@HostType.HostTypeChecker int hostType, int headType, String path) {
         HttpManager retrofitManager = mHttpManagers.get(hostType);
         if (headType != -1) {
+            //已存入的url作为key值,来作为标识.
             hashMap.put(path, headType);
         }
         if (retrofitManager == null) {

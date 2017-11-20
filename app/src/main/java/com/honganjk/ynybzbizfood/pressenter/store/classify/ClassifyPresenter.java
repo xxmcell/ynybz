@@ -77,6 +77,7 @@ public class ClassifyPresenter extends CommonPresent<IClassifyParentInterfaces.I
                 HttpRequestParam param = new HttpRequestParam();
                 param.addParam("start", mvpView.getPageCount() * mvpView.getPageindex());
                 param.addParam("size", mvpView.getPageCount());
+
                 if (requestBean.getType() != 0) {
                     param.addParam("type", requestBean.getType());
                 }

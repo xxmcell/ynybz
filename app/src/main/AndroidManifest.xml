@@ -504,6 +504,15 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.OtherTheme" />
 .
+        <!--************************************旅游*****************************************-->
+        <activity android:name=".view.tour.base.BaseTourMainActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.MainTheme" />
+        <activity android:name=".view.tour.home.HomeTourActivity"/>
+
+        <activity android:name=".view.tour.me.MeTourActivity"/>
+        <activity android:name=".view.tour.classify.activity.TourClassifyDetailActivity"/>
 
         <!--**********************************公共********************************************* -->
 

@@ -78,7 +78,4 @@ public interface BaseView {
      * @param isFinish
      */
     void showSnackbar(String result, int type, boolean isFinish);
-
-
-
 }

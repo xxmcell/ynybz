@@ -57,7 +57,7 @@ public class HttpSubscription<T> extends Subscriber<ResponseBody> {
         }
     }
 
-
+    //在onNext中,返回了最后的信息
     @Override
     public void onNext(ResponseBody responseBody) {
         try {
@@ -69,7 +69,6 @@ public class HttpSubscription<T> extends Subscriber<ResponseBody> {
                     } else if (type == String.class) {
                         callBack.onSuccess((T) responseBody.string());
                     } else {
-
                         String str = responseBody.string();
                         LogUtils.e("net back:" + str);
                         T res = GsonHelper.getGson().fromJson(str, type);
@@ -114,6 +113,7 @@ public class HttpSubscription<T> extends Subscriber<ResponseBody> {
      * 获取回调里面的泛型
      */
     private Type getType() {
+        //拿到type的类型,以便下一步做判断
         Type types = callBack.getClass().getGenericSuperclass();
         if (types == null) {
             new Throwable("HttpSubscription  ->>>  未获取到callBack的超级类");

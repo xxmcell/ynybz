@@ -154,9 +154,7 @@ public class StoreOrderAdapters extends CommonAdapter<StoreOrderData2.ObjsBean> 
             statusGreen.setVisibility(View.GONE);
         }
 
-            setRecyclerView(lists,storeOrderFragments,str,holder);
-
-
+        setRecyclerView(lists,storeOrderFragments,str,holder);
 
         data.setViewShowStatus(statusGray, statusGreen, boundary1);
         final int finalThePrice = thePrice;
@@ -180,7 +178,6 @@ public class StoreOrderAdapters extends CommonAdapter<StoreOrderData2.ObjsBean> 
 
     private void setRecyclerView(List<List<StoreOrderData2.ObjsBean.DetailsBean>> lists,
                                  final StoreOrderFragment storeOrderFragments, String str, ViewHolder holder) {
-
 
             recylerView.setLayoutManager(new LinearLayoutManager(MyApplication.getContext()));
             recylerView.addItemDecoration(new HorizontalDividerItemDecoration.Builder(MyApplication.getContext()).sizeResId(R.dimen.dp_1).colorResId(R.color.gray_ee).build());

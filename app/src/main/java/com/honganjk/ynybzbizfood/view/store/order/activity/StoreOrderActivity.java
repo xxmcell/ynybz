@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -77,7 +76,6 @@ public class StoreOrderActivity extends BaseActivity{
         tabLayout.setTabTextColors(getResources().getColor(R.color.gray_99), getResources().getColor(R.color.main_color));
         tabLayout.setBackgroundColor(getResources().getColor(R.color.gray_f8));
 
-
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), fragmentDatas, titles);
         viewPage.setOffscreenPageLimit(3);
         viewPage.setAdapter(adapter);
@@ -89,11 +87,7 @@ public class StoreOrderActivity extends BaseActivity{
         viewPage.setCurrentItem(mCurrentItem);
 
     }
-    private static StoreOrderActivity storeOrderActivity;
-    public static StoreOrderActivity getStoreOrderActivity(){
 
-        return storeOrderActivity;
-    }
     @Override
     public void parseIntent(Intent intent) {
         mCurrentItem=intent.getIntExtra("currentItem",mCurrentItem);
@@ -142,7 +136,6 @@ public class StoreOrderActivity extends BaseActivity{
      */
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        Log.e("AAAA", "onRestoreInstanceState");
         //如果系统杀死该页面则关闭
         StoreOrderActivity.this.finish();
         super.onRestoreInstanceState(savedInstanceState);

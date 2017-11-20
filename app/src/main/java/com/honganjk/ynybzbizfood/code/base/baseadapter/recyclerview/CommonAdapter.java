@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import com.honganjk.ynybzbizfood.code.base.baseadapter.ViewHolder;
 import com.honganjk.ynybzbizfood.code.base.baseadapter.recyclerview.click.OnItemClickListener;
 import com.honganjk.ynybzbizfood.code.base.baseadapter.recyclerview.click.OnItemLongClickListener;
-import com.honganjk.ynybzbizfood.code.base.baseadapter.recyclerview.click.OnItemsClickListener;
 
 import java.util.List;
 
@@ -29,7 +28,7 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
     OnItemClickListener onItemClickListener;
     OnItemLongClickListener onItemLongClickListener;
     int headSize = 0;
-     OnItemsClickListener onItemsClickListener;
+
     private ViewHolder viewHolder;
 
 

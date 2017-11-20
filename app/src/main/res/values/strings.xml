@@ -71,7 +71,7 @@
     <string name="cateringName">餐厅名称</string>
     <string name="payStatus">支付状态</string>
     <string name="greensName">菜名</string>
-    <string name="price">价格</string>
+    <string name="price">1000</string>
     <string name="date">日期</string>
     <string name="abouthongan">养你一辈子是浙江鸿安健康管理服务有限公司旗下的品牌，
                                 是一家互联网+养老（打造国内最大居家养老共享平台）的互联网企业
@@ -136,6 +136,23 @@
     <string name="order_status">订单状态</string>
     <string name="order_info">订单信息</string>
     <string name="therapist_service_hint">注：康复师每单服务时长固定两个小时</string>
+    <string name="tv_tour_search">目的地</string>
+    <string name="hot_activity">热门活动</string>
+    <string name="buy_num">仅限100份</string>
+    <string name="feature">介绍</string>
+    <string name="cai_ni_xi_huan">//猜你喜欢//</string>
+    <string name="money">¥</string>
+    <string name="qi">起</string>
+    <string name="type">推荐</string>
+    <string name="tuijian">推荐</string>
+    <string name="zhoubian">周边</string>
+    <string name="quanguo">全国</string>
+    <string name="riben">日本</string>
+    <string name="dongnanya">东南亚</string>
+    <string name="haidao">海岛</string>
+    <string name="gangaotai">港澳台</string>
+    <string name="zhongdongfei">中东非</string>
+    <string name="youlunyou">邮轮游</string>
 
 
 </resources>

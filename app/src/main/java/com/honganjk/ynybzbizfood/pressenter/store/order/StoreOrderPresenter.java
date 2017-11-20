@@ -81,7 +81,5 @@ public class StoreOrderPresenter extends StoreOrderParentPresenter<StoreOrderPar
         param.addParam("size", mvpView.getPageCount());
 
         HttpRequest.executePostStore(httpCallBack, "/token/orders.json", param);
-
     }
-
 }

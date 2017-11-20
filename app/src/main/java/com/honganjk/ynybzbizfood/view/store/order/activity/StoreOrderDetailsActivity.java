@@ -124,7 +124,6 @@ public class StoreOrderDetailsActivity extends BaseMvpActivity<StoreOrderParentI
     public static void starUi(Fragment context, int resultCode, String data) {
         Intent intent = new Intent(context.getContext(), StoreOrderDetailsActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-
         intent.putExtra("data", data);
         context.startActivityForResult(intent, resultCode);
     }
@@ -172,7 +171,7 @@ public class StoreOrderDetailsActivity extends BaseMvpActivity<StoreOrderParentI
         if (data.getDetails().size() == 1) {
             lists.add(data.details);
         } else {
-
+            //把同一生产商的商品放在一起
             for (int i = 0; i < data.getDetails().size(); i++) {
                 list = new ArrayList<>();
                 list.add(data.getDetails().get(i));
@@ -188,6 +187,7 @@ public class StoreOrderDetailsActivity extends BaseMvpActivity<StoreOrderParentI
                         lists.add(list);
                     }
                 }
+                //把重复的对象剔除掉
                 for (int i2 = 0; i2 < lists.size(); i2++) {
                     for (int i1 = 0; i1 < lists.get(i2).size(); i1++) {
                         for (int i3 = 0; i3 < list.size(); i3++) {
@@ -197,12 +197,14 @@ public class StoreOrderDetailsActivity extends BaseMvpActivity<StoreOrderParentI
                         }
                     }
                 }
+                //完成后，加入最后的集合
                 if (changer == true) {
                     lists.add(list);
                 }
                 changer = true;
             }
         }
+
         if (listBean != null) {
 
             setMyAdapter(lists);

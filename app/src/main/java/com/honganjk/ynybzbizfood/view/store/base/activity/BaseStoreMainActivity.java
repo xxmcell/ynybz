@@ -26,13 +26,13 @@ import butterknife.BindView;
  * 说明:商城的主类
  * 作者： 杨阳; 创建于：  2017-06-29  10:16
  */
-public abstract class BaseStoreMainActivity<V extends BaseView, T extends BasePresenter<V>> extends BaseMvpActivity<V, T> implements AHBottomNavigation.OnTabSelectedListener {
+public abstract class BaseStoreMainActivity<V extends BaseView, T extends BasePresenter<V>> extends BaseMvpActivity<V, T>
+        implements AHBottomNavigation.OnTabSelectedListener {
     @BindView(R.id.bottom_navigation_bar)
     public AHBottomNavigation ahBottomNavigation;
-    private long exitTime = 0;
+
     private static String broadFlag = "Buttom_BroadFlag";
     private MyBroadcastReceiver broadcastReceiver = new MyBroadcastReceiver();
-    public static boolean isMess = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +105,6 @@ public abstract class BaseStoreMainActivity<V extends BaseView, T extends BasePr
                     MyActivity.startUI(this);
                     break;
             }
-
         }
         return true;
     }

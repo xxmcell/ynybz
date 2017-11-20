@@ -11,6 +11,8 @@ import java.util.Map;
  * 阳：2017/3/9-18:02
  */
 public abstract class BasePresenter<T extends BaseView> {
+
+
     public T mvpView;
 
     /**

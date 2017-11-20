@@ -13,9 +13,7 @@ public class PagingHelp {
     // 每页多少条
     private int pageCount = 20;
 
-
     private StatusChangListener statusChangListener;
-
 
     public void setStatusChangListener(StatusChangListener statusChangListener) {
         this.statusChangListener = statusChangListener;

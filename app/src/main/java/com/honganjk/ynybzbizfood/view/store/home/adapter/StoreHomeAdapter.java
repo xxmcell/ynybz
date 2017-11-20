@@ -1,7 +1,5 @@
 package com.honganjk.ynybzbizfood.view.store.home.adapter;
 
-import android.content.Context;
-
 import com.honganjk.ynybzbizfood.R;
 import com.honganjk.ynybzbizfood.code.base.baseadapter.ViewHolder;
 import com.honganjk.ynybzbizfood.code.base.baseadapter.recyclerview.CommonAdapter;
@@ -21,15 +19,9 @@ public class StoreHomeAdapter extends CommonAdapter<StoreHomeData.ObjsBean> {
         super(context, R.layout.store_item_home, datas);
         mContext = context;
     }
-
-    private StoreHomeAdapter(Context context, int layoutId, List<StoreHomeData.ObjsBean> datas) {
-        super(context, layoutId, datas);
-    }
-
     @Override
     public void convert(ViewHolder holder, final StoreHomeData.ObjsBean data) {
         holder.setImageBitmapRound(R.id.picture, data.getImg(), 5);
-//        holder.setImageResource(R.id.picture, R.mipmap.test_picture);
         holder.setText(R.id.name, data.getTitle());
         holder.setText(R.id.price, data.getMoney());
     }

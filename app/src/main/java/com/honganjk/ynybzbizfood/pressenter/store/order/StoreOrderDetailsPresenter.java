@@ -55,16 +55,10 @@ public class StoreOrderDetailsPresenter extends StoreOrderParentPresenter<StoreO
                 }
             }
         };
-
         HttpRequestParam param = new HttpRequestParam();
         param.addParam("id", id);
         HttpRequest.executePostStore(httpCallBack, "/token/orderDetail.json", param);
     }
-
-
-
-
-
 
     public void getDatas(int id) {
 

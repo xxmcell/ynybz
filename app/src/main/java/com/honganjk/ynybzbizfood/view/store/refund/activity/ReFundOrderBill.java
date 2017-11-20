@@ -6,7 +6,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.honganjk.ynybzbizfood.R;
 import com.honganjk.ynybzbizfood.code.base.presenter.BasePresenter;
@@ -63,7 +62,6 @@ public class ReFundOrderBill extends BaseMvpActivity {
         viewPage.setOffscreenPageLimit(3);
         viewPage.setAdapter(adapter);
 
-
     }
 
     @Override
@@ -74,7 +72,6 @@ public class ReFundOrderBill extends BaseMvpActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
     }
 

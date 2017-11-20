@@ -46,8 +46,6 @@ public interface BaseServiceApi {
             @Path(value = "path", encoded = true) String path,
             @FieldMap Map<String, String> maps
     );
-
-
     /**
      * **
      * 创建时间: 2016/9/24 16:14

@@ -21,6 +21,8 @@ import com.honganjk.ynybzbizfood.view.health.activity.HealthManagerActivity;
 import com.honganjk.ynybzbizfood.view.home.iview.MainHomeView;
 import com.honganjk.ynybzbizfood.view.other.view.IOtherView;
 import com.honganjk.ynybzbizfood.view.shitang.home.activity.HomeActivity;
+
+import com.honganjk.ynybzbizfood.view.tour.base.BaseTourMainActivity;
 import com.honganjk.ynybzbizfood.widget.SuperSwipeRefreshLayout;
 import com.honganjk.ynybzbizfood.widget.banner.ConvenientBanner;
 import com.honganjk.ynybzbizfood.widget.banner.NetworkImageHolderView;
@@ -34,7 +36,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-import static com.honganjk.ynybzbizfood.R.id.store;
 import static com.honganjk.ynybzbizfood.code.Global.SERVER_PHONE;
 import static com.honganjk.ynybzbizfood.code.base.view.activity.BaseMainActivity.isMess;
 
@@ -98,7 +99,8 @@ public class MainHomeActivity extends BaseMvpActivity<MainHomeView, MainHomePres
         AnimUtils.pressAnimationListener(findViewById(R.id.bottomView));
         // 测试     旅游/商城
 //        AnimUtils.pressAnimationListener(findViewById(R.id.tv_travel));
-        AnimUtils.pressAnimationListener(findViewById(R.id.store));
+        AnimUtils.pressAnimationListener(findViewById(R.id.onlinestore));
+        AnimUtils.pressAnimationListener(findViewById(R.id.lvyou));
         presenter.getAdvertisement(1);
         presenter.judgeVersion();
     }
@@ -130,7 +132,7 @@ public class MainHomeActivity extends BaseMvpActivity<MainHomeView, MainHomePres
     public void onEmptyClick(ContextData data) {
     }
 
-    @OnClick({R.id.yyc, R.id.lrph, R.id.bottomView, store})
+    @OnClick({R.id.yyc, R.id.lrph, R.id.bottomView, R.id.onlinestore,R.id.lvyou})
     public void onClick(final View view) {
         AnimUtils.pressAnimationListener(view, new AnimUtils.OnClickListenerCallback() {
             @Override
@@ -152,17 +154,15 @@ public class MainHomeActivity extends BaseMvpActivity<MainHomeView, MainHomePres
                         }
                         break;
                     //商城
-                    case store:
+                    case R.id.onlinestore:
                         com.honganjk.ynybzbizfood.view.store.home.activity.HomeActivity.startUI(mActivity);
-//                        Intent intent = new Intent(MainHomeActivity.this, MvpActivity.class);
-//                        Intent intent = new Intent(MainHomeActivity.this, MyRRRActivity.class);
-//                        startActivity(intent);
-
                         break;
                     //旅游
+                    case R.id.lvyou:
 
-
-
+                        Intent intent= new Intent(mActivity, BaseTourMainActivity.class);
+                        startActivity(intent);
+                        break;
                 }
             }
         });

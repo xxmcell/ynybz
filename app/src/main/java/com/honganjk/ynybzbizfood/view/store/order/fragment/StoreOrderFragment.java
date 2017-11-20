@@ -1,7 +1,6 @@
 package com.honganjk.ynybzbizfood.view.store.order.fragment;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -19,7 +18,6 @@ import com.honganjk.ynybzbizfood.code.base.view.fragment.BaseListFragment;
 import com.honganjk.ynybzbizfood.mode.javabean.store.order.StoreOrderData2;
 import com.honganjk.ynybzbizfood.pressenter.store.order.StoreOrderPresenter;
 import com.honganjk.ynybzbizfood.utils.ui.divider.HorizontalDividerItemDecoration;
-import com.honganjk.ynybzbizfood.view.store.order.activity.StoreOrderActivity;
 import com.honganjk.ynybzbizfood.view.store.order.activity.StoreOrderDetailsActivity;
 import com.honganjk.ynybzbizfood.view.store.order.adapter.StoreOrderAdapters;
 import com.honganjk.ynybzbizfood.view.store.order.view.StoreOrderParentInterfaces;
@@ -32,7 +30,6 @@ import static android.app.Activity.RESULT_OK;
 
 /**
  * 说明:商城-我的订单
- * 作者： 杨阳; 创建于：  2017-07-11  15:27
  */
 @SuppressLint("ValidFragment")
 public class StoreOrderFragment extends BaseListFragment<StoreOrderParentInterfaces.IOrder, StoreOrderPresenter>
@@ -55,10 +52,6 @@ public class StoreOrderFragment extends BaseListFragment<StoreOrderParentInterfa
 
     public StoreOrderFragment(int type) {
         this.mType = type;
-    }
-    Activity context;
-    public StoreOrderFragment(StoreOrderActivity storeOrderActivity) {
-        context=storeOrderActivity;
     }
 
     public static StoreOrderFragment getInstance(int type) {

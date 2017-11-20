@@ -2,7 +2,6 @@ package com.honganjk.ynybzbizfood.utils.http.httpquest;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
-
 import com.honganjk.ynybzbizfood.code.base.presenter.BasePresenter;
 import com.honganjk.ynybzbizfood.code.base.view.activity.BaseActivity;
 import com.honganjk.ynybzbizfood.code.base.view.iview.BaseListView;
@@ -46,7 +45,6 @@ public abstract class HttpCallBack<ResultType> {
      * {@link HeadType}
      */
     public int mHeadType=0;
-
 
     public HttpCallBack(Builder buider) {
         hint = buider.hint;
@@ -207,7 +205,6 @@ public abstract class HttpCallBack<ResultType> {
             }
         }
     }
-
 
     public static class Builder {
         private String hint = null;

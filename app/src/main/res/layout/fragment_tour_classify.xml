@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+       android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/iv_back"
+            android:src="@mipmap/back_i"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_alignLeft="@id/iv_back"
+            android:background="@drawable/home_search"
+            android:orientation="horizontal"
+            android:id="@+id/classify_search"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_height="32dp" >
+            <ImageView
+                android:layout_marginLeft="@dimen/dp_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/home_search"/>
+
+            <TextView
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/bg_search"
+                android:text="@string/tv_tour_search"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_below="@id/classify_search"
+            android:background="@color/bg_gray"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/btn_group"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/bg_gray"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_tuijian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_white"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp_16"
+                android:paddingTop="@dimen/dp_16"
+                android:text="@string/tuijian" />
+
+            <Button
+                android:id="@+id/btn_zhoubian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_gray"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp_16"
+                android:paddingTop="@dimen/dp_16"
+                android:text="@string/zhoubian" />
+
+            <Button
+                android:id="@+id/btn_quanguo"
+                android:background="@color/bg_gray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp_16"
+                android:paddingTop="@dimen/dp_16"
+                android:text="@string/quanguo" />
+
+            <Button
+                android:id="@+id/btn_japan"
+                android:background="@color/bg_gray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp_16"
+                android:paddingTop="@dimen/dp_16"
+                android:text="@string/riben" />
+
+            <Button
+                android:id="@+id/btn_dongnanya"
+                android:background="@color/bg_gray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp_16"
+                android:paddingTop="@dimen/dp_16"
+                android:text="@string/dongnanya" />
+
+            <Button
+                android:id="@+id/btn_haidao"
+                android:background="@color/bg_gray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp_16"
+                android:paddingTop="@dimen/dp_16"
+                android:text="@string/haidao" />
+
+            <Button
+                android:id="@+id/btn_gangaotai"
+                android:background="@color/bg_gray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp_16"
+                android:paddingTop="@dimen/dp_16"
+                android:text="@string/gangaotai" />
+
+            <Button
+                android:id="@+id/btn_zhongdongfei"
+                android:background="@color/bg_gray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp_16"
+                android:paddingTop="@dimen/dp_16"
+                android:text="@string/zhongdongfei" />
+
+            <Button
+                android:id="@+id/btn_youlunyou"
+                android:background="@color/bg_gray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp_16"
+                android:paddingTop="@dimen/dp_16"
+                android:text="@string/youlunyou" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+            <include layout="@layout/item_tour_classify_head" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_tour_classify_body"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_5">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

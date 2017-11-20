@@ -53,7 +53,7 @@ public class ProductDetailsEvaluateFragment extends BaseFragment {
                 recyclerView.setAdapter(adapter = new CommonAdapter<String>(activity, R.layout.store_empty,strings ) {
                     @Override
                     public void convert(ViewHolder holder, String s) {
-                        TextView view = (TextView) holder.getView(R.id.tv_empty);
+                        TextView view = holder.getView(R.id.tv_empty);
                         view.setTextColor(getResources().getColor(R.color.main_red));
                         holder.setText(R.id.tv_empty, s);
                     }

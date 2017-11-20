@@ -3,7 +3,6 @@ package com.honganjk.ynybzbizfood.view.store.refund.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.widget.LinearLayout;
@@ -18,8 +17,6 @@ import com.honganjk.ynybzbizfood.utils.ui.ToastUtils;
 import com.honganjk.ynybzbizfood.view.store.refund.fragment.RefundFragment;
 import com.honganjk.ynybzbizfood.view.store.refund.view.IRefundParent;
 
-import java.util.ArrayList;
-
 /**
  * 说明:商城-退款
  * <p>
@@ -28,17 +25,10 @@ import java.util.ArrayList;
 public class RefundActivity extends BaseMvpActivity<IRefundParent.IRefund, RefundPresenter>
         implements IRefundParent.IRefund {
 
-
-    ArrayList<Fragment> fragmentDatas = new ArrayList<>();
-
-    String[] titles;
-    public StoreOrderData2.ObjsBean.DetailsBean.ListBean mData;
-    public RefundRequestData mRefunddatas;
     private String json;
     private StoreOrderData2.ObjsBean data;
     private StoreOrderData2.ObjsBean.DetailsBean detailsBean;
     private StoreOrderData2.ObjsBean.DetailsBean.ListBean listBean;
-    private String jsonString;
     private LinearLayout thecontent1;
     private LinearLayout thecontent;
 
@@ -79,8 +69,6 @@ public class RefundActivity extends BaseMvpActivity<IRefundParent.IRefund, Refun
         initToobar();
         presenter.getData(id);
         thecontent = (LinearLayout) findViewById(R.id.thecontent);
-
-
     }
 
     private void initFragmentState(String jsonStr,String string) {

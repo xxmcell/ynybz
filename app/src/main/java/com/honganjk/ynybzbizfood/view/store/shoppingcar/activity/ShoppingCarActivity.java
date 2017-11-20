@@ -134,7 +134,7 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
         switchRoot.getRecyclerView().addItemDecoration(new HorizontalDividerItemDecoration.Builder(this).sizeResId(R.dimen.dp_1).colorResId(R.color.white).build());
         switchRoot.setAdapter(adapter);
         presenter.getData(true);
-
+        //全选
             allSelect.setOnCheckedChangeListener(new AnimCheckBox.OnCheckedChangeListener() {
                 @Override
                 public void onChange(AnimCheckBox checkBox, boolean checked) {
@@ -339,6 +339,7 @@ public class ShoppingCarActivity extends BaseStoreMainActivity<IShoppingCarParen
                 commit.setText("结算(0)");
                 refresh();
                 break;
+
         }
     }
 

@@ -38,12 +38,14 @@ public class BaseHttpRequest {
     /**
      * 订阅
      *
-     * @param o 被监听者，相当于网络访问
-     * @param s 监听者，  相当于回调监听
+     * @param observable 被监听者，相当于网络访问
+     * @param subscriber 监听者，  相当于回调监听
      */
-    public static <T> Subscription toSubscribe(Observable<T> o, Subscriber<T> s) {
-        return o.compose(schedulersTransformer)
-                .subscribe(s);//订阅
+    public static <T> Subscription toSubscribe(Observable<T> observable, Subscriber<T> subscriber) {
+
+        return observable
+                .compose(schedulersTransformer)
+                .subscribe(subscriber);//订阅
     }
 
 
@@ -67,6 +69,7 @@ public class BaseHttpRequest {
 
     public static <T> Subscription executePost(HttpCallBack<T> subscriber,
                                                HttpRequestParam param) {
+        //在baseServiceApi最后返回一个Observable对象
         return toSubscribe(HttpManager.getInstance().baseServiceApi.executePost(HttpManager.BASE_API, param.getStringMap()),
                 new HttpSubscription<T>(subscriber));
     }
@@ -192,13 +195,24 @@ public class BaseHttpRequest {
     }
 
     public static <T> Subscription executePostStore(HttpCallBack<T> subscriber,
-                                               String path,
-                                               HttpRequestParam param) {
+                                                         String path,
+                                                         HttpRequestParam param) {
         LogUtils.e("requestUrl:"+"->"+path+"\n");
         for(String key:param.getStringMap().keySet()){
             LogUtils.e("params:"+key+"->"+param.getStringMap().get(key)+"\n");
         }
         return toSubscribe(HttpManager.getInstance(HostType.TYPE_STORE,subscriber.mHeadType,path).baseServiceApi.executePost(path, param.getStringMap()),
+                new HttpSubscription<T>(subscriber));
+    }
+
+    public static <T> Subscription executePostTour(HttpCallBack<T> subscriber,
+                                                    String path,
+                                                    HttpRequestParam param) {
+        LogUtils.e("requestUrl:"+"->"+path+"\n");
+        for(String key:param.getStringMap().keySet()){
+            LogUtils.e("params:"+key+"->"+param.getStringMap().get(key)+"\n");
+        }
+        return toSubscribe(HttpManager.getInstance(HostType.TYPE_FOUR,subscriber.mHeadType,path).baseServiceApi.executePost(path, param.getStringMap()),
                 new HttpSubscription<T>(subscriber));
     }
 

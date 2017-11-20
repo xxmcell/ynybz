@@ -45,23 +45,45 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/store"
                     android:layout_width="0dp"
+                    android:layout_marginRight="@dimen/dp_5"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-
                     android:orientation="vertical">
-                <ImageView
-                    android:background="@mipmap/onlinestore"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    <LinearLayout
+                        android:id="@+id/onlinestore"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center">
+                        <ImageView
+                            android:background="@mipmap/onlinestore"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                          />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/lvyou"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center">
+                        <ImageView
+                            android:background="@mipmap/tour"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                    </LinearLayout>
+
+
 
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/dp_10"
-                    android:layout_weight="1.2"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_weight="1"
                     android:orientation="vertical">
                     <LinearLayout
                         android:id="@+id/yyc"

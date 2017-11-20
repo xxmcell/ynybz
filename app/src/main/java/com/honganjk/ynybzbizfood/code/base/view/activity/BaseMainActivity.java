@@ -27,7 +27,7 @@ import butterknife.BindView;
 public abstract class BaseMainActivity<V extends BaseView, T extends BasePresenter<V>> extends BaseMvpActivity<V, T> implements AHBottomNavigation.OnTabSelectedListener {
     @BindView(R.id.bottom_navigation_bar)
     public AHBottomNavigation ahBottomNavigation;
-    private long exitTime = 0;
+
     private static String broadFlag = "Buttom_BroadFlag";
     private MyBroadcastReceiver broadcastReceiver = new MyBroadcastReceiver();
     public static boolean isMess = true;

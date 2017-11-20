@@ -49,7 +49,7 @@ public class HomePresenter extends BasePresenter<IHomeParentInterfaces.IHomeInte
         if (isFist) {
             mvpView.clearPagingData();
         }
-
+        //首次带ticket访问网络
         new HttpAddTicketHead() {
             @Override
             public void succeed(boolean isSucceed) {

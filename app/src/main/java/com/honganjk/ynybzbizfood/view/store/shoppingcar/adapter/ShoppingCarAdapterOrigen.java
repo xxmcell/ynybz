@@ -36,7 +36,7 @@ public class ShoppingCarAdapterOrigen extends CommonAdapter<ShoppingcarData.Objs
         mContext = context;
 
     }
-    ShoppingCarAdapterOrigen shoppingCarAdapterOrigen;
+
     SelectListenerView mSelectListenerView;
 
     public void setmSelectListenerView(SelectListenerView mSelectListenerView) {
@@ -73,7 +73,7 @@ public class ShoppingCarAdapterOrigen extends CommonAdapter<ShoppingcarData.Objs
                 holder.setText(R.id.money, listBean.getMoneyStr());
                 holder.setText(R.id.price,listBean.getPrice());
 
-                NumberSelectRect numberSelectRect = (NumberSelectRect) holder.getView(R.id.numberSelectRect);
+                NumberSelectRect numberSelectRect =  holder.getView(R.id.numberSelectRect);
                 numberSelectRect.setSelectNum(listBean.getNum());
 
                 final AnimCheckBox animCheckBox = holder.getView(R.id.checkBox);

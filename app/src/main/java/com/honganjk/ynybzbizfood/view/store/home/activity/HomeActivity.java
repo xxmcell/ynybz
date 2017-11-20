@@ -34,18 +34,19 @@ import butterknife.BindView;
  * 说明:商城-主页面
  * 作者： 杨阳; 创建于：  2017-06-29  10:21
  */
-public class HomeActivity extends BaseStoreMainActivity<IHomeParentInterfaces.IHomeInterface, HomePresenter> implements CBViewHolderCreator, IHomeParentInterfaces.IHomeInterface, SuperRecyclerView.ListSwipeViewListener {
+public class HomeActivity extends BaseStoreMainActivity<IHomeParentInterfaces.IHomeInterface, HomePresenter> implements
+        CBViewHolderCreator,
+        IHomeParentInterfaces.IHomeInterface,
+        SuperRecyclerView.ListSwipeViewListener {
 
     @BindView(R.id.advertisement)
     ConvenientBanner advertisement;  //轮播工具
     List<BannerData> advertisementDatas = new ArrayList<>();
 
-
     @BindView(R.id.switchRoot)       //展示商品工具
     SuperRecyclerView switchRoot;
     ArrayList<StoreHomeData.ObjsBean> mDatas = new ArrayList<>();
     StoreHomeAdapter adapter;
-
 
     @BindView(R.id.im_homesearch)  //搜索
     LinearLayout mysearch;
@@ -57,7 +58,7 @@ public class HomeActivity extends BaseStoreMainActivity<IHomeParentInterfaces.IH
     }
 
     @Override
-    public int getContentView() {  // TODO: 2017-08-30
+    public int getContentView() {
         return R.layout.store_activity_home;
     }
 
@@ -69,8 +70,9 @@ public class HomeActivity extends BaseStoreMainActivity<IHomeParentInterfaces.IH
         switchRoot.setOnRefreshListener(this);
         switchRoot.setOnLoaddingListener(this);
         switchRoot.getRecyclerView().setLayoutManager(new GridLayoutManager(this, 3));
-//        switchRoot.getRecyclerView().addItemDecoration(new HorizontalDividerItemDecoration.Builder(this).sizeResId(R.dimen.dp_8).colorResId(R.color.gray_ee).build());
+//      switchRoot.getRecyclerView().addItemDecoration(new HorizontalDividerItemDecoration.Builder(this).sizeResId(R.dimen.dp_8).colorResId(R.color.gray_ee).build());
         switchRoot.setAdapter(adapter);
+
         advertisement.setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.ALIGN_PARENT_RIGHT);
         advertisement.setPages(this, advertisementDatas);
         advertisement.startTurning(Global.ADVERTISEMENT_TIME);
@@ -92,7 +94,6 @@ public class HomeActivity extends BaseStoreMainActivity<IHomeParentInterfaces.IH
             }
         });
 
-
         //返回
         findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,7 +101,6 @@ public class HomeActivity extends BaseStoreMainActivity<IHomeParentInterfaces.IH
                 onBackPressed();
             }
         });
-
     }
 
     @Override

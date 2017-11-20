@@ -86,6 +86,8 @@ public class LoginActivity extends BaseMvpActivity<IloginView, LoginPresenter> i
      */
     public static void startUI(Context context, String WXId) {
         Intent intent = new Intent(context, LoginActivity.class);
+        Bundle bundle=new Bundle();
+
         intent.putExtra("boundWx", true);
         intent.putExtra("WXId", WXId);
         context.startActivity(intent);
@@ -130,8 +132,6 @@ public class LoginActivity extends BaseMvpActivity<IloginView, LoginPresenter> i
                 }
             }
         });
-
-
         editHelper.addEditHelperData(new EditHelper.EditHelperData(phone, Validators.getLenghMinRegex(1), R.string.inputPhone));
         editHelper.addEditHelperData(new EditHelper.EditHelperData(password, Validators.getLenghMinRegex(1), R.string.inputCode));
         AnimUtils.pressAnimationListener(findViewById(R.id.wechat));

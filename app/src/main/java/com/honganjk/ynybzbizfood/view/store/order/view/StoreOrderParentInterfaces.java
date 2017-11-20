@@ -80,6 +80,4 @@ public interface StoreOrderParentInterfaces {
 
         void RefundProgress(RefundProgress data);
     }
-
-
 }

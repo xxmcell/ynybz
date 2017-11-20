@@ -10,12 +10,11 @@ public class ApiConstants {
     public static boolean ISNOT_OFFICIAL=false;
 
     //食堂陪护-正式地址/测试地址
-    public static final String BASE_HOST = IS_OFFICIAL ? "https://urapi.honganjk.com" : "http://ur.honganjk.com";
-
+    public static final String BASE_HOST = ISNOT_OFFICIAL ? "https://urapi.honganjk.com" : "http://ur.honganjk.com";
     //商城-正式地址/测试地址
-    public static final String STORE_HOST = IS_OFFICIAL ? "https://urapi.honganjk.com" : "http://bjpsc.honganjk.com";
-
-
+    public static final String STORE_HOST = ISNOT_OFFICIAL ? "https://urapi.honganjk.com" : "http://bjpsc.honganjk.com";
+    //旅游-正式地址/测试地址
+    public static final String TOUR_HOST = ISNOT_OFFICIAL  ? "https://urapi.honganjk.com":   "http://tour.honganjk.com/";
 
     public static final String THREE_HOST = "http://c.m.163.com/";
 
@@ -36,6 +35,9 @@ public class ApiConstants {
                 break;
             case HostType.TYPE_THREE:
                 host = THREE_HOST;
+                break;
+            case HostType.TYPE_FOUR:
+                host = TOUR_HOST;
                 break;
             default:
                 host = "";

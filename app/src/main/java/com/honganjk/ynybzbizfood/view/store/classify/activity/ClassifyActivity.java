@@ -84,10 +84,6 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
 
         requestBean = new ClassifyRequestBean();
 
-//                isSearch = true;
-//                keyword = getIntent().getStringExtra("keyword");
-//                presenter.getSearchData(keyword);
-
         adapter = new StoreClassifyAdapter(this, mDatas);
         switchRoot.setOnRefreshListener(this);
         switchRoot.setOnLoaddingListener(this);
@@ -201,7 +197,7 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
         switch (view.getId()) {
             case R.id.filtrateClassify:
                 presenter.filtrateClassify();
-                pp.setOnClickCallback(new PopupPulldown.OnClickCallback() {
+                        pp.setOnClickCallback(new PopupPulldown.OnClickCallback() {
                     @Override
                     public void onClick(int id, String content) {
                         requestBean.setType(id);

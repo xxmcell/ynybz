@@ -48,14 +48,12 @@ public class MyActivity extends com.honganjk.ynybzbizfood.view.shitang.my.activi
         ahBottomNavigation.addItem(new AHBottomNavigationItem(getResources().getString(R.string.my),
                 DrawableUtils.getStateSelectDrawable(R.mipmap.ic_store_my_green, R.mipmap.ic_store_my_gray)));
 
-
         ahBottomNavigation.setDefaultBackgroundColor(getResources().getColor(R.color.white));
         ahBottomNavigation.setCurrentItem(currentItem(), true);
         ahBottomNavigation.setForceTitlesDisplay(true);
         ahBottomNavigation.setOnTabSelectedListener(this);
         ahBottomNavigation.setBehaviorTranslationEnabled(false);
 //        ahBottomNavigation.setTitleTextSize(25,20);//设置文字的大小，选中时和没有选中时。
-
 
         ivHllParentead = (LinearLayout) findViewById(R.id.llParent);
         View view = UiUtils.getInflaterView(this, R.layout.store_activity_my);
@@ -69,7 +67,6 @@ public class MyActivity extends com.honganjk.ynybzbizfood.view.shitang.my.activi
         view.findViewById(R.id.tuiHuan).setOnClickListener(onClickListener);
         view.findViewById(R.id.collect).setOnClickListener(onClickListener);
     }
-
 
     @Override
     public boolean onTabSelected(int position, boolean wasSelected) {

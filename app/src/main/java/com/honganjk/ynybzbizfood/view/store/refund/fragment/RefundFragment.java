@@ -31,7 +31,7 @@ import com.honganjk.ynybzbizfood.pressenter.store.refund.RefundProgressPresenter
 import com.honganjk.ynybzbizfood.utils.other.EditHelper;
 import com.honganjk.ynybzbizfood.utils.other.Validators;
 import com.honganjk.ynybzbizfood.utils.ui.ToastUtils;
-import com.honganjk.ynybzbizfood.view.store.order.fragment.textBaseFragment;
+import com.honganjk.ynybzbizfood.code.base.view.fragment.MyBaseFragment;
 import com.honganjk.ynybzbizfood.view.store.order.view.StoreOrderParentInterfaces;
 import com.honganjk.ynybzbizfood.view.store.refund.activity.RefundActivity;
 import com.honganjk.ynybzbizfood.widget.PopupPulldown;
@@ -50,7 +50,7 @@ import static com.honganjk.ynybzbizfood.R.id.ImageTop;
  * 说明:产品详情的-评价
  * 作者： 杨阳; 创建于：  2017-07-07  16:01
  */
-public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.IOrderDetails, RefundProgressPresenter>
+public class RefundFragment extends MyBaseFragment<StoreOrderParentInterfaces.IOrderDetails, RefundProgressPresenter>
         implements View.OnClickListener ,StoreOrderParentInterfaces.IOrderDetails,RefundActivity.WatchChangerStatasBoolean {
 
     int mType;
@@ -143,6 +143,7 @@ public class RefundFragment extends textBaseFragment<StoreOrderParentInterfaces.
 
     public static RefundFragment getInstance(int i, String json, RefundRequestData mRefunddatas,StoreOrderData2.ObjsBean  StatesData) {
         return new RefundFragment(i, json, mRefunddatas,StatesData);
+
     }
 
 
