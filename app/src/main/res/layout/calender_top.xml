@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/tv_this_month"
+        android:paddingBottom="@dimen/dp_15"
+        android:paddingTop="@dimen/dp_15"
+        android:gravity="center"
+        android:text="本月"
+        android:textSize="15sp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/select_calender_month"
+        android:layout_height="wrap_content" />
+    <Button
+        android:background="@drawable/select_calender_month"
+        android:id="@+id/tv_next_month"
+        android:paddingBottom="@dimen/dp_15"
+        android:paddingTop="@dimen/dp_15"
+        android:gravity="center"
+        android:text="下月"
+        android:textSize="15sp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+</LinearLayout>

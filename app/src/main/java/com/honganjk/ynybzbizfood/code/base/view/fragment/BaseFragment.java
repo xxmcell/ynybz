@@ -16,6 +16,7 @@ import com.honganjk.ynybzbizfood.widget.empty_layout.MyOnLoadingAndRetryListener
 import com.honganjk.ynybzbizfood.widget.empty_layout.OnRetryClickListion;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 
@@ -75,6 +76,7 @@ public abstract class BaseFragment extends Fragment implements IActivityAndFragm
      * 方法功能：是否是回收利用的Fragment
      */
     protected boolean isRecycle = false;
+    private Unbinder unbinder;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -88,7 +90,7 @@ public abstract class BaseFragment extends Fragment implements IActivityAndFragm
         if (view == null) {
             isRecycle = false;
             view = UiUtils.getInflaterView(activity, getContentView());
-            ButterKnife.bind(this, view);
+            unbinder = ButterKnife.bind(this, view);
             UiUtils.applyFont(view);
             loadingAndRetryManager = LoadingAndRetryManager.getLoadingAndRetryManager(getSwitchRoot(), new MyOnLoadingAndRetryListener(activity, getOnRetryClickListion()));
         } else {
@@ -103,6 +105,12 @@ public abstract class BaseFragment extends Fragment implements IActivityAndFragm
         if (!isRecycle) {
             initView();
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
     }
 
     /**

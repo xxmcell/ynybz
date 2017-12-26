@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_chufa"
+            android:text="杭州出发"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_toRightOf="@id/tv_chufa"
+            android:text="以下价格均为起价"
+            android:textColor="#999999"
+            android:textSize="12sp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="@dimen/dp_14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_datas"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+        <ImageView
+            android:id="@+id/select_data"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:background="@mipmap/ly_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</LinearLayout>

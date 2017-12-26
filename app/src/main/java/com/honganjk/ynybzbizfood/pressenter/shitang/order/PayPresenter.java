@@ -92,6 +92,46 @@ public class PayPresenter extends BasePresenter<OrderParentInterfaces.IPay> {
 
     }
 
+    /**
+     * 接口：/pay/overage.tour
+     * 使用方: web,app
+     * 请求方式: http—get/post
+     * 请求地址:
+     * 环境	地址
+     * 开发	http://tour.honganjk.com/pay/overage.tour
+     * 测试
+     * 生产
+     * header说明
+     * 参数 	约束	说明
+     * code	必选 	单一用户唯一码,用户登录接口返回
+     * token	必选	单一用户短时段内的请求令牌,用户登录接口返回
+     * header示例：
+     * code: 8952
+     * token: e8a69bf65aefc23d0f360ab695e9eac7
+     * 参数说明 (默认字符串类型)
+     * 参数 	约束	说明
+     * oid	必选，int	要支付的订单id
+     */
+    public void tourBalancePay(int oid) {
+        HttpCallBack.Builder builder = new HttpCallBack.Builder(this)
+                .setShowLoadding(true)
+                .setHttpHead(HeadType.LOGIN_HEAD);
+
+        HttpCallBack<HttpResult<Double>> httpCallBack = new HttpCallBack<HttpResult<Double>>(builder) {
+            @Override
+            public void onSuccess(HttpResult<Double> result) {
+                super.onSuccess(result);
+                if (result.isSucceed()) {
+                    mvpView.balancePay(true, result.getData());
+                    return;
+                }
+                mvpView.showWarningSnackbar(result.getMsg());
+            }
+        };
+        HttpRequestParam param = new HttpRequestParam();
+        param.addParam("oid", oid);
+        HttpRequest.executePostTour(httpCallBack, "/pay/overage.tour", param);
+    }
 
     /**
      * 实时获取用户余额
@@ -204,6 +244,60 @@ public class PayPresenter extends BasePresenter<OrderParentInterfaces.IPay> {
     }
 
     /**
+     * 获取旅行订单的支付要素
+     * 接口：/pay/getCharge.tour
+     * 使用方: web,app
+     * 请求方式: http—get/post
+     * 请求地址:
+     * 环境	地址
+     * 开发	http://tour.honganjk.com/token/getCharge.tour
+     * 测试
+     * 生产
+     * header说明
+     * 参数 	约束	说明
+     * code	必选 	单一用户唯一码,用户登录接口返回
+     * token	必选	单一用户短时段内的请求令牌,用户登录接口返回
+     * header示例：
+     * code: 8952
+     * token: e8a69bf65aefc23d0f360ab695e9eac7
+     * 参数说明 (默认字符串类型)
+     * 参数 	约束	说明
+     * pay	必选,int	支付渠道：1-支付宝app;2-微信app;3-银联;4-微信公众号
+     * oid	必选,int	订单id
+     * openId	可选	pay=4 时的必填参数，用户在商户  appid 下的唯一标识。
+     */
+    public void otherPayTour(int pay, int oid, String openId) {
+        HttpCallBack.Builder buider = new HttpCallBack.Builder()
+                .setHttpHead(HeadType.LOGIN_HEAD)
+                .setShowLoadding(true);
+        HttpCallBack httpCallBack = new HttpCallBack<BaseHttpResponse>(buider) {
+            @Override
+            public void onSuccess(BaseHttpResponse result) {
+                super.onSuccess(result);
+                if (result.isSucceed()) {
+                    try {
+                        mvpView.otherPay(result.getJSONObject().getJSONObject("data").toString());
+
+                    } catch (Exception e) {
+                        mvpView.showErrorSnackbar(result.getMsg());
+                        e.printStackTrace();
+                    }
+                    return;
+                } else {
+                    mvpView.showErrorSnackbar(result.getMsg());
+                }
+            }
+        };
+        HttpRequestParam param = new HttpRequestParam();
+        param.addParam("pay", pay);
+        param.addParam("oid", oid);
+        if (pay == 4) {
+            param.addParam("openId", openId);
+        }
+        HttpRequest.executePostTour(httpCallBack, "/pay/getCharge.tour", param);
+    }
+
+    /**
      * 商城产品
      *
      * @param pay
@@ -257,6 +351,5 @@ public class PayPresenter extends BasePresenter<OrderParentInterfaces.IPay> {
         HttpRequest.executePostStore(httpCallBack, "/token/getCharge.json", param);
 
     }
-
 
 }

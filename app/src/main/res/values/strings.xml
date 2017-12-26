@@ -153,6 +153,25 @@
     <string name="gangaotai">港澳台</string>
     <string name="zhongdongfei">中东非</string>
     <string name="youlunyou">邮轮游</string>
+    <string name="passenger_num">3696人出游</string>
+    <string name="good_review">98.01%满意</string>
+    <string name="wugouwu">无购物</string>
+    <string name="tour_detail_days">团期：07/12、07/13、7/14、07/15</string>
+    <string name="tour_detail_name">【欢乐三亚】海南+三亚双飞5天6晚私家团，全程连住国际五星级酒店</string>
+    <string name="renminbi">¥</string>
+    <!--datePicker-->
+    <string name="cancle">取消</string>
+    <string name="title">请选择时间</string>
+    <string name="commit">确定</string>
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="hour">时</string>
+    <string name="minute">分</string>
 
+    <string name="select_date">选择日期</string>
+    <string name="current_date">当前日期</string>
+    <string name="select_time">选择时间</string>
+    <string name="current_time">当前时间</string>
 
 </resources>

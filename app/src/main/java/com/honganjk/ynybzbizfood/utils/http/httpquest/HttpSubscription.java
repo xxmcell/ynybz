@@ -94,6 +94,7 @@ public class HttpSubscription<T> extends Subscriber<ResponseBody> {
                 } catch (Exception e) {
                     e.printStackTrace();
                     if (callBack != null) {
+                        LogUtils.e(e.toString());
                         callBack.onError(new Exception(HttpSubscription.this.toString() + "  onNext 解析数据错误", e));
 
                     }

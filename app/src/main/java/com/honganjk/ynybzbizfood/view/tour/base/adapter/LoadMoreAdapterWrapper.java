@@ -6,13 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.honganjk.ynybzbizfood.R;
-import com.honganjk.ynybzbizfood.mode.javabean.tour.home.HomeTourBean;
+import com.honganjk.ynybzbizfood.mode.javabean.tour.detail.ObjsBean;
 
 /**
  * Created by Administrator on 2017-11-15.
  */
 
-public class LoadMoreAdapterWrapper extends BaseAdapter<HomeTourBean.DataBean.ObjsBean> {
+public class LoadMoreAdapterWrapper extends BaseAdapter<ObjsBean> {
     private BaseAdapter mAdapter;
     private static final int mPageSize = 20;
     private  int mPagePosition = 0;

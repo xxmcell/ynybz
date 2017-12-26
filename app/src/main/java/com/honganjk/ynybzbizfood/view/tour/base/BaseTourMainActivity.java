@@ -1,10 +1,8 @@
 package com.honganjk.ynybzbizfood.view.tour.base;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
@@ -14,8 +12,9 @@ import com.honganjk.ynybzbizfood.code.base.view.activity.BaseMvpActivity;
 import com.honganjk.ynybzbizfood.code.base.view.iview.BaseView;
 import com.honganjk.ynybzbizfood.utils.ui.DrawableUtils;
 import com.honganjk.ynybzbizfood.view.tour.base.VeiwPager.CustomViewPager;
+import com.honganjk.ynybzbizfood.view.tour.base.fragment.MyFragmentPagerAdapter;
 import com.honganjk.ynybzbizfood.view.tour.classify.fragment.ClassifyFragment;
-import com.honganjk.ynybzbizfood.view.tour.home.HomeFragment;
+import com.honganjk.ynybzbizfood.view.tour.home.fragment.TourHomeFragment;
 import com.honganjk.ynybzbizfood.view.tour.me.MeFragment;
 import com.honganjk.ynybzbizfood.view.tour.order.OrderFragment;
 
@@ -42,11 +41,12 @@ public class BaseTourMainActivity<V extends BaseView, T extends BasePresenter<V>
 
     @Override
     public int getContentView() {
-        return 0;
+        return R.layout.activity_tourbase;
     }
 
     @Override
     public void initView() {
+        ButterKnife.bind(this);
         NavigationBar();
     }
 
@@ -67,12 +67,13 @@ public class BaseTourMainActivity<V extends BaseView, T extends BasePresenter<V>
     }
 
     private void NavigationBar() {
-        listFragment.add(new HomeFragment(this));
-        listFragment.add(new ClassifyFragment(this));
+        listFragment.add(new TourHomeFragment());
+        listFragment.add(ClassifyFragment.newInstance());
         listFragment.add(new OrderFragment());
         listFragment.add(new MeFragment());
         //可以设置角标的,需求
         BaseMentViewPager.setAdapter(new tourViewPagerAdapter(getSupportFragmentManager(), listFragment));
+        BaseMentViewPager.setOffscreenPageLimit(0);//设置ViewPager的缓存界面数,默认缓存为2
         BaseMentViewPager.setScanScroll(false);
         bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
         bottomNavigationBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC);
@@ -100,9 +101,7 @@ public class BaseTourMainActivity<V extends BaseView, T extends BasePresenter<V>
                         BaseMentViewPager.setCurrentItem(1);
                         break;
                     case 2:
-                        if (isLogin(true)) {
-                            BaseMentViewPager.setCurrentItem(2);
-                        }
+                        BaseMentViewPager.setCurrentItem(2);
                         break;
                     case 3:
                         BaseMentViewPager.setCurrentItem(3);
@@ -122,14 +121,7 @@ public class BaseTourMainActivity<V extends BaseView, T extends BasePresenter<V>
         });
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tourbase);
-        ButterKnife.bind(this);
-    }
-
-    private class tourViewPagerAdapter extends FragmentPagerAdapter {
+    private class tourViewPagerAdapter extends MyFragmentPagerAdapter {
         List<Fragment> list = new ArrayList<>();
 
         public tourViewPagerAdapter(FragmentManager supportFragmentManager, List<Fragment> listFragment) {

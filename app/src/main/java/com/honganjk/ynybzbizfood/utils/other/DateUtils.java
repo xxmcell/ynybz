@@ -29,7 +29,11 @@ import java.util.regex.Pattern;
 public abstract class DateUtils {
 
     public static final String TIME_HH = "yyyy-MM-dd HH:mm:ss";
+    public static final String TIME_HHH = "yyyy-MM-dd-HH-mm-ss";
     public static final String TIME = "yyyy-MM-dd";
+    public static final String TIME_MM = "MM-dd";
+    public static final String TIME_YM = "yyyy-MM";
+
 
     private static final int[] DAY_OF_MONTH = new int[]{31, 28, 31, 30, 31,
             30, 31, 31, 30, 31, 30, 31};
@@ -50,6 +54,83 @@ public abstract class DateUtils {
         return getFormatTime(calender, pattern);
     }
 
+    /**
+     * 输入日期如（2014-06-14-16-09-00）返回（星期数）
+     *
+     * @param time
+     * @return
+     */
+    public static String weekOne(String time) {
+        Date date = null;
+        SimpleDateFormat sdr = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+        int mydate = 0;
+        String week = null;
+        try {
+            date = sdr.parse(time);
+            Calendar cd = Calendar.getInstance();
+            cd.setTime(date);
+            mydate = cd.get(Calendar.DAY_OF_WEEK);
+            // 获取指定日期转换成星期几
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        if (mydate == 1) {
+            week = "日";
+        } else if (mydate == 2) {
+            week = "一";
+        } else if (mydate == 3) {
+            week = "二";
+        } else if (mydate == 4) {
+            week = "三";
+        } else if (mydate == 5) {
+            week = "四";
+        } else if (mydate == 6) {
+            week = "五";
+        } else if (mydate == 7) {
+            week = "六";
+        }
+        return week;
+    }
+
+    /**
+     * 输入日期如（2014-06-14）返回（星期数）
+     *
+     * @param time
+     * @return
+     */
+    public static String weekTwo(String time) {
+        Date date = null;
+        SimpleDateFormat sdr = new SimpleDateFormat("yyyy-MM-dd");
+        int mydate = 0;
+        String week = null;
+        try {
+            date = sdr.parse(time);
+            Calendar cd = Calendar.getInstance();
+            cd.setTime(date);
+            mydate = cd.get(Calendar.DAY_OF_WEEK);
+            // 获取指定日期转换成星期几
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        if (mydate == 1) {
+            week = "日";
+        } else if (mydate == 2) {
+            week = "一";
+        } else if (mydate == 3) {
+            week = "二";
+        } else if (mydate == 4) {
+            week = "三";
+        } else if (mydate == 5) {
+            week = "四";
+        } else if (mydate == 6) {
+            week = "五";
+        } else if (mydate == 7) {
+            week = "六";
+        }
+        return week;
+    }
 
     /**
      * @return
@@ -88,6 +169,16 @@ public abstract class DateUtils {
         return getFormatTime(Calendar.getInstance(), format);
     }
 
+    /**
+     * 获取下个月月份 格式为   yyyy-MM  (2017-11)
+     * @return
+     */
+    public static String getNextMonth() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MONTH, 1);
+        SimpleDateFormat sdf = new SimpleDateFormat(DateUtils.TIME_YM);
+        return sdf.format(calendar.getTime());
+    }
 
     /**
      * 取得今天的最后一个时刻
@@ -590,7 +681,8 @@ public abstract class DateUtils {
 
     /**
      * 根据时间戳，转换为指定格式的时间
-     * @param date 这个字符串要包含时间戳
+     *
+     * @param date   这个字符串要包含时间戳
      * @param format 时间格式
      * @return 对应的时间
      */
@@ -607,7 +699,8 @@ public abstract class DateUtils {
 
     /**
      * 根据时间戳，转换为指定格式的时间
-     * @param date 时间戳
+     *
+     * @param date   时间戳
      * @param format 时间格式
      * @return 对应的时间
      */
@@ -615,7 +708,6 @@ public abstract class DateUtils {
 
         return dateToString(String.valueOf(date), format);
     }
-
 
 
     /**
@@ -634,7 +726,6 @@ public abstract class DateUtils {
         }
         return time;
     }
-
 
 
     public static int getDay(String date) {

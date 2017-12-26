@@ -62,6 +62,10 @@ public class UserInfo {
     private double balance;//余额
     @Column("addrNum")
     private int imaddrNumg;//收货地址数
+    @Column("keepsNum")
+    private int keepsNum;//旅游收藏数
+    @Column("passengerNum")
+    private int passengerNum;//常用旅客数
 
     public static UserInfo getInstance() {
         try {
@@ -194,7 +198,21 @@ public class UserInfo {
         isLogin = login;
     }
 
+    public int getKeepsNum() {
+        return keepsNum;
+    }
 
+    public void setKeepsNum(int keepsNum) {
+        this.keepsNum = keepsNum;
+    }
+
+    public int getPassengerNum() {
+        return passengerNum;
+    }
+
+    public void setPassengerNum(int passengerNum) {
+        this.passengerNum = passengerNum;
+    }
     public static UserInfo getUserData() {
         return userData;
     }

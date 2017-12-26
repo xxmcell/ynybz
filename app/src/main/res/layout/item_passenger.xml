@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/hs_dianji"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:cacheColorHint="#00000000"
+    android:fadingEdge="none"
+    android:overScrollMode="never"
+    android:padding="@dimen/dp_10"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="卢璐"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/identity_and_idcard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_below="@+id/tv_name"
+                android:text="成人   220202100310101010"
+                android:textSize="16sp"/>
+
+
+            <ImageView
+                android:id="@+id/iv_reset"
+                android:layout_width="@dimen/dp_45"
+                android:layout_height="@dimen/dp_45"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_25"
+                android:padding="@dimen/dp_12"
+                android:src="@mipmap/list_menu_modify"/>
+
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_dele"
+            android:layout_width="@dimen/dp_65"
+            android:layout_height="@dimen/dp_45"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:background="@color/red"
+            android:gravity="center"
+            android:text="删除"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+</HorizontalScrollView>
+

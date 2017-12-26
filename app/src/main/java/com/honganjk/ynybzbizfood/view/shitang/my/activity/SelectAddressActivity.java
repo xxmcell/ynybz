@@ -34,6 +34,7 @@ import butterknife.BindView;
 public class SelectAddressActivity extends BaseListActivity<MyParentInterfaces.ISelectAddress, SelectAddressPresenter> implements MyParentInterfaces.ISelectAddress, View.OnClickListener {
     private static final String TAG = SelectAddressActivity.class.getSimpleName();
     private List<AddressBean> list = new ArrayList<>();
+
     @BindView(R.id.ll_addaddress)
     LinearLayout ll_addaddress;
     CommonAdapter adapter;
@@ -83,7 +84,6 @@ public class SelectAddressActivity extends BaseListActivity<MyParentInterfaces.I
         listSwipeView.getRecyclerView().setLoadMoreEnabled(false);
         presenter.getUserAddress(true);
         nWidth = new ScreenInfoUtils().getWidth();
-
 
     }
 
@@ -160,8 +160,6 @@ public class SelectAddressActivity extends BaseListActivity<MyParentInterfaces.I
             }
 
         };
-
-
         return adapter;
     }
 

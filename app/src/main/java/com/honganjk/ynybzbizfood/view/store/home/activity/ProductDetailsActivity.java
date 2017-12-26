@@ -221,14 +221,14 @@ public class ProductDetailsActivity extends BaseMvpActivity<IHomeParentInterface
                     //收藏
                     case R.id.collect:
                         if (isLogin(true)) {
-                            if (changeStats==true) {
-                                collectIm.setSelected(false);
-                                presenter.cancleCollect(mData.getId());
-                            } else if (changeStats==false) {
-                                collectIm.setSelected(true);
-                                presenter.collect(mData.getId());
-                            }
+                        if (changeStats==true) {
+                            collectIm.setSelected(false);
+                            presenter.cancleCollect(mData.getId());
+                        } else if (changeStats==false) {
+                            collectIm.setSelected(true);
+                            presenter.collect(mData.getId());
                         }
+                    }
                         break;
                     //加入购物车
                     case R.id.addShoppingCar:

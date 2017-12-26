@@ -93,8 +93,6 @@ public class WritingEvaluationActivity extends BaseMvpActivity<OrderParentInterf
         context.startActivityForResult(intent, requestCode);
     }
 
-
-
     @Override
     public WritingEvaluationPresenter initPressenter() {
         return new WritingEvaluationPresenter();

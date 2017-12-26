@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/back_i" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="选择出发日期"
+            android:textColor="#333333"
+            android:textSize="18sp" />
+    </RelativeLayout>
+    <android.support.design.widget.TabLayout
+        android:layout_below="@+id/rl"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="?colorAccent"
+        app:tabMode="fixed"
+        app:tabPaddingEnd="0dp"
+        app:tabPaddingStart="0dp"
+        app:tabSelectedTextColor="?colorAccent"
+        app:tabTextColor="@color/black" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPage"
+        android:layout_below="@id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

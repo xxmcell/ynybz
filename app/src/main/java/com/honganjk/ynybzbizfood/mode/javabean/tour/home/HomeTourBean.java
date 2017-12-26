@@ -1,5 +1,7 @@
 package com.honganjk.ynybzbizfood.mode.javabean.tour.home;
 
+import com.honganjk.ynybzbizfood.mode.javabean.tour.detail.ObjsBean;
+
 import java.util.List;
 
 /**
@@ -42,24 +44,6 @@ public class HomeTourBean {
             this.objs = objs;
         }
 
-        public static class ObjsBean {
-            /**
-             * img :
-             * price : 0
-             * days : ["1502770393000","1502770395000"]
-             * id : 5
-             * sales : 0
-             * title : Schiff维骨力氨基3倍强化片170粒/瓶
-             * tags : 避暑圣地-无购物-历史古迹
-             */
 
-            public String img;
-            public String price;
-            public int id;
-            public int sales;
-            public String title;
-            public String tags;
-            public List<String> days;
-        }
     }
 }

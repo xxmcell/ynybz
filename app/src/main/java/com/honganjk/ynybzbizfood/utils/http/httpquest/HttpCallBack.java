@@ -109,13 +109,12 @@ public abstract class HttpCallBack<ResultType> {
      * @param error
      */
     public void onError(Throwable error) {
-        LogUtils.e("onError");
+        LogUtils.e("onError:"+error.toString());
         onCompleted();
         ContextData data = new ContextData();
         String errString = "";
         int errCode;
         if (error != null) {
-            LogUtils.e("onError->error, error.toString()");
             errCode = -1;
         }
         if (!HttpLocalUtils.isNetworkAvailable(myApp)) {
@@ -157,7 +156,7 @@ public abstract class HttpCallBack<ResultType> {
             errString = "未知的错误";
             errCode = -200;
         }
-
+        LogUtils.e("onError->error, "+errString);
         data.setTitle(errString);
         data.setErrCode(errCode);
         if (basePresenter != null && basePresenter.mvpView != null) {

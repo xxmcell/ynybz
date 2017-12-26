@@ -53,14 +53,14 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
     @BindView(R.id.filtrateSynthesize)
     TextView filtrateSynthesize;
     @BindView(R.id.llclassify_search) //搜索框
-    LinearLayout llClassify_search;
+            LinearLayout llClassify_search;
     @BindView(R.id.im_classifyback)
     ImageView im_Classifyback;
 
     ArrayList<PopupPulldown.PullDownData> mFiltrareDatas = new ArrayList<>(); //筛选数据源
     PopupPulldown pp;   //筛选(带动画)
     ClassifyRequestBean requestBean;
-    private boolean isSearch=false;
+    private boolean isSearch = false;
 
     public static void startUI(Activity activity) {
         Intent intent = new Intent(activity, ClassifyActivity.class);
@@ -99,7 +99,7 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
             }
         });
 
-            reruestData(true);
+        reruestData(true);
     }
 
     @Override
@@ -109,7 +109,7 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
 
     @Override
     public void onRefresh() {
-            reruestData(true);
+        reruestData(true);
     }
 
     @Override
@@ -164,8 +164,8 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
 
     @Override
     public void getHttpData(List<StoreHomeData.ObjsBean> datas) {
-            mDatas.addAll(datas);
-            adapter.notifyDataSetChanged();
+        mDatas.addAll(datas);
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -183,13 +183,14 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
     }
 
     @Override
-    public void addShoppingCar(boolean datas) {}
+    public void addShoppingCar(boolean datas) {
+    }
 
     @Override
     public void setSaerchData(ArrayList<StoreHomeData.ObjsBean> datas) {
     }
 
-    @OnClick({R.id.filtrateClassify, R.id.filtrateBrand, R.id.filtrateSynthesize,R.id.llclassify_search,R.id.im_classifyback})
+    @OnClick({R.id.filtrateClassify, R.id.filtrateBrand, R.id.filtrateSynthesize, R.id.llclassify_search, R.id.im_classifyback})
     public void onViewClicked(View view) {
         ArrayList<PopupPulldown.PullDownData> datas = new ArrayList<>();
 
@@ -197,7 +198,7 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
         switch (view.getId()) {
             case R.id.filtrateClassify:
                 presenter.filtrateClassify();
-                        pp.setOnClickCallback(new PopupPulldown.OnClickCallback() {
+                pp.setOnClickCallback(new PopupPulldown.OnClickCallback() {
                     @Override
                     public void onClick(int id, String content) {
                         requestBean.setType(id);
@@ -227,7 +228,7 @@ public class ClassifyActivity extends BaseStoreMainActivity<IClassifyParentInter
                 });
                 break;
             case R.id.llclassify_search:    // TODO: 2017-08-31
-                Intent intent = new Intent(this,HomeSearchActivity.class);
+                Intent intent = new Intent(this, HomeSearchActivity.class);
                 startActivity(intent);
                 break;
             case R.id.im_classifyback:

@@ -73,25 +73,24 @@
                 </LinearLayout>
             </RelativeLayout>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:background="@color/bg_gray"/>
+            <!--<ImageView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="10dp"-->
+                <!--android:background="@color/bg_gray"/>-->
 
             <!--<include layout="@layout/item_tour_home_hot"-->
                 <!--android:layout_width="match_parent"-->
                 <!--android:layout_height="wrap_content" />-->
         </android.support.design.widget.AppBarLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_body"
+        <com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView
+            android:id="@+id/switchRoot"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/coordinator"
             android:background="@color/bg_white"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        </android.support.v7.widget.RecyclerView>
+        </com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView>
     </android.support.design.widget.CoordinatorLayout>
 
 </RelativeLayout>

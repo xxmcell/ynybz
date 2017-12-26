@@ -1,47 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:orientation="vertical" android:layout_width="match_parent"
-android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <LinearLayout
         android:id="@+id/rl"
-        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:gravity="center_vertical"
+        android:paddingBottom="10dp"
         android:paddingLeft="14dp"
         android:paddingRight="14dp"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        >
+        android:paddingTop="10dp">
 
         <ImageView
             android:id="@+id/im_classifyback"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/back_i"/>
+            android:src="@mipmap/back_i" />
 
         <LinearLayout
-            android:background="@drawable/home_search"
-            android:orientation="horizontal"
             android:id="@+id/llclassify_search"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
             android:layout_marginLeft="@dimen/dp_14"
             android:layout_marginRight="@dimen/dp_14"
-            android:layout_width="match_parent"
+            android:background="@drawable/home_search"
             android:gravity="center_vertical"
-            android:layout_height="32dp" >
+            android:orientation="horizontal">
+
             <ImageView
-                android:layout_marginLeft="@dimen/dp_14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/home_search"/>
+                android:layout_marginLeft="@dimen/dp_14"
+                android:src="@mipmap/home_search" />
 
             <TextView
                 android:id="@+id/tv_title"
-                android:layout_marginLeft="@dimen/dp_12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/bg_search"
-                android:text="@string/quanguo"/>
+                android:layout_marginLeft="@dimen/dp_12"
+                android:text="@string/quanguo"
+                android:textColor="@color/bg_search" />
         </LinearLayout>
     </LinearLayout>
 
@@ -72,13 +74,22 @@ android:layout_height="match_parent">
                 android:layout_weight="1"
                 android:gravity="center">
 
-                <TextView
+                <CheckBox
                     android:id="@+id/hot_recommend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:button="@null"
                     android:drawableRight="@drawable/material_arrwos_black_down"
                     android:gravity="center"
                     android:text="热门推荐" />
+                <!--     <TextView
+                         android:id="@+id/hot_recommend"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:drawableRight="@drawable/material_arrwos_black_down"
+                         android:gravity="center"
+                         android:text="热门推荐" />-->
             </LinearLayout>
 
             <View
@@ -94,13 +105,22 @@ android:layout_height="match_parent">
                 android:layout_weight="1"
                 android:gravity="center">
 
-                <TextView
+                <CheckBox
                     android:id="@+id/stroke_days"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:button="@null"
                     android:drawableRight="@drawable/material_arrwos_black_down"
                     android:gravity="center"
                     android:text="行程天数" />
+                <!--<TextView-->
+                <!--android:id="@+id/stroke_days"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:drawableRight="@drawable/material_arrwos_black_down"-->
+                <!--android:gravity="center"-->
+                <!--android:text="行程天数" />-->
             </LinearLayout>
 
             <View
@@ -116,13 +136,22 @@ android:layout_height="match_parent">
                 android:layout_weight="1"
                 android:gravity="center">
 
-                <TextView
+                <CheckBox
                     android:id="@+id/single_budget"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:button="@null"
                     android:drawableRight="@drawable/material_arrwos_black_down"
                     android:gravity="center"
                     android:text="单人预算" />
+                <!-- <TextView
+                     android:id="@+id/single_budget"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:drawableRight="@drawable/material_arrwos_black_down"
+                     android:gravity="center"
+                     android:text="单人预算" />-->
             </LinearLayout>
         </LinearLayout>
 
@@ -132,13 +161,13 @@ android:layout_height="match_parent">
             android:background="@color/gray_ee" />
 
 
-        <android.support.v7.widget.RecyclerView
+        <com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView
             android:id="@+id/switchRoot"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/gray_ee">
 
-        </android.support.v7.widget.RecyclerView>
+        </com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView>
 
     </LinearLayout>
 </LinearLayout>

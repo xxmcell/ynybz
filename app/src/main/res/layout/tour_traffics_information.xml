@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_shape_corner_white"
+    tools:showIn="@layout/activity_tour_order_details">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_15"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_15"
+        android:text="机票信息"
+        android:textColor="#333333"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/gray_ee" />
+
+    <TextView
+        android:layout_marginTop="@dimen/dp_15"
+        android:id="@+id/tv_provider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="07-31 南方航空 CZ3698 经济舱 中型机"
+        android:textColor="#666666"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="杭州"
+                android:textColor="#666666" />
+
+            <TextView
+                android:id="@+id/tv_otime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="20:45"
+                android:textColor="#333333"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/tv_outset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="萧山国际机场"
+                android:textColor="#666666"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@mipmap/ly_plane" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_mudidi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="杭州"
+                android:textColor="#666666" />
+
+            <TextView
+                android:id="@+id/tv_f_atime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="20:45"
+                android:textColor="#333333"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/tv_f_arrive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="萧山国际机场"
+                android:textColor="#666666"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E1E1E1" />
+
+    <TextView
+        android:layout_marginTop="@dimen/dp_15"
+        android:id="@+id/tv_f_provider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="07-31 南方航空 CZ3698 经济舱 中型机"
+        android:textColor="#666666"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="杭州"
+                android:textColor="#666666" />
+
+            <TextView
+                android:id="@+id/tv_f_otime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="20:45"
+                android:textColor="#333333"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/tv_f_outset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="萧山国际机场"
+                android:textColor="#666666"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@mipmap/ly_f_plane" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_f_mudidi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="杭州"
+                android:textColor="#666666" />
+
+            <TextView
+                android:id="@+id/tv_atime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="20:45"
+                android:textColor="#333333"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/tv_arrive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="萧山国际机场"
+                android:textColor="#666666"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

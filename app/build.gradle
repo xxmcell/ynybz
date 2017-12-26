@@ -105,11 +105,6 @@ dependencies {
     //    compile 'com.pingxx:pingpp-upacp:2.1.8' //使用银联支付时添加
     //    compile 'com.pingxx:pingpp-wxpay:2.1.8' //使用微信支付时添加
     compile 'com.zhy:okhttputils:2.3.8'
-    //tour中轮播图
-    compile "com.android.support:support-v4:25.3.1"
-    compile 'com.squareup.picasso:picasso:2.3.2'
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.daimajia.slider:library:1.1.5@aar'
-    //粘性头RecyclerView
-    compile 'com.timehop.stickyheadersrecyclerview:library:[0.4.3]@aar'
+    //tour 中日历
+    compile 'com.dsw.calendar:library:1.0.0'
 }

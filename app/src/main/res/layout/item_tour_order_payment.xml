@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:background="#FCFFFE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/dingdan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="订单"
+            android:textColor="#333333"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_order_sn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_toRightOf="@id/dingdan"
+            android:text="丨69853211"
+            android:textColor="#999999"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="待付款"
+            android:textColor="#FF5740"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:background="#FAFAFA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_title"
+            android:textSize="15sp"
+            android:textColor="#333333"
+            android:layout_marginTop="@dimen/dp_15"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:text="【欢乐三亚】海南+三亚双飞5天6晚私家团，全程连住国际五星级酒店"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_price"
+            android:textSize="15sp"
+            android:textColor="#333333"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_15"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_alignParentRight="true"
+            android:text="￥1980"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_below="@id/tv_title"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginLeft="@dimen/dp_18"
+            android:layout_marginBottom="12dp"
+            android:text="07-30 1人"
+            android:textSize="13sp"
+            android:textColor="#999999"
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:background="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_to_pay"
+            android:text="去支付"
+            android:paddingTop="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_8"
+            android:paddingLeft="@dimen/dp_18"
+            android:paddingRight="@dimen/dp_18"
+            android:textSize="14sp"
+            android:textColor="#49B047"
+            android:layout_marginRight="17dp"
+            android:background="@drawable/green_shap"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</LinearLayout>

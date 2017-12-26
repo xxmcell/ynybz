@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/back_i" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="常用游客"
+            android:textColor="#333333"
+            android:textSize="18sp" />
+    </RelativeLayout>
+    <com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView
+        android:id="@+id/switchRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl"
+        android:layout_above="@+id/ll_add_passenger"
+        android:background="@color/gray_ee">
+
+    </com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:id="@+id/ll_add_passenger"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp_12">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/iv_addaddres"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center"
+            android:text="新增常用旅客"
+            android:textColor="@color/main_color"/>
+    </LinearLayout>
+</RelativeLayout>

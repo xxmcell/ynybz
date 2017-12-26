@@ -1,7 +1,6 @@
 package com.honganjk.ynybzbizfood.view.tour.base.VeiwPager;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
@@ -9,7 +8,8 @@ import android.view.MotionEvent;
  * Created by Administrator on 2017-11-16.
  */
 
-public class CustomViewPager extends ViewPager {
+public class CustomViewPager extends MyViewPager {
+
     private boolean isCanScroll = true;
 
     public CustomViewPager(Context context) {
@@ -37,5 +37,20 @@ public class CustomViewPager extends ViewPager {
     public boolean onTouchEvent(MotionEvent ev) {
         return isCanScroll && super.onTouchEvent(ev);
 
+    }
+
+    @Override
+    public void setOffscreenPageLimit(int limit) {
+        super.setOffscreenPageLimit(limit);
+    }
+
+    @Override
+    public void setCurrentItem(int item, boolean smoothScroll) {
+        super.setCurrentItem(item, smoothScroll);
+    }
+
+    @Override
+    public void setCurrentItem(int item) {
+        super.setCurrentItem(item,false);
     }
 }

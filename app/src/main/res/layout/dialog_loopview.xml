@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_root"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray_ee">
+
+        <TextView
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="15dp"
+            android:text="取消"
+            android:textColor="@color/gray_33"
+            android:textSize="@dimen/text_xxxm" />
+
+
+        <TextView
+            android:id="@+id/selectName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:padding="15dp"
+            android:text="name"
+            android:textColor="@color/gray_33"
+            android:textSize="@dimen/text_xxm" />
+
+
+        <TextView
+            android:id="@+id/affirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="完成"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/text_xxxm" />
+
+
+    </RelativeLayout>
+    <com.honganjk.ynybzbizfood.widget.wheelview3d.LoopView
+        android:id="@+id/loopview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

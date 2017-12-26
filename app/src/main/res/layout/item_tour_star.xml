@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+
+    <ImageView
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/trip_star" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:text="全国出发，涵盖各大省市，只为您报地方，我们可以帮您安排出游" />
+</LinearLayout>

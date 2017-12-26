@@ -1,13 +1,10 @@
 package com.honganjk.ynybzbizfood.view.tour.classify.fragment;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,15 +14,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.honganjk.ynybzbizfood.R;
+import com.honganjk.ynybzbizfood.code.base.baseadapter.recyclerview.click.OnItemClickListener;
 import com.honganjk.ynybzbizfood.code.base.view.fragment.MyBaseFragment;
-import com.honganjk.ynybzbizfood.code.base.view.iview.BaseView;
 import com.honganjk.ynybzbizfood.mode.javabean.tour.classify.ClassifyTourBean;
 import com.honganjk.ynybzbizfood.pressenter.tour.classify.ClassifyTourPresent;
 import com.honganjk.ynybzbizfood.pressenter.tour.classify.interfa.TourClassifyParentinterfaces;
-import com.honganjk.ynybzbizfood.view.tour.base.BaseTourMainActivity;
 import com.honganjk.ynybzbizfood.view.tour.classify.activity.TourClassifyDetailActivity;
 import com.honganjk.ynybzbizfood.view.tour.classify.adapter.TourClassifyBodyAdapter;
+import com.honganjk.ynybzbizfood.view.tour.home.activity.TourHomeSearchActivity;
 import com.honganjk.ynybzbizfood.widget.autoloadding.StatusChangListener;
+import com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView;
 import com.honganjk.ynybzbizfood.widget.empty_layout.LoadingAndRetryManager;
 
 import java.util.ArrayList;
@@ -45,7 +43,7 @@ import rx.subscriptions.CompositeSubscription;
 
 public class ClassifyFragment extends MyBaseFragment<TourClassifyParentinterfaces.IClassifyInterface, ClassifyTourPresent>
         implements TourClassifyParentinterfaces.IClassifyInterface {
-    Activity activity;
+//    Activity activity;
     Unbinder unbinder;
     @BindView(R.id.iv_back)
     ImageView ivBack;
@@ -71,10 +69,10 @@ public class ClassifyFragment extends MyBaseFragment<TourClassifyParentinterface
     Button btnYoulunyou;
     @BindView(R.id.tv_type)
     TextView tvType;
-    @BindView(R.id.rv_tour_classify_body)
-    RecyclerView rvTourClassifyBody;
     @BindView(R.id.btn_group)
     LinearLayout btnGroup;
+    @BindView(R.id.rv_tour_classify_body)
+    SuperRecyclerView rvTourClassifyBody;
     private List<ClassifyTourBean.Data.Objs> objsList = new ArrayList<>();
     private TourClassifyBodyAdapter adapter;
 
@@ -86,6 +84,8 @@ public class ClassifyFragment extends MyBaseFragment<TourClassifyParentinterface
         return view;
     }
 
+
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -95,41 +95,42 @@ public class ClassifyFragment extends MyBaseFragment<TourClassifyParentinterface
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         init();
+        presenter.getData(true, type);
+        changeBtnBg(type);
     }
 
     int type = 1;
 
-    @Override
-    public void onResume() {
-        presenter.getData(true, type);
-        changeBtnBg(type);
-        super.onResume();
-    }
 
     public void init() {
-        rvTourClassifyBody.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        rvTourClassifyBody.getRecyclerView().setLayoutManager(new GridLayoutManager(getContext(), 2));
         adapter = new TourClassifyBodyAdapter(getContext(), objsList);
-        adapter.setOnItemClickListener(new TourClassifyBodyAdapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(View view, int position) {
-                Intent intent = new Intent(getContext(),TourClassifyDetailActivity.class);
-                ClassifyTourBean.Data.Objs objs = objsList.get(position);
-                intent.putExtra("objs",objs);
-                startActivity(intent);
+            public void onItemClick(ViewGroup parent, View view, Object data, int position) {
+                TourClassifyDetailActivity.startUi(getContext(), objsList.get(position));
             }
         });
-
+        rvTourClassifyBody.setOnRefreshListener(this);
         rvTourClassifyBody.setAdapter(adapter);
 
     }
 
-    public <V extends BaseView> ClassifyFragment(BaseTourMainActivity vtBaseTourMainActivity) {
-        this.activity = vtBaseTourMainActivity;
+    public ClassifyFragment() {
     }
 
+//    public <V extends BaseView> ClassifyFragment(BaseTourMainActivity vtBaseTourMainActivity) {
+//        this.activity = vtBaseTourMainActivity;
+//    }
+
+    public static final ClassifyFragment newInstance() {
+        ClassifyFragment fragment = new ClassifyFragment();
+        return fragment ;
+    }
 
     @OnClick(R.id.iv_back)
     public void onViewClicked() {
+        getActivity().finish();
     }
 
     @Override
@@ -144,8 +145,9 @@ public class ClassifyFragment extends MyBaseFragment<TourClassifyParentinterface
 
     @Override
     public void getHttpData(ClassifyTourBean.Data datas) {
-        objsList = datas.getObjs();
-        adapter.changeUI(objsList);
+        objsList.clear();
+        objsList.addAll(datas.getObjs());
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -180,7 +182,7 @@ public class ClassifyFragment extends MyBaseFragment<TourClassifyParentinterface
 
     @Override
     public void clearData() {
-
+        objsList.clear();
     }
 
     @Override
@@ -225,7 +227,7 @@ public class ClassifyFragment extends MyBaseFragment<TourClassifyParentinterface
 
     @Override
     public SwipeRefreshLayout getSwipeRefreshLayout() {
-        return null;
+        return rvTourClassifyBody.getSwipeRefreshLayout();
     }
 
     @Override
@@ -253,7 +255,9 @@ public class ClassifyFragment extends MyBaseFragment<TourClassifyParentinterface
         super.onDestroyView();
         unbinder.unbind();
     }
-    String[] titles = {"推荐","周边","全国","日本","东南亚","海岛","港澳台","中东非","邮轮游"};
+
+    String[] titles = {"推荐", "周边", "全国", "日本", "东南亚", "海岛", "港澳台", "中东非", "邮轮游"};
+
     public void changeBtnBg(int type) {
         for (int i = 0; i < 9; i++) {
             if (i == type - 1) {
@@ -273,8 +277,10 @@ public class ClassifyFragment extends MyBaseFragment<TourClassifyParentinterface
         switch (view.getId()) {
             //分类，1-推荐；2-周边；3-全国；4-日本；5-东南亚；6-海岛；7-港澳台；8-中东非；9-邮轮游
             case R.id.iv_back:
+                getActivity().onBackPressed();
                 break;
             case R.id.classify_search:
+                TourHomeSearchActivity.startUI(getActivity());
                 break;
             case R.id.btn_tuijian:
                 type = 1;
@@ -294,7 +300,8 @@ public class ClassifyFragment extends MyBaseFragment<TourClassifyParentinterface
             case R.id.btn_japan:
                 type = 4;
                 changeBtnBg(type);
-                presenter.getData(true, type);;
+                presenter.getData(true, type);
+                ;
                 break;
             case R.id.btn_dongnanya:
                 type = 5;

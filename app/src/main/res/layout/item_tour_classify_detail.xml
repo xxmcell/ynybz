@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_white"
+    android:padding="@dimen/dp_15">
+    <ImageView
+        android:scaleType="fitXY"
+        android:id="@+id/iv_picture"
+        android:layout_width="111dp"
+        android:layout_height="111dp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_toRightOf="@+id/iv_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="111dp">
+        <TextView
+            android:id="@+id/tv_title"
+            android:lines="2"
+            android:text="@string/name"
+            android:textSize="15sp"
+            android:layout_width="222dp"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="¥"
+                android:textSize="12sp"
+                android:textColor="@color/red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_price"
+                android:text="@string/price"
+                android:textSize="20sp"
+                android:textColor="@color/red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="@string/qi"
+                android:textSize="12sp"
+                android:layout_marginLeft="@dimen/dp_3"
+                android:textColor="#999999"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:padding="@dimen/dp_2"
+            android:background="#fce1e1"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_sales"
+                android:text="@string/passenger_num"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="@dimen/dp_10"
+                android:id="@+id/tv_review"
+                android:text="@string/good_review"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_tag_group"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/iv_line"
+        android:background="#e1e1e1"
+        android:layout_marginTop="15dp"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/iv_picture"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <TextView
+        android:id="@+id/tv_days"
+        android:text="@string/tour_detail_days"
+        android:textColor="#999999"
+        android:textSize="12sp"
+        android:layout_below="@id/iv_line"
+        android:layout_marginTop="@dimen/dp_14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:background="#6E7480"
+        android:paddingTop="@dimen/dp_8"
+        android:paddingBottom="@dimen/dp_8"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@color/white"
+            android:text="日"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="@color/white"
+            android:text="一"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="@color/white"
+            android:text="二"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="@color/white"
+            android:text="三"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="@color/white"
+            android:text="四"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="@color/white"
+            android:text="五"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="@color/white"
+            android:text="六"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <GridView
+        android:numColumns="7"
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:paddingTop="@dimen/dp_8"
+        android:background="#EEEEEE"
+        android:paddingLeft="@dimen/dp_16"
+        android:textSize="12sp"
+        android:textColor="#5CA7FF"
+        android:layout_below="@id/gridView"
+        android:text="以上价格均为起价"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

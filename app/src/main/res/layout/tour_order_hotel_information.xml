@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/dp_15"
+    android:paddingTop="@dimen/dp_15"
+    android:background="@drawable/bg_shape_corner_white"
+    tools:showIn="@layout/activity_tour_my_order_detail">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:text="酒店信息"
+        android:textColor="#333333"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_marginTop="@dimen/dp_12"
+        android:background="#E1E1E1" />
+
+    <TextView
+        android:layout_marginLeft="@dimen/dp_16"
+        android:id="@+id/tv_hotel_name"
+        android:textColor="#333333"
+        android:textSize="14sp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="三亚湾红树林度假世界"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginLeft="@dimen/dp_16"
+        android:id="@+id/tv_hotel_desc"
+        android:textColor="#999999"
+        android:textSize="13sp"
+        android:layout_marginTop="@dimen/dp_8"
+        android:text="大床房2张/双早/免费洗衣/免费wifi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginLeft="@dimen/dp_16"
+        android:id="@+id/tv_room_count_and_time"
+        android:textColor="#999999"
+        android:textSize="13sp"
+        android:layout_marginTop="@dimen/dp_4"
+        android:text="2017-07-09入住丨2017-09-10退房，一间"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

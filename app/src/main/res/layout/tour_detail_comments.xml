@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/rl_num"
+        android:padding="@dimen/dp_15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_all"
+            android:padding="@dimen/dp_12"
+            android:text="全部(36)"
+            android:textSize="12sp"
+            android:textColor="#2A7E28"
+            android:background="@drawable/bg_comment_solid_green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv_all"
+            android:id="@+id/tv_good"
+            android:padding="@dimen/dp_12"
+            android:text="好评(32)"
+            android:textSize="12sp"
+            android:textColor="#2A7E28"
+            android:background="@drawable/bg_comment_solid_green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv_good"
+            android:id="@+id/tv_normal"
+            android:padding="@dimen/dp_12"
+            android:text="中评(3)"
+            android:textSize="12sp"
+            android:textColor="#2A7E28"
+            android:background="@drawable/bg_comment_solid_green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv_normal"
+            android:id="@+id/tv_bad"
+            android:padding="@dimen/dp_12"
+            android:text="差评(1)"
+            android:textSize="12sp"
+            android:textColor="#2A7E28"
+            android:background="@drawable/bg_comment_solid_green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_below="@+id/tv_all"
+            android:id="@+id/tv_imgs"
+            android:padding="@dimen/dp_10"
+            android:text="有图(12)"
+            android:textSize="12sp"
+            android:textColor="#2A7E28"
+            android:background="@drawable/bg_comment_solid_green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView
+        android:id="@+id/switchRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        </com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView>>
+</LinearLayout>

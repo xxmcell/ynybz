@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/back_i" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="我的收藏"
+            android:textColor="#333333"
+            android:textSize="18sp" />
+    </RelativeLayout>
+    <com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView
+        android:id="@+id/switchRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl"
+        android:layout_above="@+id/ll_add_passenger"
+        android:background="@color/gray_ee">
+
+    </com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView>
+
+</RelativeLayout>

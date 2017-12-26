@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:layout_marginBottom="@dimen/dp_8"
+        android:layout_width="71dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_shape_corner">
+        <TextView
+            android:id="@+id/tv_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/dp_7"
+            android:layout_marginRight="@dimen/dp_7"
+            android:layout_marginTop="@dimen/dp_7"
+            android:text="07-13 周四"
+            android:textColor="#666666"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:textColor="#FF5757"
+            android:textSize="12sp"
+            android:text="￥2658"
+            android:layout_marginBottom="7dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tv_day"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</RelativeLayout>

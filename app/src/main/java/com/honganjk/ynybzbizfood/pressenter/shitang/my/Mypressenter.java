@@ -17,6 +17,7 @@ import static com.honganjk.ynybzbizfood.mode.javabean.base.UserInfo.userData;
  */
 
 public class Mypressenter extends BasePresenter<MyParentInterfaces.IMy> {
+
     public void getUserInfo() {
 
         HttpCallBack.Builder buider = new HttpCallBack.Builder()

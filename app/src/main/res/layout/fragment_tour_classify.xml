@@ -156,13 +156,13 @@
 
             <include layout="@layout/item_tour_classify_head" />
 
-            <android.support.v7.widget.RecyclerView
+            <com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView
                 android:id="@+id/rv_tour_classify_body"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/dp_5">
 
-            </android.support.v7.widget.RecyclerView>
+            </com.honganjk.ynybzbizfood.widget.autoloadding.SuperRecyclerView>
         </LinearLayout>
     </LinearLayout>
 

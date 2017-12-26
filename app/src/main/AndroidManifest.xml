@@ -57,9 +57,9 @@
         </activity>
 
         <!--修改中增加-->
-        <activity android:name=".view.store.home.activity.HomeSearchActivity"/>
-        <activity android:name=".view.store.classify.activity.Store_SearchActivity"/>
-        <activity android:name=".view.store.refund.activity.ReFundOrderBill"/>
+        <activity android:name=".view.store.home.activity.HomeSearchActivity" />
+        <activity android:name=".view.store.classify.activity.Store_SearchActivity" />
+        <activity android:name=".view.store.refund.activity.ReFundOrderBill" />
 
         <uses-library
             android:name="org.simalliance.openmobileapi"
@@ -491,29 +491,39 @@
             android:theme="@style/AppTheme.OtherTheme" />
 
 
-
-
         <activity
             android:name=".view.other.test.MyRRRActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.OtherTheme" />
-.  <activity
+        .
+        <activity
             android:name=".view.other.test.mvp.MvpActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.OtherTheme" />
-.
+        .
         <!--************************************旅游*****************************************-->
-        <activity android:name=".view.tour.base.BaseTourMainActivity"
+        <activity
+            android:name=".view.tour.base.BaseTourMainActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.MainTheme" />
-        <activity android:name=".view.tour.home.HomeTourActivity"/>
+        <activity android:name=".view.tour.home.HomeTourActivity" />
 
-        <activity android:name=".view.tour.me.MeTourActivity"/>
-        <activity android:name=".view.tour.classify.activity.TourClassifyDetailActivity"/>
-
+        <activity android:name=".view.tour.me.MeTourActivity" />
+        <activity android:name=".view.tour.classify.activity.TourClassifyDetailActivity" />
+        <activity android:name=".view.tour.detail.activity.DetailActivity" />
+        <activity android:name=".view.tour.detail.activity.SelectDataActivity" />
+        <activity android:name=".view.tour.order.activity.TourOrderDetailActiviry" />
+        <activity android:name=".view.tour.me.activity.CommonPassengerActivity" />
+        <activity android:name=".view.tour.me.activity.EditPassengerActivity" />
+        <activity android:name=".view.tour.home.activity.TourHomeSearchActivity"/>
+        <activity android:name=".view.tour.home.activity.TourSearchResultActivity"/>
+        <activity android:name=".view.tour.me.activity.MyKeepsActivity"/>
+        <activity android:name=".view.tour.detail.activity.OnLinePayActivity"/>
+        <activity android:name=".view.tour.order.activity.MyOrderDetailActivity"/>
+        <activity android:name=".view.tour.order.activity.EditEvaluationActivity"/>
         <!--**********************************公共********************************************* -->
 
 

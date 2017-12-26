@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/dp_16"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_passenger_name"
+        android:text="姓名：成龙"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="@dimen/dp_10"
+        android:id="@+id/tv_passenger_sex"
+        android:text="姓别：女"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="@dimen/dp_10"
+        android:id="@+id/tv_passenger_nation"
+        android:text="国籍：中国"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="@dimen/dp_10"
+        android:id="@+id/tv_passenger_mobile"
+        android:text="手机：12345678901"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="@dimen/dp_10"
+        android:id="@+id/tv_passenger_sn"
+        android:text="身份证：220202199310161111"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="@dimen/dp_10"
+        android:id="@+id/tv_passenger_birthday"
+        android:text="出生日期：2017-09-01"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

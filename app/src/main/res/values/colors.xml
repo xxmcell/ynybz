@@ -53,6 +53,7 @@
     <color name="gray_66">#ff666666</color>
     <color name="gray_33">#ff333333</color>
     <color name="gray_ee">#ffeeeeee</color>
+    <color name="gray_e1">#E1E1E1</color>
     <color name="gray_f0">#fff0eff5</color>
     <color name="gray_f2">#fff2f2f2</color>
     <color name="gray_f8">#fff8f8f8</color>
@@ -101,4 +102,15 @@
     <color name="bg_divide">#C8C7CC</color>
     <color name="bg_search">#999999</color>
     <color name="text_brief">#646464</color>
+    <!--datePicker-->
+    <color name="background">#FFFFFF</color>
+    <color name="split_line">#11112233</color>
+    <color name="text1">#59B29C</color>
+    <color name="text2">#333333</color>
+
+    <color name="color1">#F0F0F0</color>
+    <color name="color2">#FFFFFF</color>
+    <color name="color3">#B0B0B0</color>
+    <color name="color4">#666666</color>
+    <color name="color5">#57C5E8</color>
 </resources>

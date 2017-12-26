@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/dp_15"
+    android:paddingTop="@dimen/dp_15"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_shape_corner_white"
+    tools:showIn="@layout/activity_tour_my_order_detail">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:text="保险信息"
+        android:textColor="#333333"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_marginTop="@dimen/dp_12"
+        android:background="#E1E1E1" />
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_safe_name"
+            android:layout_alignParentLeft="true"
+            android:text="平安国内意外险"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/safe_num"
+            android:textSize="14sp"
+            android:textColor="#999999"
+            android:text="1成人"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</LinearLayout>
